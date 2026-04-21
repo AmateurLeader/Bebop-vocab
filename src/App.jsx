@@ -405,7 +405,7 @@ const UNLOCK_THRESHOLD = 70; // % readiness to unlock next episode // interval >
 
 function sm2(card, quality) {
   let {interval=1,repetitions=0,easeFactor=2.5} = card;
-  if (quality < 2) { repetitions=0; interval=1; }
+  if (quality < 2) { repetitions=0; interval=0; }
   else {
     if (repetitions===0) interval=1;
     else if (repetitions===1) interval=6;
