@@ -38,108 +38,841 @@ const EPISODES = [
 
 // ─── VOCAB DATA ──────────────────────────────────────────────────────
 const VOCAB = [
+
   // ── EP 01 ──
-  { id:"e01_01", ep:1, word:"賞金首", reading:"しょうきんくび", meaning:"bounty target", tier:1,
-    kb:[{k:"賞",r:"しょう",m:"prize",rad:["𠂉","貝"],rm:["award","shell/money"],mn:"A prize paid in shells — ancient money rewarded for merit"},{k:"金",r:"きん",m:"gold/money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"},{k:"首",r:"くび",m:"neck/head",rad:["𠂉","自"],rm:["hair","self/face"],mn:"Hair above a face — the head or neck"}],
-    wm:"Prize money (賞金) put on someone's head (首) — a person with a price on their neck" },
+// ── CORE NOUNS ──────────────────────────────────────────────────────
+
+  { id:"e01_01", ep:1, word:"賞金首", reading:"しょうきんくび", meaning:"bounty target / wanted person", tier:1,
+    kb:[{k:"賞",r:"しょう",m:"prize/reward",rad:["𠂉","貝"],rm:["award","shell=money"],mn:"A prize paid in shell-money — a reward for achievement"},{k:"金",r:"きん",m:"gold/money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"},{k:"首",r:"くび",m:"neck/head",rad:["𠂉","自"],rm:["hair","self/face"],mn:"Hair above a face — the head, the neck"}],
+    ex:[{j:"こいつが次の賞金首だ。",r:"こいつがつぎのしょうきんくびだ。",e:"This guy is our next bounty target."},{j:"賞金首を生きたまま連れてくること。",r:"しょうきんくびをいきたままつれてくること。",e:"Bring the bounty target back alive."},{j:"彼は太陽系で最も危険な賞金首だ。",r:"かれはたいようけいでもっともきけんなしょうきんくびだ。",e:"He is the most dangerous bounty target in the solar system."}],
+    wm:"Prize-money (賞金) put on someone's neck (首) — a price on their head. The whole show is built on this word." },
+
   { id:"e01_02", ep:1, word:"組織", reading:"そしき", meaning:"organization / syndicate", tier:1,
-    kb:[{k:"組",r:"そ",m:"group/assemble",rad:["糸","且"],rm:["thread","stacked"],mn:"Threads layered on top of each other — an organized group"},{k:"織",r:"しき",m:"weave/structure",rad:["糸","戠"],rm:["thread","weave mark"],mn:"Threads woven into a marked pattern — organized structure"}],
-    wm:"Threads woven together in layers — a tightly organized structure, like a crime syndicate" },
-  { id:"e01_03", ep:1, word:"雑魚", reading:"ざこ", meaning:"small fry / weakling / nobody", tier:1,
-    kb:[{k:"雑",r:"ざ",m:"mixed/misc",rad:["隹","木","又"],rm:["bird","tree","hand"],mn:"Birds in a tree caught by hand — a mixed, motley bunch"},{k:"魚",r:"こ",m:"fish",rad:["魚"],rm:["fish"],mn:"Pictograph of a fish. 雑魚 = mixed small fish = nobodies"}],
-    wm:"Mixed small fish caught alongside the real catch — the nobodies of the criminal world" },
-  { id:"e01_04", ep:1, word:"火星", reading:"かせい", meaning:"Mars", tier:1,
-    kb:[{k:"火",r:"か",m:"fire",rad:["火"],rm:["fire"],mn:"Pictograph of flames. 火星 = fire star = Mars (the red planet)"},{k:"星",r:"せい",m:"star/planet",rad:["日","生"],rm:["sun","life/birth"],mn:"A sun that gives life — a star"}],
-    wm:"Fire star (火星) — ancient astronomers named Mars perfectly. Everyone wants to escape there" },
-  { id:"e01_05", ep:1, word:"目薬", reading:"めぐすり", meaning:"eye drops (the drug in ep 1)", tier:1,
-    kb:[{k:"目",r:"め",m:"eye",rad:["目"],rm:["eye"],mn:"Pictograph of an eye turned sideways. 目薬 = medicine for the eye"},{k:"薬",r:"ぐすり",m:"medicine",rad:["艹","楽"],rm:["plant","comfort"],mn:"Plants that bring comfort — medicine"}],
-    wm:"Eye (目) medicine (薬) — Bloody Eye is a combat drug disguised as eyedrops" },
+    kb:[{k:"組",r:"そ",m:"group/assemble",rad:["糸","且"],rm:["thread","stacked layers"],mn:"Threads layered together — an organized group"},{k:"織",r:"しき",m:"weave/structure",rad:["糸","戠"],rm:["thread","weave mark"],mn:"Threads woven into a pattern — organized structure"}],
+    ex:[{j:"アステロイド一帯を仕切る組織の幹部だ。",r:"あすてろいどいったいをしきるそしきのかんぶだ。",e:"He's an executive of the syndicate that controls the asteroid belt."},{j:"彼は組織を逃げ出した。",r:"かれはそしきをにげだした。",e:"He ran away from the organization."},{j:"その組織は違法な薬を売っている。",r:"そのそしきはいほうなくすりをうっている。",e:"That organization sells illegal drugs."}],
+    wm:"Threads (糸) woven in layers — a tightly structured body. When Bebop says 組織 it always means dangerous people with power." },
+
+  { id:"e01_03", ep:1, word:"幹部", reading:"かんぶ", meaning:"executive / senior member of an organization", tier:1,
+    kb:[{k:"幹",r:"かん",m:"trunk/main/core",rad:["干","倝"],rm:["dry/main","brilliant"],mn:"The main dry trunk of a tree — the core, the leadership"},{k:"部",r:"ぶ",m:"section/department",rad:["咅","阝"],rm:["sound","city/town"],mn:"A section of a town — a department, division"}],
+    ex:[{j:"アステロイド一帯を仕切る組織の幹部なんだがな。",r:"あすてろいどいったいをしきるそしきのかんぶなんだがな。",e:"He's an executive of the organization that controls the asteroid belt."},{j:"会社の幹部が集まった。",r:"かいしゃのかんぶがあつまった。",e:"The company executives gathered."},{j:"彼は組織の幹部として知られている。",r:"かれはそしきのかんぶとしてしられている。",e:"He is known as an executive of the organization."}],
+    wm:"The trunk (幹) of a department (部) — core leadership. Asimov is 組織の幹部, making his betrayal catastrophic for the syndicate." },
+
+  { id:"e01_04", ep:1, word:"雑魚", reading:"ざこ", meaning:"small fry / weakling / nobody important", tier:2,
+    kb:[{k:"雑",r:"ざ",m:"mixed/miscellaneous",rad:["隹","木","又"],rm:["bird","tree","hand"],mn:"Birds grabbed from a tree by hand — a motley mixed bunch"},{k:"魚",r:"こ",m:"fish",rad:["魚"],rm:["fish"],mn:"Pictograph of a fish — fish"}],
+    ex:[{j:"あんな所は雑魚の行く所だよ。",r:"あんなところはざこのいくところだよ。",e:"A place like that is where small fry go."},{j:"雑魚の割に賞金は250万だ。",r:"ざこのわりにしょうきんは250まんだ。",e:"For a small fry, the bounty is 2.5 million."},{j:"あいつらはただの雑魚だ、心配するな。",r:"あいつらはただのざこだ、しんぱいするな。",e:"Those guys are just small fry, don't worry about them."}],
+    wm:"Mixed small fish (雑魚) — the bycatch, the nobodies. Spike dismisses Tijuana; Jet immediately fires back with the 250万 bounty. Always question the label." },
+
+  { id:"e01_05", ep:1, word:"賞金", reading:"しょうきん", meaning:"prize money / bounty / reward money", tier:1,
+    kb:[{k:"賞",r:"しょう",m:"prize/reward",rad:["𠂉","貝"],rm:["award","shell=money"],mn:"A prize paid in shell-money — a reward"},{k:"金",r:"きん",m:"gold/money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"}],
+    ex:[{j:"この間の賞金100万ウーロンはどこいったんだよ。",r:"このあいだのしょうきん100まんウーロンはどこいったんだよ。",e:"Where did last time's bounty of 1 million woolongs go?"},{j:"賞金は250万だ。",r:"しょうきんは250まんだ。",e:"The bounty is 2.5 million."},{j:"殺したら賞金はパーよ。",r:"ころしたらしょうきんはぱーよ。",e:"Kill them and the bounty's gone."}],
+    wm:"The number that drives every decision. 賞金 is always immediately followed by how much it is — 250万, 1500万, etc. The show runs on this." },
+
   { id:"e01_06", ep:1, word:"賞金稼ぎ", reading:"しょうきんかせぎ", meaning:"bounty hunter", tier:1,
-    kb:[{k:"賞",r:"しょう",m:"prize",rad:["𠂉","貝"],rm:["award","shell/money"],mn:"A prize paid in shells — ancient money rewarded for merit"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"},{k:"稼",r:"かせ(ぎ)",m:"earning/working",rad:["禾","家"],rm:["grain","house"],mn:"Grain for the house — earning your keep, working"}],
-    wm:"Someone who earns their living through prize money — the whole Bebop premise" },
-  { id:"e01_07", ep:1, word:"無理", reading:"むり", meaning:"impossible / unreasonable", tier:1,
-    kb:[{k:"無",r:"む",m:"nothing/without",rad:["𠂉","灬"],rm:["arms spread","fire"],mn:"A person dancing over fire — the ancient character for nothingness. 無理 = no reason = impossible"},{k:"理",r:"り",m:"reason/logic",rad:["王","里"],rm:["king","village"],mn:"The king's logic governs the village — reason, order"}],
-    wm:"Without (無) reason or logic (理) — literally 'no logic to it', therefore impossible" },
-  { id:"e01_08", ep:1, word:"幸せ", reading:"しあわせ", meaning:"happiness / fortunate", tier:1,
-    kb:[{k:"幸",r:"しあわ(せ)",m:"fortune/luck",rad:["土","𠂉","工"],rm:["earth","divine","work"],mn:"Divine work on earth — when heaven aligns with labor, fortune follows"}],
-    wm:"Divine work aligned with earthly effort — fortune arrives when heaven and labor meet" },
-  { id:"e01_09", ep:1, word:"仲間", reading:"なかま", meaning:"companion / comrade", tier:2,
-    kb:[{k:"仲",r:"なか",m:"middle/relationship",rad:["人","中"],rm:["person","middle"],mn:"A person in the middle — a go-between, a companion"},{k:"間",r:"ま",m:"space/between",rad:["門","日"],rm:["gate","sun"],mn:"Sun shining through a gate — the space between"}],
-    wm:"The person in the middle of your space — Asimov betrays his 仲間" },
-  { id:"e01_10", ep:1, word:"諦める", reading:"あきらめる", meaning:"to give up", tier:2,
-    kb:[{k:"諦",r:"あきら(める)",m:"resign/see clearly",rad:["言","帝"],rm:["words","emperor"],mn:"When the emperor speaks, there is no arguing — to resign oneself, give up"}],
-    wm:"When the emperor's word is final, you see clearly that it's over — accept and stop fighting" },
-  { id:"e01_11", ep:1, word:"畜生", reading:"ちくしょう", meaning:"damn it! (mild expletive)", tier:3,
-    kb:[{k:"畜",r:"ちく",m:"livestock/animal",rad:["玄","田"],rm:["dark","field"],mn:"Dark field creatures — livestock. As expletive: calling something a beast"},{k:"生",r:"しょう",m:"life/creature",rad:["土","𠂉"],rm:["earth","sprout"],mn:"A sprout pushing up through earth — life, birth"}],
-    wm:"Livestock creature (畜生) — calling something beastly. The old card player shouts this repeatedly" },
-  { id:"e01_12", ep:1, word:"サツ", reading:"さつ", meaning:"cops / the fuzz (slang)", tier:3,
-    kb:[], wm:"Slang clipping of 察 from 警察 (police). Like saying 'the fuzz' instead of 'the police force'" },
-  { id:"e01_13", ep:1, word:"カモ", reading:"かも", meaning:"sucker / easy mark (lit. duck)", tier:3,
-    kb:[{k:"鴨",r:"かも",m:"duck",rad:["甲","鳥"],rm:["number one","bird"],mn:"A bird marked number one for catching — a duck, easy prey"}],
-    wm:"Ducks are easy to catch — so カモ means someone easily exploited. The old man accuses Spike of treating him like one" },
-  { id:"e01_14", ep:1, word:"死に物狂い", reading:"しにものぐるい", meaning:"desperately / with everything", tier:3,
-    kb:[{k:"死",r:"し",m:"death",rad:["歹","匕"],rm:["bone/death","person"],mn:"A crumbling bone beside a fallen person — death"},{k:"物",r:"もの",m:"thing",rad:["牛","勿"],rm:["cow","do not"],mn:"A cow marked do not touch — a thing, an object"},{k:"狂",r:"ぐるい",m:"crazy/berserk",rad:["犭","王"],rm:["animal","king"],mn:"An animal that thinks it's king — crazy, berserk"}],
-    wm:"Crazy about death-level things — so desperate dying doesn't matter. Used for the Hypergate digging" },
-  { id:"e01_15", ep:1, word:"時代遅れ", reading:"じだいおくれ", meaning:"outdated / behind the times", tier:2,
-    kb:[{k:"時",r:"じ",m:"time",rad:["日","寺"],rm:["sun","temple"],mn:"Sun over a temple marking the hours — time"},{k:"代",r:"だい",m:"era/generation",rad:["人","弋"],rm:["person","substitute"],mn:"A person as a substitute — generation, era"},{k:"遅",r:"おく(れ)",m:"late/slow",rad:["⻌","犀"],rm:["movement","rhinoceros"],mn:"Moving like a rhinoceros — slow, late"}],
-    wm:"Late to the current era — Spike calls himself 時代遅れのカウボーイ with full irony" },
+    kb:[{k:"賞",r:"しょう",m:"prize",rad:["𠂉","貝"],rm:["award","shell=money"],mn:"Prize paid in shells"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"Person mining earth — money"},{k:"稼",r:"かせ(ぎ)",m:"earn/work for income",rad:["禾","家"],rm:["grain","house"],mn:"Bringing grain home — earning income"}],
+    ex:[{j:"賞金稼ぎは諦めたか？",r:"しょうきんかせぎはあきらめたか？",e:"Have you given up bounty hunting?"},{j:"太陽系30万の賞金稼ぎのみんな、元気かい？",r:"たいようけい30まんのしょうきんかせぎのみんな、げんきかい？",e:"Hey all 300,000 bounty hunters of the solar system, you doing well?"},{j:"賞金稼ぎは危険な仕事だ。",r:"しょうきんかせぎはきけんなしごとだ。",e:"Bounty hunting is dangerous work."}],
+    wm:"Someone who earns (稼ぎ) prize money (賞金) — the Bebop crew's entire identity. Spike says this to Katerina with perfect deadpan: ご名答. 賞金稼ぎ." },
 
-  // ── EP 02 ──
-  { id:"e02_01", ep:2, word:"窃盗犯", reading:"せっとうはん", meaning:"serial thief / theft criminal", tier:1,
-    kb:[{k:"窃",r:"せっ",m:"steal secretly",rad:["穴","切"],rm:["hole","cut"],mn:"Cutting through a hole — to steal secretly"},{k:"盗",r:"とう",m:"steal",rad:["次","皿"],rm:["next","dish"],mn:"Taking the next dish — to steal"},{k:"犯",r:"はん",m:"crime",rad:["犭","巳"],rm:["animal","snake"],mn:"An animal striking like a snake — crime, offense"}],
-    wm:"Hakim is described as 連続窃盗犯 — his whole episode is about what he actually stole" },
-  { id:"e02_02", ep:2, word:"逃走中", reading:"とうそうちゅう", meaning:"currently on the run / fleeing", tier:1,
-    kb:[{k:"逃",r:"とう",m:"flee",rad:["⻌","兆"],rm:["movement","omen"],mn:"Moving at the first omen of danger — to flee"},{k:"走",r:"そう",m:"run",rad:["走"],rm:["run"],mn:"Pictograph of a person running — to run"},{k:"中",r:"ちゅう",m:"in the middle of",rad:["口","丨"],rm:["box","line"],mn:"A line through the middle of a box — currently doing something"}],
-    wm:"Fleeing (逃走) in progress (中) — literally mid-escape, the standard wanted notice phrasing" },
-  { id:"e02_03", ep:2, word:"実験動物", reading:"じっけんどうぶつ", meaning:"laboratory / experimental animal", tier:2,
-    kb:[{k:"実",r:"じっ",m:"real/actual",rad:["宀","貫"],rm:["roof","penetrate"],mn:"What penetrates through a roof — something real and solid"},{k:"験",r:"けん",m:"test/effect",rad:["馬","㑒"],rm:["horse","test"],mn:"Testing a horse's reactions — experiment, test"},{k:"動",r:"どう",m:"move",rad:["重","力"],rm:["heavy","power"],mn:"Power moving something heavy — motion"},{k:"物",r:"ぶつ",m:"thing/creature",rad:["牛","勿"],rm:["cow","do not"],mn:"A cow marked do not touch — a thing, a creature"}],
-    wm:"What Ein actually is — an 実験動物, an animal used in secret illegal research" },
-  { id:"e02_04", ep:2, word:"整形", reading:"せいけい", meaning:"plastic surgery", tier:2,
-    kb:[{k:"整",r:"せい",m:"arrange/fix",rad:["攴","束"],rm:["strike","bundle"],mn:"Striking a bundle into order — to arrange, fix, tidy"},{k:"形",r:"けい",m:"shape/form",rad:["開","彡"],rm:["open","decorative strokes"],mn:"Decorative strokes opening into a form — shape"}],
-    wm:"Arrange (整) the shape (形) — Hakim keeps surgically changing his face to escape recognition" },
-  { id:"e02_05", ep:2, word:"踏み倒す", reading:"ふみたおす", meaning:"to skip out on a bill / stiff someone", tier:3,
-    kb:[{k:"踏",r:"ふみ",m:"step/tread",rad:["足","水"],rm:["foot","water"],mn:"A foot stepping through water — to tread, trample"},{k:"倒",r:"たおす",m:"topple/knock over",rad:["人","到"],rm:["person","arrive"],mn:"A person who has arrived at falling — to topple"}],
-    wm:"Trample down (踏み倒す) a debt — the info dealer was stiffed by Hakim and wants revenge" },
+  { id:"e01_07", ep:1, word:"目薬", reading:"めぐすり", meaning:"eye drops (here: the combat drug Bloody Eye)", tier:1,
+    kb:[{k:"目",r:"め",m:"eye",rad:["目"],rm:["eye"],mn:"Pictograph of an eye — the eye"},{k:"薬",r:"ぐすり",m:"medicine/drug",rad:["艹","楽"],rm:["plant","comfort/ease"],mn:"A plant that brings comfort — medicine, drug"}],
+    ex:[{j:"やつは例の目薬を使ってんだ。",r:"やつはれいのめぐすりをつかってんだ。",e:"He's using those eye drops."},{j:"目薬をさしてください。",r:"めぐすりをさしてください。",e:"Please put in some eye drops."},{j:"その目薬は非合法だ。",r:"そのめぐすりはひごうほうだ。",e:"Those eye drops are illegal."}],
+    wm:"Eye (目) medicine (薬) — Bloody Eye is a combat stimulant disguised as eye drops. The innocent container hiding the dangerous contents." },
 
-  // ── EP 03 ──
-  { id:"e03_01", ep:3, word:"借金", reading:"しゃっきん", meaning:"debt", tier:1,
-    kb:[{k:"借",r:"しゃっ",m:"borrow",rad:["人","昔"],rm:["person","long ago"],mn:"A person reaching back to long ago — to borrow, referring to the past"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"}],
-    wm:"Borrowed (借) money (金) — Faye's defining trait throughout the entire series" },
-  { id:"e03_02", ep:3, word:"イカサマ", reading:"いかさま", meaning:"cheating / fraud", tier:2,
-    kb:[], wm:"Pure Japanese slang for cheating at cards — いかにも様 (how proper!) used sarcastically. Faye and the casino are both at it" },
-  { id:"e03_03", ep:3, word:"暗号", reading:"あんごう", meaning:"code / cipher", tier:2,
-    kb:[{k:"暗",r:"あん",m:"dark/secret",rad:["日","音"],rm:["sun","sound"],mn:"The sun making sound in darkness — hidden, dark, secret"},{k:"号",r:"ごう",m:"number/code",rad:["口","丂"],rm:["mouth","bent"],mn:"A mouth making a bent sound — a code, signal, number"}],
-    wm:"Secret (暗) code (号) — the chip contains a 暗号解読 program that unlocks almost any security" },
-  { id:"e03_04", ep:3, word:"解読", reading:"かいどく", meaning:"decipherment / decoding", tier:2,
-    kb:[{k:"解",r:"かい",m:"solve/untie",rad:["角","刀","牛"],rm:["horn","knife","cow"],mn:"Using a knife to separate a cow's horn — to untie, solve, break apart"},{k:"読",r:"どく",m:"read",rad:["言","売"],rm:["words","sell"],mn:"Words being sold/exchanged — to read"}],
-    wm:"To untie (解) and read (読) — what the crypto-breaker chip does to any encrypted system" },
+  { id:"e01_08", ep:1, word:"売人", reading:"ばいにん", meaning:"dealer / seller of contraband", tier:2,
+    kb:[{k:"売",r:"ばい",m:"sell",rad:["士","買"],rm:["samurai","buy"],mn:"A samurai who buys then sells — to sell, trade"},{k:"人",r:"にん",m:"person",rad:["人"],rm:["person"],mn:"Pictograph of a person"}],
+    ex:[{j:"売人なら分かるだろ。",r:"ばいにんならわかるだろ。",e:"If you're a dealer you'd understand."},{j:"彼はいつから売人になった？",r:"かれはいつからばいにんになった？",e:"When did he become a dealer?"},{j:"麻薬の売人が逮捕された。",r:"まやくのばいにんがたいほされた。",e:"The drug dealer was arrested."}],
+    wm:"Spike asks the bar owner if a 売人 would recognize the Bloody Eye. A person (人) who sells (売) — drug dealer, contraband trader." },
 
-  // ── EP 04 ──
-  { id:"e04_01", ep:4, word:"環境保護", reading:"かんきょうほご", meaning:"environmental protection", tier:1,
-    kb:[{k:"環",r:"かん",m:"ring/cycle",rad:["王","睘"],rm:["king","circular"],mn:"A king's circular loop — a ring, cycle, environment"},{k:"境",r:"きょう",m:"boundary/environment",rad:["土","竟"],rm:["earth","boundary"],mn:"Earth at its boundary — environment, territory"},{k:"保",r:"ほ",m:"protect/preserve",rad:["人","呆"],rm:["person","upright"],mn:"A person keeping something upright — to protect, preserve"},{k:"護",r:"ご",m:"guard/defend",rad:["言","隻"],rm:["words","one"],mn:"Words of one who guards — to defend, protect"}],
-    wm:"Space Warriors' stated mission — their 環境保護 becomes eco-terror when they release the virus" },
-  { id:"e04_02", ep:4, word:"ウイルス", reading:"ういrusu", meaning:"virus", tier:1,
-    kb:[], wm:"From English 'virus' — MonkeyBusiness is the biological weapon that targets only humans in this episode" },
-  { id:"e04_03", ep:4, word:"位相差空間", reading:"いそうさくうかん", meaning:"hyperspace / phase-difference space", tier:2,
-    kb:[{k:"位",r:"い",m:"position/rank",rad:["人","立"],rm:["person","stand"],mn:"A person standing in a position — rank, place, position"},{k:"相",r:"そう",m:"phase/mutual",rad:["木","目"],rm:["tree","eye"],mn:"An eye in a tree watching — mutual, phase"},{k:"差",r:"さ",m:"difference",rad:["羊","工"],rm:["sheep","work"],mn:"Working with sheep — difference, disparity"},{k:"空間",r:"くうかん",m:"space",rad:["穴","工"],rm:["hole","work"],mn:"Working through a hole — empty space"}],
-    wm:"The sci-fi gate technology — objects sealed in 位相差空間 exist but never interact with our reality" },
-  { id:"e04_04", ep:4, word:"封鎖", reading:"ふうさ", meaning:"blockade / sealing off", tier:2,
-    kb:[{k:"封",r:"ふう",m:"seal/close",rad:["圭","寸"],rm:["jade/earth","measure"],mn:"Measuring earth to seal it — to close, seal"},{k:"鎖",r:"さ",m:"chain/lock",rad:["金","琐"],rm:["metal","small pieces"],mn:"Metal in small linked pieces — a chain, to lock"}],
-    wm:"Seal (封) with a chain (鎖) — the government 封鎖s the hyperspace gate to stop the missile" },
+  { id:"e01_09", ep:1, word:"資金源", reading:"しきんげん", meaning:"funding source / financial backer", tier:2,
+    kb:[{k:"資",r:"し",m:"funds/resources/capital",rad:["貝","次"],rm:["shell=money","next"],mn:"Shell-money passing to the next level — funds, capital"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"A person mining from the earth — gold, money"},{k:"源",r:"げん",m:"source/origin/spring",rad:["氵","原"],rm:["water","original field"],mn:"Water at its original place — a source, spring, origin"}],
+    ex:[{j:"組織の資金源となってた非合法目薬だ。",r:"そしきのしきんげんとなってたひごうほうめぐすりだ。",e:"It's the illegal eye drops that had been the organization's funding source."},{j:"資金源を断てば組織は崩壊する。",r:"しきんげんをたてばそしきはほうかいする。",e:"Cut the funding source and the organization will collapse."},{j:"彼らの資金源は何だ？",r:"かれらのしきんげんはなんだ？",e:"What is their source of funding?"}],
+    wm:"What Asimov stole — 組織の資金源, the syndicate's lifeblood in those little bottles. This is why they cannot let him run." },
 
-  // ── EP 05 ──
-  { id:"e05_01", ep:5, word:"裏切る", reading:"うらぎる", meaning:"to betray", tier:1,
-    kb:[{k:"裏",r:"うら",m:"back/reverse",rad:["衣","里"],rm:["clothing","village"],mn:"The back side of clothing, the reverse side — behind, the hidden underside"},{k:"切",r:"ぎる",m:"cut",rad:["七","刀"],rm:["seven","knife"],mn:"A knife cutting — to cut"}],
-    wm:"To cut (切) from behind (裏) — Vicious betrays Mao, the defining act of Spike's backstory" },
-  { id:"e05_02", ep:5, word:"仁義", reading:"じんぎ", meaning:"code of honor / duty", tier:2,
-    kb:[{k:"仁",r:"じん",m:"benevolence/humanity",rad:["人","二"],rm:["person","two"],mn:"Two people (人二) — the relationship between people; benevolence, humanity"},{k:"義",r:"ぎ",m:"righteousness/duty",rad:["羊","我"],rm:["sheep","self"],mn:"The self (我) with the quality of a sheep (羊) — righteousness, what is right"}],
-    wm:"渡世の仁義 — the code of the underworld. Mao lived by it; Vicious killed him for it" },
-  { id:"e05_03", ep:5, word:"悪魔", reading:"あくま", meaning:"devil / demon", tier:2,
-    kb:[{k:"悪",r:"あく",m:"evil/bad",rad:["亜","心"],rm:["second/ugly","heart"],mn:"An ugly (亜) heart (心) — evil, bad"},{k:"魔",r:"ま",m:"demon/magic",rad:["广","鬼"],rm:["house/spread","ghost"],mn:"A ghost spreading under a wide roof — a demon, supernatural evil"}],
-    wm:"Vicious is described as 悪魔 — and the episode's title asks us to feel sympathy for him" },
-  { id:"e05_04", ep:5, word:"渡世", reading:"とせい", meaning:"the underworld life", tier:3,
-    kb:[{k:"渡",r:"と",m:"cross/pass through",rad:["氵","度"],rm:["water","degree/pass"],mn:"Water you must pass through — to cross, to get through"},{k:"世",r:"せい",m:"world/generation",rad:["廿","乙"],rm:["twenty","second"],mn:"Generations passing like a twisting line — world, generation"}],
-    wm:"渡世の仁義 — literally 'the righteousness of crossing the world'. The criminal life's code" },
+  { id:"e01_10", ep:1, word:"上物", reading:"うわもの", meaning:"top quality goods / premium item", tier:3,
+    kb:[{k:"上",r:"うわ",m:"top/above/upper",rad:["一","丨"],rm:["horizontal line","vertical line"],mn:"A line rising above another — top, upper, above"},{k:"物",r:"もの",m:"thing/goods/object",rad:["牛","勿"],rm:["cow","do not"],mn:"A cow marked do-not-touch — a thing, goods"}],
+    ex:[{j:"非合法目薬ん中でも飛び切りの上物だ。",r:"ひごうほうめぐすりんなかでもとびきりのうわものだ。",e:"It's top quality even among illegal eye drops."},{j:"今回は上物を持ってきた。",r:"こんかいはうわものをもってきた。",e:"I brought top-grade stuff this time."},{j:"さすが上物、品質が違う。",r:"さすがうわもの、ひんしつがちがう。",e:"As expected of premium quality, the standard is different."}],
+    wm:"Flying above (上) ordinary goods (物) — the elite tier. Bloody Eye is described as 飛び切りの上物 (exceptionally top grade) even within the illegal drug market." },
+
+  { id:"e01_11", ep:1, word:"治療費", reading:"ちりょうひ", meaning:"medical treatment costs / hospital bill", tier:2,
+    kb:[{k:"治",r:"ち",m:"govern/cure/treat",rad:["氵","台"],rm:["water","platform/stand"],mn:"Water channeled on a platform — to cure, treat, govern"},{k:"療",r:"りょう",m:"heal/treat medically",rad:["疒","尞"],rm:["sickness","fuel/light"],mn:"Burning away disease with light — to heal, treat"},{k:"費",r:"ひ",m:"expense/cost/spend",rad:["弗","貝"],rm:["negate","shell=money"],mn:"Negating your shell-money — an expense"}],
+    ex:[{j:"おまえがけがさせた警官の治療費でパーだ。",r:"おまえがけがさせたけいかんのちりょうひでぱーだ。",e:"All gone on treatment costs for the officer you injured."},{j:"治療費が高くて払えない。",r:"ちりょうひがたかくてはらえない。",e:"The medical costs are too high to pay."},{j:"治療費を保険でカバーした。",r:"ちりょうひをほけんでカバーした。",e:"Insurance covered the medical costs."}],
+    wm:"One of three things that devour every bounty: ship 修理 + shop 修理 + 警官の治療費. The comic formula that opens the show, establishing the crew's permanent poverty." },
+
+  { id:"e01_12", ep:1, word:"抗争", reading:"こうそう", meaning:"conflict / turf war / feud between organizations", tier:2,
+    kb:[{k:"抗",r:"こう",m:"resist/oppose",rad:["扌","亢"],rm:["hand","resist/oppose"],mn:"A hand raised in opposition — to resist, oppose"},{k:"争",r:"そう",m:"compete/fight/contend",rad:["爪","争"],rm:["claw","contend"],mn:"Claws contending with each other — to fight, compete"}],
+    ex:[{j:"３日前こいつの組織と敵対する組織との抗争があったんだ。",r:"みっかまえこいつのそしきとてきたいするそしきとのこうそうがあったんだ。",e:"Three days ago there was a turf war with a rival organization."},{j:"組織間の抗争が続いている。",r:"そしきかんのこうそうがつづいている。",e:"The conflict between organizations continues."},{j:"抗争に巻き込まれた。",r:"こうそうにまきこまれた。",e:"I got caught up in the feud."}],
+    wm:"The rival gang 抗争 three days ago created the chaos Asimov exploited to steal and run. Conflict always creates opportunity." },
+
+  { id:"e01_13", ep:1, word:"仲間", reading:"なかま", meaning:"companion / fellow / member of the group / crew", tier:1,
+    kb:[{k:"仲",r:"なか",m:"middle/relationship/between",rad:["亻","中"],rm:["person","middle"],mn:"A person in the middle — mediator, inner circle companion"},{k:"間",r:"ま",m:"space/between/gap",rad:["門","日"],rm:["gate","sun"],mn:"Sun shining through a gate — the space between, an interval"}],
+    ex:[{j:"こいつは仲間を殺してとんずらしやがった。",r:"こいつはなかまをころしてとんずらしやがった。",e:"This guy killed his companions and ran."},{j:"俺たちは仲間だ。",r:"おれたちはなかまだ。",e:"We're crewmates."},{j:"仲間を大切にしなさい。",r:"なかまをたいせつにしなさい。",e:"Cherish your companions."}],
+    wm:"The person (仲) who shares your space (間) — those close to you, your crew. Killing 仲間 is the unforgivable betrayal; it's why Asimov has a bounty at all." },
+
+  { id:"e01_14", ep:1, word:"相棒", reading:"あいぼう", meaning:"partner / buddy / trusted companion", tier:1,
+    kb:[{k:"相",r:"あい",m:"mutual/together/each other",rad:["木","目"],rm:["tree","eye"],mn:"An eye watching a tree — mutual observation, together"},{k:"棒",r:"ぼう",m:"stick/rod/pole",rad:["木","奉"],rm:["tree","offer/present"],mn:"A tree offered as a stick — a rod, the stick you lean on"}],
+    ex:[{j:"10年来の相棒だ。",r:"じゅうねんらいのあいぼうだ。",e:"We've been partners for 10 years (Spike about the Swordfish)."},{j:"スパイクは俺の相棒だ。",r:"すぱいくはおれのあいぼうだ。",e:"Spike is my partner."},{j:"相棒のいない賞金稼ぎは難しい。",r:"あいぼうのいないしょうきんかせぎはむずかしい。",e:"Bounty hunting without a partner is tough."}],
+    wm:"Mutual (相) staff (棒) — the one you lean on together. Spike calls the Swordfish his 10年来の相棒 before any human relationship. Objects can be partners too." },
+
+  { id:"e01_15", ep:1, word:"火星", reading:"かせい", meaning:"Mars (the planet)", tier:1,
+    kb:[{k:"火",r:"か",m:"fire",rad:["火"],rm:["fire"],mn:"Pictograph of flames — fire"},{k:"星",r:"せい",m:"star/planet",rad:["日","生"],rm:["sun","birth/life"],mn:"A sun from which life emerges — a star, planet"}],
+    ex:[{j:"火星生まれだ。",r:"かせいうまれだ。",e:"I was born on Mars."},{j:"やつらは火星に行くつもりだぜ。",r:"やつらはかせいにいくつもりだぜ。",e:"Those guys are planning to go to Mars."},{j:"火星で幸せに暮らせるのよ。",r:"かせいでしあわせにくらせるのよ。",e:"We can live happily on Mars."}],
+    wm:"Fire star (火星) — ancient astronomers named Mars for its red color. EP01's promised land: Katerina dreams of escape there, Spike was born there." },
+
+  { id:"e01_16", ep:1, word:"幸せ", reading:"しあわせ", meaning:"happiness / good fortune / being blessed", tier:1,
+    kb:[{k:"幸",r:"しあわ(せ)",m:"fortune/luck/happiness",rad:["土","𠂉","工"],rm:["earth","divine","work"],mn:"Divine work on earth — fortune, when heaven and labor align"}],
+    ex:[{j:"じゃあきっと幸せになれるわ。",r:"じゃあきっとしあわせになれるわ。",e:"Then you'll surely be able to become happy."},{j:"火星で幸せに暮らせるのよ。",r:"かせいでしあわせにくらせるのよ。",e:"We can live happily on Mars."},{j:"彼女は今幸せそうだ。",r:"かのじょはいましあわせそうだ。",e:"She looks happy now."}],
+    wm:"Katerina's dream: 火星で幸せに暮らせる. Spike's reply: 金があるやつだけさ. The show's entire worldview delivered in one exchange at a bar." },
+
+  { id:"e01_17", ep:1, word:"機体", reading:"きたい", meaning:"aircraft body / spacecraft / the ship itself", tier:1,
+    kb:[{k:"機",r:"き",m:"machine/aircraft/mechanism",rad:["木","幾"],rm:["tree","how many/mechanism"],mn:"A wooden mechanism — a machine, loom, aircraft"},{k:"体",r:"たい",m:"body/form",rad:["亻","本"],rm:["person","root/origin"],mn:"A person's root/origin — the body, form"}],
+    ex:[{j:"おまえが壊した機体の修理でパーだ。",r:"おまえがこわしたきたいのしゅうりでぱーだ。",e:"All gone on the repair for the aircraft body you broke."},{j:"機体の点検をした。",r:"きたいのてんけんをした。",e:"I inspected the aircraft body."},{j:"機体が損傷している。",r:"きたいがそんしょうしている。",e:"The aircraft body is damaged."}],
+    wm:"The Swordfish, the Hammerhead, the Bebop itself — all called 機体. 機体の修理 (repair costs) is the first joke of the series and the last word every episode." },
+
+  { id:"e01_18", ep:1, word:"修理", reading:"しゅうり", meaning:"repair / fix", tier:1,
+    kb:[{k:"修",r:"しゅう",m:"cultivate/repair/improve",rad:["亻","攸"],rm:["person","flowing water"],mn:"A person improving like flowing water — to cultivate, repair"},{k:"理",r:"り",m:"reason/order/logic",rad:["王","里"],rm:["king","village"],mn:"The king imposing logical order — reason, to set right"}],
+    ex:[{j:"おまえが壊した機体の修理と店の修理でパーだ。",r:"おまえがこわしたきたいのしゅうりとみせのしゅうりでぱーだ。",e:"All gone on repair for the ship you broke and the shop you broke."},{j:"修理に出した。",r:"しゅうりにだした。",e:"I sent it in for repair."},{j:"この修理はいくらかかりますか？",r:"このしゅうりはいくらかかりますか？",e:"How much will this repair cost?"}],
+    wm:"The eternal Bebop cycle: earn bounty → spend on 修理. Everything Spike breaks must be fixed. 修理代 (repair costs) = the punchline of every mission." },
+
+  { id:"e01_19", ep:1, word:"警官", reading:"けいかん", meaning:"police officer / cop", tier:1,
+    kb:[{k:"警",r:"けい",m:"warn/alert/police",rad:["言","攴","苟"],rm:["words","strike","carefully"],mn:"Carefully striking out words of warning — to warn, alert, police"},{k:"官",r:"かん",m:"official/government",rad:["宀","㠯"],rm:["roof","official seal"],mn:"An official under a roof — a government official"}],
+    ex:[{j:"おまえがけがさせた警官の治療費でパーだ。",r:"おまえがけがさせたけいかんのちりょうひでぱーだ。",e:"All gone on treatment costs for the officer you injured."},{j:"警官が来た。",r:"けいかんがきた。",e:"A police officer came."},{j:"警官に職務質問された。",r:"けいかんにしょくむしつもんされた。",e:"I was questioned by a police officer."}],
+    wm:"Every Spike fight ends with 警官の治療費 — injured cops are always part of the collateral damage. 警官 = a uniformed police officer specifically." },
+
+  // ── CORE VERBS ──────────────────────────────────────────────────────
+
+  { id:"e01_20", ep:1, word:"仕切る", reading:"しきる", meaning:"to control / to run / to be in charge of (a territory)", tier:2,
+    kb:[{k:"仕",r:"し",m:"serve/handle/do",rad:["亻","士"],rm:["person","samurai"],mn:"A samurai-person doing their duty — to serve, handle"},{k:"切る",r:"きる",m:"cut/do decisively",rad:["七","刀"],rm:["seven","knife"],mn:"A knife cutting through — to cut, act decisively"}],
+    ex:[{j:"アステロイド一帯を仕切る組織の幹部だ。",r:"あすてろいどいったいをしきるそしきのかんぶだ。",e:"He's an executive of the organization that runs the whole asteroid belt."},{j:"彼がこの地区を仕切っている。",r:"かれがこのちくをしきっている。",e:"He controls this district."},{j:"今日の会議は俺が仕切る。",r:"きょうのかいぎはおれがしきる。",e:"I'll run today's meeting."}],
+    wm:"Handle (仕) + cut through (切る) — to run the show, decisively control territory. The organization 仕切る the whole asteroid belt: total control." },
+
+  { id:"e01_21", ep:1, word:"逃げる", reading:"にげる", meaning:"to run away / to flee / to escape", tier:1,
+    kb:[{k:"逃",r:"に(げる)",m:"flee/escape",rad:["⻌","兆"],rm:["movement","omen/sign"],mn:"Moving at the first sign of danger — to flee"}],
+    ex:[{j:"もう逃げきれないわ。",r:"もうにげきれないわ。",e:"We can't escape anymore."},{j:"火星へ逃げるつもりか？",r:"かせいへにげるつもりか？",e:"Are you planning to flee to Mars?"},{j:"逃げ道がない。",r:"にげみちがない。",e:"There's no escape route."}],
+    wm:"Movement (⻌) at the first omen (兆) — to flee before it's too late. Asimov and Katerina are always 逃げている from everything." },
+
+  { id:"e01_22", ep:1, word:"逃げ込む", reading:"にげこむ", meaning:"to flee into / to take refuge in a place", tier:2,
+    kb:[{k:"逃",r:"に(げ)",m:"flee",rad:["⻌","兆"],rm:["movement","omen"],mn:"Moving at the first omen — to flee"},{k:"込む",r:"こむ",m:"go into/crowd into",rad:["⻌","入"],rm:["movement","enter"],mn:"Moving into a place — to crowd in, go into"}],
+    ex:[{j:"やつはティワナの女の所に逃げ込んだらしい。",r:"やつはてぃわなのおんなのところににげこんだらしい。",e:"Apparently he fled to a woman's place in Tijuana."},{j:"家に逃げ込んだ。",r:"いえににげこんだ。",e:"He fled into the house."},{j:"物陰に逃げ込む。",r:"ものかげににげこむ。",e:"To take refuge in the shadows."}],
+    wm:"Flee (逃げ) + go into (込む) — running INTO a specific place for cover. The 込む specifies direction; the compound is more precise than 逃げる alone." },
+
+  { id:"e01_23", ep:1, word:"逃げきれない", reading:"にげきれない", meaning:"cannot fully escape / can't get away completely", tier:2,
+    kb:[{k:"逃",r:"に(げ)",m:"flee",rad:["⻌","兆"],rm:["movement","omen"],mn:"Moving at the first omen — to flee"},{k:"切",r:"き(れない)",m:"cut through/complete",rad:["七","刀"],rm:["seven","knife"],mn:"A knife cutting completely through — to complete, finish"}],
+    ex:[{j:"もう逃げきれないわ。",r:"もうにげきれないわ。",e:"We can't escape anymore."},{j:"追いつかれて逃げきれなかった。",r:"おいつかれてにげきれなかった。",e:"I was caught up and couldn't escape."},{j:"逃げきれるか？",r:"にげきれるか？",e:"Can you make a complete escape?"}],
+    wm:"〜きれない = cannot do completely. 逃げ切れない = can't cut all the way through (完切) the escape = can't fully get away. Katerina's final words." },
+
+  { id:"e01_24", ep:1, word:"逃がす", reading:"にがす", meaning:"to let escape / to allow to get away / to release", tier:2,
+    kb:[{k:"逃",r:"に(がす)",m:"flee/let go",rad:["⻌","兆"],rm:["movement","omen"],mn:"Movement at the first sign — to flee, let go of"}],
+    ex:[{j:"逃がすな！撃てー！",r:"にがすな！うてー！",e:"Don't let them escape! Fire!"},{j:"チャンスを逃がした。",r:"チャンスをにがした。",e:"I let the chance slip away."},{j:"魚を逃がしてしまった。",r:"さかなをにがしてしまった。",e:"I let the fish get away."}],
+    wm:"DIFFERENT from 逃げる (you flee yourself) — 逃がす is transitive: you let something/someone ELSE escape. Critical distinction for bounty hunters." },
+
+  { id:"e01_25", ep:1, word:"捕まえる", reading:"つかまえる", meaning:"to catch / to capture / to arrest", tier:1,
+    kb:[{k:"捕",r:"つか(まえる)",m:"catch/seize",rad:["扌","甫"],rm:["hand","spread/large"],mn:"A hand spreading wide to grab — to catch, seize"}],
+    ex:[{j:"やつを捕まえるのは無理だ。",r:"やつをつかまえるのはむりだ。",e:"Catching him is impossible."},{j:"捕まえないの？",r:"つかまえないの？",e:"Aren't you going to catch him?"},{j:"犯人をやっと捕まえた。",r:"はんにんをやっとつかまえた。",e:"We finally caught the criminal."}],
+    wm:"A hand (扌) spreading (甫) wide to grab — the fundamental bounty hunter action. Everything the crew does leads to this verb." },
+
+  { id:"e01_26", ep:1, word:"壊す", reading:"こわす", meaning:"to break / to destroy / to damage", tier:1,
+    kb:[{k:"壊",r:"こわ(す)",m:"break/destroy/demolish",rad:["土","褱"],rm:["earth","embrace/ruin"],mn:"Earth embracing ruin — to break apart, demolish, destroy"}],
+    ex:[{j:"おまえが壊した機体の修理でパーだ。",r:"おまえがこわしたきたいのしゅうりでぱーだ。",e:"All gone on the repair for the ship you broke."},{j:"テレビが壊れた。",r:"てれびがこわれた。",e:"The TV broke."},{j:"壊さないように気をつけて。",r:"こわさないようにきをつけて。",e:"Be careful not to break it."}],
+    wm:"Spike 壊す everything he touches — ships, shops, bones. His most frequently demonstrated skill. 壊す (active) vs 壊れる (breaks on its own)." },
+
+  { id:"e01_27", ep:1, word:"諦める", reading:"あきらめる", meaning:"to give up / to resign oneself / to accept defeat", tier:1,
+    kb:[{k:"諦",r:"あきら(める)",m:"resign oneself / see clearly",rad:["言","帝"],rm:["words","emperor"],mn:"When the emperor speaks, there is no arguing — to resign oneself to the truth"}],
+    ex:[{j:"今回は俺も諦めた。",r:"こんかいはおれもあきらめた。",e:"This time even I gave up."},{j:"諦めろ！逃げ場はない。",r:"あきらめろ！にげばはない。",e:"Give up! There's nowhere to run."},{j:"諦めないで続けてください。",r:"あきらめないでつづけてください。",e:"Please keep going without giving up."}],
+    wm:"When the emperor's (帝) word (言) is final — you see clearly there's no point resisting. 諦める is surrender to reality, not weakness." },
+
+  { id:"e01_28", ep:1, word:"売りさばく", reading:"うりさばく", meaning:"to sell off / to move (merchandise) / to deal (contraband)", tier:2,
+    kb:[{k:"売",r:"うり",m:"sell",rad:["士","買"],rm:["samurai","buy"],mn:"A samurai who buys then sells — to sell"},{k:"さばく",r:"さばく",m:"handle/deal with/dispatch",rad:[""],rm:[""],mn:"To handle, process, or dispatch goods efficiently"}],
+    ex:[{j:"その前にこいつを売りさばく。",r:"そのまえにこいつをうりさばく。",e:"Before that, I'll sell this off."},{j:"密輸品を売りさばいた。",r:"みつゆひんをうりさばいた。",e:"He sold off the smuggled goods."},{j:"在庫を全部売りさばいた。",r:"ざいこをぜんぶうりさばいた。",e:"I moved all the inventory."}],
+    wm:"Asimov's plan: sell off (売りさばく) the stolen Bloody Eye before escaping to Mars. 売りさばく specifically means moving a large amount of goods quickly." },
+
+  { id:"e01_29", ep:1, word:"掘る", reading:"ほる", meaning:"to dig / to excavate", tier:2,
+    kb:[{k:"掘",r:"ほ(る)",m:"dig/excavate",rad:["扌","屈"],rm:["hand","bent/crouching"],mn:"A hand bent low digging — to dig, excavate"}],
+    ex:[{j:"死に物狂いで掘ったな。",r:"しにものぐるいでほったな。",e:"We dug like our lives depended on it."},{j:"ゲートを掘った。",r:"ゲートをほった。",e:"We dug the gate."},{j:"穴を掘る。",r:"あなをほる。",e:"To dig a hole."}],
+    wm:"The old gambler's grievance — 俺が一生懸命ゲート掘ったおかげ (thanks to me digging the gate). He means the hyperspace tunnels. 掘る is the verb of that generation's sacrifice." },
+
+  { id:"e01_30", ep:1, word:"耕す", reading:"たがやす", meaning:"to cultivate / to till (land)", tier:2,
+    kb:[{k:"耕",r:"たがや(す)",m:"cultivate/till",rad:["耒","井"],rm:["plow","well/grid"],mn:"A plow working a grid of fields — to cultivate, till"}],
+    ex:[{j:"この土地耕したおかげなんだぞ。",r:"このとちたがやしたおかげなんだぞ。",e:"It's because we cultivated this land."},{j:"畑を耕す。",r:"はたけをたがやす。",e:"To till a field."},{j:"死に物狂いで種まいた。",r:"しにものぐるいでたねまいた。",e:"We planted seeds desperately."}],
+    wm:"The second gambler uses 耕した (cultivated the land) while the first said 掘った (dug the gate). They're having the same argument about who deserves credit — just differently." },
+
+  { id:"e01_31", ep:1, word:"狙う", reading:"ねらう", meaning:"to aim at / to target / to have one's sights on", tier:1,
+    kb:[{k:"狙",r:"ねら(う)",m:"aim/target/lurk",rad:["犭","且"],rm:["animal","moreover/stacked"],mn:"An animal stacking up to lunge — to aim at, lurk for"}],
+    ex:[{j:"おまえは女に狙われる。",r:"おまえはおんなにねらわれる。",e:"You will be targeted by a woman."},{j:"賞金首を狙う。",r:"しょうきんくびをねらう。",e:"To target a bounty."},{j:"彼女が俺を狙っている。",r:"かのじょがおれをねらっている。",e:"She has her sights on me."}],
+    wm:"The fortune teller warns Spike: おまえは女に狙われる. She's right. 狙われる (passive = be targeted) — Katerina almost kills him." },
+
+  { id:"e01_32", ep:1, word:"見せる", reading:"みせる", meaning:"to show / to let see / to display", tier:1,
+    kb:[{k:"見",r:"み(せる)",m:"see/show",rad:["目","儿"],rm:["eye","legs/person"],mn:"A person led by their eyes — to see, look"},{k:"せる",r:"せる",m:"causative — make/let",rad:[""],rm:[""],mn:"Causative suffix: make or let someone do something"}],
+    ex:[{j:"本物かどうか見せてもらおうか。",r:"ほんものかどうかみせてもらおうか。",e:"Let me see whether it's the real thing."},{j:"よーく見ておくんだな。",r:"よーくみておくんだな。",e:"Take a good look and remember it."},{j:"見せてくれ。",r:"みせてくれ。",e:"Show me."}],
+    wm:"The bar patron demands Asimov 見せてもらおうか — show me if it's real. Then gets a demonstration of Bloody Eye he won't forget." },
+
+  // ── ADJECTIVES & ADVERBS ────────────────────────────────────────────
+
+  { id:"e01_33", ep:1, word:"非合法", reading:"ひごうほう", meaning:"illegal / unlawful / against the law", tier:1,
+    kb:[{k:"非",r:"ひ",m:"not/wrong/anti-",rad:["非"],rm:["opposed wings"],mn:"Two wings spread in opposite directions — against, wrong, not"},{k:"合",r:"ごう",m:"fit/match/combine",rad:["亼","口"],rm:["gather","mouth"],mn:"Mouths gathering to agree — to match, fit, combine"},{k:"法",r:"ほう",m:"law/method",rad:["氵","去"],rm:["water","go away"],mn:"Water channeled away properly — law, method, order"}],
+    ex:[{j:"非合法目薬ん中でも飛び切りの上物だ。",r:"ひごうほうめぐすりんなかでもとびきりのうわものだ。",e:"Top quality even among illegal eye drops."},{j:"その行為は非合法だ。",r:"そのこういはひごうほうだ。",e:"That act is illegal."},{j:"非合法な商売はやめろ。",r:"ひごうほうなしょうばいはやめろ。",e:"Stop your illegal business."}],
+    wm:"Not (非) fitting/matching (合) the law (法) — against the law. The Bebop universe runs almost entirely on 非合法 goods and services." },
+
+  { id:"e01_34", ep:1, word:"時代遅れ", reading:"じだいおくれ", meaning:"out of date / behind the times / old-fashioned", tier:2,
+    kb:[{k:"時",r:"じ",m:"time/hour",rad:["日","寺"],rm:["sun","temple"],mn:"The sun's position measured at a temple — time"},{k:"代",r:"だい",m:"era/generation",rad:["亻","弋"],rm:["person","substitute"],mn:"A person substituting for the next — an era, generation"},{k:"遅",r:"おく(れ)",m:"late/slow/delayed",rad:["⻌","犀"],rm:["movement","rhinoceros"],mn:"Moving as slowly as a rhinoceros — late, delayed"}],
+    ex:[{j:"時代遅れのカウボーイさ。",r:"じだいおくれのカウボーイさ。",e:"I'm an out-of-date cowboy."},{j:"その考え方は時代遅れだ。",r:"そのかんがえかたはじだいおくれだ。",e:"That way of thinking is behind the times."},{j:"時代遅れでも、それが俺のスタイルだ。",r:"じだいおくれでも、それがおれのスタイルだ。",e:"Even if I'm out of date, that's my style."}],
+    wm:"Spike's self-description to Katerina — 時代遅れのカウボーイ. Said without self-pity or irony. The whole show's ethos in four words." },
+
+  { id:"e01_35", ep:1, word:"利口", reading:"りこう", meaning:"clever / smart / sensible choice", tier:2,
+    kb:[{k:"利",r:"り",m:"benefit/profit/advantageous",rad:["禾","刀"],rm:["grain","knife"],mn:"A knife harvesting grain efficiently — advantageous, profitable"},{k:"口",r:"こう",m:"mouth/opening",rad:["口"],rm:["mouth"],mn:"Pictograph of a mouth — opening, gateway"}],
+    ex:[{j:"それが利口だわ。",r:"それがりこうだわ。",e:"That's the smart thing to do."},{j:"弱ってる雑魚は相手にしない、それが利口だわ。",r:"よわってるざこはあいてにしない、それがりこうだわ。",e:"Not dealing with weakened small fry — that's smart."},{j:"利口な子どもですね。",r:"りこうなこどもですね。",e:"What a clever child."}],
+    wm:"Katerina says this to Spike when he declines to fight the weakened Asimov — それが利口だわ. Recognition of wisdom in restraint, from someone who sees him clearly." },
+
+  { id:"e01_36", ep:1, word:"優雅", reading:"ゆうが", meaning:"elegant / graceful / refined", tier:2,
+    kb:[{k:"優",r:"ゆう",m:"gentle/superior/actor",rad:["亻","憂"],rm:["person","sorrow/elegance"],mn:"A person with graceful sorrow — gentle, superior, elegant"},{k:"雅",r:"が",m:"elegant/refined",rad:["牙","隹"],rm:["fang","bird"],mn:"A refined bird with a fang — elegant, refined, graceful"}],
+    ex:[{j:"昼寝とは優雅だな。",r:"ひるねとはゆうがだな。",e:"Taking a nap in the middle of the day — how elegant."},{j:"優雅な生活を送っている。",r:"ゆうがなせいかつをおくっている。",e:"He's living an elegant life."},{j:"優雅な身のこなし。",r:"ゆうがなみのこなし。",e:"Graceful movement."}],
+    wm:"Jet says 昼寝とは優雅だな sarcastically when he finds Spike asleep. 優雅 is used ironically here — their lives are anything but elegant." },
+
+  { id:"e01_37", ep:1, word:"のんきな", reading:"のんきな", meaning:"carefree / easygoing / laid-back (sometimes negatively: not taking things seriously)", tier:2,
+    kb:[],
+    ex:[{j:"のんきな曲だぜ。",r:"のんきなきょくだぜ。",e:"What a carefree song."},{j:"のんきなやつだな。",r:"のんきなやつだな。",e:"What a laid-back guy."},{j:"こんな状況でのんきなことを言うな。",r:"こんなじょうきょうでのんきなことをいうな。",e:"Don't say carefree things in a situation like this."}],
+    wm:"Spike says のんきな曲だぜ about Tank! playing as they arrive at the dangerous gate. Ironic appreciation — the upbeat jazz against the grim job." },
+
+  // ── KEY EXPRESSIONS ──────────────────────────────────────────────────
+
+  { id:"e01_38", ep:1, word:"取りあえず", reading:"とりあえず", meaning:"for now / first of all / anyway / at any rate", tier:1,
+    kb:[],
+    ex:[{j:"取りあえずこっちは警察筋にあたってから行く。",r:"とりあえずこっちはけいさつすじにあたってからいく。",e:"For now I'll check with police contacts first, then go."},{j:"取りあえず座ってください。",r:"とりあえずすわってください。",e:"Please sit down for now."},{j:"取りあえず連絡だけしといた。",r:"とりあえずれんらくだけしといた。",e:"I at least got in touch for now."}],
+    wm:"Grab (取り) without delay (あえず) — a practical 'first things first, deal with the rest later'. Very high frequency in casual spoken Japanese." },
+
+  { id:"e01_39", ep:1, word:"当てになる", reading:"あてになる", meaning:"to be reliable / dependable / trustworthy", tier:2,
+    kb:[],
+    ex:[{j:"当てになんのかねえ、あのおやじ。",r:"あてになんのかねえ、あのおやじ。",e:"Can that old man be relied on, I wonder."},{j:"彼は全然当てにならない。",r:"かれはぜんぜんあてにならない。",e:"He's completely unreliable."},{j:"天気予報なんて当てにならない。",r:"てんきよほうなんてあてにならない。",e:"Weather forecasts are never reliable."}],
+    wm:"当て = a target/aim + になる = become → becomes something you can aim at = reliable. 当てにならない = can't be aimed at = unreliable. Spike doubts Jet's contact." },
+
+  { id:"e01_40", ep:1, word:"ご名答", reading:"ごめいとう", meaning:"correct answer! / right on! / well guessed!", tier:3,
+    kb:[{k:"名",r:"めい",m:"name/fame/renowned",rad:["夕","口"],rm:["evening","mouth"],mn:"Speaking a name in darkness — name, fame, renown"},{k:"答",r:"とう",m:"answer/reply",rad:["竹","合"],rm:["bamboo","combine/match"],mn:"Bamboo sections combining properly — an answer, reply"}],
+    ex:[{j:"ご名答。賞金稼ぎです。",r:"ごめいとう。しょうきんかせぎです。",e:"Exactly right. I'm a bounty hunter."},{j:"ご名答！よく分かりましたね。",r:"ごめいとう！よくわかりましたね。",e:"Correct! You figured it out well."},{j:"ご名答、一問正解。",r:"ごめいとう、いちもんせいかい。",e:"Correct answer, one point."}],
+    wm:"ご (honorific) + 名答 (excellent answer) — polite praise for guessing correctly. Spike delivers this with perfect cool when Katerina identifies him as a bounty hunter." },
+
+  { id:"e01_41", ep:1, word:"ご無沙汰", reading:"ごぶさた", meaning:"long time no see / it's been a while (formal)", tier:2,
+    kb:[{k:"無",r:"ぶ",m:"without/nothing",rad:["𠂉","灬"],rm:["spreading arms","fire"],mn:"A person dancing over fire — nothingness, without"},{k:"沙",r:"さ",m:"sand/gravel",rad:["氵","少"],rm:["water","few"],mn:"Few water drops — sand, fine particles"},{k:"汰",r:"た",m:"wash/select/eliminate",rad:["氵","太"],rm:["water","fat/too much"],mn:"Water washing away excess — to wash, select"}],
+    ex:[{j:"ご無沙汰。",r:"ごぶさた。",e:"It's been a while / Long time no see."},{j:"長らくご無沙汰しております。",r:"ながらくごぶさたしております。",e:"I'm sorry for being out of touch so long."},{j:"ご無沙汰でした、元気でしたか？",r:"ごぶさたでした、げんきでしたか？",e:"It's been a while — have you been well?"}],
+    wm:"Spike says this to the arms dealer / information broker. 無沙汰 = without contact/communication. ご is the honorific prefix. Standard way to open after a long absence." },
+
+  { id:"e01_42", ep:1, word:"失敬", reading:"しっけい", meaning:"excuse me / pardon me / I beg your pardon (for an intrusion)", tier:3,
+    kb:[{k:"失",r:"しっ",m:"lose/miss/fail",rad:["手","乙"],rm:["hand","twisting"],mn:"Something twisting out of a hand — to lose, miss, fail"},{k:"敬",r:"けい",m:"respect/revere",rad:["苟","攵"],rm:["carefully","strike"],mn:"Carefully striking with reverence — to respect, revere"}],
+    ex:[{j:"いやあ、失敬失敬。",r:"いやあ、しっけいしっけい。",e:"Ah, excuse me, excuse me."},{j:"失敬しました。",r:"しっけいしました。",e:"I beg your pardon."},{j:"ちょっと失敬。",r:"ちょっとしっけい。",e:"If you'll excuse me for a moment."}],
+    wm:"Spike says 失敬失敬 (excuse me, excuse me) after eating someone's food uninvited. It's ironic — genuinely polite word used right after being completely rude." },
+
+  // ── SLANG & ROUGH SPEECH ─────────────────────────────────────────────
+
+  { id:"e01_43", ep:1, word:"畜生", reading:"ちくしょう", meaning:"damn it! / for crying out loud! (expletive)", tier:3,
+    kb:[{k:"畜",r:"ちく",m:"livestock/domestic animal",rad:["玄","田"],rm:["dark/mysterious","field"],mn:"Dark-field creatures — livestock, domestic animals"},{k:"生",r:"しょう",m:"life/birth/creature",rad:["土","𠂉"],rm:["earth","sprout"],mn:"A sprout pushing through the earth — life, birth, creature"}],
+    ex:[{j:"まただ！畜生この野郎！",r:"まただ！ちくしょうこのやろう！",e:"Again! Damn it, you bastard!"},{j:"畜生、しくじった。",r:"ちくしょう、しくじった。",e:"Damn it, I messed up."},{j:"畜生め！逃げやがった！",r:"ちくしょうめ！にげやがった！",e:"Damn it, he got away!"}],
+    wm:"Calling something a beast (畜生) in frustration — like 'damn it'. The gambling old man shouts this constantly every time he loses, which is always." },
+
+  { id:"e01_44", ep:1, word:"サツ", reading:"さつ", meaning:"cops / the police (rough slang)", tier:3,
+    kb:[],
+    ex:[{j:"サツが動き出す前に何とかしねえと。",r:"さつがうごきだすまえになんとかしねえと。",e:"We have to do something before the cops start moving."},{j:"サツに捕まるな。",r:"さつにつかまるな。",e:"Don't let the cops catch you."},{j:"サツが来るぞ、急げ！",r:"さつがくるぞ、いそげ！",e:"The fuzz is coming, hurry!"}],
+    wm:"Clipping of 警察 (けいさつ) — like saying 'the fuzz'. Very rough criminal-world slang. Characters who use it are definitely not law-abiding citizens." },
+
+  { id:"e01_45", ep:1, word:"カモ", reading:"かも", meaning:"sucker / easy mark / easy prey (lit. duck)", tier:3,
+    kb:[],
+    ex:[{j:"おまえらそうやって俺のことカモにしてっけどな。",r:"おまえらそうやっておれのことカモにしてっけどな。",e:"You guys keep treating me as a sucker like that."},{j:"あいつはカモだ、簡単に騙せる。",r:"あいつはカモだ、かんたんにだませる。",e:"That guy's an easy mark, easy to fool."},{j:"詐欺師はカモを探している。",r:"さぎしはカモをさがしている。",e:"Con artists are always looking for suckers."}],
+    wm:"Ducks (鴨) are famously easy to catch — so カモ means someone easily exploited. The old gambler accuses Spike and Jet of treating him as one." },
+
+  { id:"e01_46", ep:1, word:"とんずら", reading:"とんずら", meaning:"running away / making a getaway / doing a runner", tier:3,
+    kb:[],
+    ex:[{j:"こいつは仲間を殺してとんずらしやがった。",r:"こいつはなかまをころしてとんずらしやがった。",e:"This guy killed his companions and did a runner."},{j:"金を持ってとんずらした。",r:"かねをもってとんずらした。",e:"He took the money and ran."},{j:"とんずらするな！",r:"とんずらするな！",e:"Don't run away!"}],
+    wm:"Slang for fleeing/running away suddenly, usually with something stolen. More vivid and criminal than just 逃げる. Asimov とんずらした with the syndicate's entire drug supply." },
+
+  { id:"e01_47", ep:1, word:"やっべえ", reading:"やっべえ", meaning:"oh shit / that's bad / we're in trouble (slang)", tier:3,
+    kb:[],
+    ex:[{j:"やっべえな。サツが動き出す前に何とかしねえと。",r:"やっべえな。さつがうごきだすまえになんとかしねえと。",e:"Oh shit. We have to do something before the cops start moving."},{j:"やっべえ、忘れてた！",r:"やっべえ、わすれてた！",e:"Shit, I forgot!"},{j:"これはやっべえ状況だ。",r:"これはやっべえじょうきょうだ。",e:"This is a bad situation."}],
+    wm:"やばい (やばい) → やべえ → やっべえ (extra emphasis). A slang expression of alarm or trouble. Very rough, very casual, very common in anime." },
+
+  { id:"e01_48", ep:1, word:"切れまくる", reading:"きれまくる", meaning:"going completely berserk / losing it / totally flipping out", tier:3,
+    kb:[{k:"切",r:"き(れ)",m:"cut/snap",rad:["七","刀"],rm:["seven","knife"],mn:"A knife cutting — to snap, cut, run out"},{k:"まくる",r:"まくる",m:"keep doing intensively / do repeatedly",rad:[""],rm:[""],mn:"Suffix: do something over and over, intensively"}],
+    ex:[{j:"たく、アシモフの野郎切れまくってんぜ。",r:"たく、あしもふのやろうきれまくってんぜ。",e:"Damn, Asimov is completely going berserk."},{j:"あいつ最近切れまくってる。",r:"あいつさいきんきれまくってる。",e:"That guy has been losing it constantly lately."},{j:"ブラッディアイを使って切れまくる。",r:"ぶらっでぃあいをつかってきれまくる。",e:"He uses Bloody Eye and goes completely berserk."}],
+    wm:"切れる (snap/lose temper) + まくる (do intensively, repeatedly) = completely and continuously losing it. The Bloody Eye makes Asimov 切れまくる beyond control." },
+
+  { id:"e01_49", ep:1, word:"しつこい", reading:"しつこい", meaning:"persistent / relentless / won't give up / annoyingly stubborn", tier:2,
+    kb:[],
+    ex:[{j:"このっ、しつけえんだっつうの。",r:"このっ、しつけえんだっつうの。",e:"This one — I said you're relentless!"},{j:"しつこいな、もういいよ。",r:"しつこいな、もういいよ。",e:"You're so persistent, give it a rest."},{j:"しつこく追いかける。",r:"しつこくおいかける。",e:"To chase relentlessly."}],
+    wm:"Spike says this during the fight — しつけえんだっつうの (I said you're persistent!). しつこい is a key adjective for describing someone who won't stop or won't give up." },
+
+  // ── GRAMMAR POINTS ──────────────────────────────────────────────────
+
+  { id:"e01_50", ep:1, word:"〜てしまう", reading:"〜てしまう", meaning:"ended up doing ~ / did ~ completely (often with regret)", tier:1,
+    kb:[],
+    ex:[{j:"仲間を殺してとんずらしてしまった。",r:"なかまをころしてとんずらしてしまった。",e:"He ended up killing his companions and running."},{j:"全部使ってしまった。",r:"ぜんぶつかってしまった。",e:"I ended up using it all up."},{j:"忘れてしまいました。",r:"わすれてしまいました。",e:"I went ahead and forgot (completely)."}],
+    wm:"〜てしまう adds completion or regret. 食べてしまった = ate it all up. 死んでしまった = went and died. One of the highest-frequency grammar patterns in spoken Japanese." },
+
+  { id:"e01_51", ep:1, word:"〜らしい", reading:"〜らしい", meaning:"apparently ~ / it seems ~ / I heard that ~ (inference from evidence)", tier:1,
+    kb:[],
+    ex:[{j:"やつはティワナの女の所に逃げ込んだらしい。",r:"やつはてぃわなのおんなのところににげこんだらしい。",e:"Apparently he fled to a woman's place in Tijuana."},{j:"彼は病気らしい。",r:"かれはびょうきらしい。",e:"He seems to be sick (from what I hear/see)."},{j:"あの映画は面白いらしいよ。",r:"あのえいがはおもしろいらしいよ。",e:"I hear that movie is interesting."}],
+    wm:"〜らしい = hearsay or evidence-based inference. More detached than 〜そうだ. Bounty hunters trade in 〜らしい intelligence constantly — it's the currency of their work." },
+
+  { id:"e01_52", ep:1, word:"〜つもり", reading:"〜つもり", meaning:"intend to ~ / plan to ~ / think one is ~", tier:1,
+    kb:[],
+    ex:[{j:"やつらは火星に行くつもりだぜ。",r:"やつらはかせいにいくつもりだぜ。",e:"Those guys are planning to go to Mars."},{j:"火星へ逃げるつもりか？",r:"かせいへにげるつもりか？",e:"Are you planning to flee to Mars?"},{j:"明日から運動するつもりだ。",r:"あしたからうんどうするつもりだ。",e:"I intend to start exercising from tomorrow."}],
+    wm:"〜つもり marks a firm intention or assumption. 知ってるつもりだった = I thought I knew (but was wrong). Very versatile for plans, accusations, and self-deception." },
+
+  { id:"e01_53", ep:1, word:"〜割に", reading:"〜わりに", meaning:"for ~ / considering ~ / unexpectedly given ~", tier:2,
+    kb:[],
+    ex:[{j:"雑魚の割に賞金は250万だ。",r:"ざこのわりにしょうきんは250まんだ。",e:"For a small fry, the bounty is 2.5 million."},{j:"値段の割においしい。",r:"ねだんのわりにおいしい。",e:"It's tasty considering the price."},{j:"若い割に落ち着いている。",r:"わかいわりにおちついている。",e:"He's calm considering how young he is."}],
+    wm:"〜割に creates contrast between expectation and reality. 雑魚の割に高い = unexpectedly high for a nobody. Jet uses it to hook Spike who had dismissed the job." },
+
+  { id:"e01_54", ep:1, word:"〜わけ", reading:"〜わけ", meaning:"reason why / that means / makes sense that / no wonder", tier:2,
+    kb:[],
+    ex:[{j:"金がないときは言うんだよ、そういうわけだよ。",r:"かねがないときはいうんだよ、そういうわけだよ。",e:"That's why he says it when there's no money — that's the reason."},{j:"だから行けないわけだ。",r:"だからいけないわけだ。",e:"That's why I can't go — it makes sense now."},{j:"そういうわけか、なるほど。",r:"そういうわけか、なるほど。",e:"I see, so that's why."}],
+    wm:"わけ = the underlying reason or logic. 〜わけだ = 'that's why / it figures'. 〜わけない = 'there's no way'. 〜わけにはいかない = 'I can't (given the circumstances)'." },
+
+  { id:"e01_55", ep:1, word:"〜ってんだよ", reading:"〜ってんだよ", meaning:"I'm SAYING that ~ / I said ~ (emphatic frustrated repetition)", tier:3,
+    kb:[],
+    ex:[{j:"言わねえってんだよ！",r:"いわねえってんだよ！",e:"I SAID I won't say it!"},{j:"知らねえってんだよ、何度言えば分かるんだ。",r:"しらねえってんだよ、なんどいえばわかるんだ。",e:"I'm TELLING you I don't know — how many times do I have to say it."},{j:"無理だってんだよ！",r:"むりだってんだよ！",e:"I SAID it's impossible!"}],
+    wm:"〜と言っているんだよ compressed into rough casual speech. Used when repeating yourself in frustration. Very rough, very male, very Bebop. The emphasis is on 'I ALREADY SAID IT'." },
+
+  { id:"e01_56", ep:1, word:"〜てもらおうか", reading:"〜てもらおうか", meaning:"would you please ~ / let me have ~ (firm request, slightly threatening)", tier:2,
+    kb:[],
+    ex:[{j:"本物かどうか見せてもらおうか。",r:"ほんものかどうかみせてもらおうか。",e:"Let me see whether it's the real thing."},{j:"話を聞かせてもらおうか。",r:"はなしをきかせてもらおうか。",e:"Why don't you tell me the story."},{j:"一緒に来てもらおうか。",r:"いっしょにきてもらおうか。",e:"I'll have you come with me."}],
+    wm:"〜てもらおうか = 'I'll receive the favor of you doing ~'. Grammatically polite but contextually it's a demand. The gap between form and content = understated intimidation." },
+
+  { id:"e01_57", ep:1, word:"〜たまま", reading:"〜たまま", meaning:"while remaining ~ / still in the state of ~ / without changing", tier:1,
+    kb:[],
+    ex:[{j:"生きたまま連れてくること。",r:"いきたままつれてくること。",e:"Bring them while keeping them alive."},{j:"服を着たまま寝た。",r:"ふくをきたままねた。",e:"I slept while still in my clothes."},{j:"立ったまま話した。",r:"たったままはなした。",e:"I spoke while standing up (without sitting down)."}],
+    wm:"〜たまま = while remaining in that state, without that state changing. 生きたまま = while staying alive. Verb past + まま freezes the state. Essential grammar." },
+
+  // ── ADDITIONAL VOCAB FROM DIALOGUE ───────────────────────────────────
+
+  { id:"e01_58", ep:1, word:"敵対する", reading:"てきたいする", meaning:"to be hostile to / to oppose / to be at odds with", tier:2,
+    kb:[{k:"敵",r:"てき",m:"enemy/opponent",rad:["啇","攵"],rm:["go straight to","strike"],mn:"Striking straight at someone — an enemy, opponent"},{k:"対",r:"たい",m:"versus/oppose/face",rad:["丵","寸"],rm:["grass growing up","inch/measure"],mn:"Measured against what grows opposite — versus, face, oppose"}],
+    ex:[{j:"敵対する組織との抗争があったんだ。",r:"てきたいするそしきとのこうそうがあったんだ。",e:"There was a turf war with a rival organization."},{j:"彼らは互いに敵対している。",r:"かれらはたがいにてきたいしている。",e:"They are hostile to each other."},{j:"敵対する勢力に囲まれた。",r:"てきたいするせいりょくにかこまれた。",e:"Surrounded by hostile forces."}],
+    wm:"敵 (enemy) + 対 (versus/face) + する = to be in opposition to. 敵対する組織 = a rival organization actively working against you. Standard crime/conflict vocabulary." },
+
+  { id:"e01_59", ep:1, word:"死に物狂い", reading:"しにものぐるい", meaning:"desperately / with everything one has / like one's life depends on it", tier:3,
+    kb:[{k:"死",r:"し",m:"death",rad:["歹","匕"],rm:["bone fragment","crouching person"],mn:"A crumbling bone beside a fallen person — death"},{k:"物",r:"もの",m:"thing/object",rad:["牛","勿"],rm:["cow","do not"],mn:"A cow marked do-not-touch — a thing"},{k:"狂",r:"ぐるい",m:"mad/crazy/berserk",rad:["犭","王"],rm:["animal","king"],mn:"An animal that acts like a king — crazy, berserk"}],
+    ex:[{j:"死に物狂いで掘ったな。",r:"しにものぐるいでほったな。",e:"We dug like our lives depended on it."},{j:"死に物狂いで働いた。",r:"しにものぐるいではたらいた。",e:"I worked with everything I had."},{j:"死に物狂いで逃げた。",r:"しにものぐるいでにげた。",e:"He fled desperately."}],
+    wm:"Going berserk (狂い) about death-things (死に物) — so desperate that dying doesn't matter. The old man describes building the gates this way. Extreme effort." },
+
+  { id:"e01_60", ep:1, word:"一生懸命", reading:"いっしょうけんめい", meaning:"with all one's effort / as hard as one can / earnestly", tier:1,
+    kb:[{k:"一",r:"いっ",m:"one",rad:["一"],rm:["one line"],mn:"One horizontal line — one"},{k:"生",r:"しょう",m:"life",rad:["土","𠂉"],rm:["earth","sprout"],mn:"A sprout from earth — life"},{k:"懸",r:"けん",m:"hang/stake/be at risk",rad:["縣","心"],rm:["hang/suspend","heart"],mn:"A heart hanging in suspension — to stake, be at risk"},{k:"命",r:"めい",m:"life/fate",rad:["亼","叩"],rm:["gather","kneel"],mn:"Fate gathered while kneeling — life, fate"}],
+    ex:[{j:"俺が一生懸命ゲート掘ったおかげなんだぞ。",r:"おれがいっしょうけんめいゲートほったおかげなんだぞ。",e:"It's thanks to me digging the gate as hard as I could."},{j:"一生懸命勉強した。",r:"いっしょうけんめいべんきょうした。",e:"I studied as hard as I could."},{j:"一生懸命働きます。",r:"いっしょうけんめいはたらきます。",e:"I will work with all my effort."}],
+    wm:"One (一) life (生) staked (懸) on this (命) — staking your life on one thing = giving everything. The go-to expression for maximum effort in Japanese." },
+
+  { id:"e01_61", ep:1, word:"泥棒", reading:"どろぼう", meaning:"thief / robber / burglar", tier:1,
+    kb:[{k:"泥",r:"どろ",m:"mud/mire",rad:["氵","尼"],rm:["water","nun/crouching"],mn:"Water of the crouching low — mud, mire (someone who lurks in the mud)"},{k:"棒",r:"ぼう",m:"stick/rod",rad:["木","奉"],rm:["tree","offer"],mn:"An offered tree — a stick, rod (reference to old stick-fighting thieves)"}],
+    ex:[{j:"泥棒！",r:"どろぼう！",e:"Thief!"},{j:"泥棒に入られた。",r:"どろぼうにはいられた。",e:"We were broken into (a burglar entered)."},{j:"あいつはただの泥棒だ。",r:"あいつはただのどろぼうだ。",e:"That guy is just a thief."}],
+    wm:"The old gambler shouts 泥棒！ when Spike and Jet win his money. His accusation is reflexive — he can't believe he lost fairly. Essential everyday word." },
+
+  { id:"e01_62", ep:1, word:"借り", reading:"かり", meaning:"a debt (of gratitude) / something owed / owing someone", tier:2,
+    kb:[{k:"借",r:"か(り)",m:"borrow",rad:["亻","昔"],rm:["person","long ago/former"],mn:"A person in a former arrangement — to borrow, be in debt"}],
+    ex:[{j:"返すとも。あんたには借りがある。",r:"かえすとも。あんたにはかりがある。",e:"Of course I'll return it. I owe you."},{j:"彼には借りがある。",r:"かれにはかりがある。",e:"I owe him."},{j:"借りは返す。",r:"かりはかえす。",e:"I repay my debts."}],
+    wm:"The arms dealer tells Spike 借りがある (I owe you). In the underworld, debts of obligation (借り) are currency. Tracking 借り and returning them is how relationships work." },
+
+  { id:"e01_63", ep:1, word:"懐", reading:"ふところ", meaning:"pocket / bosom / (someone's) possession", tier:2,
+    kb:[{k:"懐",r:"ふところ",m:"pocket/bosom/heart/nostalgia",rad:["忄","褱"],rm:["heart","embrace/hold"],mn:"A heart held in an embrace — pocket, bosom, what one holds dear"}],
+    ex:[{j:"やつの懐から頂戴した。",r:"やつのふところからちょうだいした。",e:"I received it from his pocket (I took it from him)."},{j:"懐が温かい。",r:"ふところがあたたかい。",e:"His pockets are deep (he has money)."},{j:"懐に入れた。",r:"ふところにいれた。",e:"I put it in my pocket/bosom."}],
+    wm:"Spike took the Bloody Eye sample from Asimov's 懐 — his pocket/person. 懐から頂戴した = 'I received it from his person' = I pickpocketed it while fighting." },
+
+  { id:"e01_64", ep:1, word:"連中", reading:"れんちゅう", meaning:"those people / that bunch / those guys (slightly contemptuous)", tier:2,
+    kb:[{k:"連",r:"れん",m:"connect/serial",rad:["⻌","車"],rm:["movement","wheel"],mn:"Wheels moving in a connected series — connected, serial"},{k:"中",r:"ちゅう",m:"middle/among/group",rad:["口","丨"],rm:["box","line through"],mn:"A line through a box — the middle, among, in a group"}],
+    ex:[{j:"連中は大騒ぎよ。",r:"れんちゅうはおおさわぎよ。",e:"Those guys are in a huge uproar."},{j:"あの連中は何者だ？",r:"あのれんちゅうはなにものだ？",e:"Who are those guys?"},{j:"連中を全員捕まえろ。",r:"れんちゅうをぜんいんつかまえろ。",e:"Catch all of those people."}],
+    wm:"れんちゅう = a connected bunch of people (連中). Slightly dismissive or contemptuous — those people over there. The syndicate 連中 are furious at Asimov." },
+
+  { id:"e01_65", ep:1, word:"奥", reading:"おく", meaning:"the back / the inside / deeper in", tier:1,
+    kb:[{k:"奥",r:"おく",m:"interior/back/depths",rad:["宀","釆","大"],rm:["roof","sort/branch","big"],mn:"A big branching thing deep under a roof — the interior, back, depths"}],
+    ex:[{j:"奥に１缶くらいあるんじゃないか。",r:"おくに1かんくらいあるんじゃないか。",e:"There should be about one can in the back."},{j:"奥に入ってください。",r:"おくにはいってください。",e:"Please go further inside."},{j:"山の奥深く。",r:"やまのおくふかく。",e:"Deep in the mountains."}],
+    wm:"The bartender says tomato juice might be 奥に (in the back). 奥 = the inner/deeper part. Also used metaphorically: 心の奥 = the depths of one's heart." },
+
+  { id:"e01_66", ep:1, word:"通過する", reading:"つうかする", meaning:"to pass through / to go through / to transit", tier:1,
+    kb:[{k:"通",r:"つう",m:"pass through/communicate",rad:["⻌","甬"],rm:["movement","cylinder/passage"],mn:"Moving through a cylindrical passage — to pass through, communicate"},{k:"過",r:"か",m:"pass/exceed/go by",rad:["⻌","咼"],rm:["movement","bone/face"],mn:"Moving past a skull — to pass by, exceed"}],
+    ex:[{j:"ゲートを通過しましたら料金所に１列でお並びください。",r:"ゲートをつうかしましたらりょうきんじょにいちれつでおならびください。",e:"After passing through the gate, please line up in one row at the toll booth."},{j:"検査を通過した。",r:"けんさをつうかした。",e:"I passed the inspection."},{j:"国境を通過する。",r:"こっきょうをつうかする。",e:"To pass through a border crossing."}],
+    wm:"The gate announcement uses 通過する officially. 通 (pass through) + 過 (go past) = move completely through something. Applied to gates, checkpoints, exams." },
+
+  { id:"e01_67", ep:1, word:"料金所", reading:"りょうきんじょ", meaning:"toll booth / toll gate / fee station", tier:2,
+    kb:[{k:"料",r:"りょう",m:"fee/material/ration",rad:["米","斗"],rm:["rice","measuring cup"],mn:"Rice measured out — a fee, ration, material"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"Money"},{k:"所",r:"じょ",m:"place/location",rad:["户","斤"],rm:["door/household","axe/skill"],mn:"A skilled household — a place, location"}],
+    ex:[{j:"料金所に１列でお並びください。",r:"りょうきんじょにいちれつでおならびください。",e:"Please line up in one row at the toll booth."},{j:"高速道路の料金所で払った。",r:"こうそくどうろのりょうきんじょではらった。",e:"I paid at the highway toll booth."},{j:"料金所が混雑している。",r:"りょうきんじょがこんざつしている。",e:"The toll booth is congested."}],
+    wm:"Where Spike and Jet must navigate with their bounty — the 料金所 is the chokepoint. 料 (fee) + 金 (money) + 所 (place) = the place where you pay." },
+
+  { id:"e01_68", ep:1, word:"引き落とし", reading:"ひきおとし", meaning:"automatic debit / direct withdrawal / charging", tier:2,
+    kb:[{k:"引",r:"ひき",m:"pull/draw/subtract",rad:["弓","丨"],rm:["bow","line"],mn:"A bow being drawn back — to pull, draw, subtract"},{k:"落とし",r:"おとし",m:"drop/deduct/fall",rad:["艹","水","夂"],rm:["plant","water","follow downward"],mn:"Water following downward — to drop, fall, deduct"}],
+    ex:[{j:"クレジットセンサーを引き落としモードにして通過してください。",r:"クレジットセンサーをひきおとしモードにしてつうかしてください。",e:"Please set your credit sensor to debit mode and pass through."},{j:"口座から引き落とされた。",r:"こうざからひきおとされた。",e:"It was debited from my account."},{j:"自動引き落としで払う。",r:"じどうひきおとしではらう。",e:"To pay by automatic debit."}],
+    wm:"The gate system uses automatic 引き落とし — this is exactly how Hakim's crime works in EP02. Learning gate payment vocabulary in EP01 sets up the next episode." },
+
+  { id:"e01_69", ep:1, word:"旅芸人", reading:"たびげいにん", meaning:"travelling entertainer / wandering performer", tier:3,
+    kb:[{k:"旅",r:"たび",m:"journey/travel",rad:["方","𠂉"],rm:["direction","spreading"],mn:"Spreading out in a direction — a journey, travel"},{k:"芸",r:"げい",m:"art/skill/performance",rad:["艹","云"],rm:["plant","say/cloud"],mn:"A plant saying things — art, skill, performance"},{k:"人",r:"にん",m:"person",rad:["人"],rm:["person"],mn:"A person"}],
+    ex:[{j:"本当は旅芸人なんだ。",r:"ほんとうはたびげいにんなんだ。",e:"Actually, I'm a travelling entertainer."},{j:"旅芸人が町を回っていた。",r:"たびげいにんがまちをまわっていた。",e:"Travelling entertainers were going around town."},{j:"旅芸人のような生活。",r:"たびげいにんのようなせいかつ。",e:"A life like a travelling performer."}],
+    wm:"Spike's cover story when chatting with Katerina — 本当は旅芸人なんだ. Perfect deadpan. She says 冗談か本気か分からない — exactly the intended effect." },
+
+  { id:"e01_70", ep:1, word:"悪い夢", reading:"わるいゆめ", meaning:"bad dream / nightmare", tier:2,
+    kb:[{k:"悪",r:"わる(い)",m:"bad/evil/wrong",rad:["亜","心"],rm:["ugly/second-rate","heart"],mn:"An ugly heart — bad, evil"},{k:"夢",r:"ゆめ",m:"dream",rad:["艹","夕","冖"],rm:["plants","evening","cover"],mn:"Plants veiled in evening mist — a dream"}],
+    ex:[{j:"悪い夢さ。",r:"わるいゆめさ。",e:"It was a bad dream."},{j:"昨夜悪い夢を見た。",r:"さくやわるいゆめをみた。",e:"I had a bad dream last night."},{j:"これは悪い夢じゃないのか？",r:"これはわるいゆめじゃないのか？",e:"Isn't this some kind of bad dream?"}],
+    wm:"Spike's line after being outsmarted — 悪い夢さ. The phrase returns word-for-word in EP26 between Spike and Julia. EP01 plants the seed of the show's ending." },
+
+  // ── EP 02+ (existing) ──
+  // ── CORE NOUNS ──────────────────────────────────────────────────────
+
+  { id:"e02_01", ep:2, word:"大物", reading:"おおもの", meaning:"big catch / major target / important figure", tier:1,
+    kb:[{k:"大",r:"おお",m:"big/large/great",rad:["大"],rm:["large person with arms spread"],mn:"A person with arms spread wide — big, great"},{k:"物",r:"もの",m:"thing/person of significance",rad:["牛","勿"],rm:["cow","do not"],mn:"A notable cow you cannot touch — a significant thing or person"}],
+    ex:[{j:"久しぶりの大物だ、頑張ってゲットしてくれたまえ。",r:"ひさしぶりのおおものだ、がんばってゲットしてくれたまえ。",e:"It's a big catch for the first time in a while — do your best to get him."},{j:"あいつは大物の賞金首だ。",r:"あいつはおおもののしょうきんくびだ。",e:"That guy is a major bounty target."},{j:"今度こそ大物を捕まえる。",r:"こんどこそおおものをつかまえる。",e:"This time I'll definitely catch a big one."}],
+    wm:"Big Shot's hosts say 久しぶりの大物 with genuine excitement about the 800万 bounty. The show calibrates importance entirely by bounty size." },
+
+  { id:"e02_02", ep:2, word:"実験動物", reading:"じっけんどうぶつ", meaning:"laboratory animal / experimental animal", tier:2,
+    kb:[{k:"実",r:"じっ",m:"fruit/reality/actual",rad:["宀","貫"],rm:["roof","thread through"],mn:"A thread through to the core under a roof — actual substance, reality"},{k:"験",r:"けん",m:"test/effect/verify",rad:["馬","㒼"],rm:["horse","full"],mn:"A horse pushed to full capacity — to test, verify"},{k:"動",r:"どう",m:"move/motion",rad:["重","力"],rm:["heavy","strength/power"],mn:"Strength moving something heavy — motion, movement"},{k:"物",r:"ぶつ",m:"thing/creature",rad:["牛","勿"],rm:["cow","do not"],mn:"A notable creature — a thing"}],
+    ex:[{j:"とある研究機関から実験動物を奪って逃走中なんだ。",r:"とあるけんきゅうきかんからじっけんどうぶつをうばってとうそうちゅうなんだ。",e:"He's on the run after stealing a laboratory animal from a certain research institution."},{j:"実験動物の保護を訴える。",r:"じっけんどうぶつのほごをうったえる。",e:"To appeal for the protection of laboratory animals."},{j:"実験動物として使われた。",r:"じっけんどうぶつとしてつかわれた。",e:"It was used as a laboratory animal."}],
+    wm:"Ein's origin — stolen 実験動物 from a 研究機関 (research institution). The fact the institution was doing 非合法 research is why they never filed a report." },
+
+  { id:"e02_03", ep:2, word:"研究機関", reading:"けんきゅうきかん", meaning:"research institution / research organization", tier:2,
+    kb:[{k:"研",r:"けん",m:"sharpen/polish/research",rad:["石","干"],rm:["stone","dry/polish"],mn:"Polishing a stone — to sharpen, refine, research"},{k:"究",r:"きゅう",m:"investigate/exhaust/root",rad:["穴","九"],rm:["cave","nine/extreme"],mn:"Going to the extreme depths of a cave — to investigate thoroughly"},{k:"機",r:"き",m:"machine/mechanism/opportunity",rad:["木","幾"],rm:["tree","how many/mechanism"],mn:"A wooden mechanism — machine, loom, opportunity"},{k:"関",r:"かん",m:"connection/gateway/barrier",rad:["門","𤕩"],rm:["gate","block"],mn:"Something blocking a gate — a barrier, connection, gateway"}],
+    ex:[{j:"非合法に育てていた研究機関から盗んだ。",r:"ひごうほうにそだてていたけんきゅうきかんからぬすんだ。",e:"He stole it from the research institution that was raising it illegally."},{j:"大学の研究機関で働いている。",r:"だいがくのけんきゅうきかんではたらいている。",e:"I work at a university research institution."},{j:"研究機関が新しい発見を発表した。",r:"けんきゅうきかんがあたらしいはっけんをはっぴょうした。",e:"The research institution announced a new discovery."}],
+    wm:"The institution that created Ein never reported his theft — because their 非合法 research would be exposed. Hidden crimes protecting hidden crimes." },
+
+  { id:"e02_04", ep:2, word:"データ犬", reading:"データけん", meaning:"data dog / genetically enhanced intelligent dog", tier:2,
+    kb:[],
+    ex:[{j:"彼が盗んだのはある研究機関が非合法に育てていたデータ犬だったらしい。",r:"かれがぬすんだのはあるけんきゅうきかんがひごうほうにそだてていたデータけんだったらしい。",e:"What he stole was apparently a data dog that a certain research institution had been raising illegally."},{j:"データ犬は普通の犬とは違う。",r:"データけんはふつうのいぬとはちがう。",e:"Data dogs are different from ordinary dogs."},{j:"コレクターの間では天文学的な値段がついてるそうだ。",r:"コレクターのあいだではてんもんがくてきなねだんがついてるそうだ。",e:"Apparently among collectors they go for astronomical prices."}],
+    wm:"Ein is a データ犬 — essentially a living computer with fur. His true nature is never explained. Spike treats him as worthless; he's actually priceless." },
+
+  { id:"e02_05", ep:2, word:"天文学的", reading:"てんもんがくてき", meaning:"astronomical / astronomically (large/expensive)", tier:2,
+    kb:[{k:"天",r:"てん",m:"heaven/sky",rad:["一","大"],rm:["one","big person"],mn:"A great person beneath the sky — heaven, the sky"},{k:"文",r:"もん",m:"writing/pattern/letter",rad:["文"],rm:["pattern/writing"],mn:"A pattern — writing, letters, patterns"},{k:"学",r:"がく",m:"study/learning",rad:["爫","冖","子"],rm:["claw","cover","child"],mn:"A child under cover learning — study, learning"},{k:"的",r:"てき",m:"-like/-ish/of the nature of",rad:["白","勺"],rm:["white","ladle/mark"],mn:"A white target mark — -like, -ish, of the nature of"}],
+    ex:[{j:"天文学的な値段がついてるそうだ。",r:"てんもんがくてきなねだんがついてるそうだ。",e:"Apparently they go for astronomical prices."},{j:"天文学的な数字だ。",r:"てんもんがくてきなすうじだ。",e:"That's an astronomical number."},{j:"被害額は天文学的な規模だった。",r:"ひがいがくはてんもんがくてきなきぼだった。",e:"The damage was on an astronomical scale."}],
+    wm:"天文学 (astronomy) + 的 (-like) = astronomical. Used in Japanese exactly like English 'astronomical' to mean unimaginably large. Ein is worth more than his bounty." },
+
+  { id:"e02_06", ep:2, word:"整形", reading:"せいけい", meaning:"plastic surgery / cosmetic surgery", tier:2,
+    kb:[{k:"整",r:"せい",m:"arrange/put in order",rad:["束","攵","正"],rm:["bundle","strike","correct"],mn:"Striking bundles into correct arrangement — to arrange, put in order"},{k:"形",r:"けい",m:"form/shape/appearance",rad:["彡","开"],rm:["hair/lines","open"],mn:"Lines creating an open shape — form, shape, appearance"}],
+    ex:[{j:"整形のやり過ぎで金がなくなったか？",r:"せいけいのやりすぎでかねがなくなったか？",e:"Did you run out of money from too much plastic surgery?"},{j:"彼は整形手術で顔を変えた。",r:"かれはせいけいしゅじゅつでかおをかえた。",e:"He changed his face with plastic surgery."},{j:"整形後の写真だ。",r:"せいけいごのしゃしんだ。",e:"This is a photo from after the surgery."}],
+    wm:"Hakim keeps changing his face through 整形 to avoid capture — and runs broke doing it. The photo Jet has is already outdated. Disguise as a business expense." },
+
+  { id:"e02_07", ep:2, word:"完璧", reading:"かんぺき", meaning:"perfect / flawless / complete", tier:1,
+    kb:[{k:"完",r:"かん",m:"complete/perfect/whole",rad:["宀","元"],rm:["roof","origin/yuan"],mn:"An origin perfectly contained under a roof — complete, whole"},{k:"璧",r:"ぺき",m:"jade disc/flawless gem",rad:["玉","辟"],rm:["jade","open/sovereign"],mn:"A sovereign jade disc — flawless, perfect"}],
+    ex:[{j:"完璧な駄犬だ。完璧な、ただも同然だ。",r:"かんぺきなだけんだ。かんぺきな、ただもどうぜんだ。",e:"A perfectly useless dog. Perfectly worthless, basically free."},{j:"完璧な計画だ。",r:"かんぺきなけいかくだ。",e:"A perfect plan."},{j:"彼女の仕事は完璧だ。",r:"かのじょのしごとはかんぺきだ。",e:"Her work is flawless."}],
+    wm:"Spike says 完璧な駄犬 (perfectly worthless dog) twice — with contempt, then takes Ein home anyway. 完璧 used as sarcastic intensifier is very Spike." },
+
+  { id:"e02_08", ep:2, word:"駄犬", reading:"だけん", meaning:"worthless dog / useless mutt", tier:3,
+    kb:[{k:"駄",r:"だ",m:"useless/pack horse/inferior",rad:["馬","大"],rm:["horse","big"],mn:"A big horse used only for carrying packs — a beast of burden, something lowly/useless"},{k:"犬",r:"けん",m:"dog",rad:["犬"],rm:["dog"],mn:"Pictograph of a dog"}],
+    ex:[{j:"完璧な駄犬だ。",r:"かんぺきなだけんだ。",e:"A perfectly worthless dog."},{j:"この駄犬め！",r:"このだけんめ！",e:"This useless mutt!"},{j:"駄犬でも飼い主には価値がある。",r:"だけんでもかいぬしにはかちがある。",e:"Even a worthless dog, the owner has value."}],
+    wm:"駄 (inferior/useless, from pack-horse) + 犬 (dog) = useless mutt. Spike's contemptuous label for Ein. He adopts him anyway. His actions always betray his words." },
+
+  { id:"e02_09", ep:2, word:"価値", reading:"かち", meaning:"value / worth / merit", tier:1,
+    kb:[{k:"価",r:"か",m:"price/value",rad:["亻","賈"],rm:["person","goods/price"],mn:"A person involved in pricing goods — value, price"},{k:"値",r:"ち",m:"price/value/worth",rad:["亻","直"],rm:["person","straight/honest"],mn:"A person's honest straight worth — price, value"}],
+    ex:[{j:"イヌに価値はなくても飼い主には価値がある。",r:"いぬにかちはなくてもかいぬしにはかちがある。",e:"Even if the dog has no value, the owner has value."},{j:"この情報の価値はいくらだ？",r:"このじょうほうのかちはいくらだ？",e:"What is this information worth?"},{j:"本当の価値も知らんくせに。",r:"ほんとうのかちもしらんくせに。",e:"You don't even know the real value."}],
+    wm:"The key insight of EP02: the dog itself has no 価値 on the surface, but the owner does — the real 価値 is always elsewhere. The show's recurring lesson." },
+
+  { id:"e02_10", ep:2, word:"飼い主", reading:"かいぬし", meaning:"pet owner / keeper of an animal", tier:1,
+    kb:[{k:"飼",r:"か(い)",m:"raise/keep/feed (animals)",rad:["食","司"],rm:["food/eat","manage"],mn:"Managing the feeding — to raise, keep, feed an animal"},{k:"主",r:"ぬし",m:"master/owner/main",rad:["丶","王"],rm:["dot","king"],mn:"A king with a dot above — a master, owner, the main one"}],
+    ex:[{j:"イヌに価値はなくても飼い主には価値がある。",r:"いぬにかちはなくてもかいぬしにはかちがある。",e:"Even if the dog has no value, the owner has value."},{j:"飼い主が犬を探している。",r:"かいぬしがいぬをさがしている。",e:"The owner is looking for his dog."},{j:"あなたが飼い主ですか？",r:"あなたがかいぬしですか？",e:"Are you the owner?"}],
+    wm:"Spike figures out that finding the 飼い主 is the actual job — the dog leads to the bounty. 飼う (to keep animals) + 主 (owner) = pet keeper." },
+
+  { id:"e02_11", ep:2, word:"首輪", reading:"くびわ", meaning:"collar (for a pet/animal)", tier:2,
+    kb:[{k:"首",r:"くび",m:"neck",rad:["𠂉","自"],rm:["hair","face"],mn:"Hair above a face — the neck"},{k:"輪",r:"わ",m:"ring/wheel/circle",rad:["車","侖"],rm:["wheel","orderly/rotate"],mn:"A wheel rotating in an orderly circle — a ring, wheel, circle"}],
+    ex:[{j:"首輪を付けてやろうな。",r:"くびわをつけてやろうな。",e:"I'll put a collar on you."},{j:"犬に首輪を付けた。",r:"いぬにくびわをつけた。",e:"I put a collar on the dog."},{j:"首輪に名前が書いてある。",r:"くびわになまえがかいてある。",e:"There's a name written on the collar."}],
+    wm:"Spike puts a 首輪 on Ein at the end — accepting him as crew without admitting it. A ring (輪) around the neck (首). Action speaks louder than his complaints." },
+
+  { id:"e02_12", ep:2, word:"犬笛", reading:"いぬぶえ", meaning:"dog whistle (inaudible to humans)", tier:2,
+    kb:[{k:"犬",r:"いぬ",m:"dog",rad:["犬"],rm:["dog"],mn:"Pictograph of a dog"},{k:"笛",r:"ぶえ",m:"flute/whistle/pipe",rad:["竹","由"],rm:["bamboo","reason/stem"],mn:"A bamboo instrument — a flute, whistle, pipe"}],
+    ex:[{j:"犬笛を使うぞ。",r:"いぬぶえをつかうぞ。",e:"I'll use the dog whistle."},{j:"人間には聞こえないんですよ。",r:"にんげんにはきこえないんですよ。",e:"Humans can't hear it."},{j:"犬笛で犬を集めた。",r:"いぬぶえでいぬをあつめた。",e:"I gathered the dogs with a dog whistle."}],
+    wm:"The joke: Jet uses a 犬笛, declares 気のなげえ話 (what a drawn-out plan), then is baffled when he can't hear it. Ein obviously hears it and moves. Perfect comedy beat." },
+
+  { id:"e02_13", ep:2, word:"寿命", reading:"じゅみょう", meaning:"lifespan / life expectancy / how long something lasts", tier:2,
+    kb:[{k:"寿",r:"じゅ",m:"longevity/long life",rad:["士","口","寸"],rm:["samurai","mouth","inch"],mn:"A samurai measuring out long life with mouth and hand — longevity"},{k:"命",r:"みょう",m:"life/fate/command",rad:["亼","叩"],rm:["gather","kneel"],mn:"Fate gathered while kneeling — life, fate"}],
+    ex:[{j:"寿命だ。",r:"じゅみょうだ。",e:"It's reached the end of its life."},{j:"この機械はもう寿命だ。",r:"このきかいはもうじゅみょうだ。",e:"This machine has already reached the end of its life."},{j:"人間の寿命は80年くらいだ。",r:"にんげんのじゅみょうはやくじゅうはちじゅうねんくらいだ。",e:"The human lifespan is about 80 years."}],
+    wm:"The information broker looks at his equipment and says 寿命だ — it's dying. Underworld dealers always have old gear. 寿命 applies to people, machines, relationships." },
+
+  { id:"e02_14", ep:2, word:"情報", reading:"じょうほう", meaning:"information / intelligence / data", tier:1,
+    kb:[{k:"情",r:"じょう",m:"feeling/emotion/situation/info",rad:["忄","青"],rm:["heart","blue/clear"],mn:"A clear heart — feelings, the state of things, information"},{k:"報",r:"ほう",m:"report/reward/repay",rad:["幸","阝"],rm:["fortune/lucky","city/town"],mn:"Fortune reported to the town — to report, inform, repay"}],
+    ex:[{j:"情報か。ネタはアブドゥル・ハキム。",r:"じょうほうか。ネタはアブドゥル・ハキム。",e:"Information? The lead is Abdul Hakim."},{j:"情報が欲しいんなら出すもん出しな。",r:"じょうほうがほしいんならだすもんだしな。",e:"If you want information, pay up."},{j:"その情報は料金内だな。",r:"そのじょうほうはりょうきんないだな。",e:"That information is included in the fee."}],
+    wm:"情報 = the currency of the underworld. 情報が欲しいなら出すもん出しな = pay for what you want. All the Bebop's intelligence work runs on purchasing 情報." },
+
+  { id:"e02_15", ep:2, word:"手がかり", reading:"てがかり", meaning:"clue / lead / something to go on", tier:1,
+    kb:[{k:"手",r:"て",m:"hand",rad:["手"],rm:["hand"],mn:"Pictograph of a hand"},{k:"掛",r:"か(かり)",m:"hang/apply/depend on",rad:["扌","卦"],rm:["hand","trigram/apply"],mn:"A hand applying or hanging something — to engage, apply, depend on"}],
+    ex:[{j:"手がかりもないのか。",r:"てがかりもないのか。",e:"Don't you even have a clue?"},{j:"手がかりを見つけた。",r:"てがかりをみつけた。",e:"I found a clue."},{j:"その手がかりを追う。",r:"そのてがかりをおう。",e:"I'll follow that lead."}],
+    wm:"手 (hand) + 掛かり (something to hang on) = a hand-hold = a lead or clue. The broker has 手がかりもない about where Hakim is. No handholds = no progress." },
+
+  { id:"e02_16", ep:2, word:"ネタ", reading:"ネタ", meaning:"lead / tip / intel (slang for information)", tier:2,
+    kb:[],
+    ex:[{j:"ネタはアブドゥル・ハキム、いただき。",r:"ネタはアブドゥル・ハキム、いただき。",e:"The lead is Abdul Hakim — got it."},{j:"いいネタがある。",r:"いいネタがある。",e:"I've got a good tip."},{j:"そのネタはガセじゃないか。",r:"そのネタはガセじゃないか。",e:"Isn't that tip fake?"}],
+    wm:"ネタ = slang for information/material/lead. From 種 (たね, seed/material) reversed. Used in journalism, comedy, and crime alike. The broker sells 情報 by the ネタ." },
+
+  { id:"e02_17", ep:2, word:"逃走", reading:"とうそう", meaning:"escape / fleeing / running away (especially from crime/police)", tier:1,
+    kb:[{k:"逃",r:"とう",m:"flee/escape",rad:["⻌","兆"],rm:["movement","omen/sign"],mn:"Moving at the first sign of danger — to flee"},{k:"走",r:"そう",m:"run",rad:["走"],rm:["running person"],mn:"A person running with hair flying — to run"}],
+    ex:[{j:"実験動物を奪って逃走中なんだ。",r:"じっけんどうぶつをうばってとうそうちゅうなんだ。",e:"He's on the run after stealing the laboratory animal."},{j:"逃走を続けている。",r:"とうそうをつづけている。",e:"He continues to flee."},{j:"逃走を阻止しろ。",r:"とうそうをそしろ。",e:"Stop the escape."}],
+    wm:"逃げる (verb: to flee) → 逃走 (noun: an escape/flight). 逃走中 = currently fleeing. The formal/news register version. 逃走犯 = fugitive." },
+
+  { id:"e02_18", ep:2, word:"踏み倒す", reading:"ふみたおす", meaning:"to run out on a debt / to skip out / to default on payment", tier:3,
+    kb:[{k:"踏",r:"ふみ",m:"step/tread/trample",rad:["足","𭡄"],rm:["foot","trampled"],mn:"A foot trampling — to step, tread"},{k:"倒す",r:"たおす",m:"knock down/overthrow",rad:["亻","到"],rm:["person","arrive/reach"],mn:"A person knocked to arrive at the ground — to knock down, overthrow"}],
+    ex:[{j:"あいつ踏み倒していきやがった。",r:"あいつふみたおしていきやがった。",e:"That bastard ran out on his debt and left."},{j:"飲み代を踏み倒した。",r:"のみだいをふみたおした。",e:"He skipped out on the bar tab."},{j:"借金を踏み倒すのは犯罪だ。",r:"しゃっきんをふみたおすのははんざいだ。",e:"Running out on a debt is a crime."}],
+    wm:"Hakim skipped out on the broker without paying — 踏み倒していきやがった. 踏み (trampling) + 倒す (knocking down) = trampling the debt into the ground. Vivid imagery." },
+
+  { id:"e02_19", ep:2, word:"骨董品", reading:"こっとうひん", meaning:"antique / vintage item / relic", tier:2,
+    kb:[{k:"骨",r:"こっ",m:"bone/frame/essential",rad:["骨"],rm:["bone"],mn:"Pictograph of a bone — bone, framework, essential"},{k:"董",r:"とう",m:"supervise/manage/old goods",rad:["艹","重"],rm:["plant","heavy/important"],mn:"Heavy important plants — old, supervising"},{k:"品",r:"ひん",m:"goods/quality/item",rad:["品"],rm:["three mouths/many goods"],mn:"Many goods for mouths — goods, quality, items"}],
+    ex:[{j:"そいつは骨董品だな。",r:"そいつはこっとうひんだな。",e:"That's an antique."},{j:"30年代のレアもんだよ、そりゃあ骨董品だ。",r:"30ねんだいのレアもんだよ、そりゃあこっとうひんだ。",e:"It's a rare item from the 30s — that's a genuine antique."},{j:"骨董品の価値は分からない。",r:"こっとうひんのかちはわからない。",e:"I don't understand the value of antiques."}],
+    wm:"The pet shop owner recognizes Ein's leash as a 骨董品 from the 30s — suddenly its value changes entirely. What looks old and worthless may be priceless." },
+
+  { id:"e02_20", ep:2, word:"命懸け", reading:"いのちがけ", meaning:"risking one's life / life-or-death", tier:2,
+    kb:[{k:"命",r:"いのち",m:"life/fate",rad:["亼","叩"],rm:["gather","kneel"],mn:"Fate gathered while kneeling — life, fate"},{k:"懸",r:"が(け)",m:"hang/stake/be at risk",rad:["縣","心"],rm:["hang/suspend","heart"],mn:"A heart hanging in suspension — to stake, be at risk"}],
+    ex:[{j:"たかが200ウーロンのイヌのために命懸けか。",r:"たかが200ウーロンのいぬのためにいのちがけか。",e:"Risking your life for a mere 200-woolong dog?"},{j:"命懸けで戦った。",r:"いのちがけでたたかった。",e:"I fought with my life on the line."},{j:"命懸けの仕事だ。",r:"いのちがけのしごとだ。",e:"It's life-or-death work."}],
+    wm:"Hakim mocks Spike's pursuit: 命懸けか — risking your life for 200 woolongs? He doesn't know the dog's real value. The contempt is completely misplaced." },
+
+  // ── CORE VERBS ──────────────────────────────────────────────────────
+
+  { id:"e02_21", ep:2, word:"奪う", reading:"うばう", meaning:"to snatch / to steal / to seize by force", tier:1,
+    kb:[{k:"奪",r:"うば(う)",m:"snatch/seize/rob",rad:["隹","寸"],rm:["bird","measure/hand"],mn:"A bird seized by a measuring hand — to snatch, seize, rob"}],
+    ex:[{j:"実験動物を奪って逃走中だ。",r:"じっけんどうぶつをうばってとうそうちゅうだ。",e:"He's on the run after snatching a laboratory animal."},{j:"財布を奪われた。",r:"さいふをうばわれた。",e:"My wallet was stolen (snatched from me)."},{j:"チャンスを奪う。",r:"チャンスをうばう。",e:"To steal someone's chance."}],
+    wm:"奪う is more forceful than 盗む (steal quietly) — it implies snatching by force. Hakim 奪った (seized) from a research facility, not just stole." },
+
+  { id:"e02_22", ep:2, word:"踏み込む", reading:"ふみこむ", meaning:"to step into / to barge in / to venture into", tier:2,
+    kb:[{k:"踏",r:"ふみ",m:"step/tread",rad:["足","𭡄"],rm:["foot","trampled"],mn:"A foot trampling — to step, tread"},{k:"込む",r:"こむ",m:"go into/crowd into",rad:["⻌","入"],rm:["movement","enter"],mn:"Moving into a place — to crowd in, go into"}],
+    ex:[{j:"ラボに踏み込んできた。",r:"らぼにふみこんできた。",e:"He came barging into the lab."},{j:"危険地帯に踏み込む。",r:"きけんちたいにふみこむ。",e:"To venture into a dangerous area."},{j:"プライベートに踏み込むな。",r:"プライベートにふみこむな。",e:"Don't barge into (someone's) private life."}],
+    wm:"踏み (step/tread) + 込む (go into) = step forcefully into. Hakim 踏み込んだ into the lab to steal Ein. More assertive than just entering." },
+
+  { id:"e02_23", ep:2, word:"始末する", reading:"しまつする", meaning:"to dispose of / to deal with / to finish off", tier:2,
+    kb:[{k:"始",r:"し",m:"begin/start",rad:["女","台"],rm:["woman","platform/start"],mn:"A woman on a platform — to begin, start"},{k:"末",r:"まつ",m:"end/tip/minor",rad:["木","一"],rm:["tree","one line at top"],mn:"A line at the top of a tree — the tip, the end"}],
+    ex:[{j:"それが嫌なら自分で始末すんのね。",r:"それがいやならじぶんでしまつすんのね。",e:"If you don't like it, deal with it yourself."},{j:"このトラブルを始末しろ。",r:"このトラブルをしまつしろ。",e:"Deal with this trouble."},{j:"後始末が大変だ。",r:"あとしまつがたいへんだ。",e:"The cleanup afterwards is tough."}],
+    wm:"The pet shop owner coldly tells Hakim to 始末 the dog if he doesn't like the price. 始末する = deal with from beginning (始) to end (末). Often implies disposing of something inconvenient." },
+
+  { id:"e02_24", ep:2, word:"泣かせる", reading:"なかせる", meaning:"to be touching / to make one cry / pathetically moving", tier:3,
+    kb:[{k:"泣",r:"な(か)",m:"cry/weep",rad:["氵","立"],rm:["water","stand"],mn:"Water standing up — tears, to cry"},{k:"せる",r:"せる",m:"causative — make/let",rad:[""],rm:[""],mn:"Causative suffix: make someone do something"}],
+    ex:[{j:"泣かせる話じゃないか。",r:"なかせるはなしじゃないか。",e:"Isn't that a touching/pathetic story?"},{j:"泣かせる映画だ。",r:"なかせるえいがだ。",e:"It's a movie that makes you cry."},{j:"泣かせるなよ。",r:"なかせるなよ。",e:"Don't make me cry (don't be so moving/pathetic)."}],
+    wm:"Hakim mocks Spike: 泣かせる話じゃないか (isn't that a touching/pathetic story?) about risking life for a cheap dog. 泣かせる = makes-cry = either touching or pathetically tragic depending on tone." },
+
+  { id:"e02_25", ep:2, word:"放り出す", reading:"ほうりだす", meaning:"to throw out / to dump / to abandon", tier:2,
+    kb:[{k:"放",r:"ほう(り)",m:"release/let go/throw",rad:["方","攵"],rm:["direction","strike/follow"],mn:"Striking something in a direction — to release, throw, let go"},{k:"出す",r:"だす",m:"put out/take out/throw out",rad:["凵","止"],rm:["container","stop/foot"],mn:"Taking something out of a container — to put out, take out"}],
+    ex:[{j:"こんな駄犬放り出しちまおうって言ったんだ。",r:"こんなだけんほうりだしちまおうっていったんだ。",e:"I said let's just throw out this useless dog."},{j:"仕事を放り出した。",r:"しごとをほうりだした。",e:"He abandoned his work."},{j:"子どもを放り出すな。",r:"こどもをほうりだすな。",e:"Don't abandon children."}],
+    wm:"Spike says 放り出しちまおう about Ein. 放り (throwing) + 出す (out) = throw out completely. He's always threatening to abandon Ein; he never does." },
+
+  { id:"e02_26", ep:2, word:"つぶれる", reading:"つぶれる", meaning:"to be crushed / to collapse / to go bust", tier:2,
+    kb:[{k:"潰",r:"つぶ(れる)",m:"crush/smash/collapse",rad:["氵","貴"],rm:["water","precious/value"],mn:"Water crushing what was precious — to crush, collapse"}],
+    ex:[{j:"こいつがつぶれたら終わりなんだ。",r:"こいつがつぶれたらおわりなんだ。",e:"If this thing gets crushed, it's all over."},{j:"会社がつぶれた。",r:"かいしゃがつぶれた。",e:"The company went bust."},{j:"目がつぶれる。",r:"めがつぶれる。",e:"My eyes are getting crushed / going blind."}],
+    wm:"Jet worries about the cargo being damaged during the chase — こいつがつぶれたら終わり. In EP02 context = crushing Ein = losing the bounty. Also used for businesses collapsing." },
+
+  // ── ADJECTIVES & EXPRESSIONS ────────────────────────────────────────
+
+  { id:"e02_27", ep:2, word:"珍しい", reading:"めずらしい", meaning:"rare / unusual / uncommon", tier:1,
+    kb:[{k:"珍",r:"めずら(しい)",m:"rare/unusual/strange",rad:["王","彡"],rm:["king/gem","hair/lines"],mn:"A gem with flowing lines — rare, unusual, precious"}],
+    ex:[{j:"珍しい種類じゃないわね。",r:"めずらしいしゅるいじゃないわね。",e:"It's not a rare breed."},{j:"珍しい鳥を見た。",r:"めずらしいとりをみた。",e:"I saw a rare bird."},{j:"珍しいことがあった。",r:"めずらしいことがあった。",e:"Something unusual happened."}],
+    wm:"The pet shop owner dismisses Ein: 珍しい種類じゃないわね (not a rare breed). She's completely wrong about his value. The surface never matches the reality." },
+
+  { id:"e02_28", ep:2, word:"気の長い", reading:"きのながい", meaning:"patient / long-suffering / drawn-out (requiring patience)", tier:2,
+    kb:[{k:"気",r:"き",m:"spirit/energy",rad:["气","米"],rm:["air/energy","rice"],mn:"Energy/rice rising as steam — vital spirit, energy"},{k:"長",r:"なが(い)",m:"long",rad:["长"],rm:["long hair/elder"],mn:"A person with long flowing hair — long"}],
+    ex:[{j:"気のなげえ話だよな、たく。",r:"きのながえはなしだよな、たく。",e:"What a drawn-out plan, honestly."},{j:"気の長い仕事だ。",r:"きのながいしごとだ。",e:"It's work that requires patience."},{j:"気の長い人だ。",r:"きのながいひとだ。",e:"He's a patient person."}],
+    wm:"Jet says 気のなげえ話 about using a dog whistle to find Ein. Sometimes the only option requires patience. 気が長い = spirit is long = patient/drawn-out." },
+
+  { id:"e02_29", ep:2, word:"妙に", reading:"みょうに", meaning:"strangely / oddly / suspiciously", tier:2,
+    kb:[{k:"妙",r:"みょう",m:"strange/wonderful/subtle",rad:["女","少"],rm:["woman","few/small"],mn:"A woman with few/small features — strange, subtle, wonderful"}],
+    ex:[{j:"妙に目立つスーツケースを持ってたな。",r:"みょうにめだつスーツケースをもってたな。",e:"He was carrying a strangely conspicuous suitcase."},{j:"妙な感じがする。",r:"みょうなかんじがする。",e:"I have a strange feeling."},{j:"妙に静かだ。",r:"みょうにしずかだ。",e:"It's oddly quiet."}],
+    wm:"The observation that cracks the case: 妙に目立つスーツケース. 妙に = oddly/suspiciously. The suitcase that should be hiding something is instead advertising it." },
+
+  { id:"e02_30", ep:2, word:"熱くなる", reading:"あつくなる", meaning:"to get heated / to get worked up / to lose one's cool", tier:2,
+    kb:[{k:"熱",r:"あつ(く)",m:"hot/passionate/fever",rad:["火","熱"],rm:["fire","heat"],mn:"Fire creating heat — hot, passion, fever"},{k:"なる",r:"なる",m:"become",rad:[""],rm:[""],mn:"To become, turn into"}],
+    ex:[{j:"俺のどこが熱くなってるよ。",r:"おれのどこがあつくなってるよ。",e:"What part of me is getting worked up?"},{j:"熱くなるな、冷静に。",r:"あつくなるな、れいせいに。",e:"Don't get heated — stay calm."},{j:"試合になると熱くなる。",r:"しあいになるとあつくなる。",e:"He gets worked up when it's a match."}],
+    wm:"Jet accuses Spike of being 熱くなってる about the chase. Spike denies it. His refusal to admit feelings is his whole character. 熱くなる = getting fired up/emotional." },
+
+  { id:"e02_31", ep:2, word:"上等", reading:"じょうとう", meaning:"bring it on / fine by me / that's excellent", tier:2,
+    kb:[{k:"上",r:"じょう",m:"upper/top",rad:["一","丨"],rm:["horizon","rising"],mn:"A line rising above the horizon — upper, top"},{k:"等",r:"とう",m:"grade/equal/class",rad:["竹","寺"],rm:["bamboo","temple/wait"],mn:"Bamboo measured equally at a temple — grade, class, equal"}],
+    ex:[{j:"上等だ。逃げられるもんなら逃げてみろ。",r:"じょうとうだ。にげられるもんならにげてみろ。",e:"Bring it on. Try to run if you can."},{j:"上等じゃないか。やってやる。",r:"じょうとうじゃないか。やってやる。",e:"That's fine by me. Let's do it."},{j:"上等な品物だ。",r:"じょうとうなしなものだ。",e:"It's a top-grade item."}],
+    wm:"Spike says 上等だ before the final chase — 'bring it on / fine by me'. Originally means 'top grade/class', used colloquially as acceptance of a challenge. Classic tough-guy phrase." },
+
+  { id:"e02_32", ep:2, word:"胸くそ悪い", reading:"むなくそわるい", meaning:"disgusting / makes one's stomach turn / repulsive", tier:3,
+    kb:[{k:"胸",r:"むな",m:"chest/breast/heart",rad:["月","匈"],rm:["body/flesh","chest"],mn:"The flesh of the chest — chest, breast, heart"},{k:"くそ",r:"くそ",m:"crap/crap- (intensifier)",rad:[""],rm:[""],mn:"Excrement — very rough intensifier"},{k:"悪",r:"わる(い)",m:"bad",rad:["亜","心"],rm:["ugly","heart"],mn:"An ugly heart — bad, wrong"}],
+    ex:[{j:"くっそお、胸くそ悪い。",r:"くっそお、むなくそわるい。",e:"Damn it, this makes my stomach turn."},{j:"あいつの態度は胸くそ悪い。",r:"あいつのたいどはむなくそわるい。",e:"His attitude is disgusting."},{j:"胸くそ悪い話だ。",r:"むなくそわるいはなしだ。",e:"It's a stomach-turning story."}],
+    wm:"Spike's reaction to losing Ein temporarily — 胸くそ悪い. Literally: 'chest-crap-bad'. The compound くそ as intensifier makes this rough and visceral. Very colloquial." },
+
+  { id:"e02_33", ep:2, word:"落ち着かない", reading:"おちつかない", meaning:"restless / unsettled / can't calm down / fidgety", tier:2,
+    kb:[{k:"落",r:"お(ち)",m:"fall/drop/settle",rad:["艹","水","夂"],rm:["plant","water","follow downward"],mn:"Water following downward — to fall, drop, settle"},{k:"着く",r:"つ(く)",m:"arrive/settle/attach",rad:["羊","目"],rm:["sheep","eye"],mn:"A sheep arriving at sight — to arrive, settle, attach"}],
+    ex:[{j:"落ち着かないやつだ。",r:"おちつかないやつだ。",e:"He's a restless guy."},{j:"落ち着け。",r:"おちつけ。",e:"Calm down."},{j:"ころころ顔を変えるから落ち着かない。",r:"ころころかおをかえるからおちつかない。",e:"He keeps changing his face, so he's unsettled."}],
+    wm:"Jet says 落ち着かないやつ about Hakim who keeps changing his face through 整形. 落ち着く = fall + settle = to calm down. 落ち着かない = cannot settle = restless." },
+
+  // ── GRAMMAR POINTS ──────────────────────────────────────────────────
+
+  { id:"e02_34", ep:2, word:"〜てくれ", reading:"〜てくれ", meaning:"do ~ for me / please do ~ (rough request)", tier:1,
+    kb:[],
+    ex:[{j:"頑張ってゲットしてくれたまえ。",r:"がんばってゲットしてくれたまえ。",e:"Do your best to get him."},{j:"早く来てくれ。",r:"はやくきてくれ。",e:"Come quickly (for me)."},{j:"黙ってくれないか。",r:"だまってくれないか。",e:"Would you please be quiet?"}],
+    wm:"〜てくれ = do ~ for me. The speaker receives the benefit. Compare 〜てあげる (you do for others). 〜てくれ is rough/direct; 〜てください is polite. Essential request pattern." },
+
+  { id:"e02_35", ep:2, word:"〜にしちゃ", reading:"〜にしちゃ", meaning:"for ~ / considering ~ (colloquial version of 〜にしては)", tier:2,
+    kb:[],
+    ex:[{j:"200ウーロンにしちゃ大事に扱ってたな。",r:"200ウーロンにしちゃたいせつにあつかってたな。",e:"For 200 woolongs, he was handling it with great care."},{j:"子どもにしちゃ上手だ。",r:"こどもにしちゃじょうずだ。",e:"For a kid, he's pretty good."},{j:"値段にしちゃいいものだ。",r:"ねだんにしちゃいいものだ。",e:"For the price, it's good quality."}],
+    wm:"〜にしちゃ = 〜にしては contracted (casual speech). Creates contrast between category and quality: 値段にしちゃいい = 'good for its price category'. Common in colloquial speech." },
+
+  { id:"e02_36", ep:2, word:"〜やがる", reading:"〜やがる", meaning:"(offensive auxiliary) doing ~ (used to express contempt for subject's action)", tier:3,
+    kb:[],
+    ex:[{j:"あいつ踏み倒していきやがった。",r:"あいつふみたおしていきやがった。",e:"That bastard went and skipped out on his debt."},{j:"逃げやがった！",r:"にげやがった！",e:"The bastard ran away!"},{j:"また遅刻しやがった。",r:"またちこくしやがった。",e:"He went and was late again (contemptible)."}],
+    wm:"〜やがる = extremely rough/contemptuous auxiliary. Indicates the speaker has contempt for the subject doing the action. 逃げた vs 逃げやがった = fled vs the bastard fled. Only used in anger." },
+
+  { id:"e02_37", ep:2, word:"〜くせに", reading:"〜くせに", meaning:"even though ~ / despite ~ (with contempt or reproach)", tier:2,
+    kb:[],
+    ex:[{j:"本当の価値も知らんくせに。",r:"ほんとうのかちもしらんくせに。",e:"And you don't even know the real value."},{j:"何も知らないくせに偉そうだ。",r:"なにもしらないくせにえらそうだ。",e:"Acting high and mighty despite knowing nothing."},{j:"失敗したくせに謝らない。",r:"しっぱいしたくせにあやまらない。",e:"Despite having failed, he won't apologize."}],
+    wm:"〜くせに = despite (with reproach). Implies the subject should know better or behave differently given their situation. 知らんくせに = knowing nothing yet acting as if..." },
+
+  { id:"e02_38", ep:2, word:"〜もんか", reading:"〜もんか", meaning:"as if ~ / no way ~ / there's no chance that ~ (strong denial)", tier:3,
+    kb:[],
+    ex:[{j:"こんな200ウーロンの犬に命懸けするもんか。",r:"こんな200ウーロンのいぬにいのちがけするもんか。",e:"As if I'd risk my life for a 200-woolong dog."},{j:"負けるもんか。",r:"まけるもんか。",e:"No way I'm losing."},{j:"諦めるもんか。",r:"あきらめるもんか。",e:"As if I'd give up."}],
+    wm:"〜もんか = extremely strong denial of a suggestion. 〜ものか (formal) → 〜もんか (rough). Used to express that something is unthinkable. Spike would say this about many things." },
+
+  // ── ADDITIONAL DIALOGUE VOCAB ──────────────────────────────────────
+
+  { id:"e02_39", ep:2, word:"条件", reading:"じょうけん", meaning:"condition / terms / requirement", tier:1,
+    kb:[{k:"条",r:"じょう",m:"article/clause/line",rad:["木","攵"],rm:["tree","strike/follow"],mn:"Lines struck in a tree — articles, clauses, conditions"},{k:"件",r:"けん",m:"matter/case/item",rad:["亻","牛"],rm:["person","cow"],mn:"A person's matter — a case, item, affair"}],
+    ex:[{j:"条件はいつものように賞金首を生きたまま連れてくることだ。",r:"じょうけんはいつものようにしょうきんくびをいきたままつれてくることだ。",e:"The condition as always is to bring the bounty target back alive."},{j:"その条件なら引き受ける。",r:"そのじょうけんならひきうける。",e:"If those are the conditions, I'll take it."},{j:"条件を守ってください。",r:"じょうけんをまもってください。",e:"Please follow the conditions."}],
+    wm:"Big Shot states 条件 every episode. The always-present 条件: 生きたまま. This transforms bounty hunting from combat into capture, making every mission harder." },
+
+  { id:"e02_40", ep:2, word:"行方不明", reading:"ゆくえふめい", meaning:"whereabouts unknown / missing / gone without a trace", tier:1,
+    kb:[{k:"行",r:"ゆく",m:"go/direction",rad:["行"],rm:["crossroads"],mn:"A crossroads — to go, direction"},{k:"方",r:"え",m:"direction/way",rad:["方"],rm:["direction"],mn:"A person pointing — direction, way"},{k:"不",r:"ふ",m:"not/un-",rad:["不"],rm:["not"],mn:"A bird that won't land — not, un-"},{k:"明",r:"めい",m:"clear/bright/known",rad:["日","月"],rm:["sun","moon"],mn:"Sun and moon together — bright, clear, known"}],
+    ex:[{j:"行方不明のままなんだって。",r:"ゆくえふめいのままなんだって。",e:"They say it's still missing / whereabouts unknown."},{j:"彼は行方不明になった。",r:"かれはゆくえふめいになった。",e:"He went missing."},{j:"行方不明者を捜索している。",r:"ゆくえふめいしゃをそうさくしている。",e:"They're searching for the missing person."}],
+    wm:"Big Shot says Ein is still 行方不明 at episode's end. 行く (going) + 方 (direction) + 不 (not) + 明 (known) = direction of travel not known = missing." },
+
+  { id:"e02_41", ep:2, word:"ダニ", reading:"ダニ", meaning:"tick / mite (parasite)", tier:2,
+    kb:[],
+    ex:[{j:"とにかくダニを何とかしないとな。",r:"とにかくダニをなんとかしないとな。",e:"Anyway, we have to do something about the ticks."},{j:"犬にダニがついた。",r:"いぬにダニがついた。",e:"The dog got ticks."},{j:"ダニを取り除いた。",r:"ダニをとりのぞいた。",e:"I removed the ticks."}],
+    wm:"Jet and Spike's domestic problem with Ein immediately after acquiring him — ダニ. The transition from dangerous chase to pest-control mundanity is pure Bebop comedy." },
+
+  { id:"e02_42", ep:2, word:"引き取る", reading:"ひきとる", meaning:"to take in / to collect / to take charge of / to take back", tier:2,
+    kb:[{k:"引",r:"ひき",m:"pull/draw",rad:["弓","丨"],rm:["bow","line"],mn:"A bow being drawn — to pull, draw"},{k:"取る",r:"とる",m:"take",rad:["又","耳"],rm:["hand","ear"],mn:"A hand grabbing an ear — to take, grab"}],
+    ex:[{j:"そいつらにこのけだもの引き取ってもらえ。",r:"そいつらにこのけだもののひきとってもらえ。",e:"Have those guys take in this animal."},{j:"子どもを引き取った。",r:"こどもをひきとった。",e:"I took in the child."},{j:"荷物を引き取りに来た。",r:"にもつをひきとりにきた。",e:"I came to collect my luggage."}],
+    wm:"Spike tells Jet to have the environmental group 引き取る Ein — take him off their hands. 引き (pull/draw) + 取る (take) = pull in and take = take in, collect, receive custody of." },
+
+  { id:"e02_43", ep:2, word:"鎖", reading:"くさり", meaning:"chain / chain leash", tier:2,
+    kb:[{k:"鎖",r:"くさり",m:"chain/lock",rad:["金","小"],rm:["metal","small"],mn:"Small metal links — a chain, lock"}],
+    ex:[{j:"鎖が長いな。",r:"くさりがながいな。",e:"The chain is long."},{j:"犬を鎖につないだ。",r:"いぬをくさりにつないだ。",e:"I chained the dog up."},{j:"鎖を外してくれ。",r:"くさりをはずしてくれ。",e:"Please remove the chain."}],
+    wm:"The antique chain leash catches the pet shop owner's eye — ウェイ・オブ・ザ・ドラゴンモデル from the 30s. A 鎖 (chain) that becomes a 骨董品 and a plot device." },
+
+  { id:"e02_44", ep:2, word:"ジョーカー", reading:"ジョーカー", meaning:"joker (playing card) / trump card / wild card", tier:2,
+    kb:[],
+    ex:[{j:"とにかくジョーカーはこっちが持ってるんだ。",r:"とにかくジョーカーはこっちがもってるんだ。",e:"Anyway, we're the ones holding the joker (trump card)."},{j:"ジョーカーを持っている。",r:"ジョーカーをもっている。",e:"I'm holding the joker."},{j:"切り札を出した。",r:"きりふだをだした。",e:"He played his trump card."}],
+    wm:"The researcher says ジョーカーはこっちが持ってる — meaning they have the leverage (Ein). In Japanese, ジョーカー can mean a trump card or wildcard advantage, not just the playing card." },
+
+  { id:"e02_45", ep:2, word:"世話が焼ける", reading:"せわがやける", meaning:"to be a handful / troublesome / high maintenance", tier:3,
+    kb:[],
+    ex:[{j:"世話が焼けるったらねえぜ。ガキとけだもんは嫌いなんだよ。",r:"せわがやけるったらねえぜ。がきとけだもんはきらいなんだよ。",e:"They're such a handful, I tell you. I hate kids and animals."},{j:"あの子は世話が焼ける。",r:"あのこはせわがやける。",e:"That child is really a handful."},{j:"世話が焼ける人だな。",r:"せわがやけるひとだな。",e:"What a troublesome person."}],
+    wm:"世話 (care) が焼ける (gets burned) = the care burns you out. Spike's famous complaint about Ein — and Ein, Faye, and Ed together. The Bebop crew is one extended 世話が焼ける situation." },
+
+  { id:"e02_46", ep:2, word:"〜っつうの", reading:"〜っつうの", meaning:"I said ~ / I'm telling you ~ (emphatic repetition, rough)", tier:3,
+    kb:[],
+    ex:[{j:"上がるなっつうの！",r:"あがるなっつうの！",e:"I SAID don't get on there!"},{j:"やめろっつうの！",r:"やめろっつうの！",e:"I SAID stop it!"},{j:"知らないっつうの！",r:"しらないっつうの！",e:"I'm TELLING you I don't know!"}],
+    wm:"〜と言っているの contracted → 〜っていうの → 〜っつうの (very rough). Same function as 〜ってんだよ from EP01 — frustrated repetition, 'I ALREADY SAID'. Very Bebop speech register." },
+
+  { id:"e02_47", ep:2, word:"かっぱらう", reading:"かっぱらう", meaning:"to swipe / to pilfer / to grab and run", tier:3,
+    kb:[],
+    ex:[{j:"荷物をかっぱらっていくやつ。",r:"にもつをかっぱらっていくやつ。",e:"The type who grabs stuff and runs."},{j:"財布をかっぱらわれた。",r:"さいふをかっぱらわれた。",e:"My wallet got swiped."},{j:"船を襲って何でもかっぱらっていく。",r:"ふねをおそってなんでもかっぱらっていく。",e:"They attack ships and grab anything."}],
+    wm:"More casual and vivid than 盗む (steal) or 奪う (seize). かっぱらう implies a quick opportunistic grab — pirates かっぱらう in EP19. Petty theft energy." },
+
+  { id:"e02_48", ep:2, word:"幸せかい", reading:"しあわせかい", meaning:"are you happy? / are things good? (casual question)", tier:2,
+    kb:[],
+    ex:[{j:"幸せかい？ええ、とっても。",r:"しあわせかい？ええ、とっても。",e:"Are you happy? Yes, very."},{j:"幸せかい、今の生活は？",r:"しあわせかい、いまのせいかつは？",e:"Are you happy with your current life?"},{j:"幸せかどうか分からない。",r:"しあわせかどうかわからない。",e:"I don't know if I'm happy."}],
+    wm:"A moment of genuine gentleness in EP02 — someone asks Ein 幸せかい and he responds. The show uses Ein as a vehicle for sincerity the human characters won't show." },
+
+  { id:"e02_49", ep:2, word:"かい", reading:"かい", meaning:"? (casual question particle, softer than か)", tier:1,
+    kb:[],
+    ex:[{j:"幸せかい？",r:"しあわせかい？",e:"Are you happy?"},{j:"分かったかい？",r:"わかったかい？",e:"Did you understand?"},{j:"食べたかい？",r:"たべたかい？",e:"Did you eat?"}],
+    wm:"かい = か + い, a softer/warmer question particle. Used by older men or in gentle speech. Contrasts with か (neutral) and かな (wondering to oneself). Creates warmer tone than plain か." },
+
+  { id:"e02_50", ep:2, word:"〜ものだ", reading:"〜ものだ", meaning:"it is a fact that ~ / things are such that ~ / one should ~", tier:2,
+    kb:[],
+    ex:[{j:"ばあちゃんにやりかけたことは最後までやり通せって言われなかったか。",r:"ばあちゃんにやりかけたことはさいごまでやりとおせっていわれなかったか。",e:"Didn't your grandma tell you to see things through to the end?"},{j:"約束は守るものだ。",r:"やくそくはまもるものだ。",e:"One should keep promises. / Promises are meant to be kept."},{j:"人間は間違えるものだ。",r:"にんげんはまちがえるものだ。",e:"People make mistakes. / It's human nature to make mistakes."}],
+    wm:"〜ものだ = expresses a general truth, social norm, or nostalgic 'how things should be'. やるものだ = one should do it. The bounty hunter quoting his grandmother: pure comedy." },
+
+  { id:"e03_01", ep:3, word:"借金", reading:"しゃっきん", meaning:"debt / money owed / being in debt", tier:1,
+    kb:[{k:"借",r:"しゃ(っ)",m:"borrow/rent/be indebted",rad:["亻","昔"],rm:["person","long ago/former"],mn:"A person bound to a former arrangement — to borrow, be in debt"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"Person mining earth — money"}],
+    ex:[{j:"君には莫大な借金があるそうだな。",r:"きみにはばくだいなしゃっきんがあるそうだな。",e:"I hear you have enormous debt."},{j:"借金を返す。",r:"しゃっきんをかえす。",e:"To pay back debt."},{j:"借金まみれの生活だ。",r:"しゃっきんまみれのせいかつだ。",e:"A life buried in debt."}],
+    wm:"Faye's defining problem throughout the entire series. Her 借金 from the cold sleep era is so massive (3億+) it becomes a running joke she never resolves." },
+
+  { id:"e03_02", ep:3, word:"カジノ", reading:"カジノ", meaning:"casino", tier:1,
+    kb:[],
+    ex:[{j:"フェイはカジノで稼いでいる。",r:"フェイはカジノでかせいでいる。",e:"Faye earns money at casinos."},{j:"カジノでイカサマをした。",r:"カジノでイカサマをした。",e:"She cheated at the casino."},{j:"カジノの金は天下の回り物だ。",r:"カジノのかねはてんかのまわりものだ。",e:"Casino money circulates around the world."}],
+    wm:"EP03's setting — Faye runs a blackjack scam here. The 高そう then turns out to contain a 暗号解読プログラム. The casino is where everything intersects." },
+
+  { id:"e03_03", ep:3, word:"イカサマ", reading:"イカサマ", meaning:"cheating / fraud / rigged / trickery", tier:2,
+    kb:[],
+    ex:[{j:"イカサマ勝負に付き合ってやったんだぜ。",r:"イカサマしょうぶにつきあってやったんだぜ。",e:"I went along with the rigged match."},{j:"イカサマをしていた！",r:"イカサマをしていた！",e:"She was cheating!"},{j:"イカサマを見抜くのも腕のうち。",r:"イカサマをみぬくのもうでのうち。",e:"Seeing through cheating is also a skill."}],
+    wm:"Faye's whole game is イカサマ — but she says 見抜くのも腕のうち (spotting it is also skill). Her personal philosophy of life in one line." },
+
+  { id:"e03_04", ep:3, word:"証拠", reading:"しょうこ", meaning:"evidence / proof", tier:1,
+    kb:[{k:"証",r:"しょう",m:"proof/certify/evidence",rad:["言","登"],rm:["words","ascend/register"],mn:"Words ascending to official record — to certify, prove"},{k:"拠",r:"こ",m:"basis/grounds/rely on",rad:["扌","居"],rm:["hand","reside/occupy"],mn:"A hand occupying a solid position — basis, grounds"}],
+    ex:[{j:"証拠があって言ってんのかしら？",r:"しょうこがあっていってんのかしら？",e:"Do you have evidence to say that?"},{j:"証拠を見せろ。",r:"しょうこをみせろ。",e:"Show me the evidence."},{j:"証拠がなければ逮捕できない。",r:"しょうこがなければたいほできない。",e:"Without evidence we can't arrest them."}],
+    wm:"Faye challenges the casino boss: 証拠があって言ってんのかしら? — the bold bluff that shows how she operates. She makes them prove it first." },
+
+  { id:"e03_05", ep:3, word:"暗号", reading:"あんごう", meaning:"code / cipher / encryption", tier:2,
+    kb:[{k:"暗",r:"あん",m:"dark/secret/hidden",rad:["日","音"],rm:["sun","sound/shadow"],mn:"The sun hidden by sound/shadow — dark, hidden, secret"},{k:"号",r:"ごう",m:"signal/number/code",rad:["口","丂"],rm:["mouth","snaking/signal"],mn:"A mouth signaling in a pattern — a code, signal, number"}],
+    ex:[{j:"暗号解読プログラムが入っている。",r:"あんごうかいどくプログラムがはいっている。",e:"A code-breaking program is inside it."},{j:"暗号を解読する。",r:"あんごうをかいどくする。",e:"To decode a cipher."},{j:"暗号化されたデータ。",r:"あんごうかされたデータ。",e:"Encrypted data."}],
+    wm:"The MacGuffin of EP03: a 暗号解読プログラム (code-breaking program) hidden in a casino chip. The villain calls it 魔法の鍵 (magic key)." },
+
+  { id:"e03_06", ep:3, word:"魔法の鍵", reading:"まほうのかぎ", meaning:"magic key / a tool that unlocks anything", tier:3,
+    kb:[{k:"魔",r:"ま",m:"demon/evil/magic",rad:["广","鬼"],rm:["shelter","demon"],mn:"A demon under shelter — evil, magical"},{k:"法",r:"ほう",m:"law/method",rad:["氵","去"],rm:["water","go away"],mn:"Water channeled in a method — law, method"},{k:"鍵",r:"かぎ",m:"key/lock",rad:["金","建"],rm:["metal","build/establish"],mn:"Metal that builds (opens) something — a key"}],
+    ex:[{j:"言ってみりゃ魔法の鍵ってわけだ。",r:"いってみりゃまほうのかぎってわけだ。",e:"You could call it a magic key."},{j:"魔法の鍵を使ってどんな扉も開く。",r:"まほうのかぎをつかってどんなとびらもあく。",e:"Use the magic key to open any door."},{j:"ほとんどの暗号を解読できる魔法の鍵だ。",r:"ほとんどのあんごうをかいどくできるまほうのかぎだ。",e:"It's a magic key that can break almost any encryption."}],
+    wm:"Gren's poetic name for the クリプトブレイカー chip — 魔法の鍵. Something that unlocks everything is the most valuable and dangerous thing imaginable." },
+
+  { id:"e03_07", ep:3, word:"莫大", reading:"ばくだい", meaning:"enormous / vast / immense (amount or scale)", tier:2,
+    kb:[{k:"莫",r:"ばく",m:"vast/enormous/vague",rad:["艹","日","大"],rm:["plant","sun","big"],mn:"A vast expanse of plants under the sun — enormous, vast"},{k:"大",r:"だい",m:"big/great",rad:["大"],rm:["large person"],mn:"A person with arms spread wide — big, great"}],
+    ex:[{j:"君には莫大な借金があるそうだな。",r:"きみにはばくだいなしゃっきんがあるそうだな。",e:"I hear you have enormous debt."},{j:"莫大な費用がかかる。",r:"ばくだいなひようがかかる。",e:"It costs an enormous amount."},{j:"莫大な利益を得た。",r:"ばくだいなりえきをえた。",e:"They made a vast profit."}],
+    wm:"莫 (vast sky/expanse) + 大 (big) = truly enormous scale. Faye's debt from the cold sleep is 莫大 — it's the defining scale of her problem." },
+
+  { id:"e03_08", ep:3, word:"常習犯", reading:"じょうしゅうはん", meaning:"repeat offender / habitual criminal", tier:2,
+    kb:[{k:"常",r:"じょう",m:"always/normal/constant",rad:["巾","尚"],rm:["cloth","esteem/above"],mn:"A cloth always held high — constant, normal, always"},{k:"習",r:"しゅう",m:"practice/habit/learn",rad:["羽","白"],rm:["feathers","white"],mn:"White feathers — birds practicing flight, to learn through repetition"},{k:"犯",r:"はん",m:"crime/offend",rad:["犭","己"],rm:["animal","self"],mn:"An animal acting on self-interest — crime, offense"}],
+    ex:[{j:"見かけによらず常習犯。",r:"みかけによらずじょうしゅうはん。",e:"A repeat offender despite appearances."},{j:"彼は常習犯として知られている。",r:"かれはじょうしゅうはんとしてしられている。",e:"He is known as a repeat offender."},{j:"常習犯には厳しい判決が出た。",r:"じょうしゅうはんにはきびしいはんけつがでた。",e:"The repeat offender received a harsh sentence."}],
+    wm:"Big Shot's intro for Faye on TV — 見かけによらず常習犯. She looks innocent but is always at it. Her reputation precedes her." },
+
+  { id:"e03_09", ep:3, word:"一文無し", reading:"いちもんなし", meaning:"broke / penniless / without a penny", tier:2,
+    kb:[],
+    ex:[{j:"一文無しで警察行きよ。",r:"いちもんなしでけいさつゆきよ。",e:"They go to the police penniless."},{j:"賭けに負けて一文無しになった。",r:"かけにまけていちもんなしになった。",e:"I lost the bet and ended up penniless."},{j:"一文無しになってどうする。",r:"いちもんなしになってどうする。",e:"What will you do when you're penniless?"}],
+    wm:"一文 (one mon = ancient smallest coin) + 無し (none) = not even the smallest coin. The Bebop crew's permanent condition." },
+
+  { id:"e03_10", ep:3, word:"気風がいい", reading:"きっぷがいい", meaning:"generous in spirit / bold and magnanimous / having great style", tier:3,
+    kb:[{k:"気",r:"き",m:"spirit/air/energy",rad:["气","米"],rm:["air/energy","rice"],mn:"Energy/rice rising as steam — vital spirit, energy"},{k:"風",r:"ふ(っぷ)",m:"wind/style/manner",rad:["凡","虫"],rm:["common","insect"],mn:"Common movement like insect wings — wind, style, manner"}],
+    ex:[{j:"俺は運がいいわけでも腕がいいわけでもないんだ。気風がいいのさ。",r:"おれはうんがいいわけでもうでがいいわけでもないんだ。きっぷがいいのさ。",e:"I'm not lucky and I'm not skilled. I just have great spirit."},{j:"気風のいい男だ。",r:"きっぷのいいおとこだ。",e:"He's a man of generous bold spirit."},{j:"気風がいいから好かれる。",r:"きっぷがいいからすかれる。",e:"He's liked because of his great spirit."}],
+    wm:"Spike's explanation for why he always wins — not luck or skill but 気風 (spirit/character). The most Spike possible answer. Untranslatable but deeply Japanese." },
+
+  { id:"e03_11", ep:3, word:"わらしべ長者", reading:"わらしべちょうじゃ", meaning:"straw millionaire (Japanese folktale of trading up from nothing)", tier:3,
+    kb:[],
+    ex:[{j:"わらしべ長者のやり直しか。",r:"わらしべちょうじゃのやりなおしか。",e:"Another attempt at the straw millionaire story?"},{j:"まるでわらしべ長者みたいだ。",r:"まるでわらしべちょうじゃみたいだ。",e:"It's just like the straw millionaire story."},{j:"小さなものが大きな価値になった。",r:"ちいさなものがおおきなかちになった。",e:"A small thing became something of great value."}],
+    wm:"A folktale where a man trades a straw into a mansion through lucky swaps. Spike says this when the casino chip becomes a 3000万 deal — exactly that story." },
+
+  { id:"e03_12", ep:3, word:"損して得取れ", reading:"そんしてとくとれ", meaning:"take a loss to gain more / spend money to make money (proverb)", tier:3,
+    kb:[],
+    ex:[{j:"損して得取れってやつさ。",r:"そんしてとくとれってやつさ。",e:"It's what they call 'take a loss to make a gain'."},{j:"損して得取れという考えで投資した。",r:"そんしてとくとれというかんがえでとうしした。",e:"I invested with the take-a-loss-to-gain mindset."},{j:"損して得取れ、短期の損は長期の得。",r:"そんしてとくとれ、たんきのそんはちょうきのとく。",e:"Short-term loss is long-term gain."}],
+    wm:"Spike quotes this as if Charlie Parker said it — Jet points out Charlie Parker said no such thing. The proverb strategy drives the 3000万 deal plan." },
+
+  { id:"e03_13", ep:3, word:"〜にもほどがある", reading:"〜にもほどがある", meaning:"there's a limit to how ~ / there are limits to ~", tier:3,
+    kb:[],
+    ex:[{j:"言いがかりにもほどがあるんじゃない。",r:"いいがかりにもほどがあるんじゃない。",e:"There's a limit to the accusations you can make."},{j:"冗談にもほどがある。",r:"じょうだんにもほどがある。",e:"There are limits to joking."},{j:"迷惑にもほどがある。",r:"めいわくにもほどがある。",e:"There's a limit to how much trouble one can cause."}],
+    wm:"〜にもほどがある = even X has its limits. Faye says this about Spike's accusation. Very useful expression for expressing that something has gone too far." },
+
+  { id:"e03_14", ep:3, word:"〜わけにはいかない", reading:"〜わけにはいかない", meaning:"cannot / must not / there's no way I can ~", tier:2,
+    kb:[],
+    ex:[{j:"警察に渡すわけにはいかない。",r:"けいさつにわたすわけにはいかない。",e:"There's no way I can hand it over to the police."},{j:"諦めるわけにはいかない。",r:"あきらめるわけにはいかない。",e:"I can't just give up."},{j:"嘘をつくわけにはいかない。",r:"うそをつくわけにはいかない。",e:"I cannot tell a lie."}],
+    wm:"〜わけにはいかない = the situation/logic makes it impossible. Stronger than ～できない — it's not ability but propriety or circumstance that prevents it." },
+
+// ═══════════════════════════════════════════════════
+// EP04: GATEWAY SHUFFLE
+// ═══════════════════════════════════════════════════
+
+  { id:"e04_01", ep:4, word:"環境保護", reading:"かんきょうほご", meaning:"environmental protection / conservation", tier:1,
+    kb:[{k:"環",r:"かん",m:"ring/cycle/environ",rad:["王","睘"],rm:["king","look around"],mn:"A king looking around in all directions — surrounding, ring, environment"},{k:"境",r:"きょう",m:"border/boundary",rad:["土","竟"],rm:["earth","end/result"],mn:"Where earth ends — a boundary, border"},{k:"保",r:"ほ",m:"protect/preserve",rad:["亻","呆"],rm:["person","protect"],mn:"A person protecting — to preserve"},{k:"護",r:"ご",m:"guard/protect",rad:["言","蒦"],rm:["words","grasp"],mn:"Words that grasp — to guard, protect"}],
+    ex:[{j:"スペース・ウォリアーズは環境保護団体だ。",r:"スペース・ウォリアーズはかんきょうほごだんたいだ。",e:"Space Warriors is an environmental protection group."},{j:"環境保護のために戦う。",r:"かんきょうほごのためにたたかう。",e:"Fighting for environmental protection."},{j:"環境保護活動に参加した。",r:"かんきょうほごかつどうにさんかした。",e:"I participated in environmental protection activities."}],
+    wm:"What Space Warriors claims to be — 環境保護 masks eco-terrorism. The gap between stated values and actual methods is EP04's central irony." },
+
+  { id:"e04_02", ep:4, word:"テロリスト", reading:"テロリスト", meaning:"terrorist", tier:1,
+    kb:[],
+    ex:[{j:"私たちをテロリストと一緒にしないでいただける？",r:"わたしたちをテロリストといっしょにしないでいただける？",e:"Could you not put us in the same category as terrorists?"},{j:"テロリストとの交渉はない。",r:"テロリストとのこうしょうはない。",e:"There are no negotiations with terrorists."},{j:"テロリストが800万人を人質にした。",r:"テロリストが800まんにんをひとじちにした。",e:"The terrorist took 8 million people hostage."}],
+    wm:"Twinkle insists they're 平和の戦士 (warriors of peace) not テロリスト. The show doesn't let her off the hook — the virus plan is exactly terrorism." },
+
+  { id:"e04_03", ep:4, word:"ウイルス", reading:"ウイルス", meaning:"virus", tier:1,
+    kb:[],
+    ex:[{j:"ウイルスの名前はモンキービジネス。",r:"ウイルスのなまえはモンキービジネス。",e:"The virus's name is Monkey Business."},{j:"コンピューターウイルスに感染した。",r:"コンピューターウイルスにかんせんした。",e:"It got infected with a computer virus."},{j:"そのウイルスは人間だけを狙える。",r:"そのウイルスはにんげんだけをねらえる。",e:"That virus can target only humans."}],
+    wm:"モンキービジネス — targets the 2% genetic difference between humans and monkeys, turning people into apes. Dark sci-fi biology wearing a comedy episode's costume." },
+
+  { id:"e04_04", ep:4, word:"遺伝子", reading:"いでんし", meaning:"gene / genetics / genetic code", tier:2,
+    kb:[{k:"遺",r:"い",m:"leave behind/inherit/bequeath",rad:["⻌","貴"],rm:["movement","precious/valuable"],mn:"Precious things left behind in movement — inheritance, bequest"},{k:"伝",r:"でん",m:"transmit/convey/pass on",rad:["亻","云"],rm:["person","say/cloud"],mn:"A person conveying — to transmit, pass on"},{k:"子",r:"し",m:"child/small particle",rad:["子"],rm:["child"],mn:"A child — child, small particle, seed"}],
+    ex:[{j:"人間とサルの遺伝子の違いはわずか２パーセントだ。",r:"にんげんとさるのいでんしのちがいはわずか2ぱーせんとだ。",e:"The genetic difference between humans and monkeys is only 2 percent."},{j:"遺伝子研究が進んでいる。",r:"いでんしけんきゅうがすすんでいる。",e:"Genetic research is advancing."},{j:"遺伝子を操作する技術。",r:"いでんしをそうさするぎじゅつ。",e:"Technology for manipulating genes."}],
+    wm:"The key concept in Monkey Business — targets the 遺伝子 that separates humans from monkeys. A real concept used for dark sci-fi." },
+
+  { id:"e04_05", ep:4, word:"要求", reading:"ようきゅう", meaning:"demand / request / requirement", tier:1,
+    kb:[{k:"要",r:"よう",m:"require/essential/main point",rad:["西","女"],rm:["cover/west","woman"],mn:"A woman at the center of things — to need, require"},{k:"求",r:"きゅう",m:"seek/demand/request",rad:["水","丨"],rm:["water","line/flowing"],mn:"Flowing like water to find something — to seek, demand"}],
+    ex:[{j:"そちらの要求どおり賞金も取り消した。",r:"そちらのようきゅうどおりしょうきんもとりけした。",e:"As per your demands, we've also cancelled the bounty."},{j:"要求を呑む。",r:"ようきゅうをのむ。",e:"To accept/swallow a demand."},{j:"その要求は無理だ。",r:"そのようきゅうはむりだ。",e:"That demand is impossible."}],
+    wm:"Twinkle's 要求: ban catching sea rats AND release her. Classic hostage logic — the demands are just the visible tip of the real agenda." },
+
+  { id:"e04_06", ep:4, word:"脅迫", reading:"きょうはく", meaning:"threat / coercion / intimidation", tier:2,
+    kb:[{k:"脅",r:"きょう",m:"threaten/coerce",rad:["月","劦"],rm:["body/flesh","three forces"],mn:"Three forces pressing on the body — to threaten, coerce"},{k:"迫",r:"はく",m:"press/force/close in",rad:["⻌","白"],rm:["movement","white/clear"],mn:"Moving in with clear force — to press, close in on"}],
+    ex:[{j:"連中がやってんのは交渉という名目の脅迫だ。",r:"れんちゅうがやってんのはこうしょうというなもくのきょうはくだ。",e:"What they're doing is intimidation disguised as negotiation."},{j:"脅迫は犯罪だ。",r:"きょうはくははんざいだ。",e:"Intimidation is a crime."},{j:"脅迫に屈しない。",r:"きょうはくにくっしない。",e:"I won't yield to threats."}],
+    wm:"Spike calls it exactly — 交渉という名目の脅迫 (intimidation disguised as negotiation). The clearest political language in the episode." },
+
+  { id:"e04_07", ep:4, word:"人質", reading:"ひとじち", meaning:"hostage", tier:1,
+    kb:[{k:"人",r:"ひと",m:"person",rad:["人"],rm:["person"],mn:"A person"},{k:"質",r:"じち",m:"substance/pawn/pledge/quality",rad:["斤","貝"],rm:["axe/cut","shell/money"],mn:"Shell-money cut as collateral — a pawn, pledge, substance"}],
+    ex:[{j:"人質はガニメデの住民800万人だ。",r:"ひとじちはガニメデのじゅうみん800まんにんだ。",e:"The hostages are 8 million residents of Ganymede."},{j:"人質を取るな！",r:"ひとじちをとるな！",e:"Don't take hostages!"},{j:"人質交渉が始まった。",r:"ひとじちこうしょうがはじまった。",e:"Hostage negotiations have begun."}],
+    wm:"Twinkle threatens 800万人 as 人質 with a single virus — the scale of bioterrorism makes this a genuinely dark episode under its absurd comedy surface." },
+
+  { id:"e04_08", ep:4, word:"釈放", reading:"しゃくほう", meaning:"release from custody / letting someone go free", tier:2,
+    kb:[{k:"釈",r:"しゃく",m:"explain/release/set free",rad:["釆","尺"],rm:["sort out/distinguish","measure"],mn:"Measuring out what has been sorted — to explain, release"},{k:"放",r:"ほう",m:"release/set free/let go",rad:["方","攵"],rm:["direction","strike/follow"],mn:"Striking someone in a direction — to release, set free"}],
+    ex:[{j:"すぐ釈放するようにってお達しだ。",r:"すぐしゃくほうするようにっておたっしだ。",e:"There's an order to release her immediately."},{j:"釈放された後、何をするつもりだ？",r:"しゃくほうされたあと、なにをするつもりだ？",e:"What do you plan to do after being released?"},{j:"証拠不十分で釈放された。",r:"しょうこふじゅうぶんでしゃくほうされた。",e:"Released due to insufficient evidence."}],
+    wm:"The government orders Twinkle's 釈放 immediately — caving to the 要求. Bob tells Jet this with disgust. Spike creates the alternative." },
+
+  { id:"e04_09", ep:4, word:"位相差空間", reading:"いそうさくうかん", meaning:"phase space / hyperspace / the space inside warp gates", tier:2,
+    kb:[],
+    ex:[{j:"サイルごと位相差空間に閉じ込めるつもりだ。",r:"サイルごといそうさくうかんにとじこめるつもりだ。",e:"They're planning to trap it in phase space along with the missile."},{j:"位相差空間に閉じ込められた物質は永遠に交わらない。",r:"いそうさくうかんにとじこめられたぶっしつはえいえんにまじわらない。",e:"Matter trapped in phase space never interacts with our world again."},{j:"ゲートは位相差空間を利用している。",r:"ゲートはいそうさくうかんをりようしている。",e:"The gates use phase space."}],
+    wm:"The sci-fi concept behind Bebop's hyperspace gates — matter trapped in 位相差空間 is visible but never touches our world again. The missile disappears forever." },
+
+  { id:"e04_10", ep:4, word:"逃げきれない", reading:"にげきれない", meaning:"cannot escape / can't get away completely", tier:2,
+    kb:[{k:"逃",r:"に(げ)",m:"flee",rad:["⻌","兆"],rm:["movement","omen"],mn:"Moving at the first omen — to flee"},{k:"切",r:"き(れない)",m:"cut through/complete",rad:["七","刀"],rm:["seven","knife"],mn:"A knife cutting completely through — to complete, cut through"}],
+    ex:[{j:"もう逃げきれないわ。",r:"もうにげきれないわ。",e:"We can't escape anymore."},{j:"追いつかれて逃げきれなかった。",r:"おいつかれてにげきれなかった。",e:"I was caught up and couldn't escape."},{j:"逃げきれるか？",r:"にげきれるか？",e:"Can you make a complete escape?"}],
+    wm:"〜きれない = cannot do completely. 逃げ切れない = can't cut through (完切) the flight successfully = can't fully escape. Katerina's final words." },
+
+  { id:"e04_11", ep:4, word:"〜ようとしても", reading:"〜ようとしても", meaning:"even if one tries to ~ / no matter how much one tries to ~", tier:2,
+    kb:[],
+    ex:[{j:"逃げようとしても逃げられない。",r:"にげようとしてもにげられない。",e:"Even if you try to escape, you can't."},{j:"忘れようとしても忘れられない。",r:"わすれようとしてもわすれられない。",e:"Even if I try to forget, I can't."},{j:"止めようとしても止められない。",r:"とめようとしてもとめられない。",e:"Even if I try to stop it, I can't."}],
+    wm:"〜ようとしても + negative = even trying doesn't work. Creates a sense of futility and inevitability. Often heard in emotional contexts." },
+
+  { id:"e04_12", ep:4, word:"打つ手なし", reading:"うつてなし", meaning:"no cards left to play / out of options / nothing more to be done", tier:3,
+    kb:[],
+    ex:[{j:"ISSPも打つ手なしなんだとさ。",r:"ISSPもうつてなしなんだとさ。",e:"Apparently even the ISSP is out of options."},{j:"打つ手なしで諦めた。",r:"うつてなしであきらめた。",e:"Out of options, they gave up."},{j:"打つ手なしの状況だ。",r:"うつてなしのじょうきょうだ。",e:"The situation is one with no options."}],
+    wm:"打つ (to play/strike a move in chess or go) + 手 (move) + なし (none) = no moves left to make. Shogi/Go metaphor for being stuck in life." },
+
+// ═══════════════════════════════════════════════════
+// EP05: BALLAD OF FALLEN ANGELS
+// ═══════════════════════════════════════════════════
+
+  { id:"e05_01", ep:5, word:"繁栄", reading:"はんえい", meaning:"prosperity / flourishing / thriving", tier:2,
+    kb:[{k:"繁",r:"はん",m:"prosperous/flourishing",rad:["糸","𣬈"],rm:["thread","every/abundant"],mn:"Threads multiplying abundantly — flourishing, prosperous"},{k:"栄",r:"えい",m:"glory/flourish/honor",rad:["艹","冖","木"],rm:["plant","cover","tree"],mn:"A tree crowned and covered with blooms — glory, flourishing"}],
+    ex:[{j:"お互いの繁栄を願って。",r:"おたがいのはんえいをねがって。",e:"Wishing each other prosperity."},{j:"会社が繁栄している。",r:"かいしゃがはんえいしている。",e:"The company is prospering."},{j:"繁栄した都市。",r:"はんえいしたとし。",e:"A prosperous city."}],
+    wm:"The empty toast at the crime lord meeting — お互いの繁栄を願って. Hollow words before betrayal. The show uses formal language to undercut meaning." },
+
+  { id:"e05_02", ep:5, word:"心当たり", reading:"こころあたり", meaning:"have some idea about / know something of / having a lead", tier:2,
+    kb:[{k:"心",r:"こころ",m:"heart/mind/spirit",rad:["心"],rm:["heart"],mn:"Pictograph of a heart — heart, mind"},{k:"当",r:"あた(り)",m:"hit/correspond/relevant",rad:["𠂉","田"],rm:["top","field"],mn:"The top of a field — to hit, correspond, be relevant"},{k:"心当たり",r:"こころあたり",m:"have a relevant connection in mind",rad:[],rm:[],mn:"心 (heart/mind) + 当たり (hits/relevant) = having something relevant in mind"}],
+    ex:[{j:"心当たりもある。",r:"こころあたりもある。",e:"I have some leads/ideas about it."},{j:"心当たりがあれば教えてください。",r:"こころあたりがあればおしえてください。",e:"If you have any ideas, please let me know."},{j:"誰だか心当たりがない。",r:"だれだかこころあたりがない。",e:"I have no idea who it could be."}],
+    wm:"Jet's response to hearing about Mao — 心当たりもある. Having 心当たり means your mind has 'hit' on something relevant. Common in investigation contexts." },
+
+  { id:"e05_03", ep:5, word:"代償", reading:"だいしょう", meaning:"price / cost / sacrifice paid for something", tier:2,
+    kb:[{k:"代",r:"だい",m:"replace/substitute/era/cost",rad:["亻","弋"],rm:["person","substitute"],mn:"A person being a substitute — to replace, the cost/price of substitution"},{k:"償",r:"しょう",m:"compensate/pay for",rad:["亻","賞"],rm:["person","prize/reward"],mn:"A person paying back a prize — to compensate, pay the cost"}],
+    ex:[{j:"先走った揚げ句の代償だ。",r:"さきばしったあげくのだいしょうだ。",e:"It's the price of acting impulsively."},{j:"自由の代償は高い。",r:"じゆうのだいしょうはたかい。",e:"The price of freedom is high."},{j:"成功の代償として何かを失った。",r:"せいこうのだいしょうとしてなにかをうしなった。",e:"Something was lost as the price of success."}],
+    wm:"Gren's arm lost to impulsive action — 先走った揚げ句の代償. 代償 is what you pay for a choice. The show is full of characters paying their 代償." },
+
+  { id:"e05_04", ep:5, word:"牙", reading:"きば", meaning:"fang / tusk / predatory power", tier:2,
+    kb:[{k:"牙",r:"きば",m:"fang/tusk",rad:["牙"],rm:["interlocking fang"],mn:"Pictograph of an interlocking fang — a fang, tusk, predatory tooth"}],
+    ex:[{j:"やつは牙をなくした獣だ。だから死んだのさ。",r:"やつはきばをなくしたけものだ。だからしんだのさ。",e:"He's a beast that lost its fangs. That's why he died."},{j:"牙をむく。",r:"きばをむく。",e:"To bare one's fangs (to become aggressive)."},{j:"牙のない獣は危険じゃない。",r:"きばのないけものはきけんじゃない。",e:"A beast without fangs isn't dangerous."}],
+    wm:"Vicious says this about Mao — 牙をなくした獣. A predator who lost the will or ability to kill is no longer a predator. Vicious has no respect for mercy." },
+
+  { id:"e05_05", ep:5, word:"獣", reading:"けもの", meaning:"beast / wild animal / savage creature", tier:2,
+    kb:[{k:"獣",r:"けもの",m:"beast/wild animal",rad:["犭","𠀒","口","一"],rm:["animal","hunting","mouth","one"],mn:"An animal tracked by hunters — a wild beast, savage creature"}],
+    ex:[{j:"別の血を求めさまよう獣の血だ。",r:"べつのちをもとめさまようけもののちだ。",e:"It's the blood of a beast that wanders seeking different blood."},{j:"おまえも同じだ、獣だ。",r:"おまえもおなじだ、けものだ。",e:"You're the same — a beast."},{j:"獣のように戦う。",r:"けもののようにたたかう。",e:"To fight like a beast."}],
+    wm:"Vicious sees both himself and Spike as 獣 — creatures that live by blood and cannot be domesticated. He means it as fact, not insult." },
+
+  { id:"e05_06", ep:5, word:"覚めない夢", reading:"さめないゆめ", meaning:"a dream one cannot wake from / persistent dream", tier:2,
+    kb:[],
+    ex:[{j:"俺はただ覚めない夢を見てるだけさ。",r:"おれはたださめないゆめをみてるだけさ。",e:"I'm just seeing a dream I can't wake from."},{j:"覚めない夢のような現実。",r:"さめないゆめのようなげんじつ。",e:"A reality like a dream I can't wake from."},{j:"これは覚めない悪夢だ。",r:"これはさめないあくむだ。",e:"This is a nightmare I can't wake from."}],
+    wm:"Spike's defining philosophy: 俺はただ覚めない夢を見てるだけさ. He can't tell past from present, or whether he's really alive. The show's central ambiguity." },
+
+  { id:"e05_07", ep:5, word:"恩人", reading:"おんじん", meaning:"benefactor / person one owes gratitude to", tier:2,
+    kb:[{k:"恩",r:"おん",m:"grace/favor/gratitude/debt",rad:["因","心"],rm:["cause/reason","heart"],mn:"The reason in one's heart — a favor received, grace, a debt of gratitude"},{k:"人",r:"じん",m:"person",rad:["人"],rm:["person"],mn:"A person"}],
+    ex:[{j:"恩人だってさっさと殺しちまうんだからな。",r:"おんじんだってさっさころしちまうんだからな。",e:"He kills even his benefactors without hesitation."},{j:"彼女は私の恩人だ。",r:"かのじょはわたしのおんじんだ。",e:"She is my benefactor."},{j:"恩人を裏切るのか？",r:"おんじんをうらぎるのか？",e:"Are you going to betray your benefactor?"}],
+    wm:"Spike accuses Vicious — even Mao (恩人) he killed. The 恩 (debt of gratitude) is the deepest obligation in Japanese ethics; killing your 恩人 is the ultimate betrayal." },
+
+  { id:"e05_08", ep:5, word:"渡世の仁義", reading:"とせいのじんぎ", meaning:"the code of the underworld / obligation to one's outlaw path", tier:3,
+    kb:[],
+    ex:[{j:"渡世の仁義ってやつさ。",r:"とせいのじんぎってやつさ。",e:"It's what they call the code of the underworld."},{j:"渡世の仁義を守る男だ。",r:"とせいのじんぎをまもるおとこだ。",e:"He's a man who keeps the underworld code."},{j:"仁義なき戦い。",r:"じんぎなきたたかい。",e:"A fight without honor (famous yakuza film reference)."}],
+    wm:"Gren's reason for going to face Vicious despite everything — 渡世の仁義. The code that binds men like them even when reason says to stay away." },
+
+  { id:"e05_09", ep:5, word:"腐れ縁", reading:"くされえん", meaning:"rotten bond / tie that won't break no matter how rotten it gets", tier:3,
+    kb:[{k:"腐",r:"くさ(れ)",m:"rot/decay",rad:["肉","付"],rm:["meat/flesh","attach"],mn:"Meat attaching and decaying — to rot, decay"},{k:"縁",r:"えん",m:"fate/connection/edge/bond",rad:["糸","彖"],rm:["thread","judge/decide"],mn:"A thread of fate decided by the universe — connection, bond, fate"}],
+    ex:[{j:"腐れ縁の野良猫をな。",r:"くされえんののらねこをな。",e:"A stray cat I can't shake — that's the rotten bond."},{j:"あいつとは腐れ縁だ。",r:"あいつとはくされえんだ。",e:"I have a rotten, unbreakable bond with that guy."},{j:"腐れ縁というか、ずっと一緒にいる。",r:"くされえんというか、ずっといっしょにいる。",e:"You could call it a rotten bond — we've been together forever."}],
+    wm:"Annie uses this about her stray cat. In the show, ALL the Bebop relationships are 腐れ縁 — people who should have parted ways long ago but can't." },
+
+  { id:"e05_10", ep:5, word:"命乞い", reading:"いのちごい", meaning:"begging for one's life / pleading for mercy", tier:3,
+    kb:[{k:"命",r:"いのち",m:"life/fate/command",rad:["亼","叩"],rm:["gather","kneel/beg"],mn:"Gathering while kneeling — fate, life, command"},{k:"乞",r:"ご(い)",m:"beg/request humbly",rad:["乞"],rm:["beg/request"],mn:"A person bent low in supplication — to beg, request humbly"}],
+    ex:[{j:"命乞いか？",r:"いのちごいか？",e:"Are you begging for your life?"},{j:"命乞いをした。",r:"いのちごいをした。",e:"He begged for his life."},{j:"命乞いしても無駄だ。",r:"いのちごいしてもむだだ。",e:"Begging for your life is useless."}],
+    wm:"Vicious sneers: 命乞いか? — then 'not your style'. He knows Spike. The line shows how well they know each other, even as enemies." },
+
+  { id:"e05_11", ep:5, word:"奴", reading:"やつ", meaning:"guy / fellow / that person (casual, rough)", tier:1,
+    kb:[{k:"奴",r:"やつ",m:"guy/fellow/slave (archaic)",rad:["女","又"],rm:["woman","hand"],mn:"A woman under a hand — originally slave, now rough 'guy/fellow'"}],
+    ex:[{j:"あいつの息を止めるなんざ１秒でできた。",r:"あいつのいきをとめるなんざ1びょうでできた。",e:"Stopping that guy's breathing would have taken one second."},{j:"あいつは何者だ？",r:"あいつはなにものだ？",e:"Who is that guy?"},{j:"やつが来た。",r:"やつがきた。",e:"He came. / The guy showed up."}],
+    wm:"やつ/あいつ = rough casual third-person. Very common in Bebop. こいつ (this guy here) / そいつ (that guy there) / あいつ (that guy over there/known person)." },
+
+  { id:"e05_12", ep:5, word:"決着をつける", reading:"けっちゃくをつける", meaning:"to settle / bring to a conclusion / resolve once and for all", tier:2,
+    kb:[{k:"決",r:"けっ",m:"decide/determine/conclude",rad:["氵","夬"],rm:["water","resolve/clear"],mn:"Water cleared of obstruction — to decide, determine"},{k:"着",r:"ちゃく",m:"arrive/attach/wear",rad:["羊","目"],rm:["sheep","eye"],mn:"A sheep arriving at sight — to arrive, attach, settle"}],
+    ex:[{j:"この間の決着がまだだぜ。",r:"このあいだのけっちゃくがまだだぜ。",e:"We haven't settled things from last time yet."},{j:"今日こそ決着をつけよう。",r:"きょうこそけっちゃくをつけよう。",e:"Let's settle this today."},{j:"決着がつかないまま別れた。",r:"けっちゃくがつかないまましわかれた。",e:"We parted without resolution."}],
+    wm:"Gren says 決着がまだだ to Spike — the Titan business was never finished. Everything in the final arc flows from unfinished 決着." },
+
+  { id:"e05_13", ep:5, word:"片目", reading:"かため", meaning:"one eye / a single eye", tier:2,
+    kb:[{k:"片",r:"かた",m:"one side/fragment/half",rad:["片"],rm:["half/fragment"],mn:"Half of something split — one side, fragment"},{k:"目",r:"め",m:"eye",rad:["目"],rm:["eye"],mn:"Pictograph of an eye"}],
+    ex:[{j:"左右の瞳の色が違うのね。",r:"さゆうのひとみのいろがちがうのね。",e:"The colors of your left and right eyes are different."},{j:"片目で過去を見ていた。",r:"かためでかこをみていた。",e:"I was seeing the past with one eye."},{j:"片目は義眼だ。",r:"かためはぎがんだ。",e:"One eye is artificial."}],
+    wm:"Spike's mismatched eyes — one real (present), one artificial (past). EP26 reveals this directly. Even his face is split between past and present." },
+
+  { id:"e05_14", ep:5, word:"〜だけさ", reading:"〜だけさ", meaning:"just ~ / merely ~ / only ~ (casual male speech)", tier:2,
+    kb:[],
+    ex:[{j:"俺はただ覚めない夢を見てるだけさ。",r:"おれはたださめないゆめをみてるだけさ。",e:"I'm just seeing a dream I can't wake from."},{j:"時代遅れのカウボーイだけさ。",r:"じだいおくれのカウボーイだけさ。",e:"Just an out-of-date cowboy."},{j:"知ってるだけさ、気にするな。",r:"しってるだけさ、きにするな。",e:"I just happen to know, don't worry about it."}],
+    wm:"〜だけさ = just/merely + さ (casual male sentence ender). Creates a dismissive, understated quality. Very characteristic of Spike's speech pattern." },
+
 
   // ── EP 06 ──
   { id:"e06_01", ep:6, word:"老化", reading:"ろうか", meaning:"aging / senescence", tier:1,
@@ -394,285 +1127,7 @@ const VOCAB = [
     wm:"Vincent lost his 記憶 on Titan — he can't tell dreams from reality because his past self simply isn't there" },
   { id:"mv_07", ep:27, word:"この世の果て", reading:"このよのはて", meaning:"the end of this world / edge of everything", tier:3,
     kb:[{k:"果",r:"は(て)",m:"end/result/fruit",rad:["木","田"],rm:["tree","field"],mn:"A field in a tree — fruit, result, the end"},{k:"世",r:"よ",m:"world/generation",rad:["廿","乙"],rm:["twenty","second"],mn:"Generations passing — world, generation"}],
-    wm:"この世の果てで会おう — Vincent's farewell to Spike. The movie ends there, at the edge of everything" },,
-// NEW EXPANDED VOCAB - inserted before the ]; closing the VOCAB array
-// EP01 additions
-  { id:"e01_n01", ep:1, word:"逃げる", reading:"にげる", meaning:"to run away / to flee", tier:1, kb:[], wm:"にげる — Asimov and Katerina are constantly 逃げている from everything" },
-  { id:"e01_n02", ep:1, word:"捕まえる", reading:"つかまえる", meaning:"to catch / to capture", tier:1, kb:[], wm:"つかまえる — what bounty hunters do for a living; 賞金首を捕まえる" },
-  { id:"e01_n03", ep:1, word:"逃げ込む", reading:"にげこむ", meaning:"to flee into / to take refuge in", tier:2, kb:[], wm:"にげこむ — やつはティワナの女の所に逃げ込んだらしい" },
-  { id:"e01_n04", ep:1, word:"壊す", reading:"こわす", meaning:"to break / to destroy", tier:1, kb:[], wm:"こわす — Spike breaks everything: ships, shops, bones. おまえが壊した機体" },
-  { id:"e01_n05", ep:1, word:"修理", reading:"しゅうり", meaning:"repair", tier:1, kb:[], wm:"しゅうり — 機体の修理 costs eat all the bounty money" },
-  { id:"e01_n06", ep:1, word:"治療費", reading:"ちりょうひ", meaning:"medical treatment fee", tier:2, kb:[], wm:"ちりょうひ — 警官の治療費 eats the rest" },
-  { id:"e01_n07", ep:1, word:"抗争", reading:"こうそう", meaning:"conflict / turf war", tier:2, kb:[], wm:"こうそう — rival gang 抗争 three days ago created the opening" },
-  { id:"e01_n08", ep:1, word:"敵対する", reading:"てきたいする", meaning:"to be hostile to / to oppose", tier:2, kb:[], wm:"てきたいする — 敵対する組織 = a rival/enemy organization" },
-  { id:"e01_n09", ep:1, word:"売人", reading:"ばいにん", meaning:"dealer / seller (drugs/contraband)", tier:2, kb:[], wm:"ばいにん — sells Bloody Eye to Asimov; drug dealer" },
-  { id:"e01_n10", ep:1, word:"最上級品", reading:"さいじょうきゅうひん", meaning:"top grade / highest quality product", tier:3, kb:[], wm:"さいじょうきゅうひん — the Bloody Eye is 最上級品 of illegal eye drops" },
-  { id:"e01_n11", ep:1, word:"非合法", reading:"ひごうほう", meaning:"illegal / unlawful", tier:1, kb:[], wm:"ひごうほう — 非合法目薬 = illegal eye drops. The show's world runs on 非合法 goods" },
-  { id:"e01_n12", ep:1, word:"資金源", reading:"しきんげん", meaning:"source of funding / financial backer", tier:2, kb:[], wm:"しきんげん — Asimov stole the 組織の資金源 — their funding source" },
-  { id:"e01_n13", ep:1, word:"仕切る", reading:"しきる", meaning:"to control / to run (a territory)", tier:2, kb:[], wm:"しきる — アステロイド一帯を仕切る組織 = the syndicate that controls the whole asteroid belt" },
-  { id:"e01_n14", ep:1, word:"弱る", reading:"よわる", meaning:"to weaken / to be in bad shape", tier:2, kb:[], wm:"よわる — 弱ってる雑魚は相手にしない — Spike won't fight weaklings" },
-  { id:"e01_n15", ep:1, word:"利口", reading:"りこう", meaning:"clever / smart / wise", tier:2, kb:[], wm:"りこう — それが利口だわ — Katerina recognizes Spike's cleverness" },
-
-// EP02 additions
-  { id:"e02_n01", ep:2, word:"賞金", reading:"しょうきん", meaning:"bounty / prize money", tier:1, kb:[], wm:"しょうきん — the show revolves around collecting 賞金. 800万ウーロン this episode" },
-  { id:"e02_n02", ep:2, word:"生きたまま", reading:"いきたまま", meaning:"alive / while still living", tier:1, kb:[], wm:"いきたまま — 賞金首を生きたまま連れてくること — bounty condition: bring them alive" },
-  { id:"e02_n03", ep:2, word:"指名手配", reading:"しめいてはい", meaning:"wanted (by police)", tier:1, kb:[], wm:"しめいてはい — 指名手配者情報 = wanted criminal information; Big Shot opens with this" },
-  { id:"e02_n04", ep:2, word:"条件", reading:"じょうけん", meaning:"condition / terms", tier:1, kb:[], wm:"じょうけん — 条件はいつものように — the standard conditions for collecting a bounty" },
-  { id:"e02_n05", ep:2, word:"大物", reading:"おおもの", meaning:"big catch / important person / major target", tier:1, kb:[], wm:"おおもの — 久しぶりの大物だ — Jet says this is a rare big-money target" },
-  { id:"e02_n06", ep:2, word:"珍しい", reading:"めずらしい", meaning:"rare / unusual", tier:1, kb:[], wm:"めずらしい — 珍しい種類じゃないわね — Faye dismisses Ein as not rare" },
-  { id:"e02_n07", ep:2, word:"価値", reading:"かち", meaning:"value / worth", tier:1, kb:[], wm:"かち — イヌに価値はなくても飼い主には価値がある — the real value is the owner" },
-  { id:"e02_n08", ep:2, word:"飼い主", reading:"かいぬし", meaning:"owner (of a pet)", tier:2, kb:[], wm:"かいぬし — Ein's owner is the real bounty target. 飼う = to keep/raise + 主 = master" },
-  { id:"e02_n09", ep:2, word:"世話が焼ける", reading:"せわがやける", meaning:"to be a handful / to be trouble", tier:3, kb:[], wm:"せわがやける — Spike complains about Ein: 世話が焼けるったらねえぜ" },
-  { id:"e02_n10", ep:2, word:"繊細", reading:"せんさい", meaning:"delicate / sensitive", tier:2, kb:[], wm:"せんさい — うちの子みんな繊細なんだから — the pet shop owner about her animals" },
-
-// EP03 additions  
-  { id:"e03_n01", ep:3, word:"カジノ", reading:"kajino", meaning:"casino", tier:1, kb:[], wm:"カジノ — the episode is set in one. Used to launder money and run scams" },
-  { id:"e03_n02", ep:3, word:"チップ", reading:"chippu", meaning:"casino chip (and microchip)", tier:1, kb:[], wm:"チップ — double meaning: casino chip AND the microchip hidden inside it. The whole plot" },
-  { id:"e03_n03", ep:3, word:"運がいい", reading:"うんがいい", meaning:"lucky / fortunate", tier:1, kb:[], wm:"うんがいい — 俺は運がいいわけでもない — Spike claims his success is 気風 not luck" },
-  { id:"e03_n04", ep:3, word:"気風", reading:"きっぷ", meaning:"spirit / generous character / style", tier:3, kb:[], wm:"きっぷがいい — Spike's defining boast. A spirit of generous boldness" },
-  { id:"e03_n05", ep:3, word:"莫大", reading:"ばくだい", meaning:"enormous / vast (amount)", tier:2, kb:[], wm:"ばくだい — 君には莫大な借金があるそうだな — Faye's debt is enormous" },
-  { id:"e03_n06", ep:3, word:"常習犯", reading:"じょうしゅうはん", meaning:"repeat offender / habitual criminal", tier:2, kb:[], wm:"じょうしゅうはん — 見かけによらず常習犯 — Big Shot's description of Faye" },
-  { id:"e03_n07", ep:3, word:"魔法の鍵", reading:"まほうのかぎ", meaning:"magic key", tier:3, kb:[], wm:"まほうのかぎ — what the crypto-breaker chip is called. 魔法 = magic, 鍵 = key" },
-  { id:"e03_n08", ep:3, word:"闇ルート", reading:"やみルート", meaning:"black market channel / underground route", tier:2, kb:[], wm:"やみルート — 闇ルートに流れた — the program leaked into black market channels" },
-  { id:"e03_n09", ep:3, word:"血眼", reading:"ちまなこ", meaning:"desperately searching / bloodshot with effort", tier:3, kb:[], wm:"ちまなこ — 警察とISSPが血眼になって探していた — both police and ISSP are desperately hunting it" },
-  { id:"e03_n10", ep:3, word:"現金", reading:"げんきん", meaning:"cash / ready money", tier:1, kb:[], wm:"げんきん — 現金指定とはな — insisting on cash payment; old fashioned" },
-
-// EP04 additions
-  { id:"e04_n01", ep:4, word:"希少", reading:"きしょう", meaning:"rare / scarce", tier:2, kb:[], wm:"きしょう — 希少動物保護 = protection of rare animals; the eco-terrorists' stated mission" },
-  { id:"e04_n02", ep:4, word:"保全", reading:"ほぜん", meaning:"conservation / preservation", tier:2, kb:[], wm:"ほぜん — 宇宙環境の保全 = conservation of the space environment" },
-  { id:"e04_n03", ep:4, word:"禁漁", reading:"きんりょう", meaning:"fishing ban / prohibition on catching", tier:2, kb:[], wm:"きんりょう — 海ネズミ禁漁 = ban on catching sea rats; the terrorists' demand" },
-  { id:"e04_n04", ep:4, word:"誘拐", reading:"ゆうかい", meaning:"kidnapping / abduction", tier:1, kb:[], wm:"ゆうかい — 連中ウイルス学の権威を誘拐して — they kidnapped a virology expert" },
-  { id:"e04_n05", ep:4, word:"遺伝子", reading:"いでんし", meaning:"gene / genetics", tier:2, kb:[], wm:"いでんし — 人間とサルの遺伝子の違いはわずか2パーセント — monkey gene gap" },
-  { id:"e04_n06", ep:4, word:"釈放", reading:"しゃくほう", meaning:"release (from custody)", tier:2, kb:[], wm:"しゃくほう — すぐ釈放するようにってお達しだ — ordered to release Twinkle immediately" },
-  { id:"e04_n07", ep:4, word:"要求", reading:"ようきゅう", meaning:"demand / request", tier:1, kb:[], wm:"ようきゅう — 要求を拒否している — the government is refusing their demands" },
-  { id:"e04_n08", ep:4, word:"脅迫", reading:"きょうはく", meaning:"threat / intimidation", tier:2, kb:[], wm:"きょうはく — 交渉って名目の脅迫だ — it's intimidation disguised as negotiation" },
-  { id:"e04_n09", ep:4, word:"人質", reading:"ひとじち", meaning:"hostage", tier:1, kb:[], wm:"ひとじち — 人質はガニメデの住民800万人 — 8 million hostages" },
-  { id:"e04_n10", ep:4, word:"逸脱する", reading:"いつだつする", meaning:"to deviate / to stray from", tier:2, kb:[], wm:"いつだつする — 大いなる自然のシステムから逸脱し — humanity has deviated from nature's system" },
-
-// EP05 additions
-  { id:"e05_n01", ep:5, word:"友情", reading:"ゆうじょう", meaning:"friendship", tier:1, kb:[], wm:"ゆうじょう — 新たな関係と友情を祝って — toasting new relationships and friendship; hollow words before betrayal" },
-  { id:"e05_n02", ep:5, word:"繁栄", reading:"はんえい", meaning:"prosperity / flourishing", tier:2, kb:[], wm:"はんえい — お互いの繁栄を願って — wishing each other prosperity; crime lord formalities" },
-  { id:"e05_n03", ep:5, word:"幹部", reading:"かんぶ", meaning:"executive / senior member", tier:1, kb:[], wm:"かんぶ — レッドドラゴンの幹部 = senior executive of the Red Dragon syndicate" },
-  { id:"e05_n04", ep:5, word:"心当たり", reading:"こころあたり", meaning:"having an idea about / knowing something of", tier:2, kb:[], wm:"こころあたり — 心当たりもある — I have some leads/ideas about it" },
-  { id:"e05_n05", ep:5, word:"代償", reading:"だいしょう", meaning:"price / cost / sacrifice", tier:2, kb:[], wm:"だいしょう — 先走った揚げ句の代償だ — the price of acting impulsively. Gren lost his arm as 代償" },
-  { id:"e05_n06", ep:5, word:"牙", reading:"きば", meaning:"fang / tusk", tier:2, kb:[], wm:"きば — やつは牙をなくした獣だ — Vicious says Mao lost his fangs; a predator weakened" },
-  { id:"e05_n07", ep:5, word:"獣", reading:"けもの", meaning:"beast / wild animal", tier:2, kb:[], wm:"けもの — 別の血を求めさまよう獣の血 — blood of beasts that wander seeking different blood" },
-  { id:"e05_n08", ep:5, word:"再会", reading:"さいかい", meaning:"reunion / meeting again", tier:1, kb:[], wm:"さいかい — 久しぶりの再会だぜ — Spike greets Vicious sarcastically as a reunion" },
-  { id:"e05_n09", ep:5, word:"命乞い", reading:"いのちごい", meaning:"begging for one's life", tier:3, kb:[], wm:"いのちごい — 命乞いか — Vicious sneers: 'are you begging for your life?'" },
-  { id:"e05_n10", ep:5, word:"恩人", reading:"おんじん", meaning:"benefactor / person one owes gratitude to", tier:2, kb:[], wm:"おんじん — 恩人だってさっさと殺しちまうんだからな — even his benefactor, he killed without hesitation" },
-
-// EP06 additions
-  { id:"e06_n01", ep:6, word:"抑制する", reading:"よくせいする", meaning:"to suppress / to restrain", tier:2, kb:[], wm:"よくせいする — 老化を抑制するメラトニンに似た物質 — suppresses aging like melatonin" },
-  { id:"e06_n02", ep:6, word:"エネルギー", reading:"enerugi", meaning:"energy", tier:1, kb:[], wm:"エネルギー — 膨大なエネルギーが閉じ込められている — enormous energy sealed in the ring stone" },
-  { id:"e06_n03", ep:6, word:"大ざっぱ", reading:"おおざっぱ", meaning:"rough / approximate / broad strokes", tier:2, kb:[], wm:"おおざっぱ — 大ざっぱに言えば仮説はこうだ — roughly speaking, the hypothesis goes like this" },
-  { id:"e06_n04", ep:6, word:"義理", reading:"ぎり", meaning:"duty / obligation / honor", tier:2, kb:[], wm:"ぎり — 男は義理に生きるもんだ — men live by duty/obligation" },
-  { id:"e06_n05", ep:6, word:"裏切り", reading:"うらぎり", meaning:"betrayal", tier:1, kb:[], wm:"うらぎり — Giraffe's 裏切り sent Zebra to the wilderness; backstabbing among allies" },
-  { id:"e06_n06", ep:6, word:"仕組む", reading:"しくむ", meaning:"to scheme / to set up / to contrive", tier:2, kb:[], wm:"しくむ — ジラフが仕組んだ — Giraffe set it up; schemed the betrayal" },
-  { id:"e06_n07", ep:6, word:"楽になる", reading:"らくになる", meaning:"to feel relief / to be released from suffering", tier:2, kb:[], wm:"らくになる — だが楽になってきた — Wen feels relief as he finally begins to die" },
-  { id:"e06_n08", ep:6, word:"豚に真珠", reading:"ぶたにしんじゅ", meaning:"pearls before swine", tier:3, kb:[], wm:"ぶたにしんじゅ — おまえが持っていても豚に真珠だ — Wen says this to Spike about the ring" },
-
-// EP07 additions
-  { id:"e07_n01", ep:7, word:"入れ墨", reading:"いれずみ", meaning:"tattoo", tier:1, kb:[], wm:"いれずみ — ドラゴンの入れ墨ってだけじゃあ — just a dragon tattoo to go on isn't much" },
-  { id:"e07_n02", ep:7, word:"積み荷", reading:"つみに", meaning:"cargo / freight / load", tier:1, kb:[], wm:"つみに — やつの積み荷はやばい — his cargo is dangerous (solid nitro)" },
-  { id:"e07_n03", ep:7, word:"吹き飛ぶ", reading:"ふきとぶ", meaning:"to be blown away / to explode", tier:1, kb:[], wm:"ふきとぶ — この小惑星ごと吹っ飛ぶ量 — enough to blow up the whole asteroid" },
-  { id:"e07_n04", ep:7, word:"誘爆", reading:"ゆうばく", meaning:"sympathetic detonation / chain explosion", tier:2, kb:[], wm:"ゆうばく — リアクターに誘爆が起きてて — chain explosions happening in the reactor" },
-  { id:"e07_n05", ep:7, word:"一触即発", reading:"いっしょくそくはつ", meaning:"hair-trigger / on the verge of explosion", tier:3, kb:[], wm:"いっしょくそくはつ — てことは一触即発 — one touch and it explodes; used about the nitro" },
-  { id:"e07_n06", ep:7, word:"安定剤", reading:"あんていざい", meaning:"stabilizer / sedative", tier:2, kb:[], wm:"あんていざい — 多分安定剤だ — the leaking substance is probably the stabilizer" },
-  { id:"e07_n07", ep:7, word:"助かる", reading:"たすかる", meaning:"to be saved / to survive / to be a big help", tier:1, kb:[], wm:"たすかる — 助かったぜ — phew, we survived. VT saves Spike and Faye from the mine" },
-  { id:"e07_n08", ep:7, word:"恩に着る", reading:"おんにきる", meaning:"to be grateful / to owe a debt of gratitude", tier:3, kb:[], wm:"おんにきる — ありがと、恩に着るよ — VT says this to the truckers who helped find Decker" },
-
-// EP08 additions
-  { id:"e08_n01", ep:8, word:"師匠", reading:"ししょう", meaning:"master / teacher / sensei", tier:1, kb:[], wm:"ししょう — よろしく師匠 — Roco starts calling Spike 師匠 after just one lesson" },
-  { id:"e08_n02", ep:8, word:"強くなる", reading:"つよくなる", meaning:"to become strong / to get stronger", tier:1, kb:[], wm:"つよくなる — 俺あんたみたいに強くなりてえんだよ — Roco's goal: become as strong as Spike" },
-  { id:"e08_n03", ep:8, word:"力", reading:"ちから", meaning:"strength / power / force", tier:1, kb:[], wm:"ちから — 大事なのは流れだ、力じゃない — what matters is flow, not brute 力" },
-  { id:"e08_n04", ep:8, word:"流れ", reading:"ながれ", meaning:"flow / current / stream", tier:1, kb:[], wm:"ながれ — 力の流れをコントロールする — control the flow of force; Spike's fighting philosophy" },
-  { id:"e08_n05", ep:8, word:"妹", reading:"いもうと", meaning:"younger sister", tier:1, kb:[], wm:"いもうと — 妹思いなんだな — Spike notes Roco loves his younger sister Stella" },
-  { id:"e08_n06", ep:8, word:"体質", reading:"たいしつ", meaning:"constitution / physical disposition", tier:2, kb:[], wm:"たいしつ — あたしは体質のせいで目が — her physical constitution causes the Venus disease" },
-  { id:"e08_n07", ep:8, word:"慣れる", reading:"なれる", meaning:"to get used to / to become accustomed", tier:1, kb:[], wm:"なれる — 慣れればどうってことないわ — you get used to it; Stella about her blindness" },
-  { id:"e08_n08", ep:8, word:"友達", reading:"ともだち", meaning:"friend", tier:1, kb:[], wm:"ともだち — あんたと友達になれたかな — Roco's dying words: could we have been friends?" },
-
-// EP09 additions
-  { id:"e09_n01", ep:9, word:"謎", reading:"なぞ", meaning:"mystery / riddle / enigma", tier:1, kb:[], wm:"なぞ — 謎の地上絵 — mysterious geoglyphs. 謎 is used constantly for anything unexplained" },
-  { id:"e09_n02", ep:9, word:"落書き", reading:"らくがき", meaning:"graffiti / doodle / scrawl", tier:1, kb:[], wm:"らくがき — 地球に落書き — drawing graffiti on Earth. The satellite's lonely art project" },
-  { id:"e09_n03", ep:9, word:"宇宙人", reading:"うちゅうじん", meaning:"alien / extraterrestrial", tier:1, kb:[], wm:"うちゅうじん — 宇宙人ですよ、決まってるじゃないですか — the commentator insists it's aliens" },
-  { id:"e09_n04", ep:9, word:"ハッキング", reading:"hakkingu", meaning:"hacking", tier:1, kb:[], wm:"ハッキング — 衛星にハッキングした — hacked into the satellite. Core concept of the episode" },
-  { id:"e09_n05", ep:9, word:"アクセスコード", reading:"access code", meaning:"access code", tier:1, kb:[], wm:"アクセスコード — 衛星へのアクセスコードが失われている — the access code is gone; can't reach the satellite" },
-  { id:"e09_n06", ep:9, word:"独自", reading:"どくじ", meaning:"unique / independent / original", tier:2, kb:[], wm:"どくじ — 独自の判断で行動を続ける — continues acting on its own independent judgment" },
-  { id:"e09_n07", ep:9, word:"寂しい", reading:"さびしい", meaning:"lonely / lonesome", tier:1, kb:[], wm:"さびしい — きっと寂しかったんだろ — Spike says the satellite acted out of loneliness" },
-  { id:"e09_n08", ep:9, word:"約束", reading:"やくそく", meaning:"promise / appointment", tier:1, kb:[], wm:"やくそく — 約束だよ、ビバップ号の仲間にしてくれるってね — Ed's 'promise' to join the Bebop" },
-
-// EP10 additions
-  { id:"e10_n01", ep:10, word:"ふるさと", reading:"ふるさと", meaning:"hometown / birthplace", tier:1, kb:[], wm:"ふるさと — ガニメデってあんたのふるさとなんでしょ — Faye notes Ganymede is Jet's hometown" },
-  { id:"e10_n02", ep:10, word:"久しぶり", reading:"ひさしぶり", meaning:"long time no see / after a long time", tier:1, kb:[], wm:"ひさしぶり — 久しぶりだな、ドネリー — meeting an old acquaintance after years apart" },
-  { id:"e10_n03", ep:10, word:"懐かしい", reading:"なつかしい", meaning:"nostalgic / dear (memories)", tier:1, kb:[], wm:"なつかしい — ガニメデの時間は止まったまま — Jet is stuck in 懐かしい feelings" },
-  { id:"e10_n04", ep:10, word:"恋人", reading:"こいびと", meaning:"lover / romantic partner", tier:1, kb:[], wm:"こいびと — リントはただの恋人 — Alisa says Lint is just her boyfriend; casual delivery" },
-  { id:"e10_n05", ep:10, word:"共犯", reading:"きょうはん", meaning:"accomplice / co-conspirator", tier:2, kb:[], wm:"きょうはん — 一緒にいればおまえも共犯になっちまう — being with him makes her an accomplice too" },
-  { id:"e10_n06", ep:10, word:"現実感", reading:"げんじつかん", meaning:"sense of reality / feeling of realness", tier:2, kb:[], wm:"げんじつかん — ただ現実感がないだけだった — he just felt no sense of reality when she left" },
-  { id:"e10_n07", ep:10, word:"麻痺する", reading:"まひする", meaning:"to go numb / to be paralyzed", tier:2, kb:[], wm:"まひする — 自分の中で何かがまひしていくのを感じた — something going numb inside him" },
-  { id:"e10_n08", ep:10, word:"生き方", reading:"いきかた", meaning:"way of life / how one lives", tier:1, kb:[], wm:"いきかた — 自分で生き方を決めたかったの — she wanted to decide her own way of life" },
-
-// EP11 additions
-  { id:"e11_n01", ep:11, word:"運命", reading:"うんめい", meaning:"fate / destiny", tier:1, kb:[], wm:"うんめい — まあこれも運命なんだが — Jet narrates: well, this is fate too" },
-  { id:"e11_n02", ep:11, word:"自由業", reading:"じゆうぎょう", meaning:"freelance work / self-employment", tier:2, kb:[], wm:"じゆうぎょう — 要するに自由業であり仕事がないときは全然ない — freelance: when there's no work, there's none at all" },
-  { id:"e11_n03", ep:11, word:"稼ぐ", reading:"かせぐ", meaning:"to earn / to make money", tier:1, kb:[], wm:"かせぐ — 手っ取り早く稼ごうとしてしまう — always trying to earn money the quick way" },
-  { id:"e11_n04", ep:11, word:"上前をはねる", reading:"うわまえをはねる", meaning:"to skim off the top / to take a cut", tier:3, kb:[], wm:"うわまえをはねる — 人の上前をはねて生きていこうとする人間には天罰が — those who skim off others get divine punishment" },
-  { id:"e11_n05", ep:11, word:"突然変異", reading:"とつぜんへんい", meaning:"mutation", tier:2, kb:[], wm:"とつぜんへんい — ネズミか何かが突然変異を起こして謎の生物に進化 — a mutated rat evolved into a mystery creature" },
-  { id:"e11_n06", ep:11, word:"傷跡", reading:"きずあと", meaning:"scar / wound mark", tier:2, kb:[], wm:"きずあと — この首の傷跡 — the scar on the neck proves it wasn't a normal rat bite" },
-  { id:"e11_n07", ep:11, word:"熱源", reading:"ねつげん", meaning:"heat source", tier:2, kb:[], wm:"ねつげん — 熱源を感知できるようになってる — Spike's device can detect heat sources to find the creature" },
-
-// EP12 additions
-  { id:"e12_n01", ep:12, word:"通信", reading:"つうしん", meaning:"communication / transmission", tier:1, kb:[], wm:"つうしん — カリストからの通信はビシャス様に直接入った — the communication came directly to Vicious" },
-  { id:"e12_n02", ep:12, word:"取引", reading:"とりひき", meaning:"deal / transaction / trade", tier:1, kb:[], wm:"とりひき — レッドアイの取引を要求 — demanding a deal for Red Eye drugs" },
-  { id:"e12_n03", ep:12, word:"帰還兵", reading:"きかんへい", meaning:"returning soldier / veteran", tier:2, kb:[], wm:"きかんへい — タイタン帰還兵 — veterans who survived the Titan campaign. Both Gren and Spike" },
-  { id:"e12_n04", ep:12, word:"防寒着", reading:"ぼうかんぎ", meaning:"cold weather clothing / winter gear", tier:2, kb:[], wm:"ぼうかんぎ — 十分な防寒着を用意して — prepare adequate cold weather gear for Callisto" },
-  { id:"e12_n05", ep:12, word:"冷却剤", reading:"れいきゃくざい", meaning:"coolant / refrigerant", tier:2, kb:[], wm:"れいきゃくざい — ラジエーターから冷却剤を抜いて行きやがった — Faye drained the coolant from the radiator" },
-  { id:"e12_n06", ep:12, word:"居場所", reading:"いばしょ", meaning:"one's place / where one belongs", tier:1, kb:[], wm:"いばしょ — 戻ってもおまえの居場所はないぜ — even if you come back, there's no place for you here" },
-  { id:"e12_n07", ep:12, word:"しかばね", reading:"しかばね", meaning:"corpse / dead body", tier:2, kb:[], wm:"しかばね — しかばねどもが — Vicious insults his loyal guards as corpses even while alive" },
-  { id:"e12_n08", ep:12, word:"掟", reading:"おきて", meaning:"code / rule / law of the land", tier:2, kb:[], wm:"おきて — 弱肉強食がこの世のおきて — survival of the fittest is the rule of this world" },
-
-// EP13 additions
-  { id:"e13_n01", ep:13, word:"部隊", reading:"ぶたい", meaning:"military unit / troop", tier:1, kb:[], wm:"ぶたい — タイタンの同じ部隊にいた — they were in the same unit on Titan" },
-  { id:"e13_n02", ep:13, word:"容疑", reading:"ようぎ", meaning:"suspicion / charge (crime)", tier:2, kb:[], wm:"ようぎ — スパイの容疑で投獄された — imprisoned on suspicion of being a spy" },
-  { id:"e13_n03", ep:13, word:"証言", reading:"しょうげん", meaning:"testimony / statement", tier:2, kb:[], wm:"しょうげん — ビシャスが証言したと聞かされたよ — told that Vicious gave testimony against him" },
-  { id:"e13_n04", ep:13, word:"薬漬け", reading:"くすりづけ", meaning:"strung out on drugs / dependent on medication", tier:2, kb:[], wm:"くすりづけ — 刑務所で精神をやられて薬漬けになった — his mind broke and he became drug-dependent in prison" },
-  { id:"e13_n05", ep:13, word:"バランスが崩れる", reading:"バランスがくずれる", meaning:"balance is disrupted / thrown off", tier:2, kb:[], wm:"バランスがくずれる — ホルモンのバランスが崩れてこうなった — hormonal imbalance caused this physical change" },
-  { id:"e13_n06", ep:13, word:"悲しそう", reading:"かなしそう", meaning:"looking sad / appearing sorrowful", tier:1, kb:[], wm:"かなしそう — 笑ってたよ、悲しそうに笑ってた — she was smiling, but sadly; Julia's expression at the bar" },
-  { id:"e13_n07", ep:13, word:"確かめる", reading:"たしかめる", meaning:"to confirm / to verify / to check", tier:1, kb:[], wm:"たしかめる — それを確かめたいんだ — Gren wants to verify whether Vicious really framed him" },
-
-// EP14 additions
-  { id:"e14_n01", ep:14, word:"手がかり", reading:"てがかり", meaning:"clue / lead (in investigation)", tier:1, kb:[], wm:"てがかり — 肝心の賞金首の手がかりはなし — not a single clue about the actual mastermind" },
-  { id:"e14_n02", ep:14, word:"手口", reading:"てぐち", meaning:"method / modus operandi", tier:2, kb:[], wm:"てぐち — 20件とも全く同じ手口だ — all 20 cases used exactly the same method" },
-  { id:"e14_n03", ep:14, word:"潜入", reading:"せんにゅう", meaning:"infiltration / sneaking in", tier:2, kb:[], wm:"せんにゅう — 料金所に潜入 — infiltrating the tollbooth to install the device" },
-  { id:"e14_n04", ep:14, word:"強奪", reading:"ごうだつ", meaning:"robbery / seizure by force", tier:2, kb:[], wm:"ごうだつ — クレジットカードから全額を一瞬にして強奪 — instantly seizing the full amount from credit cards" },
-  { id:"e14_n05", ep:14, word:"復讐", reading:"ふくしゅう", meaning:"revenge / vengeance", tier:1, kb:[], wm:"ふくしゅう — 当時復讐に燃えていたヘックスはこの計画を仕組んだ — Hex devised the plan burning with revenge" },
-  { id:"e14_n06", ep:14, word:"もうろく", reading:"もうろく", meaning:"senile / dotage / losing one's mind with age", tier:3, kb:[], wm:"もうろく — すっかりもうろくしちまって — he's completely senile; Hex forgot his own scheme" },
-  { id:"e14_n07", ep:14, word:"根本的", reading:"こんぽんてき", meaning:"fundamental / basic", tier:2, kb:[], wm:"こんぽんてき — ゲートの根本的な欠陥 — the fundamental flaw of the gate system" },
-  { id:"e14_n08", ep:14, word:"詮索", reading:"せんさく", meaning:"prying / nosing around / meddling", tier:2, kb:[], wm:"せんさく — 余計な詮索はせんほうが身のためだ — unnecessary prying is dangerous for your health" },
-
-// EP15 additions
-  { id:"e15_n01", ep:15, word:"解凍", reading:"かいとう", meaning:"defrosting / thawing out", tier:1, kb:[], wm:"かいとう — 彼女は無事解凍されたと思うかね — was she successfully defrosted? The doctor's check" },
-  { id:"e15_n02", ep:15, word:"保存", reading:"ほぞん", meaning:"preservation / storage / saving", tier:1, kb:[], wm:"ほぞん — 冷凍保存されていたんです — she had been preserved by cryogenic freezing for 54 years" },
-  { id:"e15_n03", ep:15, word:"事故", reading:"じこ", meaning:"accident", tier:1, kb:[], wm:"じこ — 大変な事故に巻き込まれたようです — she seems to have been caught in a terrible accident" },
-  { id:"e15_n04", ep:15, word:"不条理", reading:"ふじょうり", meaning:"absurd / unreasonable / irrational", tier:2, kb:[], wm:"ふじょうり — 勝手に生き返らせて借金払えなんて不条理よ — it's absurd: revive her without asking and demand payment" },
-  { id:"e15_n05", ep:15, word:"遺産", reading:"いさん", meaning:"inheritance / estate / legacy", tier:2, kb:[], wm:"いさん — 彼の遺産は全て君のものになる — all his estate will become yours; the trap Whitney sets" },
-  { id:"e15_n06", ep:15, word:"未来", reading:"みらい", meaning:"the future", tier:1, kb:[], wm:"みらい — 過去はどうあれ未来はあるだろ — whatever the past, there's a future. Spike to Faye" },
-  { id:"e15_n07", ep:15, word:"出会い", reading:"であい", meaning:"encounter / meeting (by chance)", tier:1, kb:[], wm:"であい — 生きていればすてきな出会いだってあるかもしれない — if you're alive, wonderful encounters await" },
-  { id:"e15_n08", ep:15, word:"詐欺師", reading:"さぎし", meaning:"swindler / con artist", tier:1, kb:[], wm:"さぎし — 立派な詐欺師だよ — you're a first-rate con artist; Spike to Ronnie/Londes in EP23 too" },
-
-// EP16 additions
-  { id:"e16_n01", ep:16, word:"投降", reading:"とうこう", meaning:"surrender / giving oneself up", tier:2, kb:[], wm:"とうこう — おとなしく投降すれば — if you surrender quietly... the prisoner ignores this" },
-  { id:"e16_n02", ep:16, word:"反乱", reading:"はんらん", meaning:"rebellion / uprising / mutiny", tier:1, kb:[], wm:"はんらん — 囚人の反乱が起きたらしい — a prisoner rebellion apparently broke out on the transport ship" },
-  { id:"e16_n03", ep:16, word:"逮捕", reading:"たいほ", meaning:"arrest", tier:1, kb:[], wm:"たいほ — ウダイ・タクシム、おまえを逮捕する — Jet's formal arrest declaration; his old police instinct" },
-  { id:"e16_n04", ep:16, word:"管轄外", reading:"かんかつがい", meaning:"outside one's jurisdiction", tier:2, kb:[], wm:"かんかつがい — 管轄外だろう — it's outside your jurisdiction; Bob warns Jet off the case" },
-  { id:"e16_n05", ep:16, word:"組織", reading:"そしき", meaning:"organization / syndicate", tier:1, kb:[], wm:"そしき — 組織にとって邪魔な存在だったおまえを消すために — to eliminate you who were a nuisance to the organization" },
-  { id:"e16_n06", ep:16, word:"仕組まれる", reading:"しくまれる", meaning:"to be set up / to be framed", tier:2, kb:[], wm:"しくまれる — あれは初めから仕組まれていたのさ — it was set up from the very beginning" },
-  { id:"e16_n07", ep:16, word:"禁煙", reading:"きんえん", meaning:"no smoking / quitting smoking", tier:1, kb:[], wm:"きんえん — 禁煙10日目だ — it's my 10th day of not smoking; Fad's mundane detail before betrayal" },
-
-// EP17 additions
-  { id:"e17_n01", ep:17, word:"非常事態", reading:"ひじょうじたい", meaning:"emergency / state of emergency", tier:1, kb:[], wm:"ひじょうじたい — こういうのを非常事態っていうんじゃないの — isn't this what you'd call an emergency?" },
-  { id:"e17_n02", ep:17, word:"食料", reading:"しょくりょう", meaning:"food / provisions", tier:1, kb:[], wm:"しょくりょう — おまえは食料でも調達して — you go find some food/provisions" },
-  { id:"e17_n03", ep:17, word:"調達", reading:"ちょうたつ", meaning:"to procure / to gather / to obtain", tier:2, kb:[], wm:"ちょうたつ — 食料でも調達して — go procure some food. 調達 = getting/sourcing supplies" },
-  { id:"e17_n04", ep:17, word:"慣性の法則", reading:"かんせいのほうそく", meaning:"law of inertia", tier:2, kb:[], wm:"かんせいのほうそく — 慣性の法則でエウロパに着くんだよ — by the law of inertia we'll reach Europa eventually" },
-  { id:"e17_n05", ep:17, word:"逆恨み", reading:"さかうらみ", meaning:"misplaced grudge / blaming the wrong person", tier:3, kb:[], wm:"さかうらみ — そりゃ逆恨みってやつじゃ — that's a misplaced grudge; Domino's brother blamed the mushroom seller" },
-  { id:"e17_n06", ep:17, word:"現金のみ", reading:"げんきんのみ", meaning:"cash only", tier:1, kb:[], wm:"げんきんのみ — 現金のみだ、マネーカードも許さん — cash only; no money cards accepted" },
-  { id:"e17_n07", ep:17, word:"栽培", reading:"さいばい", meaning:"cultivation / growing (plants)", tier:2, kb:[], wm:"さいばい — この中で栽培しているとは — to think they were cultivating them inside the ship" },
-
-// EP18 additions
-  { id:"e18_n01", ep:18, word:"竜宮城", reading:"りゅうぐうじょう", meaning:"Dragon Palace (from Urashima Taro folktale)", tier:2, kb:[], wm:"りゅうぐうじょう — とんだ竜宮城だぜ — what a Dragon Palace this turned out to be; bitter irony" },
-  { id:"e18_n02", ep:18, word:"玉手箱", reading:"たまてばこ", meaning:"treasure box (Urashima Taro / Pandora's box)", tier:2, kb:[], wm:"たまてばこ — 土産にと渡されたのが玉手箱 — the parting gift was the treasure box; theme of the episode" },
-  { id:"e18_n03", ep:18, word:"遺物", reading:"いぶつ", meaning:"relic / artifact / remnant", tier:2, kb:[], wm:"いぶつ — 古き良き時代の遺物ってやつだ — a relic of the good old days; about the VHS tape" },
-  { id:"e18_n04", ep:18, word:"土産", reading:"みやげ", meaning:"souvenir / gift", tier:1, kb:[], wm:"みやげ — 土産にと渡されたのが玉手箱 — as a parting gift he was given the treasure box" },
-  { id:"e18_n05", ep:18, word:"差出人", reading:"さしだしにん", meaning:"sender (of a package/letter)", tier:2, kb:[], wm:"さしだしにん — 差出人不明 — sender unknown; the mysterious tape arrives with no sender information" },
-  { id:"e18_n06", ep:18, word:"応援する", reading:"おうえんする", meaning:"to cheer for / to support", tier:1, kb:[], wm:"おうえんする — あたしは必ずあなたを応援している — young Faye's message: I'll always cheer for you" },
-  { id:"e18_n07", ep:18, word:"細胞", reading:"さいぼう", meaning:"cell (biological)", tier:2, kb:[], wm:"さいぼう — 体の細胞一つ一つ目覚めていますか — is every single cell of your body awakening?" },
-
-// EP19 additions
-  { id:"e19_n01", ep:19, word:"釣り", reading:"つり", meaning:"fishing", tier:1, kb:[], wm:"つり — 大体性に合わないのよ、ただ待ってるだけなんてのはさ — Faye hates fishing; just waiting isn't her style" },
-  { id:"e19_n02", ep:19, word:"極意", reading:"ごくい", meaning:"essence / secret / ultimate truth (of a skill)", tier:2, kb:[], wm:"ごくい — ポイントを定めひたすら待つ、それが釣りの極意 — the essence of fishing is to set your spot and just wait" },
-  { id:"e19_n03", ep:19, word:"世直し", reading:"よなおし", meaning:"social reform / fixing the world", tier:2, kb:[], wm:"よなおし — こりゃ世直しってわけか — so this is world reform? Spike's sarcastic take on the pirates' Robin Hood logic" },
-  { id:"e19_n04", ep:19, word:"感染", reading:"かんせん", meaning:"infection / contagion", tier:1, kb:[], wm:"かんせん — もしウイルスに感染したら — if the ship gets infected with the virus" },
-  { id:"e19_n05", ep:19, word:"漂流", reading:"ひょうりゅう", meaning:"adrift / drifting", tier:2, kb:[], wm:"ひょうりゅう — コンピューターが壊れちゃって漂流してるの — the computer broke and the ship is drifting" },
-  { id:"e19_n06", ep:19, word:"大気圏再突入", reading:"たいきけんさいとつにゅう", meaning:"atmospheric reentry", tier:2, kb:[], wm:"たいきけんさいとつにゅう — the climax: reentry at the right angle or burn up forever" },
-  { id:"e19_n07", ep:19, word:"引力", reading:"いんりょく", meaning:"gravity / gravitational pull", tier:2, kb:[], wm:"いんりょく — 地球の引力圏 — Earth's gravitational zone; Spike needs to use it to decelerate" },
-  { id:"e19_n08", ep:19, word:"骨董品", reading:"こっとうひん", meaning:"antique / vintage item", tier:1, kb:[], wm:"こっとうひん — 本気でこんな骨董品を？ — are you seriously using this antique? (about the biplane)" },
-
-// EP20 additions
-  { id:"e20_n01", ep:20, word:"うわさ", reading:"うわさ", meaning:"rumor / hearsay", tier:1, kb:[], wm:"うわさ — これはあくまでうわさだが — this is strictly a rumor, but... Jet uses this to ask about Mad Pierrot" },
-  { id:"e20_n02", ep:20, word:"不運", reading:"ふうん", meaning:"bad luck / misfortune", tier:1, kb:[], wm:"ふうん — おまえの相棒もつくづく不運だな — your partner is really and truly unlucky" },
-  { id:"e20_n03", ep:20, word:"極秘扱い", reading:"ごくひあつかい", meaning:"top secret treatment / classified", tier:2, kb:[], wm:"ごくひあつかい — こいつは極秘扱いだ — this case is classified top secret" },
-  { id:"e20_n04", ep:20, word:"脱走", reading:"だっそう", meaning:"escape / breakout / desertion", tier:2, kb:[], wm:"だっそう — 初めは復讐のために収容所を脱走した — escaped from the facility initially for revenge" },
-  { id:"e20_n05", ep:20, word:"純粋", reading:"じゅんすい", meaning:"pure / innocent / naive", tier:2, kb:[], wm:"じゅんすい — ガキほど純粋で残酷なもんはねえ — nothing is as pure and cruel as a child" },
-  { id:"e20_n06", ep:20, word:"残酷", reading:"ざんこく", meaning:"cruel / brutal", tier:2, kb:[], wm:"ざんこく — 純粋で残酷 — pure and cruel; Tongpu's childlike mind with superhuman killing ability" },
-  { id:"e20_n07", ep:20, word:"戦闘能力", reading:"せんとうのうりょく", meaning:"combat capability / fighting ability", tier:2, kb:[], wm:"せんとうのうりょく — 超人的な戦闘能力を持った子ども — a child with superhuman combat capabilities" },
-
-// EP21 additions
-  { id:"e21_n01", ep:21, word:"奇妙", reading:"きみょう", meaning:"strange / bizarre / peculiar", tier:1, kb:[], wm:"きみょう — この奇妙な事件の始まりは — the beginning of this bizarre case" },
-  { id:"e21_n02", ep:21, word:"行方", reading:"ゆくえ", meaning:"whereabouts / movements", tier:1, kb:[], wm:"ゆくえ — パオの行方を調べることにした — decided to investigate Pao's whereabouts" },
-  { id:"e21_n03", ep:21, word:"不審", reading:"ふしん", meaning:"suspicious / doubtful", tier:2, kb:[], wm:"ふしん — 不審に思った俺は — feeling suspicious, I decided to investigate" },
-  { id:"e21_n04", ep:21, word:"協力", reading:"きょうりょく", meaning:"cooperation / assistance", tier:1, kb:[], wm:"きょうりょく — 私に協力してください — please cooperate with me; Meifa asks Jet for help" },
-  { id:"e21_n05", ep:21, word:"エネルギー", reading:"enerugi", meaning:"energy", tier:1, kb:[], wm:"エネルギー — 太陽からやってくるエネルギー — energy coming from the sun; feng shui cosmology" },
-  { id:"e21_n06", ep:21, word:"磁石", reading:"じしゃく", meaning:"magnet / compass needle", tier:1, kb:[], wm:"じしゃく — 磁石を外してあるのに — even though the magnet has been removed; the sun stone overrides it" },
-  { id:"e21_n07", ep:21, word:"引き合う", reading:"ひきあう", meaning:"to attract each other / to be drawn together", tier:2, kb:[], wm:"ひきあう — 石同士が引き合って父のいる場所を示してる — the stones attract each other and point to her father" },
-  { id:"e21_n08", ep:21, word:"コンサルタント", reading:"konsarutanto", meaning:"consultant", tier:2, kb:[], wm:"コンサルタント — 組織のコンサルタントをしてた — Pao was a consultant for the organization" },
-
-// EP22 additions
-  { id:"e22_n01", ep:22, word:"爆弾", reading:"ばくだん", meaning:"bomb", tier:1, kb:[], wm:"ばくだん — 爆弾を仕掛ける — to plant a bomb; what Teddy Bomber does to every tall building" },
-  { id:"e22_n02", ep:22, word:"犯罪周期", reading:"はんざいしゅうき", meaning:"crime cycle / criminal pattern", tier:2, kb:[], wm:"はんざいしゅうき — ユーの犯罪周期を計算すれば — by calculating your crime cycle it was easy to predict" },
-  { id:"e22_n03", ep:22, word:"哲学", reading:"てつがく", meaning:"philosophy", tier:2, kb:[], wm:"てつがく — 哲学なき資本主義が生み出した全ての無駄に対して — against all the waste produced by capitalism without philosophy" },
-  { id:"e22_n04", ep:22, word:"美学", reading:"びがく", meaning:"aesthetics / personal code / style", tier:2, kb:[], wm:"びがく — 自分の美学にこだわる — he sticks to his personal aesthetics; Teddy never targets people" },
-  { id:"e22_n05", ep:22, word:"引退", reading:"いんたい", meaning:"retirement / withdrawal", tier:1, kb:[], wm:"いんたい — きょう限りでカウボーイを引退する — as of today I retire from being a cowboy" },
-  { id:"e22_n06", ep:22, word:"道楽", reading:"どうらく", meaning:"hobby / pastime / self-indulgence", tier:3, kb:[], wm:"どうらく — ぼんぼんの道楽よ — it's just a rich kid's hobby; Faye dismisses Andy's cowboy adventure" },
-  { id:"e22_n07", ep:22, word:"根拠", reading:"こんきょ", meaning:"basis / grounds / evidence", tier:2, kb:[], wm:"こんきょ — それじゃ何を根拠に言ってんだよ — then what are your grounds for saying that?" },
-
-// EP23 additions
-  { id:"e23_n01", ep:23, word:"肉体", reading:"にくたい", meaning:"the body / flesh", tier:1, kb:[], wm:"にくたい — 肉体とは単なる物体であり — the body is merely an object; the cult's opening sermon" },
-  { id:"e23_n02", ep:23, word:"魂", reading:"たましい", meaning:"soul / spirit", tier:1, kb:[], wm:"たましい — 汚れた肉体を捨てよ、目覚めよ魂 — discard the impure body, awaken the soul" },
-  { id:"e23_n03", ep:23, word:"欲望", reading:"よくぼう", meaning:"desire / craving / lust", tier:2, kb:[], wm:"よくぼう — 物欲、食欲、性欲、独占欲、名声欲 — material desire, hunger, lust, possessiveness, desire for fame" },
-  { id:"e23_n04", ep:23, word:"信者", reading:"しんじゃ", meaning:"believer / follower / cult member", tier:1, kb:[], wm:"しんじゃ — スクラッチの信者たちは — the believers of Scratch are dying. 2万人 already" },
-  { id:"e23_n05", ep:23, word:"入信", reading:"にゅうしん", meaning:"joining a religion / converting", tier:2, kb:[], wm:"にゅうしん — あなたが入信したきっかけというのは — what led you to join (the religion)?" },
-  { id:"e23_n06", ep:23, word:"腐りきった", reading:"くさりきった", meaning:"completely rotten / utterly corrupt", tier:2, kb:[], wm:"くさりきった — この腐りきった世界で生きていくのは容易なことじゃない — living in this utterly rotten world is not easy" },
-  { id:"e23_n07", ep:23, word:"架空", reading:"かくう", meaning:"fictitious / imaginary / made-up", tier:2, kb:[], wm:"かくう — ロンデスなんて男はこの世に存在しない、俺が作り出した架空のキャラクター — a fictitious character I created" },
-  { id:"e23_n08", ep:23, word:"生命維持装置", reading:"せいめいいじそうち", meaning:"life support system", tier:2, kb:[], wm:"せいめいいじそうち — 生命維持装置は止めるなよ — don't stop the life support system; Ronnie is physically alive in the hospital" },
-
-// EP24 additions
-  { id:"e24_n01", ep:24, word:"絆", reading:"きずな", meaning:"bond / tie / connection", tier:1, kb:[], wm:"きずな — 人間、絆ってのは大事にしないと — bonds between people are important to cherish" },
-  { id:"e24_n02", ep:24, word:"幽霊", reading:"ゆうれい", meaning:"ghost / spirit", tier:1, kb:[], wm:"ゆうれい — 実は彼女はね、幽霊なのよ — actually, she's a ghost; the old classmate's joke about Faye" },
-  { id:"e24_n03", ep:24, word:"同級生", reading:"どうきゅうせい", meaning:"classmate / schoolmate", tier:1, kb:[], wm:"どうきゅうせい — ハイスクールのときの同級の — classmate from high school; confirms Faye's past was real" },
-  { id:"e24_n04", ep:24, word:"探し物", reading:"さがしもの", meaning:"something being searched for / lost item", tier:1, kb:[], wm:"さがしもの — ちょっと探し物があって — I have something I'm looking for; Ed looking for water" },
-  { id:"e24_n05", ep:24, word:"隕石", reading:"いんせき", meaning:"meteorite", tier:2, kb:[], wm:"いんせき — しょっちゅう隕石が降ってきて地形が変わってる — meteorites keep falling and changing the terrain" },
-  { id:"e24_n06", ep:24, word:"転々とする", reading:"てんてんとする", meaning:"to move from place to place", tier:2, kb:[], wm:"てんてんとする — あちこち転々としながら探してるって言ってた — said he was searching while moving from place to place" },
-  { id:"e24_n07", ep:24, word:"懸ける", reading:"かける", meaning:"to bet / to wager / to stake", tier:2, kb:[], wm:"かける — 賞金を懸けたのもまさかおまえ — was it really you who put up the bounty? (Ed did for just 50 woolongs)" },
-
-// EP25 additions
-  { id:"e25_n01", ep:25, word:"処刑", reading:"しょけい", meaning:"execution", tier:1, kb:[], wm:"しょけい — ビシャスは処刑されます — Vicious will be executed; the elder council's sentence" },
-  { id:"e25_n02", ep:25, word:"拘束", reading:"こうそく", meaning:"restraint / detention / confinement", tier:2, kb:[], wm:"こうそく — 長老たちに拘束されました — he was detained by the elders after the failed coup" },
-  { id:"e25_n03", ep:25, word:"裁き", reading:"さばき", meaning:"judgment / ruling / trial", tier:2, kb:[], wm:"さばき — 裁きの広間へ連れていけ — take him to the hall of judgment" },
-  { id:"e25_n04", ep:25, word:"片割れ", reading:"かたわれ", meaning:"other half / one's missing piece", tier:2, kb:[], wm:"かたわれ — あいつは俺がなくした俺の片割れさ — she's the fragment of myself that I lost" },
-  { id:"e25_n05", ep:25, word:"組織を抜ける", reading:"そしきをぬける", meaning:"to leave the organization / to quit the syndicate", tier:2, kb:[], wm:"そしきをぬける — これが終わったら俺は組織を抜ける — when this is over I'll leave the organization" },
-  { id:"e25_n06", ep:25, word:"継承", reading:"けいしょう", meaning:"succession / inheritance (of power)", tier:2, kb:[], wm:"けいしょう — 組織の継承問題を巡って — surrounding the succession question of the organization" },
-  { id:"e25_n07", ep:25, word:"異分子", reading:"いぶんし", meaning:"dissident element / foreign body", tier:3, kb:[], wm:"いぶんし — 異分子は種の一粒までつぶす — they crush every last dissident to the last seed; the elders' ideology" },
-
-// EP26 additions
-  { id:"e26_n01", ep:26, word:"獣", reading:"けもの", meaning:"beast / wild animal", tier:2, kb:[], wm:"けもの — 行き場をなくした獣か — a beast that has nowhere to go; Vicious calls Spike this" },
-  { id:"e26_n02", ep:26, word:"守り星", reading:"まもりぼし", meaning:"guardian star / protecting star", tier:2, kb:[], wm:"まもりぼし — 全て自分の星を持っている、守り星となる — every living thing has its own star, which becomes a guardian star" },
-  { id:"e26_n03", ep:26, word:"流れる", reading:"ながれる", meaning:"to flow / to stream / (of a star) to shoot", tier:1, kb:[], wm:"ながれる — 命が尽きるとき星もまた流れて消えゆく — when life ends, the star too flows and fades away" },
-  { id:"e26_n04", ep:26, word:"現実", reading:"げんじつ", meaning:"reality", tier:1, kb:[], wm:"げんじつ — 俺が本当に生きてるかどうか確かめに行くんだ — going to confirm whether I'm really alive; what is real?" },
-  { id:"e26_n05", ep:26, word:"縛られる", reading:"しばられる", meaning:"to be bound / to be tied down", tier:2, kb:[], wm:"しばられる — あんたのほうが過去に縛られてる — you're more tied down by the past than you think, Faye says to Spike" },
-  { id:"e26_n06", ep:26, word:"糸の切れた凧", reading:"いとのきれたたこ", meaning:"a kite with a broken string (rudderless)", tier:3, kb:[], wm:"いとのきれたたこ — みんな糸の切れた凧みたいに行き場を無くしちまってる — everyone is rudderless like a kite with a broken string" },
-  { id:"e26_n07", ep:26, word:"運命", reading:"うんめい", meaning:"fate / destiny", tier:1, kb:[], wm:"うんめい — どの道おまえとはこうなる運命だ — it was fate that things would come to this between us" },
-
-// MOVIE additions
-  { id:"mv_n01", ep:27, word:"事故", reading:"じこ", meaning:"accident", tier:1, kb:[], wm:"じこ — タンクローリーの爆発事故 — the tanker truck explosion accident that opens the film" },
-  { id:"mv_n02", ep:27, word:"生物兵器", reading:"せいぶつへいき", meaning:"biological weapon", tier:2, kb:[], wm:"せいぶつへいき — 生物兵器の使用も考えられるとして — the use of biological weapons is also being considered" },
-  { id:"mv_n03", ep:27, word:"痕跡", reading:"こんせき", meaning:"trace / mark / evidence left behind", tier:2, kb:[], wm:"こんせき — 痕跡が何も見つからない — no traces found at all; the nanomachines vanish completely" },
-  { id:"mv_n04", ep:27, word:"血液", reading:"けつえき", meaning:"blood", tier:1, kb:[], wm:"けつえき — 誰かの血液？内密に調べてほしいの — someone's blood? I need you to investigate it secretly" },
-  { id:"mv_n05", ep:27, word:"培養", reading:"ばいよう", meaning:"cultivation / culturing (cells/bacteria)", tier:2, kb:[], wm:"ばいよう — 私の中にワクチンがあるなら培養して民間人に使えるはず — if there's a vaccine in me, it can be cultured and used on civilians" },
-  { id:"mv_n06", ep:27, word:"軍事利用", reading:"ぐんじりよう", meaning:"military use / militarization", tier:2, kb:[], wm:"ぐんじりよう — ナノマシンの軍事利用はアムステルダム条約で禁止されてるはず — military use of nanomachines should be prohibited by the Amsterdam Treaty" },
-  { id:"mv_n07", ep:27, word:"抹殺", reading:"まっさつ", meaning:"erasure / obliteration / killing off", tier:2, kb:[], wm:"まっさつ — ナノマシンに関する全ての情報を抹殺することだ — our purpose is to obliterate all information related to nanomachines" },
-  { id:"mv_n08", ep:27, word:"記憶を失う", reading:"きおくをうしなう", meaning:"to lose one's memory / amnesia", tier:1, kb:[], wm:"きおくをうしなう — 俺は記憶を失っていた、自分が誰なのかすら — I had lost my memory, couldn't even remember who I was" },
-  { id:"mv_n09", ep:27, word:"境界線", reading:"きょうかいせん", meaning:"boundary line / dividing line", tier:2, kb:[], wm:"きょうかいせん — 正常と異常の境界線など誰に引ける — who can draw the boundary line between normal and abnormal?" },
-  { id:"mv_n10", ep:27, word:"孤独", reading:"こどく", meaning:"loneliness / solitude", tier:1, kb:[], wm:"こどく — あの人は生まれたときから一人だったの — he was alone from the moment he was born; Vincent's 孤独 is total" },
-
+    wm:"この世の果てで会おう — Vincent's farewell to Spike. The movie ends there, at the edge of everything" }
 ];
 
 const TIER_LABELS = {1:"CORE",2:"SITUATIONAL",3:"SLANG/IDIOM"};
