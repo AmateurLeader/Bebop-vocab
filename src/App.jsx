@@ -1401,9 +1401,10 @@ const VOCAB = [
 const TIER_LABELS = {1:"CORE",2:"SITUATIONAL",3:"SLANG/IDIOM"};
 const TIER_COLORS = {1:"#e8412a",2:"#e8a22a",3:"#7c4de8"};
 const STORAGE_KEY = "bebop_srs_v2";
-const READINESS_THRESHOLD = 1; 
-const UNLOCK_THRESHOLD = 70; // % readiness to unlock next episode  = "ready"
+const READINESS_THRESHOLD = 1;
+const UNLOCK_THRESHOLD = 70;
 
+// ── SRS ──────────────────────────────────────────────────────────────
 function sm2(card, quality) {
   let {interval=1,repetitions=0,easeFactor=2.5} = card;
   if (quality < 2) { repetitions=0; interval=0; }
@@ -1417,35 +1418,105 @@ function sm2(card, quality) {
   return {interval,repetitions,easeFactor,nextReview:Date.now()+interval*86400000};
 }
 
-function getDue(vocab, progress) {
+// Flip cards due: no progress yet, or interval=0 (failed), or past nextReview
+function getFlipDue(vocab, progress) {
   const now=Date.now();
   return vocab.filter(v=>{ const p=progress[v.id]; return !p||p.interval===0||p.nextReview<=now; });
 }
 
+// Fill-in cards due: flip must have interval>=1 first, then fill follows same SRS rule
+function getFillDue(vocab, progress) {
+  const now=Date.now();
+  return vocab.filter(v=>{
+    if(!v.ex||v.ex.length===0) return false;
+    const flipP=progress[v.id];
+    if(!flipP||flipP.interval<1) return false; // flip card not seen yet
+    const fillId=v.id+"_fill";
+    const fillP=progress[fillId];
+    return !fillP||fillP.interval===0||fillP.nextReview<=now;
+  });
+}
+
+// Build a session queue: flip cards first, then fill-in cards for unlocked words
+// Fill cards are tagged with _isFill:true so the UI knows which mode to render
+function buildQueue(vocab, progress) {
+  const flipDue = getFlipDue(vocab, progress);
+  const fillDue = getFillDue(vocab, progress).map(v=>({
+    ...v,
+    _isFill: true,
+    _fillId: v.id+"_fill",
+  }));
+  // Flip cards sorted: new first, then by nextReview
+  flipDue.sort((a,b)=>{
+    const pa=progress[a.id], pb=progress[b.id];
+    if(!pa&&pb) return -1; if(pa&&!pb) return 1; if(!pa&&!pb) return 0;
+    return pa.nextReview-pb.nextReview;
+  });
+  // Fill cards sorted similarly by their fill progress
+  fillDue.sort((a,b)=>{
+    const pa=progress[a._fillId], pb=progress[b._fillId];
+    if(!pa&&pb) return -1; if(pa&&!pb) return 1; if(!pa&&!pb) return 0;
+    return pa.nextReview-pb.nextReview;
+  });
+  return [...flipDue, ...fillDue];
+}
+
+// A word is "ready" only when BOTH flip AND fill-in have interval >= threshold
 function getEpReadiness(epId, progress) {
   const epVocab = VOCAB.filter(v=>v.ep===epId);
   if (!epVocab.length) return 0;
-  const ready = epVocab.filter(v=>progress[v.id]?.interval>=READINESS_THRESHOLD).length;
+  const ready = epVocab.filter(v=>{
+    const flipOk = progress[v.id]?.interval>=READINESS_THRESHOLD;
+    const fillOk = progress[v.id+"_fill"]?.interval>=READINESS_THRESHOLD;
+    return flipOk && fillOk;
+  }).length;
   return Math.round((ready/epVocab.length)*100);
 }
 
 function isEpUnlocked(epId, progress) {
-  if (epId === 1) return true; // EP01 always unlocked
-  const prevId = epId === 27 ? 26 : epId - 1; // movie unlocks after EP26
+  if (epId === 1) return true;
+  const prevId = epId === 27 ? 26 : epId - 1;
   return getEpReadiness(prevId, progress) >= UNLOCK_THRESHOLD;
 }
 
+// Pick which example sentence to show for fill-in — rotates by review count
+function pickFillExample(vocab, progress) {
+  const fillP = progress[vocab.id+"_fill"];
+  const count = fillP?.repetitions||0;
+  return vocab.ex[count % vocab.ex.length];
+}
+
+// Split a Japanese sentence around the target word to create the blank
+// Returns { before, target, after } or null if word not found in sentence
+function splitSentence(sentence, word, reading) {
+  let idx = sentence.indexOf(word);
+  if(idx !== -1) return { before:sentence.slice(0,idx), target:word, after:sentence.slice(idx+word.length) };
+  // Try reading if word (kanji) not found — some grammar cards use reading directly
+  idx = sentence.indexOf(reading);
+  if(idx !== -1) return { before:sentence.slice(0,idx), target:reading, after:sentence.slice(idx+reading.length) };
+  // Fallback: show whole sentence as blank prompt
+  return null;
+}
+
+// Normalise answer: trim whitespace, lowercase for comparison
+function normaliseAnswer(s) { return s.trim().replace(/\s+/g,""); }
+
 export default function App() {
   const [progress,setProgress]=useState({});
-  const [currentCard,setCurrentCard]=useState(null);
+  const [queue,setQueue]=useState([]);
+  const [qIdx,setQIdx]=useState(0);
   const [flipped,setFlipped]=useState(false);
-  const [mode,setMode]=useState("home"); // home | study | stats
+  const [mode,setMode]=useState("home");
   const [studyEp,setStudyEp]=useState(null);
   const [session,setSession]=useState({reviewed:0,correct:0});
   const [loading,setLoading]=useState(true);
   const [saveMsg,setSaveMsg]=useState("");
   const [expandedKanji,setExpandedKanji]=useState(null);
   const [filterTier,setFilterTier]=useState(0);
+  // Fill-in state
+  const [fillInput,setFillInput]=useState("");
+  const [fillChecked,setFillChecked]=useState(false); // true after user submits answer
+  const [fillCorrect,setFillCorrect]=useState(false);
 
   useEffect(()=>{
     const r=storage.get(STORAGE_KEY);
@@ -1464,40 +1535,71 @@ export default function App() {
     return v;
   },[]);
 
-  const pickNext = useCallback((prog, vocab)=>{
-    const due=getDue(vocab,prog);
-    if(!due.length) return null;
-    due.sort((a,b)=>{ const pa=prog[a.id],pb=prog[b.id]; if(!pa&&pb)return -1; if(pa&&!pb)return 1; if(!pa&&!pb)return 0; return pa.nextReview-pb.nextReview; });
-    return due[0];
-  },[]);
+  const currentCard = queue[qIdx] || null;
 
   const startStudy = (epId)=>{
-    setStudyEp(epId);
     const vocab = getStudyVocab(epId, filterTier||null);
-    setCurrentCard(pickNext(progress, vocab));
+    const q = buildQueue(vocab, progress);
+    setQueue(q);
+    setQIdx(0);
     setFlipped(false); setExpandedKanji(null);
+    setFillInput(""); setFillChecked(false); setFillCorrect(false);
     setSession({reviewed:0,correct:0});
+    setStudyEp(epId);
     setMode("study");
   };
 
-  const answer=(quality)=>{
-    if(!currentCard) return;
+  const advanceQueue = (np) => {
+    setFlipped(false); setExpandedKanji(null);
+    setFillInput(""); setFillChecked(false); setFillCorrect(false);
+    // Rebuild queue from current position: keep remaining items, re-add failed ones at end
+    const vocab = getStudyVocab(studyEp, filterTier||null);
+    const newQ = buildQueue(vocab, np);
+    setQueue(newQ);
+    setQIdx(0);
+  };
+
+  // Answer a FLIP card
+  const answerFlip=(quality)=>{
+    if(!currentCard||currentCard._isFill) return;
     const updated=sm2(progress[currentCard.id]||{},quality);
     const np={...progress,[currentCard.id]:{...updated}};
     setProgress(np); save(np);
     setSession(s=>({reviewed:s.reviewed+1,correct:s.correct+(quality>=2?1:0)}));
-    const vocab = getStudyVocab(studyEp, filterTier||null);
-    setCurrentCard(pickNext(np, vocab));
-    setFlipped(false); setExpandedKanji(null);
+    advanceQueue(np);
   };
 
-  const nextInt=(quality)=>{
+  // Check a FILL-IN answer (called when user submits)
+  const checkFill=()=>{
+    if(!currentCard||!currentCard._isFill) return;
+    const ex = pickFillExample(currentCard, progress);
+    const correct = normaliseAnswer(fillInput)===normaliseAnswer(currentCard.word)
+                 || normaliseAnswer(fillInput)===normaliseAnswer(currentCard.reading);
+    setFillCorrect(correct);
+    setFillChecked(true);
+  };
+
+  // Grade a FILL-IN card after answer is shown
+  const answerFill=(quality)=>{
+    if(!currentCard||!currentCard._isFill) return;
+    const fillId = currentCard._fillId;
+    const updated=sm2(progress[fillId]||{},quality);
+    const np={...progress,[fillId]:{...updated}};
+    setProgress(np); save(np);
+    setSession(s=>({reviewed:s.reviewed+1,correct:s.correct+(quality>=2?1:0)}));
+    advanceQueue(np);
+  };
+
+  const nextInt=(quality, isFill)=>{
     if(!currentCard) return "";
-    const {interval}=sm2(progress[currentCard.id]||{},quality);
+    const id = isFill ? currentCard._fillId : currentCard.id;
+    const {interval}=sm2(progress[id]||{},quality);
     return interval===1?"<1d":`+${interval}d`;
   };
 
-  const globalDue = getDue(VOCAB, progress).length;
+  const globalFlipDue = getFlipDue(VOCAB, progress).length;
+  const globalFillDue = getFillDue(VOCAB, progress).length;
+  const globalDue = globalFlipDue + globalFillDue;
   const globalStudied = VOCAB.filter(v=>progress[v.id]).length;
 
   if(loading) return(
@@ -1505,6 +1607,96 @@ export default function App() {
       <span style={{color:"#e8412a",fontFamily:"monospace",fontSize:14,letterSpacing:6}}>読み込み中…</span>
     </div>
   );
+
+  // Fill-in card rendering helpers
+  const renderFillCard = () => {
+    if(!currentCard||!currentCard._isFill) return null;
+    const ex = pickFillExample(currentCard, progress);
+    const split = splitSentence(ex.j, currentCard.word, currentCard.reading);
+    const tc = TIER_COLORS[currentCard.tier];
+    return (
+      <div style={{...S.face,position:"relative",minHeight:280,justifyContent:"flex-start",paddingTop:20,background:"#0c0c0c",border:"1px solid #141414"}}>
+        <div style={{...S.tierStripe,background:tc}}/>
+        {/* Type badge */}
+        <div style={{fontSize:7,letterSpacing:3,fontFamily:"monospace",color:tc,marginBottom:12,alignSelf:"flex-start"}}>FILL-IN</div>
+        {/* English sentence with highlighted gap */}
+        <div style={{fontSize:13,color:"#999",lineHeight:1.7,marginBottom:16,width:"100%",textAlign:"left"}}>
+          {ex.e.replace(new RegExp(currentCard.word,"gi"),"___").split("___").reduce((acc,part,i,arr)=>{
+            acc.push(<span key={"e"+i}>{part}</span>);
+            if(i<arr.length-1) acc.push(
+              <span key={"blank"+i} style={{
+                color:tc,fontWeight:700,borderBottom:`2px solid ${tc}`,
+                padding:"0 4px",background:`${tc}15`
+              }}>＿＿＿</span>
+            );
+            return acc;
+          },[])}
+        </div>
+        {/* Japanese sentence with blank */}
+        <div style={{fontSize:18,lineHeight:2,marginBottom:16,width:"100%",textAlign:"left",letterSpacing:1}}>
+          {split ? (
+            <>
+              <span style={{color:"#ccc"}}>{split.before}</span>
+              <span style={{
+                color:fillChecked?(fillCorrect?"#4de89a":"#e8412a"):tc,
+                borderBottom:`2px solid ${fillChecked?(fillCorrect?"#4de89a":"#e8412a"):tc}`,
+                minWidth:40,display:"inline-block",textAlign:"center",
+                padding:"0 4px",background:`${tc}10`
+              }}>
+                {fillChecked ? split.target : "＿＿＿"}
+              </span>
+              <span style={{color:"#ccc"}}>{split.after}</span>
+            </>
+          ):(
+            <span style={{color:"#555",fontSize:12}}>（文中に見つかりません — {ex.j}）</span>
+          )}
+        </div>
+        {/* Input field — only shown before checking */}
+        {!fillChecked&&(
+          <div style={{width:"100%",display:"flex",gap:6}}>
+            <input
+              value={fillInput}
+              onChange={e=>setFillInput(e.target.value)}
+              onKeyDown={e=>{ if(e.key==="Enter"&&fillInput.trim()) checkFill(); }}
+              placeholder="答えを入力…"
+              autoFocus
+              style={{
+                flex:1,background:"#0f0f0f",border:`1px solid ${tc}`,
+                color:"#fff",padding:"10px 12px",fontSize:16,fontFamily:"monospace",
+                outline:"none",borderRadius:0,
+              }}
+            />
+            <button
+              onClick={checkFill}
+              disabled={!fillInput.trim()}
+              style={{
+                background:tc,border:"none",color:"#fff",padding:"10px 16px",
+                fontSize:11,fontFamily:"monospace",cursor:"pointer",letterSpacing:1,
+                opacity:fillInput.trim()?1:0.4,
+              }}
+            >確認</button>
+          </div>
+        )}
+        {/* Result shown after checking */}
+        {fillChecked&&(
+          <div style={{width:"100%"}}>
+            <div style={{
+              fontSize:12,fontFamily:"monospace",marginBottom:8,
+              color:fillCorrect?"#4de89a":"#e8412a",letterSpacing:2,
+            }}>
+              {fillCorrect?"✓ CORRECT":"✗ INCORRECT"}
+            </div>
+            {!fillCorrect&&(
+              <div style={{fontSize:13,color:"#666",marginBottom:8}}>
+                答え: <span style={{color:"#fff"}}>{currentCard.word}</span>
+                <span style={{color:"#444",marginLeft:8}}>{currentCard.reading}</span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return(
     <div style={S.root}>
@@ -1560,7 +1752,7 @@ export default function App() {
             <div style={S.epGrid}>
               {EPISODES.map(ep=>{
                 const epVocab = VOCAB.filter(v=>v.ep===ep.id);
-                const due = getDue(epVocab,progress).length;
+                const due = getFlipDue(epVocab,progress).length + getFillDue(epVocab,progress).length;
                 const readiness = getEpReadiness(ep.id,progress);
                 const isMovie = ep.id===27;
                 const unlocked = isEpUnlocked(ep.id,progress);
@@ -1601,7 +1793,7 @@ export default function App() {
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,paddingBottom:10,borderBottom:"1px solid #111"}}>
               <button onClick={()=>setMode("home")} style={{...S.navBtn,fontSize:9}}>← BACK</button>
               <span style={{color:"#333",fontSize:10,fontFamily:"monospace"}}>
-                {studyEp?(EPISODES.find(e=>e.ep===studyEp)?.title||`EP${studyEp}`):"ALL EPISODES"}
+                {studyEp?(EPISODES.find(e=>e.id===studyEp)?.title||`EP${studyEp}`):"ALL EPISODES"}
               </span>
               <span style={{color:"#222",fontSize:10,fontFamily:"monospace"}}>{session.reviewed} done</span>
             </div>
@@ -1620,83 +1812,112 @@ export default function App() {
             ):(
               <>
                 <div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}>
-                  <span style={{color:TIER_COLORS[currentCard.tier],fontSize:9,fontFamily:"monospace",letterSpacing:2}}>{TIER_LABELS[currentCard.tier]}</span>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                    <span style={{color:TIER_COLORS[currentCard.tier],fontSize:9,fontFamily:"monospace",letterSpacing:2}}>{TIER_LABELS[currentCard.tier]}</span>
+                    {currentCard._isFill&&<span style={{color:"#444",fontSize:8,fontFamily:"monospace",letterSpacing:2,border:"1px solid #222",padding:"1px 5px"}}>FILL-IN</span>}
+                  </div>
                   <span style={{color:"#222",fontSize:9,fontFamily:"monospace"}}>EP{currentCard.ep===27?"映画":String(currentCard.ep).padStart(2,"0")}</span>
                 </div>
 
-                <div style={{perspective:1200,marginBottom:14,cursor:"pointer"}} onClick={()=>{ if(!flipped){setFlipped(true);setExpandedKanji(null);} }}>
-                  <div style={{...S.cardInner,transform:flipped?"rotateY(180deg)":"rotateY(0deg)"}}>
-                    {/* FRONT */}
-                    <div style={S.face}>
-                      <div style={{...S.tierStripe,background:TIER_COLORS[currentCard.tier]}}/>
-                      <div style={{fontSize:52,color:"#fff",lineHeight:1,marginBottom:10}}>{currentCard.word}</div>
-                      <div style={{fontSize:9,color:"#1a1a1a",letterSpacing:3,fontFamily:"monospace"}}>タップして確認</div>
+                {/* ── FILL-IN CARD ── */}
+                {currentCard._isFill?(
+                  <>
+                    <div style={{marginBottom:14}}>
+                      {renderFillCard()}
                     </div>
-                    {/* BACK */}
-                    <div style={{...S.face,...S.faceBack}}>
-                      <div style={{...S.tierStripe,background:TIER_COLORS[currentCard.tier]}}/>
-                      <div style={{fontSize:30,color:"#fff",lineHeight:1}}>{currentCard.word}</div>
-                      <div style={{fontSize:14,color:"#666",fontFamily:"monospace",marginBottom:2}}>{currentCard.reading}</div>
-                      <div style={{fontSize:13,color:"#aaa",textAlign:"center",maxWidth:300,lineHeight:1.5,marginBottom:8}}>{currentCard.meaning}</div>
-                      {currentCard.wm&&(
-                        <div style={S.mnemoBox}>
-                          <span style={{fontSize:11,flexShrink:0}}>💡</span>
-                          <span style={{fontSize:10,color:"#888",lineHeight:1.5,fontFamily:"monospace"}}>{currentCard.wm}</span>
-                        </div>
-                      )}
-                      {currentCard.kb?.length>0&&(
-                        <div style={{width:"100%",marginTop:10}}>
-                          <div style={{fontSize:8,color:"#1e1e1e",letterSpacing:3,fontFamily:"monospace",marginBottom:6,borderBottom:"1px solid #111",paddingBottom:4}}>KANJI BREAKDOWN</div>
-                          <div style={{display:"flex",flexDirection:"column",gap:3}}>
-                            {currentCard.kb.map((k,i)=>(
-                              <div key={i}>
-                                <button onClick={e=>{e.stopPropagation();setExpandedKanji(expandedKanji===i?null:i);}}
-                                  style={{...S.kanjiRow,...(expandedKanji===i?S.kanjiRowOn:{})}}>
-                                  <span style={{fontSize:28,color:"#fff",width:32,lineHeight:1,flexShrink:0}}>{k.k}</span>
-                                  <div style={{display:"flex",flexDirection:"column",gap:1,flex:1,textAlign:"left"}}>
-                                    <span style={{fontSize:9,color:"#666",fontFamily:"monospace"}}>{k.r}</span>
-                                    <span style={{fontSize:11,color:"#bbb"}}>{k.m}</span>
-                                  </div>
-                                  <span style={{fontSize:8,color:"#333",fontFamily:"monospace"}}>{expandedKanji===i?"▲":"▼"}</span>
-                                </button>
-                                {expandedKanji===i&&(
-                                  <div style={S.kanjiDetail} onClick={e=>e.stopPropagation()}>
-                                    <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:8}}>
-                                      {k.rad.map((r,ri)=>(
-                                        <div key={ri} style={S.radPill}>
-                                          <span style={{fontSize:20,color:"#e8a22a"}}>{r}</span>
-                                          <span style={{fontSize:8,color:"#555",fontFamily:"monospace"}}>{k.rm[ri]}</span>
-                                        </div>
-                                      ))}
-                                    </div>
-                                    <div style={S.mnemoBoxPurple}>
-                                      <span style={{fontSize:11,flexShrink:0}}>🧠</span>
-                                      <span style={{fontSize:10,color:"#888",lineHeight:1.5,fontFamily:"monospace"}}>{k.mn}</span>
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {flipped?(
-                  <div style={{display:"flex",gap:4}}>
-                    {[[0,"AGAIN","#9b2335"],[1,"HARD","#7a3a10"],[2,"GOOD","#155230"],[3,"EASY","#102a5c"]].map(([q,label,bg])=>(
-                      <button key={q} style={{...S.ansBtn,background:bg}} onClick={()=>answer(q)}>
-                        <span style={{color:"#fff",fontSize:9,letterSpacing:1,fontFamily:"monospace",fontWeight:700}}>{label}</span>
-                        <span style={{color:"rgba(255,255,255,0.35)",fontSize:8,fontFamily:"monospace"}}>{nextInt(q)}</span>
-                      </button>
-                    ))}
-                  </div>
+                    {/* After checking: show grading buttons */}
+                    {fillChecked?(
+                      <div style={{display:"flex",gap:4}}>
+                        {[[0,"AGAIN","#9b2335"],[1,"HARD","#7a3a10"],[2,"GOOD","#155230"],[3,"EASY","#102a5c"]].map(([q,label,bg])=>(
+                          <button key={q} style={{...S.ansBtn,background:bg}} onClick={()=>answerFill(q)}>
+                            <span style={{color:"#fff",fontSize:9,letterSpacing:1,fontFamily:"monospace",fontWeight:700}}>{label}</span>
+                            <span style={{color:"rgba(255,255,255,0.35)",fontSize:8,fontFamily:"monospace"}}>{nextInt(q,true)}</span>
+                          </button>
+                        ))}
+                      </div>
+                    ):(
+                      <div style={{textAlign:"center",marginTop:4}}>
+                        <span style={{color:"#181818",fontSize:9,letterSpacing:3,fontFamily:"monospace"}}>TYPE ANSWER AND TAP 確認</span>
+                      </div>
+                    )}
+                  </>
                 ):(
-                  <div style={{textAlign:"center",marginTop:10}}>
-                    <span style={{color:"#181818",fontSize:9,letterSpacing:3,fontFamily:"monospace"}}>TAP CARD TO REVEAL</span>
-                  </div>
+                  /* ── FLIP CARD ── */
+                  <>
+                    <div style={{perspective:1200,marginBottom:14,cursor:"pointer"}} onClick={()=>{ if(!flipped){setFlipped(true);setExpandedKanji(null);} }}>
+                      <div style={{...S.cardInner,transform:flipped?"rotateY(180deg)":"rotateY(0deg)"}}>
+                        {/* FRONT */}
+                        <div style={S.face}>
+                          <div style={{...S.tierStripe,background:TIER_COLORS[currentCard.tier]}}/>
+                          <div style={{fontSize:52,color:"#fff",lineHeight:1,marginBottom:10}}>{currentCard.word}</div>
+                          <div style={{fontSize:9,color:"#1a1a1a",letterSpacing:3,fontFamily:"monospace"}}>タップして確認</div>
+                        </div>
+                        {/* BACK */}
+                        <div style={{...S.face,...S.faceBack}}>
+                          <div style={{...S.tierStripe,background:TIER_COLORS[currentCard.tier]}}/>
+                          <div style={{fontSize:30,color:"#fff",lineHeight:1}}>{currentCard.word}</div>
+                          <div style={{fontSize:14,color:"#666",fontFamily:"monospace",marginBottom:2}}>{currentCard.reading}</div>
+                          <div style={{fontSize:13,color:"#aaa",textAlign:"center",maxWidth:300,lineHeight:1.5,marginBottom:8}}>{currentCard.meaning}</div>
+                          {currentCard.wm&&(
+                            <div style={S.mnemoBox}>
+                              <span style={{fontSize:11,flexShrink:0}}>💡</span>
+                              <span style={{fontSize:10,color:"#888",lineHeight:1.5,fontFamily:"monospace"}}>{currentCard.wm}</span>
+                            </div>
+                          )}
+                          {currentCard.kb?.length>0&&(
+                            <div style={{width:"100%",marginTop:10}}>
+                              <div style={{fontSize:8,color:"#1e1e1e",letterSpacing:3,fontFamily:"monospace",marginBottom:6,borderBottom:"1px solid #111",paddingBottom:4}}>KANJI BREAKDOWN</div>
+                              <div style={{display:"flex",flexDirection:"column",gap:3}}>
+                                {currentCard.kb.map((k,i)=>(
+                                  <div key={i}>
+                                    <button onClick={e=>{e.stopPropagation();setExpandedKanji(expandedKanji===i?null:i);}}
+                                      style={{...S.kanjiRow,...(expandedKanji===i?S.kanjiRowOn:{})}}>
+                                      <span style={{fontSize:28,color:"#fff",width:32,lineHeight:1,flexShrink:0}}>{k.k}</span>
+                                      <div style={{display:"flex",flexDirection:"column",gap:1,flex:1,textAlign:"left"}}>
+                                        <span style={{fontSize:9,color:"#666",fontFamily:"monospace"}}>{k.r}</span>
+                                        <span style={{fontSize:11,color:"#bbb"}}>{k.m}</span>
+                                      </div>
+                                      <span style={{fontSize:8,color:"#333",fontFamily:"monospace"}}>{expandedKanji===i?"▲":"▼"}</span>
+                                    </button>
+                                    {expandedKanji===i&&(
+                                      <div style={S.kanjiDetail} onClick={e=>e.stopPropagation()}>
+                                        <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:8}}>
+                                          {k.rad.map((r,ri)=>(
+                                            <div key={ri} style={S.radPill}>
+                                              <span style={{fontSize:20,color:"#e8a22a"}}>{r}</span>
+                                              <span style={{fontSize:8,color:"#555",fontFamily:"monospace"}}>{k.rm[ri]}</span>
+                                            </div>
+                                          ))}
+                                        </div>
+                                        <div style={S.mnemoBoxPurple}>
+                                          <span style={{fontSize:11,flexShrink:0}}>🧠</span>
+                                          <span style={{fontSize:10,color:"#888",lineHeight:1.5,fontFamily:"monospace"}}>{k.mn}</span>
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    {flipped?(
+                      <div style={{display:"flex",gap:4}}>
+                        {[[0,"AGAIN","#9b2335"],[1,"HARD","#7a3a10"],[2,"GOOD","#155230"],[3,"EASY","#102a5c"]].map(([q,label,bg])=>(
+                          <button key={q} style={{...S.ansBtn,background:bg}} onClick={()=>answerFlip(q)}>
+                            <span style={{color:"#fff",fontSize:9,letterSpacing:1,fontFamily:"monospace",fontWeight:700}}>{label}</span>
+                            <span style={{color:"rgba(255,255,255,0.35)",fontSize:8,fontFamily:"monospace"}}>{nextInt(q,false)}</span>
+                          </button>
+                        ))}
+                      </div>
+                    ):(
+                      <div style={{textAlign:"center",marginTop:10}}>
+                        <span style={{color:"#181818",fontSize:9,letterSpacing:3,fontFamily:"monospace"}}>TAP CARD TO REVEAL</span>
+                      </div>
+                    )}
+                  </>
                 )}
               </>
             )}
@@ -1712,8 +1933,8 @@ export default function App() {
             {EPISODES.map(ep=>{
               const epVocab=VOCAB.filter(v=>v.ep===ep.id);
               const studied=epVocab.filter(v=>progress[v.id]).length;
-              const mastered=epVocab.filter(v=>progress[v.id]?.interval>=21).length;
-              const ready=epVocab.filter(v=>progress[v.id]?.interval>=READINESS_THRESHOLD).length;
+              const mastered=epVocab.filter(v=>progress[v.id]?.interval>=21&&progress[v.id+"_fill"]?.interval>=21).length;
+              const ready=epVocab.filter(v=>progress[v.id]?.interval>=READINESS_THRESHOLD&&progress[v.id+"_fill"]?.interval>=READINESS_THRESHOLD).length;
               const readyPct=Math.round((ready/epVocab.length)*100);
               const isMovie=ep.id===27;
               return(
@@ -1728,13 +1949,19 @@ export default function App() {
                   <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
                     {epVocab.map(v=>{
                       const p=progress[v.id];
-                      const isMastered=p?.interval>=21;
-                      const isReady=p?.interval>=READINESS_THRESHOLD;
+                      const pf=progress[v.id+"_fill"];
+                      const flipReady=p?.interval>=READINESS_THRESHOLD;
+                      const fillReady=pf?.interval>=READINESS_THRESHOLD;
+                      const bothReady=flipReady&&fillReady;
+                      const isMastered=p?.interval>=21&&pf?.interval>=21;
                       const isDue=!p||p.nextReview<=Date.now();
                       return(
                         <div key={v.id} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:1}}>
-                          <span style={{fontSize:16,color:isMastered?"#4de89a":isReady?"#e8a22a":isDue?TIER_COLORS[v.tier]:"#1e1e1e"}}>{v.word}</span>
-                          <span style={{fontSize:7,color:"#1e1e1e",fontFamily:"monospace"}}>{p?`+${p.interval}d`:"new"}</span>
+                          <span style={{fontSize:16,color:isMastered?"#4de89a":bothReady?"#e8a22a":isDue?TIER_COLORS[v.tier]:"#1e1e1e"}}>{v.word}</span>
+                          <div style={{display:"flex",gap:2}}>
+                            <span style={{fontSize:6,color:flipReady?"#555":"#2a2a2a",fontFamily:"monospace"}}>F{p?`+${p.interval}d`:"·"}</span>
+                            <span style={{fontSize:6,color:fillReady?"#555":"#2a2a2a",fontFamily:"monospace"}}>W{pf?`+${pf.interval}d`:"·"}</span>
+                          </div>
                         </div>
                       );
                     })}
