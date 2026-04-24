@@ -1489,13 +1489,29 @@ function pickFillExample(vocab, progress) {
 // Split a Japanese sentence around the target word to create the blank
 // Returns { before, target, after } or null if word not found in sentence
 function splitSentence(sentence, word, reading) {
+  // 1. Exact match — dictionary form kanji
   let idx = sentence.indexOf(word);
   if(idx !== -1) return { before:sentence.slice(0,idx), target:word, after:sentence.slice(idx+word.length) };
-  // Try reading if word (kanji) not found — some grammar cards use reading directly
+  // 2. Exact match — reading (hiragana)
   idx = sentence.indexOf(reading);
   if(idx !== -1) return { before:sentence.slice(0,idx), target:reading, after:sentence.slice(idx+reading.length) };
-  // Fallback: show whole sentence as blank prompt
+  // 3. Stem match — handles conjugated forms (逃げる→逃げ, 掘る→掘, 壊す→壊)
+  const particles = "をにはがもでとへのからまでよねわぞぜかなだ。、！？「」（）…";
+  const tryStems = [word, reading].flatMap(s => [s.slice(0,-1), s.slice(0,-2)]).filter(s=>s.length>0);
+  for(const stem of tryStems){
+    idx = sentence.indexOf(stem);
+    if(idx !== -1){
+      let end = idx + stem.length;
+      while(end < sentence.length && !particles.includes(sentence[end])) end++;
+      return { before:sentence.slice(0,idx), target:sentence.slice(idx,end), after:sentence.slice(end) };
+    }
+  }
   return null;
+}
+
+// Extract English keyword to highlight from the meaning field
+function findEnglishTarget(meaning) {
+  return meaning.split("/")[0].replace(/^to\s+/i,"").trim();
 }
 
 // Normalise answer: trim whitespace, lowercase for comparison
@@ -1619,18 +1635,24 @@ export default function App() {
         <div style={{...S.tierStripe,background:tc}}/>
         {/* Type badge */}
         <div style={{fontSize:7,letterSpacing:3,fontFamily:"monospace",color:tc,marginBottom:12,alignSelf:"flex-start"}}>FILL-IN</div>
-        {/* English sentence with highlighted gap */}
+        {/* English sentence — highlight the English translation of the target word */}
         <div style={{fontSize:13,color:"#999",lineHeight:1.7,marginBottom:16,width:"100%",textAlign:"left"}}>
-          {ex.e.replace(new RegExp(currentCard.word,"gi"),"___").split("___").reduce((acc,part,i,arr)=>{
-            acc.push(<span key={"e"+i}>{part}</span>);
-            if(i<arr.length-1) acc.push(
-              <span key={"blank"+i} style={{
-                color:tc,fontWeight:700,borderBottom:`2px solid ${tc}`,
-                padding:"0 4px",background:`${tc}15`
-              }}>＿＿＿</span>
-            );
-            return acc;
-          },[])}
+          {(()=>{
+            const eng = ex.e;
+            const target = findEnglishTarget(currentCard.meaning);
+            // Try to find the English keyword in the sentence (case-insensitive)
+            const re = new RegExp("("+target.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","i");
+            const parts = eng.split(re);
+            if(parts.length>1){
+              return parts.map((p,i)=>
+                re.test(p)
+                  ? <span key={i} style={{color:tc,fontWeight:700,borderBottom:`2px solid ${tc}`,padding:"0 2px",background:`${tc}18`}}>{p}</span>
+                  : <span key={i}>{p}</span>
+              );
+            }
+            // Fallback: show full English sentence unhighlighted
+            return <span>{eng}</span>;
+          })()}
         </div>
         {/* Japanese sentence with blank */}
         <div style={{fontSize:18,lineHeight:2,marginBottom:16,width:"100%",textAlign:"left",letterSpacing:1}}>
