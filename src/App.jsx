@@ -404,6 +404,86 @@ const VOCAB = [
     ex:[{j:"悪い夢さ。",r:"わるいゆめさ。",e:"It was a bad dream."},{j:"昨夜悪い夢を見た。",r:"さくやわるいゆめをみた。",e:"I had a bad dream last night."},{j:"これは悪い夢じゃないのか？",r:"これはわるいゆめじゃないのか？",e:"Isn't this some kind of bad dream?"}],
     wm:"Spike's line after being outsmarted — 悪い夢さ. The phrase returns word-for-word in EP26 between Spike and Julia. EP01 plants the seed of the show's ending." },
 
+  { id:"e01_71", ep:1, word:"現れる", reading:"あらわれる", meaning:"to appear / to show up / to emerge", tier:1,
+    kb:[{k:"現",r:"あらわ(れる)",m:"appear/manifest/present",rad:["王","見"],rm:["king/gem","see"],mn:"A gem coming into view — to appear, manifest, be present"}],
+    ex:[{j:"北の街はずれに赤い目のコヨーテは現れる。",r:"きたのまちはずれにあかいめのコヨーテはあらわれる。",e:"A red-eyed coyote appears at the edge of the northern town."},{j:"突然彼が現れた。",r:"とつぜんかれがあらわれた。",e:"He appeared suddenly."},{j:"問題が現れた。",r:"もんだいがあらわれた。",e:"A problem appeared."}],
+    wm:"The fortune teller's prediction — 赤い目のコヨーテは現れる. 現 = gem/present + 見 = see = something coming into visible existence." },
+
+  { id:"e01_72", ep:1, word:"弱る", reading:"よわる", meaning:"to weaken / to be in bad shape / to be worn down", tier:2,
+    kb:[{k:"弱",r:"よわ(る)",m:"weak/feeble",rad:["弓","弓"],rm:["bow","bow"],mn:"Two small bows — weak, feeble (contrast with 強 strong)"}],
+    ex:[{j:"弱ってる雑魚は相手にしないんだ。",r:"よわってるざこはあいてにしないんだ。",e:"I don't deal with weakened small fry."},{j:"病気で体が弱った。",r:"びょうきでからだがよわった。",e:"My body weakened from illness."},{j:"弱ったな、どうしよう。",r:"よわったな、どうしよう。",e:"This is a problem, what should I do?"}],
+    wm:"Katerina tells Spike: 弱ってる雑魚は相手にしない — she recognizes his wisdom. 弱る = to become weak. Also used like '困った' to mean 'this is a problem'." },
+
+  { id:"e01_73", ep:1, word:"相手にする", reading:"あいてにする", meaning:"to deal with / to engage with / to take on as an opponent", tier:2,
+    kb:[{k:"相",r:"あい",m:"mutual/together",rad:["木","目"],rm:["tree","eye"],mn:"An eye watching a tree — mutual, together"},{k:"手",r:"て",m:"hand",rad:["手"],rm:["hand"],mn:"A hand"},{k:"にする",r:"にする",m:"make into / treat as",rad:[""],rm:[""],mn:"To make into, treat as, regard as"}],
+    ex:[{j:"弱ってる雑魚は相手にしないんだ。",r:"よわってるざこはあいてにしないんだ。",e:"I don't deal with weakened small fry."},{j:"そんな話、相手にしない。",r:"そんなはなし、あいてにしない。",e:"I won't engage with that kind of talk."},{j:"彼を相手にするな。",r:"かれをあいてにするな。",e:"Don't deal with him."}],
+    wm:"相手 = partner/opponent + にする = treat as. 相手にしない = refuse to engage with. Used when dismissing someone as not worth your attention." },
+
+  { id:"e01_74", ep:1, word:"息を止める", reading:"いきをとめる", meaning:"to stop someone's breathing / to kill silently", tier:2,
+    kb:[{k:"息",r:"いき",m:"breath/breathing",rad:["自","心"],rm:["nose/self","heart"],mn:"The heart's self — breath, breathing"},{k:"止める",r:"とめる",m:"stop/halt",rad:["止"],rm:["stop/foot"],mn:"A foot stopping — to stop, halt"}],
+    ex:[{j:"あいつの息を止めるなんざ１秒でできた。",r:"あいつのいきをとめるなんざ1びょうでできた。",e:"Stopping that guy's breathing would have taken one second."},{j:"息を止めて潜った。",r:"いきをとめてもぐった。",e:"I held my breath and dove under."},{j:"息をのむ。",r:"いきをのむ。",e:"To catch one's breath (in surprise)."}],
+    wm:"Katerina says this showing she saw Spike's full ability — he could have killed Asimov in a second but chose not to. 息 (breath) + 止める (stop) = stop breathing = kill." },
+
+  { id:"e01_75", ep:1, word:"頼り過ぎ", reading:"たよりすぎ", meaning:"relying too much / overdependent", tier:2,
+    kb:[{k:"頼",r:"たよ(り)",m:"rely on/depend",rad:["頁","束"],rm:["head/page","bundle"],mn:"A bundled head — to lean/rely on"},{k:"過ぎ",r:"すぎ",m:"too much/exceed/pass",rad:["⻌","咼"],rm:["movement","bone/face"],mn:"Moving past what is appropriate — too much, exceed"}],
+    ex:[{j:"目に頼り過ぎなんだよ。",r:"めにたよりすぎなんだよ。",e:"You're relying on your eyes too much."},{j:"人に頼り過ぎるな。",r:"ひとにたよりすぎるな。",e:"Don't rely on people too much."},{j:"薬に頼り過ぎている。",r:"くすりにたよりすぎている。",e:"He's relying too much on medicine."}],
+    wm:"Spike's taunt during the fight — 目に頼り過ぎなんだよ. Bloody Eye enhances vision but creates tunnel focus. 〜過ぎ = doing something to excess. Very common pattern." },
+
+  { id:"e01_76", ep:1, word:"抜け出す", reading:"ぬけだす", meaning:"to escape from / to break free / to slip out of", tier:2,
+    kb:[{k:"抜",r:"ぬ(け)",m:"pull out/extract/escape",rad:["扌","友"],rm:["hand","friend/pull"],mn:"A hand pulling out a friend — to extract, pull out, escape"},{k:"出す",r:"だす",m:"put out/come out",rad:["凵","止"],rm:["container","stop/foot"],mn:"Taking something out of a container — to put out, come out"}],
+    ex:[{j:"やっとここの暮らしから抜け出せるんじゃない。",r:"やっとここのくらしからぬけだせるんじゃない。",e:"We can finally escape from this life here."},{j:"その状況から抜け出した。",r:"そのじょうきょうからぬけだした。",e:"I escaped from that situation."},{j:"組織から抜け出す。",r:"そしきからぬけだす。",e:"To break free from the organization."}],
+    wm:"Katerina's dream — やっとここの暮らしから抜け出せる. 抜け (slip/pull out) + 出す (come out) = escape completely. More final than just 逃げる." },
+
+  { id:"e01_77", ep:1, word:"張り合い", reading:"はりあい", meaning:"worth / reward / satisfaction / incentive", tier:2,
+    kb:[{k:"張",r:"は(り)",m:"stretch/extend/put up",rad:["弓","長"],rm:["bow","long"],mn:"A long bow stretched taut — to stretch, extend, put up"},{k:"合い",r:"あい",m:"fit/match/mutual",rad:["亼","口"],rm:["gather","mouth"],mn:"Mouths gathering together — to fit, match, mutual"}],
+    ex:[{j:"安い賞金首じゃ張り合いなくてね。",r:"やすいしょうきんくびじゃはりあいなくてね。",e:"Cheap bounty targets aren't worth the effort."},{j:"張り合いのある仕事だ。",r:"はりあいのあるしごとだ。",e:"It's rewarding work."},{j:"張り合いがない。",r:"はりあいがない。",e:"There's no satisfaction in it / no point."}],
+    wm:"The arms dealer says 安い賞金首じゃ張り合いない — not worth the effort. 張り合い = the satisfaction of matching/stretching against something worthy. No worthy opponent = no 張り合い." },
+
+  { id:"e01_78", ep:1, word:"詳しく", reading:"くわしく", meaning:"in detail / thoroughly / with full explanation", tier:1,
+    kb:[{k:"詳",r:"くわ(しく)",m:"detailed/thorough",rad:["言","羊"],rm:["words","sheep"],mn:"Words as many as sheep — detailed, thorough, many words"}],
+    ex:[{j:"詳しく聞きたいねえ。",r:"くわしくききたいねえ。",e:"I'd like to hear about it in detail."},{j:"詳しく説明してください。",r:"くわしくせつめいしてください。",e:"Please explain in detail."},{j:"彼は火星について詳しい。",r:"かれはかせいについてくわしい。",e:"He knows a lot about Mars."}],
+    wm:"The bar scene — someone says 詳しく聞きたいねえ right before the fight breaks out. They never get their detailed explanation. Wanting details is always interrupted in this world." },
+
+  { id:"e01_79", ep:1, word:"腹が減る", reading:"はらがへる", meaning:"to get hungry / to be hungry (lit. stomach empties)", tier:1,
+    kb:[{k:"腹",r:"はら",m:"stomach/belly/guts",rad:["月","复"],rm:["body/flesh","return/again"],mn:"Flesh that keeps returning to emptiness — stomach, belly, guts"},{k:"減る",r:"へる",m:"decrease/diminish/empty out",rad:["氵","減"],rm:["water","decrease"],mn:"Water decreasing — to diminish, decrease, empty out"}],
+    ex:[{j:"腹減ったなあ。",r:"はらへったなあ。",e:"I'm hungry."},{j:"腹が減っては戦ができぬ。",r:"はらがへってはいくさができぬ。",e:"An army marches on its stomach (proverb)."},{j:"腹が減ったら食べなさい。",r:"はらがへったらたべなさい。",e:"Eat when you're hungry."}],
+    wm:"The show's running joke — the crew is always hungry because there's no 賞金. 腹が減る is one of the most essential phrases in casual Japanese. 腹 (belly) + 減る (decrease) = empty stomach." },
+
+  { id:"e01_80", ep:1, word:"乗り気でない", reading:"のりきでない", meaning:"not feeling it / unenthusiastic / not keen", tier:2,
+    kb:[{k:"乗",r:"の(り)",m:"ride/get on/be into",rad:["木","𠂉"],rm:["tree","person up high"],mn:"A person riding high in a tree — to ride, get on, be into"},{k:"気",r:"き",m:"spirit/feeling/mood",rad:["气","米"],rm:["air","rice"],mn:"Energy/rice rising as steam — spirit, feeling, mood"}],
+    ex:[{j:"乗らねえな。",r:"のらねえな。",e:"I'm not feeling it / not keen."},{j:"彼は乗り気でない。",r:"かれはのりきでない。",e:"He's not enthusiastic about it."},{j:"その計画には乗り気になれない。",r:"そのけいかくにはのりきになれない。",e:"I can't get enthusiastic about that plan."}],
+    wm:"Spike says 乗らねえな when Jet pitches the Tijuana bounty — he's not feeling it. 乗る (to ride/get on) used metaphorically = to get on board with an idea. 乗らない = not getting on board." },
+
+  { id:"e01_81", ep:1, word:"甘く見る", reading:"あまくみる", meaning:"to underestimate / to take lightly / to not take seriously", tier:2,
+    kb:[{k:"甘",r:"あま(く)",m:"sweet/naive/lenient",rad:["甘"],rm:["sweet"],mn:"Something sweet in the mouth — sweet, naive, lenient"},{k:"見る",r:"みる",m:"see/look/view",rad:["目","儿"],rm:["eye","legs/person"],mn:"A person led by their eyes — to see, look, view"}],
+    ex:[{j:"おまえは女を甘く見ておる。",r:"おまえはおんなをあまくみておる。",e:"You're underestimating women."},{j:"敵を甘く見るな。",r:"てきをあまくみるな。",e:"Don't underestimate the enemy."},{j:"その仕事を甘く見ていた。",r:"そのしごとをあまくみていた。",e:"I was taking that job too lightly."}],
+    wm:"The fortune teller's warning to Spike — おまえは女を甘く見ておる. He does exactly that and nearly dies. 甘く (sweetly/naively) + 見る (see/view) = to view something as too sweet/easy." },
+
+  { id:"e01_82", ep:1, word:"安い", reading:"やすい", meaning:"cheap / inexpensive / low (value)", tier:1,
+    kb:[{k:"安",r:"やす(い)",m:"cheap/peaceful/easy",rad:["宀","女"],rm:["roof","woman"],mn:"A woman under a roof — peaceful, secure, cheap (costs little to maintain peace)"}],
+    ex:[{j:"安い男だな。",r:"やすいおとこだな。",e:"What a cheap man (low value)."},{j:"安い賞金首じゃ張り合いなくてね。",r:"やすいしょうきんくびじゃはりあいなくてね。",e:"Cheap bounty targets aren't worth the effort."},{j:"この店は安い。",r:"このみせはやすい。",e:"This shop is cheap."}],
+    wm:"あんたの値段知ってるか — たったの250万ウーロンだぜ。安い男だな. Spike is told his own bounty value contemptuously. 安い here = low value, not just inexpensive." },
+
+  { id:"e01_83", ep:1, word:"パー", reading:"パー", meaning:"all gone / wiped out / zero (slang)", tier:3,
+    kb:[],
+    ex:[{j:"おまえが壊した機体の修理と店の修理と治療費でパーだ。",r:"おまえがこわしたきたいのしゅうりとみせのしゅうりとちりょうひでパーだ。",e:"All gone on the ship repair, shop repair, and treatment costs."},{j:"全部パーになった。",r:"ぜんぶパーになった。",e:"It all went to zero / all wiped out."},{j:"努力がパーになった。",r:"どりょくがパーになった。",e:"All my effort came to nothing."}],
+    wm:"パー from パーフェクトゼロ or the hand gesture (open palm = zero in some Japanese games). Jet uses it to mean the entire bounty is gone — 全部パー. The show's recurring financial punchline." },
+
+  { id:"e01_84", ep:1, word:"アディオス", reading:"アディオス", meaning:"adios / goodbye (Spanish loanword, used dramatically)", tier:3,
+    kb:[],
+    ex:[{j:"アディオス カウボーイ。",r:"アディオス カウボーイ。",e:"Adios, cowboy."},{j:"アディオス。",r:"アディオス。",e:"Adios."},{j:"別れを告げた。",r:"わかれをつげた。",e:"He said his farewell."}],
+    wm:"Katerina's farewell to Spike — アディオス カウボーイ. Spanish in a Japanese show set in space. The word choice signals she sees him as exactly what he called himself: a cowboy." },
+
+  { id:"e01_85", ep:1, word:"〜なんざ", reading:"〜なんざ", meaning:"things like ~ / something as trivial as ~ (dismissive)", tier:3,
+    kb:[],
+    ex:[{j:"あいつの息を止めるなんざ１秒でできた。",r:"あいつのいきをとめるなんざ1びょうでできた。",e:"Something like stopping his breathing would have taken one second."},{j:"そんなことなんざ気にしない。",r:"そんなことなんざきにしない。",e:"I don't care about something like that."},{j:"100万なんざ安いもんだ。",r:"100まんなんざやすいもんだ。",e:"Something like 1 million is nothing."}],
+    wm:"〜なんざ = 〜などは contracted, rough/dismissive. Implies the thing mentioned is trivial or contemptible. Katerina: stopping his breathing なんざ (= a thing as trivial as) one second. Chilling understatement." },
+
+  { id:"e01_86", ep:1, word:"迎えに来る", reading:"むかえにくる", meaning:"to come to pick someone up / to come for someone", tier:1,
+    kb:[{k:"迎",r:"むか(え)",m:"receive/go to meet/welcome",rad:["⻌","卬"],rm:["movement","rise to meet"],mn:"Moving to rise and meet someone — to welcome, go to meet"}],
+    ex:[{j:"私あんたが迎えに来てくれるの、ずっと待ってた。",r:"わたしあんたがむかえにきてくれるの、ずっとまってた。",e:"I was always waiting for you to come for me."},{j:"空港まで迎えに来てくれた。",r:"くうこうまでむかえにきてくれた。",e:"He came to pick me up at the airport."},{j:"迎えに来てください。",r:"むかえにきてください。",e:"Please come to pick me up."}],
+    wm:"Katerina's heartbreaking line — ずっと待ってた. She waited for Spike to come for her, not knowing he was also running. 迎えに来る = come TO receive someone = pick up, rescue, collect." },
+
   // ── EP 02+ (existing) ──
   // ── CORE NOUNS ──────────────────────────────────────────────────────
 
@@ -664,6 +744,194 @@ const VOCAB = [
     kb:[],
     ex:[{j:"ばあちゃんにやりかけたことは最後までやり通せって言われなかったか。",r:"ばあちゃんにやりかけたことはさいごまでやりとおせっていわれなかったか。",e:"Didn't your grandma tell you to see things through to the end?"},{j:"約束は守るものだ。",r:"やくそくはまもるものだ。",e:"One should keep promises. / Promises are meant to be kept."},{j:"人間は間違えるものだ。",r:"にんげんはまちがえるものだ。",e:"People make mistakes. / It's human nature to make mistakes."}],
     wm:"〜ものだ = expresses a general truth, social norm, or nostalgic 'how things should be'. やるものだ = one should do it. The bounty hunter quoting his grandmother: pure comedy." },
+
+  // ── NOUNS ────────────────────────────────────────────────────────────
+
+  { id:"e02_a01", ep:2, word:"窃盗犯", reading:"せっとうはん", meaning:"thief / person guilty of theft", tier:1,
+    kb:[{k:"窃",r:"せっ",m:"steal/pilfer",rad:["穴","切"],rm:["hole","cut"],mn:"Cutting through a hole — to steal, pilfer secretly"},{k:"盗",r:"とう",m:"steal/rob",rad:["次","皿"],rm:["next/covet","dish"],mn:"Coveting the dish — to steal, rob"},{k:"犯",r:"はん",m:"crime/offend",rad:["犭","己"],rm:["animal","self"],mn:"An animal acting on self-interest — crime, offense"}],
+    ex:[{j:"もともと彼は連続ペット窃盗犯なんだってよ。",r:"もともとかれはれんぞくペットせっとうはんなんだってよ。",e:"Originally he's a serial pet thief, apparently."},{j:"窃盗犯が逮捕された。",r:"せっとうはんがたいほされた。",e:"The thief was arrested."},{j:"連続窃盗犯を追っている。",r:"れんぞくせっとうはんをおっている。",e:"We're pursuing a serial thief."}],
+    wm:"Big Shot's intro for Hakim — 連続ペット窃盗犯. 窃 (secret stealing through a hole) + 盗 (coveting the dish) + 犯 (criminal act) = someone who serially steals pets." },
+
+  { id:"e02_a02", ep:2, word:"格言", reading:"かくげん", meaning:"proverb / maxim / wise saying", tier:2,
+    kb:[{k:"格",r:"かく",m:"standard/status/grid",rad:["木","各"],rm:["tree","each/separate"],mn:"Each tree in its place — a standard, status, framework"},{k:"言",r:"げん",m:"word/say/speak",rad:["言"],rm:["words"],mn:"Words coming from a mouth — word, speech, saying"}],
+    ex:[{j:"帰る前のひなを数えるな、って格言があるぜ。",r:"かえるまえのひなをかぞえるな、ってかくげんがあるぜ。",e:"There's a saying: don't count your chicks before they hatch."},{j:"格言を覚えている。",r:"かくげんをおぼえている。",e:"I remember the proverb."},{j:"日本の格言は深い。",r:"にほんのかくげんはふかい。",e:"Japanese proverbs run deep."}],
+    wm:"Spike quotes a 格言 before the final chase — 帰る前のひなを数えるな (don't count your chickens). A 格 (standard) + 言 (saying) = a saying that sets the standard of wisdom." },
+
+  { id:"e02_a03", ep:2, word:"ひな", reading:"ひな", meaning:"chick / baby bird / hatchling", tier:3,
+    kb:[],
+    ex:[{j:"帰る前のひなを数えるな。",r:"かえるまえのひなをかぞえるな。",e:"Don't count your chicks before they hatch."},{j:"ひなが卵から生まれた。",r:"ひながたまごからうまれた。",e:"A chick hatched from the egg."},{j:"ひな祭りは女の子の節句だ。",r:"ひなまつりはおんなのこのせっくだ。",e:"Hinamatsuri is a festival for girls."}],
+    wm:"Baby birds (ひな) you haven't counted yet. The proverb warns against assuming a bounty is already yours — applicable to Spike chasing Hakim through three disguises." },
+
+  { id:"e02_a04", ep:2, word:"苦労", reading:"くろう", meaning:"hardship / toil / trouble / effort", tier:1,
+    kb:[{k:"苦",r:"く",m:"suffering/hardship/bitter",rad:["艹","古"],rm:["plant","old/hard"],mn:"Old hardened plants — suffering, bitterness, hardship"},{k:"労",r:"ろう",m:"labor/toil/work hard",rad:["火","力"],rm:["fire","strength/power"],mn:"Strength like fire — labor, toil, work hard"}],
+    ex:[{j:"今までの苦労が台無しだ。",r:"いままでのくろうがだいなしだ。",e:"All the hardship up to now has been ruined."},{j:"苦労した甲斐があった。",r:"くろうしたかいがあった。",e:"The effort was worth it."},{j:"人生は苦労の連続だ。",r:"じんせいはくろうのれんぞくだ。",e:"Life is a series of hardships."}],
+    wm:"苦 (bitter/suffering) + 労 (toil) = hardship endured through effort. 苦労が台無し = the toil is wasted/ruined. Hakim's complaint every time a disguise fails." },
+
+  { id:"e02_a05", ep:2, word:"台無し", reading:"だいなし", meaning:"ruined / wasted / all for nothing", tier:2,
+    kb:[{k:"台",r:"だい",m:"stand/platform/base",rad:["厶","口"],rm:["private","mouth"],mn:"A platform with a mouth — a base, stand, counter"},{k:"無し",r:"なし",m:"without/none",rad:["𠂉","灬"],rm:["arms spread","fire"],mn:"Without — none, without, non-existent"}],
+    ex:[{j:"今までの苦労が台無しだ。",r:"いままでのくろうがだいなしだ。",e:"All the hardship up to now is ruined."},{j:"雨で台無しになった。",r:"あめでだいなしになった。",e:"It was ruined by the rain."},{j:"せっかくの計画が台無しだ。",r:"せっかくのけいかくがだいなしだ。",e:"The carefully laid plan has been ruined."}],
+    wm:"台 (the platform/base something stood on) + 無し (without/gone) = the foundation is gone = ruined, wasted. Everything Hakim built collapses: 苦労が台無し." },
+
+  { id:"e02_a06", ep:2, word:"釣り", reading:"つり", meaning:"change (money returned) / fishing", tier:2,
+    kb:[{k:"釣",r:"つ(り)",m:"fish/angle/lure/change",rad:["金","勺"],rm:["metal","ladle/draw out"],mn:"Metal that draws out — a fishing hook; money drawn out as change"}],
+    ex:[{j:"機体全部オーバーホールしても釣りがくるな。",r:"きたいぜんぶオーバーホールしてもつりがくるな。",e:"Even overhauling the whole ship, there'd still be change left over."},{j:"釣りはいらないよ。",r:"つりはいらないよ。",e:"Keep the change."},{j:"釣りを忘れた。",r:"つりをわすれた。",e:"I forgot my change."}],
+    wm:"Jet calculates: 800万 bounty - full overhaul costs = still 釣り (change) left over. The same kanji as fishing (釣る) because both involve drawing something out — fish or leftover money." },
+
+  { id:"e02_a07", ep:2, word:"オーバーホール", reading:"オーバーホール", meaning:"complete overhaul / full mechanical rebuild", tier:1,
+    kb:[],
+    ex:[{j:"機体全部オーバーホールしても釣りがくるな。",r:"きたいぜんぶオーバーホールしてもつりがくるな。",e:"Even a full ship overhaul, there'd still be change left."},{j:"エンジンをオーバーホールした。",r:"エンジンをオーバーホールした。",e:"I overhauled the engine."},{j:"オーバーホールに出した。",r:"オーバーホールにだした。",e:"I sent it in for a full overhaul."}],
+    wm:"Jet's excited calculation when he sees 800万: we could オーバーホール the whole ship AND have money left. The bounty represents total mechanical salvation for the Bebop." },
+
+  { id:"e02_a08", ep:2, word:"出世払い", reading:"しゅっせばらい", meaning:"deferred payment / pay when you make it / I'll pay you when I'm successful", tier:3,
+    kb:[{k:"出世",r:"しゅっせ",m:"success in life / getting ahead",rad:["凵","止","世"],rm:["container","stop/foot","world"],mn:"Stepping out into the world — success, getting ahead in society"},{k:"払い",r:"ばらい",m:"payment/払う",rad:["扌","払"],rm:["hand","払"],mn:"A hand paying — payment"}],
+    ex:[{j:"出世払いだ。",r:"しゅっせばらいだ。",e:"Pay me when you make it."},{j:"出世払いにしてください。",r:"しゅっせばらいにしてください。",e:"Please put it on deferred payment."},{j:"出世払いなんて信用できない。",r:"しゅっせばらいなんてしんようできない。",e:"Deferred payment isn't trustworthy."}],
+    wm:"出世 (success in life) + 払い (payment) = I'll pay you when I've made it big. A very Japanese cultural concept: deferring debt until you succeed. Often used humorously to mean 'never'." },
+
+  { id:"e02_a09", ep:2, word:"警察に渡る", reading:"けいさつにわたる", meaning:"to end up with the police / to fall into police hands", tier:2,
+    kb:[{k:"警察",r:"けいさつ",m:"police",rad:[""],rm:[""],mn:"Police"},{k:"渡る",r:"わたる",m:"cross over / pass to / reach",rad:["氵","度"],rm:["water","degree/cross"],mn:"Water crossed — to cross over, pass to someone else, reach"}],
+    ex:[{j:"あれが警察に渡ったらまずいことになる。",r:"あれがけいさつにわたったらまずいことになる。",e:"If that ends up with the police, things will get bad."},{j:"証拠が警察に渡った。",r:"しょうこがけいさつにわたった。",e:"The evidence passed to the police."},{j:"情報が警察に渡るのを防ぐ。",r:"じょうほうがけいさつにわたるのをふせぐ。",e:"To prevent the information from reaching the police."}],
+    wm:"The research institution's fear — if Ein (the illegal 実験動物) 警察に渡る, their whole 非合法 research program gets exposed. Their silence is what makes Hakim's crime invisible." },
+
+  { id:"e02_a10", ep:2, word:"明るみに出る", reading:"あかるみにでる", meaning:"to come to light / to be exposed / to become public", tier:2,
+    kb:[{k:"明",r:"あか(るみ)",m:"bright/clear",rad:["日","月"],rm:["sun","moon"],mn:"Sun and moon together — bright, clear, illuminated"},{k:"出る",r:"でる",m:"come out/emerge",rad:["凵","止"],rm:["container","foot"],mn:"A foot stepping out of a container — to come out, emerge"}],
+    ex:[{j:"われわれの研究が明るみに出たら大変だ。",r:"われわれのけんきゅうがあかるみにでたらたいへんだ。",e:"If our research comes to light, it'll be a disaster."},{j:"不正が明るみに出た。",r:"ふせいがあかるみにでた。",e:"The corruption came to light."},{j:"真実が明るみに出るのは時間の問題だ。",r:"しんじつがあかるみにでるのはじかんのもんだいだ。",e:"It's only a matter of time before the truth comes to light."}],
+    wm:"明るみ (bright/illuminated place) + 出る (come out) = step into the light = be exposed. The research institution fears their 非合法 work 明るみに出る. Their fear = plot logic." },
+
+  { id:"e02_a11", ep:2, word:"背に腹は代えられない", reading:"せにはらはかえられない", meaning:"needs must / desperate times call for desperate measures (lit. can't swap your back for your belly)", tier:3,
+    kb:[],
+    ex:[{j:"背に腹は代えられん。",r:"せにはらはかえられん。",e:"Needs must — desperate times call for desperate measures."},{j:"背に腹は代えられないので、借金した。",r:"せにはらはかえられないので、しゃっきんした。",e:"Needs must, so I took out a loan."},{j:"背に腹は代えられない時もある。",r:"せにはらはかえられないときもある。",e:"There are times when needs must."}],
+    wm:"Your back (背) and belly (腹) are both you — you can't swap them. Meaning: you can't substitute one vital thing for another. Used when forced into an unpleasant necessity." },
+
+  { id:"e02_a12", ep:2, word:"諸行無常", reading:"しょぎょうむじょう", meaning:"impermanence of all things / nothing lasts forever (Buddhist concept)", tier:3,
+    kb:[{k:"諸",r:"しょ",m:"various/all",rad:["言","者"],rm:["words","person/thing"],mn:"Words about all people/things — various, all"},{k:"行",r:"ぎょう",m:"act/practice/go",rad:["行"],rm:["crossroads"],mn:"A crossroads — to go, act, practice"},{k:"無",r:"む",m:"nothing/without",rad:["𠂉","灬"],rm:["arms spread","fire"],mn:"A person dancing over fire — nothingness, without"},{k:"常",r:"じょう",m:"constant/always/normal",rad:["巾","尚"],rm:["cloth","esteem"],mn:"A cloth always held high — constant, always, normal"}],
+    ex:[{j:"諸行無常がこの世のおきてだ。",r:"しょぎょうむじょうがこのよのおきてだ。",e:"The impermanence of all things is the law of this world."},{j:"諸行無常、盛者必衰。",r:"しょぎょうむじょう、じょうしゃひっすい。",e:"All things are impermanent; the mighty must fall."},{j:"諸行無常を感じる。",r:"しょぎょうむじょうをかんじる。",e:"I feel the impermanence of everything."}],
+    wm:"Core Buddhist teaching: all things (諸行) are without permanence (無常). The information broker uses this to justify everything being temporary — his equipment, intel, and life." },
+
+  { id:"e02_a13", ep:2, word:"盛者必衰", reading:"じょうしゃひっすい", meaning:"the mighty must fall / all who rise must fall (Buddhist proverb)", tier:3,
+    kb:[{k:"盛",r:"じょう",m:"prosperous/peak/flourishing",rad:["皿","成"],rm:["dish","succeed"],mn:"A dish of success — prosperous, at its peak"},{k:"者",r:"しゃ",m:"person/one who",rad:["耂","日"],rm:["old/elder","sun"],mn:"An elder under the sun — a person, one who"},{k:"必",r:"ひっ",m:"certain/inevitable/must",rad:["心","丿"],rm:["heart","sweep"],mn:"A heart swept through — certain, inevitable"},{k:"衰",r:"すい",m:"decline/wither/decay",rad:["衣","口"],rm:["clothing","mouth"],mn:"Clothing over a shrinking mouth — to decline, wither"}],
+    ex:[{j:"盛者必衰の鐘が鳴る。",r:"じょうしゃひっすいのかねがなる。",e:"The bell of inevitable decline rings."},{j:"盛者必衰、誰でも落ちる時が来る。",r:"じょうしゃひっすい、だれでもおちるときがくる。",e:"The mighty must fall — everyone's time to drop comes."},{j:"諸行無常、盛者必衰。",r:"しょぎょうむじょう、じょうしゃひっすい。",e:"All is impermanent; the mighty must fall."}],
+    wm:"From the opening of Heike Monogatari — the prosperous must inevitably decline. The broker's philosophy: Hakim's run will end, the Bebop's luck will run out, everything 衰える." },
+
+  // ── VERBS ────────────────────────────────────────────────────────────
+
+  { id:"e02_a14", ep:2, word:"盗む", reading:"ぬすむ", meaning:"to steal / to pilfer / to take secretly", tier:1,
+    kb:[{k:"盗",r:"ぬす(む)",m:"steal/rob",rad:["次","皿"],rm:["next/covet","dish"],mn:"Coveting the dish — to steal, rob"}],
+    ex:[{j:"彼が盗んだのはデータ犬だった。",r:"かれがぬすんだのはデータけんだった。",e:"What he stole was a data dog."},{j:"財布を盗まれた。",r:"さいふをぬすまれた。",e:"My wallet was stolen."},{j:"アイデアを盗むな。",r:"アイデアをぬすむな。",e:"Don't steal ideas."}],
+    wm:"盗む vs 奪う: 盗む = steal quietly/secretly. 奪う = seize by force. Hakim 盗んだ (quietly stole) Ein; he didn't 奪った (violently seize). The method matters." },
+
+  { id:"e02_a15", ep:2, word:"ぶら下がる", reading:"ぶらさがる", meaning:"to hang from / to dangle from", tier:2,
+    kb:[{k:"下",r:"さが(る)",m:"hang down/lower",rad:["一","丨"],rm:["horizon","descending"],mn:"A line descending below the horizon — to hang down, lower"}],
+    ex:[{j:"あんたの首にぶら下がってる800万ウーロンさ。",r:"あんたのくびにぶらさがってる800まんウーロンさ。",e:"It's the 8 million woolongs dangling from your neck."},{j:"木にぶら下がる。",r:"きにぶらさがる。",e:"To hang from a tree."},{j:"手すりにぶら下がった。",r:"てすりにぶらさがった。",e:"I dangled from the handrail."}],
+    wm:"The information broker's poetic way of saying Hakim has a bounty — 首にぶら下がってる800万 (8 million dangling from your neck). ぶら下がる = dangle/hang = the bounty literally hanging over him." },
+
+  { id:"e02_a16", ep:2, word:"ころころ変える", reading:"ころころかえる", meaning:"to keep changing / to change repeatedly / to be constantly shifting", tier:2,
+    kb:[],
+    ex:[{j:"たく、ころころ顔変えやがって。",r:"たく、ころころかおかえやがって。",e:"Damn, keeps changing his face over and over."},{j:"意見をころころ変える人だ。",r:"いけんをころころかえるひとだ。",e:"He's a person who keeps changing his opinion."},{j:"ころころ変わる天気。",r:"ころころかわるてんき。",e:"Constantly changing weather."}],
+    wm:"ころころ is an onomatopoeia for small round things rolling — coins, marbles. ころころ変える = changing as freely as rolling things. Jet's frustration at Hakim's endless 整形." },
+
+  { id:"e02_a17", ep:2, word:"つぎ込む", reading:"つぎこむ", meaning:"to pour into / to invest heavily / to sink money into", tier:2,
+    kb:[{k:"注",r:"つ(ぎ)",m:"pour/invest",rad:["氵","主"],rm:["water","main/master"],mn:"Mastering the flow of water — to pour, invest"},{k:"込む",r:"こむ",m:"go into/crowd into",rad:["⻌","入"],rm:["movement","enter"],mn:"Moving into a place — to crowd in, go into"}],
+    ex:[{j:"いくらつぎ込んでると思ってるんだ。",r:"いくらつぎこんでるとおもってるんだ。",e:"Do you know how much I've been pouring into it?"},{j:"研究に全財産をつぎ込んだ。",r:"けんきゅうにぜんざいさんをつぎこんだ。",e:"I poured my entire fortune into the research."},{j:"時間をつぎ込む。",r:"じかんをつぎこむ。",e:"To pour time into something."}],
+    wm:"The researcher's outrage — いくらつぎ込んでると思ってるんだ (do you know how much I've poured into this?). 注ぐ (pour) + 込む (into) = pour everything into something obsessively." },
+
+  { id:"e02_a18", ep:2, word:"育てる", reading:"そだてる", meaning:"to raise / to bring up / to cultivate / to nurture", tier:1,
+    kb:[{k:"育",r:"そだ(てる)",m:"raise/nurture/grow",rad:["亠","月"],rm:["lid/crown","body/flesh"],mn:"A crowned body — a child being raised, nurtured to grow"}],
+    ex:[{j:"ある研究機関が非合法に育てていたデータ犬だった。",r:"あるけんきゅうきかんがひごうほうにそだてていたデータけんだった。",e:"It was a data dog that a certain research institution had been raising illegally."},{j:"子どもを育てる。",r:"こどもをそだてる。",e:"To raise a child."},{j:"才能を育てる。",r:"さいのうをそだてる。",e:"To cultivate talent."}],
+    wm:"The institution 非合法に育てていた Ein — raising illegally. 育てる = to raise over time, nurturing growth. The continuous past form 育てていた = had been raising (ongoing project)." },
+
+  { id:"e02_a19", ep:2, word:"向かう", reading:"むかう", meaning:"to head toward / to face / to go in the direction of", tier:1,
+    kb:[{k:"向",r:"む(かう)",m:"face/direction/toward",rad:["口","冂"],rm:["mouth","frame/enclosure"],mn:"A mouth facing out of a frame — to face, direct toward"}],
+    ex:[{j:"やつは第６インターに向かってるぜ。",r:"やつはだい6インターにむかってるぜ。",e:"He's heading toward the 6th interchange."},{j:"目標に向かって進む。",r:"もくひょうにむかってすすむ。",e:"Move forward toward the goal."},{j:"東京に向かった。",r:"とうきょうにむかった。",e:"I headed toward Tokyo."}],
+    wm:"Jet tracking Hakim: やつは第６インターに向かってる. 向かう = orienting and moving toward. Very common directional verb — used for physical travel and metaphorical direction alike." },
+
+  { id:"e02_a20", ep:2, word:"目立つ", reading:"めだつ", meaning:"to stand out / to be conspicuous / to attract attention", tier:1,
+    kb:[{k:"目",r:"め",m:"eye",rad:["目"],rm:["eye"],mn:"Pictograph of an eye"},{k:"立つ",r:"だつ",m:"stand/stand out",rad:["立"],rm:["standing person"],mn:"A person standing upright — to stand, stand out"}],
+    ex:[{j:"妙に目立つスーツケースを持ってたな。",r:"みょうにめだつスーツケースをもってたな。",e:"He was carrying a strangely conspicuous suitcase."},{j:"目立つ服を着ている。",r:"めだつふくをきている。",e:"He's wearing conspicuous clothes."},{j:"目立たないようにしろ。",r:"めだたないようにしろ。",e:"Try not to stand out."}],
+    wm:"目 (eye) + 立つ (stand up) = stand up to the eyes = stand out. The suitcase that 目立つ is the clue that cracks the case. Things that 目立つ in the underworld are dangerous." },
+
+  { id:"e02_a21", ep:2, word:"構わない", reading:"かまわない", meaning:"don't mind / it's fine / no problem / I don't care", tier:1,
+    kb:[{k:"構",r:"かま(わない)",m:"mind/care about/structure",rad:["木","冓"],rm:["tree","build/construct"],mn:"A tree built into structure — to construct, mind, care about"}],
+    ex:[{j:"構わん。やれ。",r:"かまわん。やれ。",e:"I don't mind. Do it."},{j:"構わないよ、好きにして。",r:"かまわないよ、すきにして。",e:"I don't mind — do as you like."},{j:"どちらでも構わない。",r:"どちらでもかまわない。",e:"Either is fine with me."}],
+    wm:"構う (to mind/care about) → 構わない (not mind) = don't care, it's fine. Very common. 構わん is the rough/masculine form. Used to give permission or signal indifference." },
+
+  { id:"e02_a22", ep:2, word:"叩く", reading:"たたく", meaning:"to hit / to knock / to strike / to beat", tier:1,
+    kb:[{k:"叩",r:"たた(く)",m:"hit/knock/beat",rad:["口","卜"],rm:["mouth","divination/strike"],mn:"Striking down with force — to hit, knock, beat"}],
+    ex:[{j:"１発叩いといてくれ。",r:"いっぱつたたいといてくれ。",e:"Give him one good hit for me."},{j:"ドアを叩く。",r:"ドアをたたく。",e:"To knock on a door."},{j:"肩を叩かれた。",r:"かたをたたかれた。",e:"Someone tapped me on the shoulder."}],
+    wm:"１発叩いといてくれ = give him one punch while you're at it. 叩く covers hitting (people), knocking (doors), and even typing keys. Broad, common verb for striking." },
+
+  { id:"e02_a23", ep:2, word:"謝る", reading:"あやまる", meaning:"to apologize / to say sorry", tier:1,
+    kb:[{k:"謝",r:"あやま(る)",m:"apologize/thank/forgive",rad:["言","射"],rm:["words","shoot/release"],mn:"Words released like an arrow — to apologize, release words of regret"}],
+    ex:[{j:"謝ってるじゃねえか。",r:"あやまってるじゃねえか。",e:"I'm apologizing, aren't I?"},{j:"素直に謝れ。",r:"すなおにあやまれ。",e:"Just apologize honestly."},{j:"謝っても遅い。",r:"あやまっても おそい。",e:"It's too late to apologize."}],
+    wm:"Spike to Hakim after accidentally bumping him — 謝ってるじゃねえか (I'm apologizing, aren't I?). Said while fighting. The absurdity of maintaining social courtesy mid-combat." },
+
+  { id:"e02_a24", ep:2, word:"やり通す", reading:"やりとおす", meaning:"to see through to the end / to follow through / to complete what one started", tier:2,
+    kb:[{k:"やり",r:"やり",m:"do/perform",rad:[""],rm:[""],mn:"To do, perform"},{k:"通す",r:"とおす",m:"pass through/let through/see through",rad:["⻌","甬"],rm:["movement","passage/cylinder"],mn:"Moving through a passage — to pass through, see through to the end"}],
+    ex:[{j:"やりかけたことは最後までやり通せって言われなかったか。",r:"やりかけたことはさいごまでやりとおせっていわれなかったか。",e:"Weren't you told to see things through to the very end?"},{j:"何があってもやり通す。",r:"なにがあってもやりとおす。",e:"I'll see it through no matter what."},{j:"最後までやり通した。",r:"さいごまでやりとおした。",e:"I followed through to the very end."}],
+    wm:"やる (do) + 通す (pass all the way through) = do all the way through = see something to completion. The bounty hunter quotes his grandmother's wisdom. Applied to chasing Ein across three disguises." },
+
+  // ── ADJECTIVES & EXPRESSIONS ─────────────────────────────────────────
+
+  { id:"e02_a25", ep:2, word:"ありふれた", reading:"ありふれた", meaning:"common / ordinary / nothing special / run-of-the-mill", tier:2,
+    kb:[{k:"有",r:"あり",m:"exist/have",rad:["月","ナ"],rm:["flesh/moon","hand"],mn:"A hand under the moon — to have, exist"},{k:"触れる",r:"ふれ(た)",m:"touch/come across",rad:["角","蚤"],rm:["horn","flea"],mn:"A flea touching with its tiny legs — to touch, come across"}],
+    ex:[{j:"かわいいけどありふれてて珍しい種類じゃないわね。",r:"かわいいけどありふれててめずらしいしゅるいじゃないわね。",e:"It's cute but common — not a rare breed."},{j:"ありふれた話だ。",r:"ありふれたはなしだ。",e:"It's a common/ordinary story."},{j:"ありふれた日常。",r:"ありふれたにちじょう。",e:"An ordinary everyday life."}],
+    wm:"有り (to exist) + 触れた (touched/encountered) = something encountered everywhere = common, run-of-the-mill. The pet shop owner dismisses Ein as ありふれた. She's spectacularly wrong." },
+
+  { id:"e02_a26", ep:2, word:"繊細", reading:"せんさい", meaning:"delicate / sensitive / fine / subtle", tier:2,
+    kb:[{k:"繊",r:"せん",m:"fine/delicate/slender",rad:["糸","韱"],rm:["thread","fine/slender"],mn:"Fine thread — delicate, slender, subtle"},{k:"細",r:"さい",m:"thin/fine/small",rad:["糸","囟"],rm:["thread","brain/fontanelle"],mn:"A thread thin as a brain-seam — fine, thin, small"}],
+    ex:[{j:"うちの子みんな繊細なんだから。",r:"うちのこみんなせんさいなんだから。",e:"All of my babies are delicate, you know."},{j:"彼は繊細な人だ。",r:"かれはせんさいなひとだ。",e:"He's a sensitive person."},{j:"繊細な作業が必要だ。",r:"せんさいなさぎょうがひつようだ。",e:"Delicate work is required."}],
+    wm:"The pet shop owner says her animals are all 繊細 (delicate) when Spike and Jet cause chaos. Fine thread (糸) metaphor — easily damaged, requiring careful handling. Often used for sensitive people too." },
+
+  { id:"e02_a27", ep:2, word:"感度良好", reading:"かんどりょうこう", meaning:"signal is good / receiving clearly / loud and clear", tier:2,
+    kb:[{k:"感",r:"かん",m:"feel/sense",rad:["咸","心"],rm:["all/sense","heart"],mn:"A heart that senses everything — to feel, sense"},{k:"度",r:"ど",m:"degree/extent/level",rad:["广","又","寸"],rm:["shelter","hand","measure"],mn:"A measured hand under shelter — degree, level, extent"},{k:"良",r:"りょう",m:"good/fine",rad:["艮"],rm:["good/fine"],mn:"Food that is just right — good, fine"},{k:"好",r:"こう",m:"good/like/fond",rad:["女","子"],rm:["woman","child"],mn:"A woman with a child — good, like, fond of"}],
+    ex:[{j:"感度良好。",r:"かんどりょうこう。",e:"Signal is good / Loud and clear."},{j:"感度良好、聞こえてるよ。",r:"かんどりょうこう、きこえてるよ。",e:"Loud and clear — I can hear you."},{j:"受信感度良好だ。",r:"じゅしんかんどりょうこうだ。",e:"Reception is excellent."}],
+    wm:"Radio/comms terminology: 感度 (sensitivity/reception) + 良好 (good condition) = receiving clearly. Jet confirms signal quality during the tracking operation. Classic cop/military communication language." },
+
+  { id:"e02_a28", ep:2, word:"探し物", reading:"さがしもの", meaning:"something one is looking for / lost item", tier:1,
+    kb:[{k:"探",r:"さが(し)",m:"search/look for",rad:["扌","罙"],rm:["hand","deep/explore"],mn:"A hand reaching deep — to search, look for"},{k:"物",r:"もの",m:"thing/object",rad:["牛","勿"],rm:["cow","do not"],mn:"A notable thing — an object"}],
+    ex:[{j:"あんたには探し物か尋ね人があるとな。",r:"あんたにはさがしものかたずねびとがあるとな。",e:"You seem to have something you're looking for or someone you're seeking."},{j:"探し物が見つかった。",r:"さがしものがみつかった。",e:"I found what I was looking for."},{j:"探し物はなんですか？",r:"さがしものはなんですか？",e:"What are you looking for?"}],
+    wm:"探し物 = the thing being searched for. The fortune-telling parrot nails it — a thing (the dog) leads to a person (the bounty). Every Bebop mission is an 探し物 of some kind." },
+
+  { id:"e02_a29", ep:2, word:"尋ね人", reading:"たずねびと", meaning:"person being sought / missing person (formal/written)", tier:2,
+    kb:[{k:"尋",r:"たず(ね)",m:"inquire/seek/look for",rad:["工","口","寸"],rm:["craft","mouth","measure"],mn:"Measuring with crafted words from the mouth — to inquire, seek"},{k:"人",r:"びと",m:"person",rad:["人"],rm:["person"],mn:"A person"}],
+    ex:[{j:"あんたには探し物か尋ね人があるとな。",r:"あんたにはさがしものかたずねびとがあるとな。",e:"You seem to have something you're looking for or someone you're seeking."},{j:"尋ね人の広告を出した。",r:"たずねびとのこうこくをだした。",e:"I put out a missing person notice."},{j:"尋ね人は見つかっただろうか。",r:"たずねびとはみつかっただろうか。",e:"Did they find the person they were looking for?"}],
+    wm:"Formal/poetic pairing with 探し物: 探し物 (lost thing) / 尋ね人 (sought person). The parrot uses this elevated language for comic effect — profound-sounding wisdom from a bird." },
+
+  { id:"e02_a30", ep:2, word:"機嫌が悪い", reading:"きげんがわるい", meaning:"in a bad mood / irritable / grumpy", tier:1,
+    kb:[{k:"機",r:"き",m:"machine/mechanism/mood",rad:["木","幾"],rm:["tree","mechanism"],mn:"A wooden mechanism — also: the working of a person's mood"},{k:"嫌",r:"げん",m:"dislike/unpleasant",rad:["女","兼"],rm:["woman","combine/hold"],mn:"A woman holding everything at once — unpleasant, dislike"},{k:"悪",r:"わる(い)",m:"bad/evil",rad:["亜","心"],rm:["ugly","heart"],mn:"An ugly heart — bad, evil"}],
+    ex:[{j:"うるせえや、俺は今機嫌が悪いんだ。",r:"うるせえや、おれはいまきげんがわるいんだ。",e:"Shut up — I'm in a bad mood right now."},{j:"今日は機嫌が悪い。",r:"きょうはきげんがわるい。",e:"I'm in a bad mood today."},{j:"なぜそんなに機嫌が悪いの？",r:"なぜそんなにきげんがわるいの？",e:"Why are you in such a bad mood?"}],
+    wm:"機嫌 (mood/temper) + が悪い (is bad) = in a bad mood. Hakim says this before a fight. Opposite: 機嫌がいい (good mood). 機嫌をとる = to try to improve someone's mood." },
+
+  { id:"e02_a31", ep:2, word:"しまった", reading:"しまった", meaning:"oh no! / damn it! / I've made a mistake (sudden realization)", tier:1,
+    kb:[],
+    ex:[{j:"しまった！逃げられた。",r:"しまった！にげられた。",e:"Damn it! He got away."},{j:"しまった、財布を忘れた。",r:"しまった、さいふをわすれた。",e:"Oh no, I forgot my wallet."},{j:"しまった、間違えた。",r:"しまった、まちがえた。",e:"Damn, I made a mistake."}],
+    wm:"The interjection form of しまう (to put away/finish). しまった = it has been put away (badly) = a bad completion just happened = oh no/damn. Used constantly in Bebop when things go wrong." },
+
+  { id:"e02_a32", ep:2, word:"手を打つ", reading:"てをうつ", meaning:"to take action / to make a move / to do something about it", tier:2,
+    kb:[{k:"手",r:"て",m:"hand",rad:["手"],rm:["hand"],mn:"A hand"},{k:"打つ",r:"う(つ)",m:"hit/strike/make a move",rad:["扌","丁"],rm:["hand","nail/strike"],mn:"A hand striking a nail — to hit, make a move"}],
+    ex:[{j:"早く手を打たんと。",r:"はやくてをうたんと。",e:"We have to make a move quickly."},{j:"何か手を打つ必要がある。",r:"なにかてをうつひつようがある。",e:"We need to take some kind of action."},{j:"手を打つのが遅かった。",r:"てをうつのがおそかった。",e:"We were too slow to take action."}],
+    wm:"Originally from board games (go/shogi) — to play a move (手). 手を打つ = strike a hand/move = take action to address a situation. Very common expression for decisive action." },
+
+  // ── GRAMMAR ──────────────────────────────────────────────────────────
+
+  { id:"e02_a33", ep:2, word:"〜だって", reading:"〜だって", meaning:"even ~ / ~ too / they say that ~ (casual hearsay)", tier:1,
+    kb:[],
+    ex:[{j:"もともと彼は連続ペット窃盗犯なんだってよ。",r:"もともとかれはれんぞくペットせっとうはんなんだってよ。",e:"Apparently he's originally a serial pet thief, they say."},{j:"彼だって間違えることがある。",r:"かれだってまちがえることがある。",e:"Even he makes mistakes sometimes."},{j:"私だってやれば できる。",r:"わたしだってやればできる。",e:"Even I can do it if I try."}],
+    wm:"〜だって has two uses: (1) hearsay marker (〜だって = they say that ~, casual version of 〜そうだ/〜らしい), (2) emphatic even/also (even X / X too). Context tells you which." },
+
+  { id:"e02_a34", ep:2, word:"〜てんのか", reading:"〜てんのか", meaning:"are you ~ing? / what are you doing? (rough/challenging)", tier:3,
+    kb:[],
+    ex:[{j:"何しやがる、何てんのか。",r:"なにしやがる、なにてんのか。",e:"What are you doing, what are you up to?"},{j:"何考えてんのか。",r:"なにかんがえてんのか。",e:"What are you thinking?"},{j:"本気でやってんのか？",r:"ほんきでやってんのか？",e:"Are you seriously doing this?"}],
+    wm:"〜ているのか → 〜てんのか (very rough). A challenging question, often aggressive. What the hell are you doing? — implies the speaker is angry or disbelieving. Very Bebop register." },
+
+  { id:"e02_a35", ep:2, word:"〜てもらいたい", reading:"〜てもらいたい", meaning:"I want you to ~ / I would like ~ done for me", tier:1,
+    kb:[],
+    ex:[{j:"取引の時間を延ばしてもらいたい。",r:"とりひきのじかんをのばしてもらいたい。",e:"I'd like to have the time for the deal extended."},{j:"もっと詳しく説明してもらいたい。",r:"もっとくわしくせつめいしてもらいたい。",e:"I'd like a more detailed explanation."},{j:"静かにしてもらいたい。",r:"しずかにしてもらいたい。",e:"I'd like you to be quiet."}],
+    wm:"〜てもらいたい = want to receive the favor of ~ being done = I want you to do ~. Politer and more formal than 〜てくれ, less stiff than 〜ていただきたい. Used in requests/negotiations." },
+
+  { id:"e02_a36", ep:2, word:"〜にすぎない", reading:"〜にすぎない", meaning:"nothing more than ~ / merely ~ / just ~", tier:2,
+    kb:[],
+    ex:[{j:"しょせんはイヌにすぎない。",r:"しょせんはイヌにすぎない。",e:"In the end, it's nothing more than a dog."},{j:"これは始まりにすぎない。",r:"これははじまりにすぎない。",e:"This is nothing more than the beginning."},{j:"噂にすぎない。",r:"うわさにすぎない。",e:"It's nothing more than a rumor."}],
+    wm:"〜にすぎない = does not exceed (過ぎる) the category of ~. Dismissive: 'merely, nothing more than'. Hakim says this about Ein — just a dog. 価値がある is the show's reply to this dismissal." },
 
   { id:"e03_01", ep:3, word:"借金", reading:"しゃっきん", meaning:"debt / money owed / being in debt", tier:1,
     kb:[{k:"借",r:"しゃ(っ)",m:"borrow/rent/be indebted",rad:["亻","昔"],rm:["person","long ago/former"],mn:"A person bound to a former arrangement — to borrow, be in debt"},{k:"金",r:"きん",m:"money",rad:["人","土"],rm:["person","earth"],mn:"Person mining earth — money"}],
