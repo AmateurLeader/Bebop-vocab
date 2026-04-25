@@ -169,7 +169,7 @@ const VOCAB = [
     ex:[{j:"やつを捕まえるのは無理だ。",r:"やつをつかまえるのはむりだ。",e:"Catching him is impossible."},{j:"捕まえないの？",r:"つかまえないの？",e:"Aren't you going to catch him?"},{j:"犯人をやっと捕まえた。",r:"はんにんをやっとつかまえた。",e:"We finally caught the criminal."}],
     wm:"A hand (扌) spreading (甫) wide to grab — the fundamental bounty hunter action. Everything the crew does leads to this verb." },
 
-  { id:"e01_26", ep:1, word:"壊す", reading:"こわす", meaning:"to break / to destroy / to damage", tier:1,
+  { id:"e01_26", ep:1, word:"壊す", reading:"こわす", meaning:"to break / to destroy / to damage", enTarget:"broke", tier:1,
     kb:[{k:"壊",r:"こわ(す)",m:"break/destroy/demolish",rad:["土","褱"],rm:["earth","embrace/ruin"],mn:"Earth embracing ruin — to break apart, demolish, destroy"}],
     ex:[{j:"おまえが壊した機体の修理でパーだ。",r:"おまえがこわしたきたいのしゅうりでぱーだ。",e:"All gone on the repair for the ship you broke."},{j:"テレビが壊れた。",r:"てれびがこわれた。",e:"The TV broke."},{j:"壊さないように気をつけて。",r:"こわさないようにきをつけて。",e:"Be careful not to break it."}],
     wm:"Spike 壊す everything he touches — ships, shops, bones. His most frequently demonstrated skill. 壊す (active) vs 壊れる (breaks on its own)." },
@@ -189,7 +189,7 @@ const VOCAB = [
     ex:[{j:"死に物狂いで掘ったな。",r:"しにものぐるいでほったな。",e:"We dug like our lives depended on it."},{j:"ゲートを掘った。",r:"ゲートをほった。",e:"We dug the gate."},{j:"穴を掘る。",r:"あなをほる。",e:"To dig a hole."}],
     wm:"The old gambler's grievance — 俺が一生懸命ゲート掘ったおかげ (thanks to me digging the gate). He means the hyperspace tunnels. 掘る is the verb of that generation's sacrifice." },
 
-  { id:"e01_30", ep:1, word:"耕す", reading:"たがやす", meaning:"to cultivate / to till (land)", tier:2,
+  { id:"e01_30", ep:1, word:"耕す", reading:"たがやす", meaning:"to cultivate / to till (land)", enTarget:"cultivated", tier:2,
     kb:[{k:"耕",r:"たがや(す)",m:"cultivate/till",rad:["耒","井"],rm:["plow","well/grid"],mn:"A plow working a grid of fields — to cultivate, till"}],
     ex:[{j:"この土地耕したおかげなんだぞ。",r:"このとちたがやしたおかげなんだぞ。",e:"It's because we cultivated this land."},{j:"畑を耕す。",r:"はたけをたがやす。",e:"To till a field."},{j:"死に物狂いで種まいた。",r:"しにものぐるいでたねまいた。",e:"We planted seeds desperately."}],
     wm:"The second gambler uses 耕した (cultivated the land) while the first said 掘った (dug the gate). They're having the same argument about who deserves credit — just differently." },
@@ -233,12 +233,12 @@ const VOCAB = [
 
   // ── KEY EXPRESSIONS ──────────────────────────────────────────────────
 
-  { id:"e01_38", ep:1, word:"取りあえず", reading:"とりあえず", meaning:"for now / first of all / anyway / at any rate", tier:1,
+  { id:"e01_38", ep:1, word:"取りあえず", reading:"とりあえず", meaning:"for now / first of all / anyway / at any rate", enTarget:"for now", tier:1,
     kb:[],
     ex:[{j:"取りあえずこっちは警察筋にあたってから行く。",r:"とりあえずこっちはけいさつすじにあたってからいく。",e:"For now I'll check with police contacts first, then go."},{j:"取りあえず座ってください。",r:"とりあえずすわってください。",e:"Please sit down for now."},{j:"取りあえず連絡だけしといた。",r:"とりあえずれんらくだけしといた。",e:"I at least got in touch for now."}],
     wm:"Grab (取り) without delay (あえず) — a practical 'first things first, deal with the rest later'. Very high frequency in casual spoken Japanese." },
 
-  { id:"e01_39", ep:1, word:"当てになる", reading:"あてになる", meaning:"to be reliable / dependable / trustworthy", tier:2,
+  { id:"e01_39", ep:1, word:"当てになる", reading:"あてになる", meaning:"to be reliable / dependable / trustworthy", enTarget:"relied on", tier:2,
     kb:[],
     ex:[{j:"当てになんのかねえ、あのおやじ。",r:"あてになんのかねえ、あのおやじ。",e:"Can that old man be relied on, I wonder."},{j:"彼は全然当てにならない。",r:"かれはぜんぜんあてにならない。",e:"He's completely unreliable."},{j:"天気予報なんて当てにならない。",r:"てんきよほうなんてあてにならない。",e:"Weather forecasts are never reliable."}],
     wm:"当て = a target/aim + になる = become → becomes something you can aim at = reliable. 当てにならない = can't be aimed at = unreliable. Spike doubts Jet's contact." },
@@ -344,7 +344,7 @@ const VOCAB = [
     ex:[{j:"敵対する組織との抗争があったんだ。",r:"てきたいするそしきとのこうそうがあったんだ。",e:"There was a turf war with a rival organization."},{j:"彼らは互いに敵対している。",r:"かれらはたがいにてきたいしている。",e:"They are hostile to each other."},{j:"敵対する勢力に囲まれた。",r:"てきたいするせいりょくにかこまれた。",e:"Surrounded by hostile forces."}],
     wm:"敵 (enemy) + 対 (versus/face) + する = to be in opposition to. 敵対する組織 = a rival organization actively working against you. Standard crime/conflict vocabulary." },
 
-  { id:"e01_59", ep:1, word:"死に物狂い", reading:"しにものぐるい", meaning:"desperately / with everything one has / like one's life depends on it", tier:3,
+  { id:"e01_59", ep:1, word:"死に物狂い", reading:"しにものぐるい", meaning:"desperately / with everything one has / like one's life depends on it", enTarget:"lives depended", tier:3,
     kb:[{k:"死",r:"し",m:"death",rad:["歹","匕"],rm:["bone fragment","crouching person"],mn:"A crumbling bone beside a fallen person — death"},{k:"物",r:"もの",m:"thing/object",rad:["牛","勿"],rm:["cow","do not"],mn:"A cow marked do-not-touch — a thing"},{k:"狂",r:"ぐるい",m:"mad/crazy/berserk",rad:["犭","王"],rm:["animal","king"],mn:"An animal that acts like a king — crazy, berserk"}],
     ex:[{j:"死に物狂いで掘ったな。",r:"しにものぐるいでほったな。",e:"We dug like our lives depended on it."},{j:"死に物狂いで働いた。",r:"しにものぐるいではたらいた。",e:"I worked with everything I had."},{j:"死に物狂いで逃げた。",r:"しにものぐるいでにげた。",e:"He fled desperately."}],
     wm:"Going berserk (狂い) about death-things (死に物) — so desperate that dying doesn't matter. The old man describes building the gates this way. Extreme effort." },
@@ -1535,6 +1535,16 @@ function findEnglishTargets(meaning) {
 // Normalise answer: trim whitespace, lowercase for comparison
 function normaliseAnswer(s) { return s.trim().replace(/\s+/g,""); }
 
+// Text-to-speech — speaks Japanese text using device's built-in TTS
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "ja-JP";
+  u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+
 export default function App() {
   const [progress,setProgress]=useState({});
   const [queue,setQueue]=useState([]);
@@ -1657,7 +1667,10 @@ export default function App() {
         <div style={{fontSize:13,color:"#999",lineHeight:1.7,marginBottom:16,width:"100%",textAlign:"left"}}>
           {(()=>{
             const eng = ex.e;
-            const targets = findEnglishTargets(currentCard.meaning);
+            // Use explicit enTarget if set on the vocab entry, else derive from meaning
+            const targets = currentCard.enTarget
+              ? [currentCard.enTarget, ...findEnglishTargets(currentCard.meaning)]
+              : findEnglishTargets(currentCard.meaning);
             // Try each meaning segment until one matches in the sentence
             for(const target of targets){
               const escaped = target.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
@@ -1723,11 +1736,16 @@ export default function App() {
         {/* Result shown after checking */}
         {fillChecked&&(
           <div style={{width:"100%"}}>
-            <div style={{
-              fontSize:12,fontFamily:"monospace",marginBottom:8,
-              color:fillCorrect?"#4de89a":"#e8412a",letterSpacing:2,
-            }}>
-              {fillCorrect?"✓ CORRECT":"✗ INCORRECT"}
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}>
+              <div style={{
+                fontSize:12,fontFamily:"monospace",
+                color:fillCorrect?"#4de89a":"#e8412a",letterSpacing:2,
+              }}>
+                {fillCorrect?"✓ CORRECT":"✗ INCORRECT"}
+              </div>
+              <button onClick={()=>{ const ex=pickFillExample(currentCard,progress); speak(ex.j); }}
+                style={{background:"none",border:"1px solid #1e1e1e",color:"#444",fontSize:13,cursor:"pointer",padding:"3px 7px"}}
+                title="Read sentence aloud">🔊</button>
             </div>
             {!fillCorrect&&(
               <div style={{fontSize:13,color:"#666",marginBottom:8}}>
@@ -1898,7 +1916,12 @@ export default function App() {
                         {/* BACK */}
                         <div style={{...S.face,...S.faceBack}}>
                           <div style={{...S.tierStripe,background:TIER_COLORS[currentCard.tier]}}/>
-                          <div style={{fontSize:30,color:"#fff",lineHeight:1}}>{currentCard.word}</div>
+                          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:0}}>
+                            <div style={{fontSize:30,color:"#fff",lineHeight:1}}>{currentCard.word}</div>
+                            <button onClick={e=>{e.stopPropagation();speak(currentCard.word);}}
+                              style={{background:"none",border:"1px solid #1e1e1e",color:"#444",fontSize:14,cursor:"pointer",padding:"4px 8px",flexShrink:0}}
+                              title="Read aloud">🔊</button>
+                          </div>
                           <div style={{fontSize:14,color:"#666",fontFamily:"monospace",marginBottom:2}}>{currentCard.reading}</div>
                           <div style={{fontSize:13,color:"#aaa",textAlign:"center",maxWidth:300,lineHeight:1.5,marginBottom:8}}>{currentCard.meaning}</div>
                           {currentCard.wm&&(
