@@ -1509,9 +1509,27 @@ function splitSentence(sentence, word, reading) {
   return null;
 }
 
-// Extract English keyword to highlight from the meaning field
-function findEnglishTarget(meaning) {
-  return meaning.split("/")[0].replace(/^to\s+/i,"").trim();
+// Extract all English keywords from meaning to try matching in the sentence
+function findEnglishTargets(meaning) {
+  const segments = meaning.split("/")
+    .map(s=>s.replace(/^[\s~〜（）()]+/,"").replace(/[~〜（）()]+$/,"").replace(/^to\s+/i,"").trim())
+    .filter(s=>s.length>2);
+  const words = segments.flatMap(s=>s.split(/\s+/))
+    .filter(w=>w.length>3 && !/^(the|and|one|that|this|with|from|into|also|just|ones)$/i.test(w));
+  // Add common irregular past/conjugated forms
+  const conjugated = words.flatMap(w=>{
+    const forms = [w];
+    if(w.match(/e$/i)) forms.push(w.slice(0,-1)+"ed",w.slice(0,-1)+"ing"); // escape→escaped
+    else if(w.match(/[^aeiou]$/i)) forms.push(w+"ed",w+"ing",w+"s",w+w.slice(-1)+"ed"); // break→broke handled below
+    // Common irregulars
+    const irreg = {break:"broke",give:"gave",run:"ran",flee:"fled",catch:"caught",
+                   take:"took",make:"made",come:"came",go:"went",get:"got",lose:"lost",
+                   find:"found",leave:"left",bring:"brought",think:"thought",know:"knew",
+                   see:"saw",say:"said",tell:"told",become:"became",put:"put",use:"used"};
+    if(irreg[w.toLowerCase()]) forms.push(irreg[w.toLowerCase()]);
+    return forms;
+  });
+  return [...new Set([...segments,...words,...conjugated])].sort((a,b)=>b.length-a.length);
 }
 
 // Normalise answer: trim whitespace, lowercase for comparison
@@ -1635,22 +1653,25 @@ export default function App() {
         <div style={{...S.tierStripe,background:tc}}/>
         {/* Type badge */}
         <div style={{fontSize:7,letterSpacing:3,fontFamily:"monospace",color:tc,marginBottom:12,alignSelf:"flex-start"}}>FILL-IN</div>
-        {/* English sentence — highlight the English translation of the target word */}
+        {/* English sentence — highlight the English equivalent of the target word */}
         <div style={{fontSize:13,color:"#999",lineHeight:1.7,marginBottom:16,width:"100%",textAlign:"left"}}>
           {(()=>{
             const eng = ex.e;
-            const target = findEnglishTarget(currentCard.meaning);
-            // Try to find the English keyword in the sentence (case-insensitive)
-            const re = new RegExp("("+target.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","i");
-            const parts = eng.split(re);
-            if(parts.length>1){
-              return parts.map((p,i)=>
-                re.test(p)
-                  ? <span key={i} style={{color:tc,fontWeight:700,borderBottom:`2px solid ${tc}`,padding:"0 2px",background:`${tc}18`}}>{p}</span>
-                  : <span key={i}>{p}</span>
-              );
+            const targets = findEnglishTargets(currentCard.meaning);
+            // Try each meaning segment until one matches in the sentence
+            for(const target of targets){
+              const escaped = target.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+              const re = new RegExp("("+escaped+")","i");
+              const parts = eng.split(re);
+              if(parts.length>1){
+                return parts.map((p,i)=>
+                  re.test(p)
+                    ? <span key={i} style={{color:tc,fontWeight:700,borderBottom:`2px solid ${tc}`,padding:"0 2px",background:`${tc}18`}}>{p}</span>
+                    : <span key={i}>{p}</span>
+                );
+              }
             }
-            // Fallback: show full English sentence unhighlighted
+            // Fallback: no match found, show full English sentence
             return <span>{eng}</span>;
           })()}
         </div>
