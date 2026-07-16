@@ -2413,7 +2413,10 @@ export default function App() {
         {mode==="home"&&(
           <>
             <div style={S.globalStats}>
-              {[["TOTAL",VOCAB.length,"#666"],["STUDIED",globalStudied,"#e8a22a"],["DUE",globalDue,"#e8412a"],["MASTERED",VOCAB.filter(v=>progress[v.id]?.interval>=21).length,"#4de89a"]].map(([l,v,c])=>(
+              {[["TOTAL",(deck==="srj"?SRJ_VOCAB:VOCAB).length,"#666"],
+               ["STUDIED",(deck==="srj"?SRJ_VOCAB:VOCAB).filter(v=>progress[v.id]).length,"#e8a22a"],
+               ["DUE",deck==="srj"?(getFlipDue(SRJ_VOCAB,progress).length+getFillDue(SRJ_VOCAB,progress).length):globalDue,"#e8412a"],
+               ["MASTERED",(deck==="srj"?SRJ_VOCAB:VOCAB).filter(v=>progress[v.id]?.interval>=21&&progress[v.id+"_fill"]?.interval>=21).length,"#4de89a"]].map(([l,v,c])=>(
                 <div key={l} style={S.statCell}>
                   <span style={{color:"#2a2a2a",fontSize:8,letterSpacing:2,fontFamily:"monospace"}}>{l}</span>
                   <span style={{color:c,fontSize:24,fontFamily:"monospace",fontWeight:700,lineHeight:1}}>{v}</span>
@@ -2602,7 +2605,13 @@ export default function App() {
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,paddingBottom:10,borderBottom:"1px solid #111"}}>
               <button onClick={()=>setMode("home")} style={{...S.navBtn,fontSize:9}}>← BACK</button>
               <span style={{color:"#333",fontSize:10,fontFamily:"monospace"}}>
-                {studyEp?(EPISODES.find(e=>e.id===studyEp)?.title||`EP${studyEp}`):"ALL EPISODES"}
+                {!studyEp?"ALL EPISODES":
+                 typeof studyEp==="string"&&studyEp.startsWith("srj_sub")?
+                   (SRJ_SUBS.find(s=>s.id===parseInt(studyEp.replace("srj_sub","")))?.title||"SRJ"):
+                 typeof studyEp==="string"&&studyEp.startsWith("srj_rand")?"Mix":
+                 typeof studyEp==="string"&&studyEp.startsWith("srj_")?
+                   (SRJ_CHAPTERS.find(c=>c.id===parseInt(studyEp.replace("srj_","")))?.title||"Super Real JP"):
+                 (EPISODES.find(e=>e.id===studyEp)?.title||"EP"+studyEp)}
               </span>
               <span style={{color:"#222",fontSize:10,fontFamily:"monospace"}}>{session.reviewed} done</span>
             </div>
@@ -2625,7 +2634,9 @@ export default function App() {
                     <span style={{color:TIER_COLORS[currentCard.tier],fontSize:9,fontFamily:"monospace",letterSpacing:2}}>{TIER_LABELS[currentCard.tier]}</span>
                     {currentCard._isFill&&<span style={{color:"#444",fontSize:8,fontFamily:"monospace",letterSpacing:2,border:"1px solid #222",padding:"1px 5px"}}>FILL-IN</span>}
                   </div>
-                  <span style={{color:"#222",fontSize:9,fontFamily:"monospace"}}>EP{currentCard.ep===27?"映画":String(currentCard.ep).padStart(2,"0")}</span>
+                  <span style={{color:"#222",fontSize:9,fontFamily:"monospace"}}>
+                    {currentCard.cat?"CH"+currentCard.cat:currentCard.ep===27?"映画":"EP"+String(currentCard.ep).padStart(2,"0")}
+                  </span>
                 </div>
 
                 {/* ── FILL-IN CARD ── */}
