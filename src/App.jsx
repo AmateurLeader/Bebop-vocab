@@ -1398,6 +1398,589 @@ const VOCAB = [
     wm:"この世の果てで会おう — Vincent's farewell to Spike. The movie ends there, at the edge of everything" }
 ];
 
+// ═══════════════════════════════════════════════════════════════
+// SUPER REAL JAPANESE — CHAPTERS, SUBCATEGORIES, VOCAB
+// ═══════════════════════════════════════════════════════════════
+const SRJ_CHAPTERS = [
+  { id:1, title:"Real Emotions",         titleJa:"感情表現" },
+  { id:2, title:"Real Conversations",    titleJa:"会話表現" },
+  { id:3, title:"Real Life Routine",     titleJa:"日常生活" },
+  { id:4, title:"Real Dining",           titleJa:"食事表現" },
+  { id:5, title:"Being in Love",         titleJa:"恋愛表現" },
+  { id:6, title:"Sightseeing in Japan",  titleJa:"観光表現" },
+];
+
+const SRJ_SUBS = [
+  { id:101, cat:1, title:"Fun feelings",         titleJa:"楽しい気持ち" },
+  { id:102, cat:1, title:"Sad feelings",          titleJa:"悲しい気持ち" },
+  { id:103, cat:1, title:"Anger feelings",        titleJa:"怒りの気持ち" },
+  { id:104, cat:1, title:"Happy feelings",        titleJa:"嬉しい気持ち" },
+  { id:105, cat:1, title:"Judgement",             titleJa:"評価" },
+  { id:106, cat:1, title:"Tiredness",             titleJa:"疲れ" },
+  { id:107, cat:1, title:"Relaxed feelings",      titleJa:"落ち着く気持ち" },
+  { id:108, cat:1, title:"Being thankful",        titleJa:"感謝" },
+  { id:109, cat:1, title:"Apology",               titleJa:"謝罪" },
+  { id:110, cat:1, title:"Worried",               titleJa:"不安・心配" },
+  { id:111, cat:1, title:"Feeling perplexed",     titleJa:"困惑" },
+  { id:112, cat:1, title:"Showing laziness",      titleJa:"怠惰" },
+  { id:113, cat:1, title:"Feeling motivated",     titleJa:"やる気" },
+  { id:114, cat:1, title:"Feeling impressed",     titleJa:"感動" },
+  { id:115, cat:1, title:"Sense of shame",        titleJa:"恥ずかしさ" },
+  { id:201, cat:2, title:"Emphasis",              titleJa:"強調" },
+  { id:202, cat:2, title:"Starting a conversation",titleJa:"話しかけ" },
+  { id:203, cat:2, title:"Positive responses",   titleJa:"ポジティブなリアクション" },
+  { id:204, cat:2, title:"Negative responses",   titleJa:"ネガティブなリアクション" },
+  { id:205, cat:2, title:"Surprised responses",  titleJa:"驚きのリアクション" },
+  { id:206, cat:2, title:"Conveying discontent", titleJa:"不満を伝える" },
+  { id:207, cat:2, title:"Thoughtfulness",       titleJa:"思いやり" },
+  { id:208, cat:2, title:"Stimulating conversation",titleJa:"会話を弾ませる" },
+  { id:209, cat:2, title:"Rephrasing",           titleJa:"言い換える" },
+  { id:210, cat:2, title:"Praise",               titleJa:"褒め言葉" },
+  { id:211, cat:2, title:"Humbleness",           titleJa:"謙遜" },
+  { id:212, cat:2, title:"Encouragement",        titleJa:"励まし" },
+  { id:213, cat:2, title:"Changing the topic",   titleJa:"話題を変える" },
+  { id:214, cat:2, title:"Accepting an invitation",titleJa:"誘いを受ける" },
+  { id:215, cat:2, title:"Declining an invitation",titleJa:"誘いを断る" },
+  { id:216, cat:2, title:"Words that connect sentences",titleJa:"文章をつなぐ言葉" },
+  { id:217, cat:2, title:"Vague time words",     titleJa:"時間表現" },
+  { id:301, cat:3, title:"Casual greeting",      titleJa:"気軽な挨拶" },
+  { id:302, cat:3, title:"Commuting",            titleJa:"通勤・通学" },
+  { id:303, cat:3, title:"Work",                 titleJa:"仕事" },
+  { id:304, cat:3, title:"At night / Before bed",titleJa:"夜・就寝前" },
+  { id:305, cat:3, title:"Exercise",             titleJa:"運動" },
+  { id:306, cat:3, title:"House chores",         titleJa:"家事" },
+  { id:307, cat:3, title:"Chilling at home",     titleJa:"家でのんびり" },
+  { id:308, cat:3, title:"Going out on a day off",titleJa:"休日の外出" },
+  { id:309, cat:3, title:"Hairdresser's",        titleJa:"美容院" },
+  { id:310, cat:3, title:"Everyday shopping",    titleJa:"日常の買い物" },
+  { id:311, cat:3, title:"Work style",           titleJa:"仕事スタイル" },
+  { id:312, cat:3, title:"Plans",                titleJa:"予定" },
+  { id:313, cat:3, title:"Weather condition",    titleJa:"天気" },
+  { id:314, cat:3, title:"Talking about money",  titleJa:"お金の話" },
+  { id:315, cat:3, title:"Useful phrases and messages",titleJa:"便利なフレーズ" },
+  { id:316, cat:3, title:"Trouble on the train", titleJa:"電車のトラブル" },
+  { id:401, cat:4, title:"Good reaction",        titleJa:"おいしい反応" },
+  { id:402, cat:4, title:"Taste I",              titleJa:"味 1" },
+  { id:403, cat:4, title:"Taste II",             titleJa:"味 2" },
+  { id:404, cat:4, title:"Describing temperature",titleJa:"温度の表現" },
+  { id:405, cat:4, title:"Food texture",         titleJa:"食感" },
+  { id:406, cat:4, title:"Cooking a meal",       titleJa:"料理" },
+  { id:407, cat:4, title:"Eating",               titleJa:"食べること" },
+  { id:408, cat:4, title:"Going out for food/drinks",titleJa:"外食・飲み" },
+  { id:409, cat:4, title:"Feeling hungry",       titleJa:"空腹" },
+  { id:410, cat:4, title:"Conversation at a restaurant I",titleJa:"飲食店 1" },
+  { id:411, cat:4, title:"Conversation at a restaurant II",titleJa:"飲食店 2" },
+  { id:412, cat:4, title:"Conversation at a ramen restaurant",titleJa:"ラーメン屋" },
+  { id:413, cat:4, title:"Conversation at an izakaya",titleJa:"居酒屋" },
+  { id:414, cat:4, title:"Food preferences",    titleJa:"食事の好み" },
+  { id:415, cat:4, title:"Getting drunk",        titleJa:"お酒" },
+  { id:501, cat:5, title:"Encounter (dating)",   titleJa:"出会い" },
+  { id:502, cat:5, title:"Impression",           titleJa:"印象" },
+  { id:503, cat:5, title:"Progress",             titleJa:"進展" },
+  { id:504, cat:5, title:"Stages of love",       titleJa:"恋の段階" },
+  { id:505, cat:5, title:"Development I",        titleJa:"展開 1" },
+  { id:506, cat:5, title:"Development II",       titleJa:"展開 2" },
+  { id:507, cat:5, title:"Relationship",         titleJa:"関係" },
+  { id:508, cat:5, title:"Relationship issues",  titleJa:"恋愛トラブル" },
+  { id:509, cat:5, title:"How to call someone I",titleJa:"人の呼び方 1" },
+  { id:510, cat:5, title:"How to call someone II",titleJa:"人の呼び方 2" },
+  { id:511, cat:5, title:"Separation",           titleJa:"別れ" },
+  { id:512, cat:5, title:"Giving a positive feeling",titleJa:"恋を伝える" },
+  { id:513, cat:5, title:"Romantic rejection",   titleJa:"告白を断る" },
+  { id:514, cat:5, title:"Meeting someone for the first time",titleJa:"初対面" },
+  { id:515, cat:5, title:"Relationship status",  titleJa:"交際ステータス" },
+  { id:601, cat:6, title:"Asking for directions",titleJa:"道を聞く" },
+  { id:602, cat:6, title:"Using trains and buses",titleJa:"電車・バス" },
+  { id:603, cat:6, title:"Getting in a taxi",    titleJa:"タクシー" },
+  { id:604, cat:6, title:"Conversation at a hotel I",titleJa:"ホテル 1" },
+  { id:605, cat:6, title:"Conversation at a hotel II",titleJa:"ホテル 2" },
+  { id:606, cat:6, title:"Trouble at a hotel",   titleJa:"ホテルのトラブル" },
+  { id:607, cat:6, title:"Travel plans",         titleJa:"旅の計画" },
+  { id:608, cat:6, title:"Real opinions while traveling I",titleJa:"旅の感想 1" },
+  { id:609, cat:6, title:"Real opinions while traveling II",titleJa:"旅の感想 2" },
+  { id:610, cat:6, title:"Buying souvenirs",     titleJa:"お土産" },
+  { id:611, cat:6, title:"Going to the police",  titleJa:"警察" },
+  { id:612, cat:6, title:"Conversation when meeting someone",titleJa:"出会った人との会話" },
+  { id:613, cat:6, title:"Useful phrases",       titleJa:"便利なフレーズ" },
+];
+
+const SRJ_VOCAB = [
+// ─────────────────────────────────────────────────────────────
+// CHAPTER 1: REAL EMOTIONS
+// ─────────────────────────────────────────────────────────────
+
+// 101 Fun feelings
+  { id:"s01_01", cat:1, sub:101, word:"うける", reading:"うける", meaning:"that's hilarious / so funny (lit. it hits)", tier:3,
+    kb:[],
+    ex:[{j:"それ、うけるんだけど！",r:"それ、うけるんだけど！",e:"That's hilarious!"},{j:"あの動画うけすぎる。",r:"あのどうがうけすぎる。",e:"That video is way too funny."},{j:"え、うけるんだけど、何それ？",r:"え、うけるんだけど、なにそれ？",e:"Wait, that's hilarious — what even is that?"}],
+    wm:"うける = to receive/hit — something so funny it 'lands'. One of the most common reactions in casual Japanese. Younger speakers also write it as ウケる." },
+
+  { id:"s01_02", cat:1, sub:101, word:"はらいたい", reading:"はらいたい", meaning:"LMAO / my stomach hurts from laughing", tier:3,
+    kb:[{k:"腹",r:"はら",m:"belly/stomach",rad:["月","复"],rm:["body","return/cover"],mn:"The body part that covers your insides — the belly, stomach"},{k:"痛い",r:"いたい",m:"painful",rad:["疒","冬"],rm:["sickness","winter/ache"],mn:"A sickness that feels like winter — painful, hurting"}],
+    ex:[{j:"はらいたい、もう笑えない。",r:"はらいたい、もうわらえない。",e:"My stomach hurts, I can't laugh anymore."},{j:"それはらいたすぎる。",r:"それはらいたすぎる。",e:"That's absolutely killing me (with laughter)."},{j:"はらいたいんだけど、なにそれ。",r:"はらいたいんだけど、なにそれ。",e:"I'm dying — what even is that?"}],
+    wm:"腹 (belly) + 痛い (hurts) = my stomach hurts from laughing = LMAO. The physical experience of laughing so hard it hurts, used as an exclamation." },
+
+  { id:"s01_03", cat:1, sub:101, word:"涙でてきた", reading:"なみだでてきた", meaning:"I'm crying (from laughter) / tears are coming out", tier:3,
+    kb:[{k:"涙",r:"なみだ",m:"tears",rad:["氵","戻"],rm:["water","return"],mn:"Water that returns to the surface — tears"},{k:"出てきた",r:"でてきた",m:"came out / started coming",rad:["凵","止"],rm:["container","foot/stop"],mn:"A foot stepping out of a container — coming out, emerging"}],
+    ex:[{j:"涙でてきた、ほんとうける。",r:"なみだでてきた、ほんとうける。",e:"I'm actually crying, that's so funny."},{j:"笑いすぎて涙でてきた。",r:"わらいすぎてなみだでてきた。",e:"I laughed so much tears started coming out."},{j:"なにこれ、涙でてきたんだけど。",r:"なにこれ、なみだでてきたんだけど。",e:"What is this — I'm literally tearing up."}],
+    wm:"涙でてきた = tears came out. Used hyperbolically like 'I'm crying 😂' in English texts. The でてきた (started coming out) captures the involuntary nature of it." },
+
+  { id:"s01_04", cat:1, sub:101, word:"わらえる", reading:"わらえる", meaning:"that makes me laugh / I can't help laughing", tier:3,
+    kb:[{k:"笑",r:"わら(える)",m:"laugh/smile",rad:["竹","夭"],rm:["bamboo","young/bent"],mn:"A bamboo bending like someone doubled over laughing — to laugh, smile"}],
+    ex:[{j:"それわらえるんだけど。",r:"それわらえるんだけど。",e:"That's making me laugh."},{j:"わらえるくらいひどい。",r:"わらえるくらいひどい。",e:"It's so bad it's funny."},{j:"あいつのダンスわらえる。",r:"あいつのダンスわらえる。",e:"His dancing is hilarious."}],
+    wm:"笑える = can laugh / it makes one laugh. The potential form here expresses spontaneous, irresistible laughter. Can also mean something is so bad it's funny." },
+
+  { id:"s01_05", cat:1, sub:101, word:"じわる", reading:"じわる", meaning:"it gets funnier and funnier / slowly creeping funny", tier:3,
+    kb:[],
+    ex:[{j:"後から考えたらじわってきた。",r:"あとからかんがえたらじわってきた。",e:"Thinking about it afterwards, it keeps getting funnier."},{j:"あの動画じわじわくる。",r:"あのどうがじわじわくる。",e:"That video slowly grows on you (in a funny way)."},{j:"なんかじわるんだけど、あの写真。",r:"なんかじわるんだけど、あのしゃしん。",e:"That photo just keeps getting funnier somehow."}],
+    wm:"From じわじわ (slowly seeping/spreading) — something funny that builds over time rather than hitting you immediately. Like a joke that you process slowly and then can't stop laughing at." },
+
+  { id:"s01_06", cat:1, sub:101, word:"爆笑", reading:"ばくしょう", meaning:"LMFAO / burst out laughing / explosive laughter", tier:3,
+    kb:[{k:"爆",r:"ばく",m:"explode/burst",rad:["火","暴"],rm:["fire","violent"],mn:"Violent fire — to explode, burst"},{k:"笑",r:"しょう",m:"laugh",rad:["竹","夭"],rm:["bamboo","young/bent"],mn:"Someone bent over like bamboo — to laugh"}],
+    ex:[{j:"爆笑した、もう最高。",r:"ばくしょうした、もうさいこう。",e:"I burst out laughing — that was the best."},{j:"あの映画で爆笑した。",r:"あのえいがでばくしょうした。",e:"I was in stitches at that movie."},{j:"みんな爆笑してた。",r:"みんなばくしょうしてた。",e:"Everyone burst out laughing."}],
+    wm:"爆 (explode) + 笑 (laugh) = explosive laughter. Stronger than just 笑った — this is full, uncontrollable, falling-over laughter. The kanji paint exactly what it means." },
+
+  { id:"s01_07", cat:1, sub:101, word:"まじくさ", reading:"まじくさ", meaning:"seriously funny / genuinely hilarious (rough slang)", tier:3,
+    kb:[],
+    ex:[{j:"まじくさ、それ。",r:"まじくさ、それ。",e:"That's genuinely hilarious."},{j:"あいつまじくさいんだけど。",r:"あいつまじくさいんだけど。",e:"That guy is seriously funny."},{j:"まじくさくて笑えない。",r:"まじくさくてわらえない。",e:"It's so funny I can't even laugh."}],
+    wm:"まじ (seriously/really) + くさ (smell/stench used as rough intensifier in slang) = genuinely, seriously [funny]. Very casual, young-speaker slang. Not appropriate in formal contexts." },
+
+// 102 Sad feelings
+  { id:"s01_08", cat:1, sub:102, word:"落ちる", reading:"おちる", meaning:"I'm depressed / feeling down / my mood dropped", tier:3,
+    kb:[{k:"落",r:"お(ちる)",m:"fall/drop/decline",rad:["艹","水","夂"],rm:["plant","water","follow downward"],mn:"Water following downward through plants — to fall, drop, decline"}],
+    ex:[{j:"最近なんか落ちてる。",r:"さいきんなんかおちてる。",e:"Lately I've been feeling kind of down."},{j:"それ聞いて落ちた。",r:"それきいておちた。",e:"Hearing that brought me down."},{j:"テンション落ちた。",r:"てんしょんおちた。",e:"My mood just dropped."}],
+    wm:"落ちる (to fall/drop) applied to mental state = mood drops, feeling depressed. Very casual. テンション落ちた is one of the most natural ways to say your energy/mood dropped." },
+
+  { id:"s01_09", cat:1, sub:102, word:"つらい", reading:"つらい", meaning:"that's tough / painful / hard to bear", tier:1,
+    kb:[{k:"辛",r:"つら(い)",m:"spicy/painful/tough",rad:["辛"],rm:["bitter/spicy/harsh"],mn:"The harsh, spicy kanji — something that stings, that's hard to bear"}],
+    ex:[{j:"それはつらいね。",r:"それはつらいね。",e:"That's really tough."},{j:"別れてつらい。",r:"わかれてつらい。",e:"The breakup is painful."},{j:"仕事つらすぎて泣きたい。",r:"しごとつらすぎてなきたい。",e:"Work is so tough I want to cry."}],
+    wm:"つらい = painful, tough, hard to bear. One of the most important emotional words in Japanese — covers physical and emotional pain alike. 辛い is both 'spicy' and 'tough/painful', same word." },
+
+  { id:"s01_10", cat:1, sub:102, word:"憂鬱", reading:"ゆううつ", meaning:"I'm feeling melancholy / depressed / gloomy", tier:1,
+    kb:[{k:"憂",r:"ゆう",m:"melancholy/sorrow/anxiety",rad:["頁","心"],rm:["head","heart"],mn:"A heavy head weighing on the heart — melancholy, sorrow, anxiety"},{k:"鬱",r:"うつ",m:"depression/gloom/dense",rad:["林","缶","鬯","凵"],rm:["forest","can","fragrant","container"],mn:"An overgrown dense forest blocking light — depression, gloomy density"}],
+    ex:[{j:"今日なんか憂鬱だな。",r:"きょうなんかゆううつだな。",e:"Today I'm feeling kind of melancholy."},{j:"月曜日は憂鬱。",r:"げつようびはゆううつ。",e:"Mondays are depressing."},{j:"憂鬱な天気だね。",r:"ゆううつなてんきだね。",e:"The weather is gloomy, isn't it."}],
+    wm:"憂鬱 has one of the most complex kanji in Japanese (鬱 has 29 strokes). The meaning matches the density — a deep, heavy gloom. Often just written in hiragana ゆううつ for this reason." },
+
+  { id:"s01_11", cat:1, sub:102, word:"がっかりだよ", reading:"がっかりだよ", meaning:"I'm disappointed / what a letdown", tier:1,
+    kb:[],
+    ex:[{j:"結果聞いてがっかりだよ。",r:"けっかきいてがっかりだよ。",e:"Hearing the result, I'm so disappointed."},{j:"がっかりさせないでよ。",r:"がっかりさせないでよ。",e:"Don't disappoint me."},{j:"期待してたのにがっかり。",r:"きたいしてたのにがっかり。",e:"I was expecting something and now I'm disappointed."}],
+    wm:"がっかり is an onomatopoeia for the deflated feeling of disappointment — like a balloon going flat. がっかりだよ adds だよ to make it a personal statement of disappointment." },
+
+  { id:"s01_12", cat:1, sub:102, word:"テンション下がる", reading:"テンションさがる", meaning:"that's disheartening / my energy/mood drops", tier:3,
+    kb:[{k:"下",r:"さが(る)",m:"go down/lower/drop",rad:["一","丨"],rm:["horizon","descending line"],mn:"A line descending below the horizon — to go down, drop"}],
+    ex:[{j:"それ聞いてテンション下がる。",r:"それきいてテンションさがる。",e:"Hearing that kills my mood."},{j:"雨でテンション下がった。",r:"あめでテンションさがった。",e:"The rain brought my energy down."},{j:"テンション下がることばっかある。",r:"テンションさがることばっかある。",e:"Things that kill my mood just keep happening."}],
+    wm:"テンション (tension/energy level) + 下がる (drop/go down) = energy level drops. テンション in Japanese means your mood/energy level, not tension in the English sense. Very common casual expression." },
+
+  { id:"s01_13", cat:1, sub:102, word:"何も手につかない", reading:"なにもてにつかない", meaning:"I can't focus on anything / nothing gets done when I'm down", tier:1,
+    kb:[{k:"手",r:"て",m:"hand",rad:["手"],rm:["hand"],mn:"A hand"},{k:"付",r:"つ(かない)",m:"attach/stick/settle",rad:["亻","寸"],rm:["person","measure/hand"],mn:"A person with a measured hand — to attach, stick, settle into"}],
+    ex:[{j:"落ち込んで何も手につかない。",r:"おちこんでなにもてにつかない。",e:"I'm so down that I can't focus on anything."},{j:"心配事があって何も手につかない。",r:"しんぱいごとがあってなにもてにつかない。",e:"I have something worrying me and can't get anything done."},{j:"失恋して何も手につかない状態。",r:"しつれんしてなにもてにつかないじょうたい。",e:"After the breakup I'm in a state where nothing gets done."}],
+    wm:"何も手につかない = nothing sticks to the hands = can't grasp/engage with anything. A very expressive way to describe the paralysis of deep sadness or worry." },
+
+  { id:"s01_14", cat:1, sub:102, word:"泣けてくる", reading:"なけてくる", meaning:"it makes me cry / tears start coming involuntarily", tier:1,
+    kb:[{k:"泣",r:"な(けてくる)",m:"cry/weep",rad:["氵","立"],rm:["water","stand up"],mn:"Water standing up — tears rising, to cry"}],
+    ex:[{j:"その映画泣けてくる。",r:"そのえいがなけてくる。",e:"That movie makes me cry."},{j:"思い出したら泣けてくる。",r:"おもいだしたらなけてくる。",e:"When I remember it, I start to cry."},{j:"なんか急に泣けてきた。",r:"なんかきゅうになけてきた。",e:"Suddenly I started feeling like crying."}],
+    wm:"泣ける (can cry/feels like crying) + くる (coming toward you) = tears come involuntarily. The くる makes it feel like the emotion arrives on its own, not something you choose." },
+
+// 103 Anger feelings
+  { id:"s01_15", cat:1, sub:103, word:"むかつく", reading:"むかつく", meaning:"it pisses me off / so annoying / makes me sick", tier:3,
+    kb:[],
+    ex:[{j:"あいつの態度むかつく。",r:"あいつのたいどむかつく。",e:"His attitude pisses me off."},{j:"むかつくんだけど！",r:"むかつくんだけど！",e:"That is so annoying!"},{j:"むかつくから無視した。",r:"むかつくからむしした。",e:"He pissed me off so I ignored him."}],
+    wm:"むかつく originally means to feel nauseous (胸がむかむかする = stomach churning) — so intense annoyance is described as a physical sickness. One of the most common anger words in casual Japanese." },
+
+  { id:"s01_16", cat:1, sub:103, word:"ありえない", reading:"ありえない", meaning:"there's no way / that's unbelievable / that can't be right", tier:3,
+    kb:[{k:"有",r:"あり",m:"exist/have",rad:["月","ナ"],rm:["flesh/moon","hand"],mn:"A hand under the moon — to have, exist"},{k:"得",r:"え(ない)",m:"obtain/can/possible",rad:["彳","寸"],rm:["small step","measure/hand"],mn:"A measured step forward — to obtain, be able, possible"}],
+    ex:[{j:"ありえない、最悪。",r:"ありえない、さいあく。",e:"No way, that's the worst."},{j:"そんなことありえないでしょ。",r:"そんなことありえないでしょ。",e:"There's no way that could happen."},{j:"ありえないことが起きた。",r:"ありえないことがおきた。",e:"Something unbelievable happened."}],
+    wm:"ありえない = cannot exist/be = impossible, unbelievable. Used both for genuine disbelief and as an anger reaction — 'that's not okay / no way is this acceptable'. One of the most versatile reaction words." },
+
+  { id:"s01_17", cat:1, sub:103, word:"うざい", reading:"うざい", meaning:"it's annoying / so irritating / get out of my face", tier:3,
+    kb:[],
+    ex:[{j:"あの人うざすぎる。",r:"あのひとうざすぎる。",e:"That person is way too annoying."},{j:"うざいからほっといて。",r:"うざいからほっといて。",e:"You're annoying, just leave me alone."},{j:"ちょっとうざいな、それ。",r:"ちょっとうざいな、それ。",e:"That's kind of annoying."}],
+    wm:"うざい = buzzing, irritating annoyance (from うざうざ = crawling/swarming). The feeling of someone being in your space too much. Stronger than めんどくさい — more personal, directed at someone." },
+
+  { id:"s01_18", cat:1, sub:103, word:"もう限界", reading:"もうげんかい", meaning:"I've reached my limit / I can't take it anymore", tier:1,
+    kb:[{k:"限",r:"げん",m:"limit/boundary",rad:["阜","艮"],rm:["mound/hill","stubborn/stop"],mn:"A hill that stops you — a limit, boundary"},{k:"界",r:"かい",m:"world/boundary/realm",rad:["田","介"],rm:["field","mediate/boundary"],mn:"A field with a mediating boundary — a world, realm, border"}],
+    ex:[{j:"もう限界、辞める。",r:"もうげんかい、やめる。",e:"I've reached my limit — I'm quitting."},{j:"仕事もう限界だよ。",r:"しごともうげんかいだよ。",e:"Work has hit my absolute limit."},{j:"もう限界って感じ。",r:"もうげんかいってかんじ。",e:"I'm at the feeling of being completely done."}],
+    wm:"もう (already/anymore) + 限界 (limit/boundary) = already at the limit. The もう signals it's not approaching the limit — it's already there. Very dramatic but very genuine." },
+
+  { id:"s01_19", cat:1, sub:103, word:"ふざけんな", reading:"ふざけんな", meaning:"don't mess with me / are you kidding me / stop screwing around", tier:3,
+    kb:[],
+    ex:[{j:"ふざけんな、なにそれ。",r:"ふざけんな、なにそれ。",e:"Don't mess with me — what is that?"},{j:"ふざけんなよ、まじで。",r:"ふざけんなよ、まじで。",e:"Seriously, stop screwing around."},{j:"そんなこと言ってふざけんなよ。",r:"そんなこといってふざけんなよ。",e:"Say something like that and you can get lost."}],
+    wm:"ふざける (to joke/mess around) + な (don't) = don't mess around. ふざけんな is the contracted form (ふざけるな → ふざけんな). Rough and direct — genuine anger, not playful." },
+
+  { id:"s01_20", cat:1, sub:103, word:"カチンときた", reading:"カチンときた", meaning:"I snapped / something set me off / that hit a nerve", tier:3,
+    kb:[],
+    ex:[{j:"その一言でカチンときた。",r:"そのひとことでカチンときた。",e:"That one comment set me off."},{j:"カチンときたけど我慢した。",r:"カチンときたけどがまんした。",e:"Something ticked me off but I held back."},{j:"なんかカチンとくる言い方。",r:"なんかカチンとくるいいかた。",e:"There's something about the way they said it that hits a nerve."}],
+    wm:"カチン = onomatopoeia for a hard knock or click — like something snapping in your head. カチンとくる = something comes and clicks/snaps inside you = you're suddenly triggered. Very vivid physical metaphor for anger." },
+
+// 104 Happy feelings
+  { id:"s01_21", cat:1, sub:104, word:"嬉しい", reading:"うれしい", meaning:"I'm happy / that makes me happy / I'm glad", tier:1,
+    kb:[{k:"嬉",r:"うれ(しい)",m:"happy/joyful/glad",rad:["女","喜"],rm:["woman","joy/delight"],mn:"A woman filled with joy — happiness, gladness"}],
+    ex:[{j:"それ聞いて嬉しい！",r:"それきいてうれしい！",e:"I'm so happy to hear that!"},{j:"来てくれて嬉しい。",r:"きてくれてうれしい。",e:"I'm glad you came."},{j:"嬉しすぎて泣いた。",r:"うれしすぎてないた。",e:"I was so happy I cried."}],
+    wm:"嬉しい = glad/happy about something specific — a reaction to good news or a kind action. Different from 幸せ (general happiness/state of being). One of the most important emotional words to know." },
+
+  { id:"s01_22", cat:1, sub:104, word:"上がる", reading:"あがる", meaning:"I'm psyched / my mood lifts / getting excited", tier:3,
+    kb:[{k:"上",r:"あ(がる)",m:"rise/go up",rad:["一","丨"],rm:["horizon","rising line"],mn:"A line rising above the horizon — to go up, rise"}],
+    ex:[{j:"テンション上がる！",r:"テンションあがる！",e:"I'm getting hyped!"},{j:"この曲聞いたら上がる。",r:"このきょくきいたらあがる。",e:"Listening to this song gets me pumped."},{j:"いいことあってテンション上がってる。",r:"いいことあってテンションあがってる。",e:"Something good happened and my mood is up."}],
+    wm:"上がる (to rise/go up) applied to テンション or mood = energy/excitement level goes up. Opposite of 下がる. This is how Japanese describes hype or excitement — energy literally going up." },
+
+  { id:"s01_23", cat:1, sub:104, word:"幸せ", reading:"しあわせ", meaning:"I'm happy / I feel blessed / this is happiness", tier:1,
+    kb:[{k:"幸",r:"しあわ(せ)",m:"happiness/fortune/luck",rad:["土","𠂉","工"],rm:["earth","divine","work"],mn:"Divine work manifest on earth — fortune, happiness when heaven and labor align"}],
+    ex:[{j:"今めちゃくちゃ幸せ。",r:"いまめちゃくちゃしあわせ。",e:"Right now I'm incredibly happy."},{j:"幸せだなって思う。",r:"しあわせだなっておもう。",e:"I think to myself, I'm happy."},{j:"そばにいると幸せ。",r:"そばにいるとしあわせ。",e:"When I'm with you I feel happy."}],
+    wm:"幸せ = a state of happiness or blessedness — more general and lasting than 嬉しい (which is a reaction). 幸せだな = 'I'm in a state of happiness'. Used in deep contentment, love, and life satisfaction." },
+
+  { id:"s01_24", cat:1, sub:104, word:"満たされるわ", reading:"みたされるわ", meaning:"I feel fulfilled / this satisfies me / I feel complete", tier:1,
+    kb:[{k:"満",r:"み(たされる)",m:"full/satisfied/fulfill",rad:["氵","㒼"],rm:["water","full/overflow"],mn:"Water overflowing — full, satisfied, fulfilled"}],
+    ex:[{j:"おいしいもの食べて満たされるわ。",r:"おいしいものたべてみたされるわ。",e:"Eating something delicious makes me feel fulfilled."},{j:"この景色見て満たされる。",r:"このけしきみてみたされる。",e:"Looking at this view fills me up."},{j:"なんか心が満たされた感じ。",r:"なんかこころがみたされたかんじ。",e:"I have this feeling of my heart being filled."}],
+    wm:"満たされる = to be filled up/satisfied (passive of 満たす). The わ at the end is a soft feminine sentence-ender expressing personal feeling. Describes deep, quiet satisfaction rather than excitement." },
+
+  { id:"s01_25", cat:1, sub:104, word:"わくわく", reading:"わくわく", meaning:"that's exciting / I'm excited / anticipation", tier:1,
+    kb:[],
+    ex:[{j:"明日のイベントわくわくする。",r:"あしたのイベントわくわくする。",e:"I'm excited about tomorrow's event."},{j:"わくわくが止まらない。",r:"わくわくがとまらない。",e:"The excitement won't stop."},{j:"子どもみたいにわくわくしてる。",r:"こどもみたいにわくわくしてる。",e:"I'm excited like a little kid."}],
+    wm:"わくわく = onomatopoeia for the bubbling, fluttering feeling of excitement or anticipation. Like bubbles rising inside you. Used for positive anticipation — a trip, an event, seeing someone." },
+
+  { id:"s01_26", cat:1, sub:104, word:"楽しみ", reading:"たのしみ", meaning:"I can't wait / I'm looking forward to it", tier:1,
+    kb:[{k:"楽",r:"たの(しみ)",m:"fun/enjoyable/easy",rad:["木","白"],rm:["tree","white/clear"],mn:"A clear tree bearing fruit — enjoyment, pleasure, ease"},{k:"しみ",r:"しみ",m:"soaking in / deepening",rad:[""],rm:[""],mn:"Something soaking in — enjoyment deepening"}],
+    ex:[{j:"会えるの楽しみにしてる。",r:"あえるのたのしみにしてる。",e:"I'm looking forward to seeing you."},{j:"楽しみだな〜。",r:"たのしみだな〜。",e:"I can't wait~"},{j:"これ楽しみすぎる。",r:"これたのしみすぎる。",e:"I'm way too excited for this."}],
+    wm:"楽しみ = enjoyment/pleasure as a noun, but used to mean 'looking forward to'. 楽しみにしている = actively anticipating. One of the warmest, most genuine expressions of positive anticipation in Japanese." },
+
+// 105 Judgement
+  { id:"s01_27", cat:1, sub:105, word:"すごい", reading:"すごい", meaning:"amazing / wow / incredible", tier:1,
+    kb:[{k:"凄",r:"すご(い)",m:"amazing/terrible/intense",rad:["冫","妻"],rm:["ice","wife/woman"],mn:"A woman cold as ice — intensely amazing or terrible"}],
+    ex:[{j:"すごい！どうやったの？",r:"すごい！どうやったの？",e:"Amazing! How did you do that?"},{j:"それすごくない？",r:"それすごくない？",e:"Isn't that incredible?"},{j:"すごすぎて言葉にならない。",r:"すごすぎてことばにならない。",e:"It's so incredible I can't put it into words."}],
+    wm:"すごい is one of the most versatile words in Japanese — covers amazing, incredible, terrible, and intense. Context determines which. In casual speech it's most often positive admiration." },
+
+  { id:"s01_28", cat:1, sub:105, word:"最高", reading:"さいこう", meaning:"that's awesome / the best / top-tier", tier:1,
+    kb:[{k:"最",r:"さい",m:"most/extreme/top",rad:["日","又"],rm:["sun","hand"],mn:"A hand reaching for the sun — the most, extreme, top"},{k:"高",r:"こう",m:"high/tall/expensive",rad:["高"],rm:["tall structure"],mn:"A tall structure — high, tall, elevated"}],
+    ex:[{j:"この料理最高！",r:"このりょうりさいこう！",e:"This food is the best!"},{j:"今日最高に楽しかった。",r:"きょうさいこうにたのしかった。",e:"Today was the most fun ever."},{j:"最高の一日だった。",r:"さいこうのいちにちだった。",e:"It was the best day."}],
+    wm:"最 (most/extreme) + 高 (high) = the highest = the best. 最高 is the go-to expression for something being at the absolute top level. Used constantly for food, experiences, music, people." },
+
+  { id:"s01_29", cat:1, sub:105, word:"気に入った", reading:"きにいった", meaning:"I like it / I'm into it / it caught my eye", tier:1,
+    kb:[{k:"気",r:"き",m:"spirit/feeling/energy",rad:["气","米"],rm:["air","rice"],mn:"Rice steam rising — vital energy, feeling, spirit"},{k:"入",r:"い(った)",m:"enter/go in",rad:["入"],rm:["entering"],mn:"Something entering — to go in, enter"}],
+    ex:[{j:"気に入った、これ買う。",r:"きにいった、これかう。",e:"I like it — I'll buy this."},{j:"彼のこと気に入ってる。",r:"かれのこときにいってる。",e:"I'm really into him."},{j:"このデザイン気に入った。",r:"このデザインきにいった。",e:"I like this design."}],
+    wm:"気に入る = spirit/feeling enters something = something enters your heart/appreciation. The moment when something catches you and you genuinely like it. Used for objects, people, places." },
+
+  { id:"s01_30", cat:1, sub:105, word:"ふつう", reading:"ふつう", meaning:"it's fine / average / not good or bad", tier:1,
+    kb:[{k:"普",r:"ふ",m:"universal/ordinary/common",rad:["日","𠂉"],rm:["sun","arms spread"],mn:"Arms spread under the sun — universal, common, ordinary"},{k:"通",r:"つう",m:"pass through/common",rad:["⻌","甬"],rm:["movement","passage/cylinder"],mn:"Moving through a passage — to pass through, common"}],
+    ex:[{j:"どうだった？ふつう。",r:"どうだった？ふつう。",e:"How was it? It was okay."},{j:"ふつうにおいしい。",r:"ふつうにおいしい。",e:"It's normally/actually good."},{j:"ふつうかな、可もなく不可もなく。",r:"ふつうかな、かもなくふかもなく。",e:"It's average — not good or bad."}],
+    wm:"ふつう = ordinary/normal. As a review of food or an experience it means 'just okay, nothing special'. Note: ふつうにおいしい doesn't mean 'normally good' — it means 'actually good / genuinely good' in youth speech." },
+
+  { id:"s01_31", cat:1, sub:105, word:"微妙", reading:"びみょう", meaning:"it's hard to say / kind of iffy / so-so", tier:1,
+    kb:[{k:"微",r:"び",m:"slight/subtle/faint",rad:["彳","山","攵"],rm:["small step","mountain","strike"],mn:"A small step through a mountain — subtle, slight, faint"},{k:"妙",r:"みょう",m:"strange/subtle/wonderful",rad:["女","少"],rm:["woman","few/small"],mn:"A woman with few/small features — strange, subtle, delicate"}],
+    ex:[{j:"どうだった？微妙だった。",r:"どうだった？びみょうだった。",e:"How was it? It was kind of iffy."},{j:"微妙な顔してる。",r:"びみょうなかおしてる。",e:"You're making a face that says you're unsure."},{j:"この関係ちょっと微妙で。",r:"このかんけいちょっとびみょうで。",e:"This relationship is a bit... complicated."}],
+    wm:"微妙 literally means subtle/delicate but in casual speech = 'so-so / kind of iffy / hard to say'. The most polite way to say something wasn't great without directly criticising. Essential for Japanese social life." },
+
+  { id:"s01_32", cat:1, sub:105, word:"悪くない", reading:"わるくない", meaning:"not bad / pretty decent actually", tier:1,
+    kb:[{k:"悪",r:"わる(く)",m:"bad/evil",rad:["亜","心"],rm:["ugly","heart"],mn:"An ugly heart — bad, evil"},{k:"ない",r:"ない",m:"not/there isn't",rad:[""],rm:[""],mn:"Negation — not, there isn't"}],
+    ex:[{j:"悪くないね、これ。",r:"わるくないね、これ。",e:"This isn't bad, actually."},{j:"悪くないじゃん。",r:"わるくないじゃん。",e:"That's pretty decent!"},{j:"思ったより悪くなかった。",r:"おもったよりわるくなかった。",e:"It wasn't as bad as I expected."}],
+    wm:"悪くない = not bad. In Japanese understatement culture this can actually be high praise — saying something is 'not bad' sometimes means 'quite good'. The double negative creates a gentle positive." },
+
+  { id:"s01_33", cat:1, sub:105, word:"最悪", reading:"さいあく", meaning:"that's awful / the worst / terrible", tier:3,
+    kb:[{k:"最",r:"さい",m:"most/extreme",rad:["日","又"],rm:["sun","hand"],mn:"A hand reaching for the sun — the most extreme"},{k:"悪",r:"あく",m:"bad/evil",rad:["亜","心"],rm:["ugly","heart"],mn:"An ugly heart — bad, evil"}],
+    ex:[{j:"最悪な一日だった。",r:"さいあくないちにちだった。",e:"It was the worst day."},{j:"最悪、財布忘れた。",r:"さいあく、さいふわすれた。",e:"The worst — I forgot my wallet."},{j:"あいつ最悪だよ。",r:"あいつさいあくだよ。",e:"That guy is the worst."}],
+    wm:"最 (most/extreme) + 悪 (bad) = the most bad = the worst. Opposite of 最高. Used constantly as an expletive when things go wrong. 最悪！ as a standalone is basically 'oh god no / that's terrible'." },
+
+// 106 Tiredness
+  { id:"s01_34", cat:1, sub:106, word:"だるい", reading:"だるい", meaning:"I feel lethargic / sluggish / my body feels heavy", tier:1,
+    kb:[],
+    ex:[{j:"今日だるすぎる。",r:"きょうだるすぎる。",e:"I feel so sluggish today."},{j:"なんかだるくて動けない。",r:"なんかだるくてうごけない。",e:"I feel so lethargic I can't move."},{j:"月曜日はだるいね。",r:"げつようびはだるいね。",e:"Mondays are so sluggish."}],
+    wm:"だるい = the heavy, leaden feeling when your body doesn't want to move. Covers physical fatigue, Monday-itis, post-illness weakness, and general unmotivated sluggishness. Very natural and very common." },
+
+  { id:"s01_35", cat:1, sub:106, word:"ねみー", reading:"ねみー", meaning:"I'm sleepy (rough/casual)", tier:3,
+    kb:[],
+    ex:[{j:"ねみー、もう寝る。",r:"ねみー、もうねる。",e:"I'm sleepy, I'm going to bed."},{j:"授業中ねみーんだけど。",r:"じゅぎょうちゅうねみーんだけど。",e:"I'm so sleepy during class."},{j:"ねみすぎてやばい。",r:"ねみすぎてやばい。",e:"I'm so sleepy it's bad."}],
+    wm:"眠い (ねむい) → ねみー (casual/rough contraction). The dropping of syllables and lengthening with ー is characteristic of very casual young-speaker Japanese. Don't use with people you respect." },
+
+  { id:"s01_36", cat:1, sub:106, word:"へとへと", reading:"へとへと", meaning:"I feel drained / utterly exhausted", tier:1,
+    kb:[],
+    ex:[{j:"仕事でへとへとだよ。",r:"しごとでへとへとだよ。",e:"Work has left me utterly drained."},{j:"一日中歩いてへとへと。",r:"いちにちじゅうあるいてへとへと。",e:"Walking all day has completely drained me."},{j:"もうへとへとで話す気力もない。",r:"もうへとへとではなすきりょくもない。",e:"I'm so drained I don't even have the energy to talk."}],
+    wm:"へとへと = onomatopoeia for complete exhaustion — the sound of someone barely dragging themselves along. More extreme than 疲れた (tired). Physical and emotional drain combined." },
+
+  { id:"s01_37", cat:1, sub:106, word:"ボロボロ", reading:"ボロボロ", meaning:"I'm beat / worn out / falling apart", tier:3,
+    kb:[],
+    ex:[{j:"体ボロボロだよ。",r:"からだボロボロだよ。",e:"My body is completely beat."},{j:"ボロボロになるまで働いた。",r:"ボロボロになるまではたらいた。",e:"I worked until I was falling apart."},{j:"靴ボロボロだから買い替えなきゃ。",r:"くつボロボロだからかいかえなきゃ。",e:"My shoes are worn out so I need new ones."}],
+    wm:"ボロボロ = onomatopoeia for something tattered and falling apart — used for worn-out objects and exhausted people alike. More vivid than へとへと — implies visible wear, not just internal exhaustion." },
+
+  { id:"s01_38", cat:1, sub:106, word:"精神的にくる", reading:"せいしんてきにくる", meaning:"I'm emotionally exhausted / it's getting to me mentally", tier:1,
+    kb:[{k:"精",r:"せい",m:"spirit/energy/refined",rad:["米","青"],rm:["rice","blue/clear"],mn:"Refined clear rice-energy — spirit, mental energy, precision"},{k:"神",r:"しん",m:"god/spirit/divine",rad:["示","申"],rm:["altar","say/extend"],mn:"A divine message at an altar — god, spirit, divine"},{k:"的",r:"てき",m:"-like/-ish/-al",rad:["白","勺"],rm:["white","ladle/mark"],mn:"A target mark — -like, -al, of the nature of"}],
+    ex:[{j:"最近精神的にきてる。",r:"さいきんせいしんてきにきてる。",e:"Lately it's been getting to me mentally."},{j:"精神的にくるものがある。",r:"せいしんてきにくるものがある。",e:"There's something about it that hits me mentally."},{j:"肉体よりも精神的にくる。",r:"にくたいよりもせいしんてきにくる。",e:"More than physically, it's hitting me mentally."}],
+    wm:"精神的に (mentally/psychologically) + くる (come/hit you) = it's coming at you mentally = emotionally draining. The くる is the same 'coming toward you' that appears in other emotional expressions." },
+
+  { id:"s01_39", cat:1, sub:106, word:"くたくた", reading:"くたくた", meaning:"I'm exhausted / completely worn out", tier:1,
+    kb:[],
+    ex:[{j:"くたくたで何もできない。",r:"くたくたでなにもできない。",e:"I'm so exhausted I can't do anything."},{j:"今日くたくただよ。",r:"きょうくたくただよ。",e:"I'm completely worn out today."},{j:"くたくたになるまで練習した。",r:"くたくたになるまれれんしゅうした。",e:"I practiced until I was utterly exhausted."}],
+    wm:"くたくた = onomatopoeia for complete tiredness — the sound of someone wilting or collapsing. Similar to へとへと but slightly more specifically about tired limbs and physical collapse." },
+
+// 107 Relaxed feelings
+  { id:"s01_40", cat:1, sub:107, word:"落ち着く", reading:"おちつく", meaning:"I feel calm / settled / this soothes me", tier:1,
+    kb:[{k:"落",r:"お(ち)",m:"fall/settle",rad:["艹","水","夂"],rm:["plant","water","downward"],mn:"Water settling downward through plants — to fall, settle"},{k:"着く",r:"つく",m:"arrive/settle/attach",rad:["羊","目"],rm:["sheep","eye"],mn:"A sheep arriving at sight — to arrive, settle, attach"}],
+    ex:[{j:"ここにいると落ち着く。",r:"ここにいるとおちつく。",e:"Being here calms me."},{j:"落ち着いて話して。",r:"おちついてはなして。",e:"Calm down and talk."},{j:"お茶飲んで落ち着いた。",r:"おちゃのんでおちついた。",e:"I drank tea and settled down."}],
+    wm:"落ち着く = fall + settle = to calm down, settle. One of the most important calm/relaxed words. 落ち着いて (calm down) is used as a directive; 落ち着く is how you describe a calming environment or state." },
+
+  { id:"s01_41", cat:1, sub:107, word:"和む", reading:"なごむ", meaning:"it's soothing / heartwarming / it mellows me", tier:1,
+    kb:[{k:"和",r:"なご(む)",m:"harmony/peace/Japanese",rad:["禾","口"],rm:["grain","mouth"],mn:"Grain and mouth in harmony — peace, harmony, Japanese"}],
+    ex:[{j:"この雰囲気和む。",r:"このふんいきなごむ。",e:"This atmosphere is so soothing."},{j:"猫見てたら和んだ。",r:"ねこみてたらなごんだ。",e:"Looking at the cat mellowed me out."},{j:"和む動画最高。",r:"なごむどうがさいこう。",e:"Soothing videos are the best."}],
+    wm:"和む = to become harmonious/peaceful — the feeling of softening and mellowing in a warm atmosphere. Used for cozy spaces, cute animals, warm interactions. Distinct from ただのリラックス — has a heartwarming quality." },
+
+  { id:"s01_42", cat:1, sub:107, word:"癒される", reading:"いやされる", meaning:"it relaxes me / heals me / restorative", tier:1,
+    kb:[{k:"癒",r:"い(やされる)",m:"heal/cure/soothe",rad:["疒","俞"],rm:["sickness","consent/pass through"],mn:"Sickness that passes through and is consented to leave — to heal, soothe"}],
+    ex:[{j:"音楽で癒される。",r:"おんがくでいやされる。",e:"Music heals me."},{j:"この景色に癒される。",r:"このけしきにいやされる。",e:"This scenery is restorative."},{j:"癒し系の声だね。",r:"いやしけいのこえだね。",e:"You have a soothing/healing voice."}],
+    wm:"癒される = to be healed/soothed (passive). The passive expresses that healing comes to you — you receive it. 癒し系 (healing type) describes soft, gentle things or people with a soothing presence." },
+
+  { id:"s01_43", cat:1, sub:107, word:"のんびりする", reading:"のんびりする", meaning:"to chill out / take it easy / spend time leisurely", tier:1,
+    kb:[],
+    ex:[{j:"休日はのんびりしたい。",r:"きゅうじつはのんびりしたい。",e:"On days off I want to take it easy."},{j:"のんびりしすぎて何もできなかった。",r:"のんびりしすぎてなにもできなかった。",e:"I chilled out too much and got nothing done."},{j:"田舎でのんびり過ごしたい。",r:"いなかでのんびりすごしたい。",e:"I want to spend time taking it easy in the countryside."}],
+    wm:"のんびり = onomatopoeia for a leisurely, unhurried pace. Not lazy — just gentle and slow by choice. のんびりした人 = a laid-back, easygoing person. Very positive in Japanese." },
+
+  { id:"s01_44", cat:1, sub:107, word:"ぼーっとする", reading:"ぼーっとする", meaning:"to space out / zone out / daydream", tier:1,
+    kb:[],
+    ex:[{j:"窓の外ぼーっと見てた。",r:"まどのそとぼーっとみてた。",e:"I was zoning out looking out the window."},{j:"疲れてぼーっとしてる。",r:"つかれてぼーっとしてる。",e:"I'm tired and spacing out."},{j:"最近ぼーっとしてることが多い。",r:"さいきんぼーっとしていることがおおい。",e:"Lately I find myself zoning out a lot."}],
+    wm:"ぼーっと = onomatopoeia for a hazy, unfocused state — like fog over the mind. Can be deliberate (relaxing by zoning out) or involuntary (too tired to focus). The elongated ーっ captures the vagueness." },
+
+  { id:"s01_45", cat:1, sub:107, word:"ゆっくりする", reading:"ゆっくりする", meaning:"to wind down / take one's time / rest slowly", tier:1,
+    kb:[],
+    ex:[{j:"今日はゆっくりしたい。",r:"きょうはゆっくりしたい。",e:"I want to take it easy today."},{j:"ゆっくり休んでね。",r:"ゆっくりやすんでね。",e:"Please rest well."},{j:"ゆっくりでいいよ。",r:"ゆっくりでいいよ。",e:"Take your time, it's fine."}],
+    wm:"ゆっくり = slowly/unhurriedly. ゆっくりする = to do things slowly/at one's own pace = to rest, unwind. ゆっくりしてください is also said by hosts to guests meaning 'make yourself at home'." },
+
+// 108 Being thankful
+  { id:"s01_46", cat:1, sub:108, word:"ありがと", reading:"ありがと", meaning:"thanks / cheers (casual shortening of ありがとう)", tier:1,
+    kb:[{k:"有",r:"あり",m:"exist/have",rad:["月","ナ"],rm:["moon","hand"],mn:"A hand under the moon — to have, exist"},{k:"難",r:"がと(う)",m:"difficult/rare",rad:["隹","又","廿"],rm:["bird","hand","twenty"],mn:"Something hard to obtain — rare, precious, thank-worthy"}],
+    ex:[{j:"ありがと！助かった。",r:"ありがと！たすかった。",e:"Thanks! That helped."},{j:"来てくれてありがと。",r:"きてくれてありがと。",e:"Thanks for coming."},{j:"ほんとありがと。",r:"ほんとありがと。",e:"I'm really grateful."}],
+    wm:"ありがとう → ありがと (casual drop of う). 有難い = something rare/precious that exists = gratitude. ありがと is completely natural between friends. ありがとう is more complete; ありがとうございます is formal." },
+
+  { id:"s01_47", cat:1, sub:108, word:"まじたすかる", reading:"まじたすかる", meaning:"that seriously helped me out / you're a lifesaver", tier:3,
+    kb:[{k:"助",r:"たす(かる)",m:"help/save/rescue",rad:["力","且"],rm:["strength","moreover/stack"],mn:"Strength stacked up — to help, save, rescue"}],
+    ex:[{j:"まじたすかった、ありがと。",r:"まじたすかった、ありがと。",e:"That seriously helped, thanks."},{j:"これまじたすかる。",r:"これまじたすかる。",e:"This is genuinely a lifesaver."},{j:"教えてくれてまじたすかった。",r:"おしえてくれてまじたすかった。",e:"You telling me that seriously saved me."}],
+    wm:"まじ (seriously/really) + 助かる (to be saved/helped) = you seriously saved/helped me. 助かる literally means 'to be rescued' — used for any help that made your life easier, not just life-threatening situations." },
+
+  { id:"s01_48", cat:1, sub:108, word:"恩に着るよ", reading:"おんにきるよ", meaning:"I owe you / I'm indebted to you", tier:2,
+    kb:[{k:"恩",r:"おん",m:"grace/favor/debt of gratitude",rad:["因","心"],rm:["cause","heart"],mn:"A cause that lives in the heart — a grace, a debt of gratitude"},{k:"着る",r:"き(る)",m:"wear/put on",rad:["羊","目"],rm:["sheep","eye"],mn:"A sheep arriving at sight — to wear, put on"}],
+    ex:[{j:"恩に着るよ、本当にありがとう。",r:"おんにきるよ、ほんとうにありがとう。",e:"I owe you — I'm really grateful."},{j:"恩に着るから何でも言って。",r:"おんにきるからなんでもいって。",e:"I'm in your debt so just say the word."},{j:"今回は恩に着るよ。",r:"こんかいはおんにきるよ。",e:"I owe you for this one."}],
+    wm:"恩 (debt of gratitude) + に着る (to wear/put on) = to wear someone's grace on you = to carry a debt. A stronger, more heartfelt expression of gratitude than just ありがとう — implies you'll repay it." },
+
+  { id:"s01_49", cat:1, sub:108, word:"頼りになるね", reading:"たよりになるね", meaning:"I can always count on you / you're so reliable", tier:1,
+    kb:[{k:"頼",r:"たよ(り)",m:"rely/depend/request",rad:["頁","刀","束"],rm:["head","knife","bundle"],mn:"A head cut and bundled — to rely on, depend on, request"}],
+    ex:[{j:"頼りになるね、いつも。",r:"たよりになるね、いつも。",e:"You're always someone I can count on."},{j:"頼りになる人がいて良かった。",r:"たよりになるひとがいてよかった。",e:"I'm glad I have someone reliable."},{j:"頼りにしてるよ。",r:"たよりにしてるよ。",e:"I'm counting on you."}],
+    wm:"頼りになる = become something to rely on = reliable. ね at the end seeks gentle agreement. 頼りにする = to rely on (active); 頼りになる = to be reliable (stative). Expressing trust in someone." },
+
+  { id:"s01_50", cat:1, sub:108, word:"〜のおかげ", reading:"〜のおかげ", meaning:"thanks to ~ / because of ~ (positive attribution)", tier:1,
+    kb:[],
+    ex:[{j:"あなたのおかげで助かった。",r:"あなたのおかげでたすかった。",e:"Thanks to you I was saved."},{j:"練習したおかげで上手くなった。",r:"れんしゅうしたおかげでうまくなった。",e:"Thanks to practicing I got better."},{j:"お天気のおかげで楽しめた。",r:"おてんきのおかげでたのしめた。",e:"Thanks to the good weather we could enjoy it."}],
+    wm:"〜のおかげで = thanks to ~. Always for positive outcomes. Contrast with せいで (blame: because of ~, negative). おかげ = someone's shadow/shade = the blessing/cover they provide. Core grammar for gratitude." },
+
+  { id:"s01_51", cat:1, sub:108, word:"恐縮っす", reading:"きょうしくっす", meaning:"I'm grateful / I'm humbled (casual respectful)", tier:2,
+    kb:[{k:"恐",r:"きょう",m:"fear/awe/humble",rad:["工","凡","心"],rm:["work","common","heart"],mn:"A common working heart in awe — fear, awe, humble respect"},{k:"縮",r:"しく",m:"shrink/cower",rad:["糸","宿"],rm:["thread","lodge/stay"],mn:"A thread shrinking into lodgings — to shrink, cower"}],
+    ex:[{j:"恐縮っす、ありがとうございます。",r:"きょうしくっす、ありがとうございます。",e:"I'm grateful/humbled, thank you."},{j:"そんなに言っていただいて恐縮です。",r:"そんなにいっていただいてきょうしくです。",e:"I'm humbled that you would say such a thing."},{j:"恐縮ですが、お願いできますか？",r:"きょうしくですが、おねがいできますか？",e:"I'm sorry to impose, but could I ask a favour?"}],
+    wm:"恐縮 = to shrink in awe/gratitude = feeling small and grateful before someone's kindness. っす is casual contraction of です. Used when receiving excessive praise or when imposing on someone." },
+
+// 109 Apology
+  { id:"s01_52", cat:1, sub:109, word:"ごめん", reading:"ごめん", meaning:"I'm very sorry / sorry (direct casual)", tier:1,
+    kb:[{k:"御",r:"ご",m:"honorific prefix",rad:["彳","卸"],rm:["small step","unload"],mn:"A small step in service — honorific prefix"},{k:"免",r:"めん",m:"excuse/forgive/exempt",rad:["刀","儿"],rm:["knife","legs"],mn:"Something cut loose with a knife — to excuse, forgive, exempt"}],
+    ex:[{j:"ごめん、遅れた。",r:"ごめん、おくれた。",e:"Sorry I'm late."},{j:"ごめんね、傷つけたくなかった。",r:"ごめんね、きずつけたくなかった。",e:"I'm sorry, I didn't want to hurt you."},{j:"本当にごめん。",r:"ほんとうにごめん。",e:"I'm truly sorry."}],
+    wm:"ごめん = casual/direct sorry between close people. ごめんなさい is slightly more formal. ごめんね is softer and more caring. すみません is used for strangers. Each has its place in Japanese apology culture." },
+
+  { id:"s01_53", cat:1, sub:109, word:"すま", reading:"すま", meaning:"sorry (rough abbreviation of すまない)", tier:3,
+    kb:[],
+    ex:[{j:"すま、ちょっと待って。",r:"すま、ちょっとまって。",e:"Sorry, wait a sec."},{j:"すまな、忘れてた。",r:"すまな、わすれてた。",e:"My bad, I forgot."},{j:"いや、すまな。",r:"いや、すまな。",e:"Hey, sorry about that."}],
+    wm:"すまない (I'm sorry/unworthy) → すま (rough male abbreviation). Very casual, slightly rough, used between close male friends. Not appropriate in formal situations or with people you don't know well." },
+
+  { id:"s01_54", cat:1, sub:109, word:"ゆるして", reading:"ゆるして", meaning:"please forgive me / let it go", tier:1,
+    kb:[{k:"許",r:"ゆる(して)",m:"forgive/permit/allow",rad:["言","午"],rm:["words","noon/horse"],mn:"Words at noon — to permit, forgive, allow"}],
+    ex:[{j:"ゆるして、もうしないから。",r:"ゆるして、もうしないから。",e:"Forgive me, I won't do it again."},{j:"今回だけゆるして。",r:"こんかいだけゆるして。",e:"Please forgive me just this once."},{j:"ゆるしてもらえた？",r:"ゆるしてもらえた？",e:"Were you forgiven?"}],
+    wm:"ゆるして = please forgive me (te-form request). 許す (ゆるす) = to forgive/permit. The te-form ゆるして = 'please do the action of forgiving'. Casual and heartfelt, not formal." },
+
+  { id:"s01_55", cat:1, sub:109, word:"もうしないから", reading:"もうしないから", meaning:"it won't happen again / I won't do it anymore", tier:1,
+    kb:[],
+    ex:[{j:"ごめん、もうしないから。",r:"ごめん、もうしないから。",e:"Sorry, I won't do it again."},{j:"もうしないって約束する。",r:"もうしないってやくそくする。",e:"I promise I won't do it again."},{j:"本当にもうしないから信じて。",r:"ほんとうにもうしないからしんじて。",e:"I really won't do it again so please believe me."}],
+    wm:"もう (anymore) + しない (won't do) + から (because/so) = because I won't do it anymore = it won't happen again. The から makes it a reason/justification: 'so please forgive me because...'." },
+
+  { id:"s01_56", cat:1, sub:109, word:"わざとじゃない", reading:"わざとじゃない", meaning:"I didn't mean it / it wasn't intentional", tier:1,
+    kb:[],
+    ex:[{j:"わざとじゃないよ、信じて。",r:"わざとじゃないよ、しんじて。",e:"I didn't mean it, believe me."},{j:"わざとじゃなかったんだけど。",r:"わざとじゃなかったんだけど。",e:"I honestly didn't do it on purpose."},{j:"わざとじゃないってわかってる。",r:"わざとじゃないってわかってる。",e:"I know you didn't mean it."}],
+    wm:"わざと = on purpose/deliberately. じゃない = is not. わざとじゃない = it's not on purpose = I didn't do it intentionally. Essential for defending yourself in misunderstandings." },
+
+  { id:"s01_57", cat:1, sub:109, word:"あたしのせいだよ", reading:"あたしのせいだよ", meaning:"it's my fault / I'm to blame", tier:1,
+    kb:[{k:"所為",r:"せい",m:"fault/blame/because of",rad:[""],rm:[""],mn:"The cause attributed to someone — fault, blame, because of"}],
+    ex:[{j:"あたしのせいだよ、ごめん。",r:"あたしのせいだよ、ごめん。",e:"It's my fault, I'm sorry."},{j:"これ私のせいじゃない。",r:"これわたしのせいじゃない。",e:"This isn't my fault."},{j:"誰のせいでもない。",r:"だれのせいでもない。",e:"It's nobody's fault."}],
+    wm:"せい = blame/fault. 〜のせいで = because of ~, in a negative sense (contrast with おかげで = positive). あたし is a feminine/casual form of 私. Taking responsibility directly and clearly." },
+
+  { id:"s01_58", cat:1, sub:109, word:"反省してる", reading:"はんせいしてる", meaning:"I've been reflecting on my mistakes / I'm taking it seriously", tier:1,
+    kb:[{k:"反",r:"はん",m:"anti/opposite/turn over",rad:["厂","又"],rm:["cliff","hand"],mn:"A hand turning something over at a cliff — to turn over, anti-, reflect"},{k:"省",r:"せい",m:"reflect/save/ministry",rad:["少","目"],rm:["few/small","eye"],mn:"A small eye looking carefully — to reflect, examine carefully"}],
+    ex:[{j:"ちゃんと反省してるよ。",r:"ちゃんとはんせいしてるよ。",e:"I'm genuinely reflecting on it."},{j:"反省してるから許して。",r:"はんせいしてるからゆるして。",e:"I'm reflecting on my mistakes so please forgive me."},{j:"反省の色が見えない。",r:"はんせいのいろがみえない。",e:"I can't see any sign of remorse."}],
+    wm:"反省 = to turn over and examine oneself = reflection/remorse. A key cultural concept in Japan — genuine 反省 is expected as part of apology, not just words. 反省してる shows you've internalized the mistake." },
+
+// 110 Worried
+  { id:"s01_59", cat:1, sub:110, word:"不安", reading:"ふあん", meaning:"I'm anxious / uneasy / worried", tier:1,
+    kb:[{k:"不",r:"ふ",m:"not/un-",rad:["不"],rm:["bird that won't land"],mn:"A bird that won't land — not, un-, negation"},{k:"安",r:"あん",m:"safe/peaceful/calm",rad:["宀","女"],rm:["roof","woman"],mn:"A woman under a roof — safe, peaceful, calm"}],
+    ex:[{j:"将来のことが不安。",r:"しょうらいのことがふあん。",e:"I'm anxious about the future."},{j:"試験前は不安になる。",r:"しけんまえはふあんになる。",e:"Before exams I get anxious."},{j:"不安でたまらない。",r:"ふあんでたまらない。",e:"I'm unbearably anxious."}],
+    wm:"不 (not) + 安 (peaceful) = unpeaceful = anxiety, unease. One of the most commonly used emotional words for worry or nervousness. 不安になる = to become anxious. 不安を感じる = to feel anxious." },
+
+  { id:"s01_60", cat:1, sub:110, word:"緊張する", reading:"きんちょうする", meaning:"I'm nervous / tense / wound up", tier:1,
+    kb:[{k:"緊",r:"きん",m:"tense/tight/urgent",rad:["臣","糸"],rm:["official","thread"],mn:"An official's threads pulled tight — tense, tight, urgent"},{k:"張",r:"ちょう",m:"stretch/expand/put up",rad:["弓","長"],rm:["bow","long"],mn:"A bow stretched long — to stretch, expand, put up"}],
+    ex:[{j:"発表の前緊張した。",r:"はっぴょうのまえきんちょうした。",e:"I was nervous before the presentation."},{j:"緊張しすぎて声が出なかった。",r:"きんちょうしすぎてこえがでなかった。",e:"I was so tense my voice wouldn't come out."},{j:"緊張してる？大丈夫だよ。",r:"きんちょうしてる？だいじょうぶだよ。",e:"Are you nervous? You'll be fine."}],
+    wm:"緊張 = the strings/threads being tightened = tension, nervousness. Used for performance anxiety, first meetings, dates, exams. きんちょうした is one of the most relatable shared human experiences to talk about." },
+
+  { id:"s01_61", cat:1, sub:110, word:"焦る", reading:"あせる", meaning:"to be impatient / anxiously rushed / panicking slightly", tier:1,
+    kb:[{k:"焦",r:"あせ(る)",m:"scorch/impatient/rush",rad:["隹","灬"],rm:["bird","fire"],mn:"A bird over fire — scorched, impatient, rushed"}],
+    ex:[{j:"時間がなくて焦ってる。",r:"じかんがなくてあせってる。",e:"I'm in a panic because there's no time."},{j:"焦らなくていいよ。",r:"あせらなくていいよ。",e:"There's no need to rush/panic."},{j:"焦ると失敗するよ。",r:"あせるとしっぱいするよ。",e:"If you rush you'll make mistakes."}],
+    wm:"焦る = to be scorched by urgency = anxious rushing. A bird over fire (焦) captures the restless panic of running out of time. Not the same as being in a hurry (急ぐ) — 焦る has anxiety and potential for mistakes." },
+
+  { id:"s01_62", cat:1, sub:110, word:"落ち着かない", reading:"おちつかない", meaning:"I feel unsettled / I can't settle / restless", tier:1,
+    kb:[],
+    ex:[{j:"なんか落ち着かないな今日。",r:"なんかおちつかないなきょう。",e:"Somehow I feel unsettled today."},{j:"あの人がいると落ち着かない。",r:"あのひとがいるとおちつかない。",e:"When that person is around I feel unsettled."},{j:"心が落ち着かない。",r:"こころがおちつかない。",e:"My heart won't settle."}],
+    wm:"Opposite of 落ち着く (to calm down/settle) — 落ち着かない = cannot settle. Used for general restlessness, feeling watched, or being around someone who makes you nervous (could be a crush or someone intimidating)." },
+
+  { id:"s01_63", cat:1, sub:110, word:"気になる", reading:"きになる", meaning:"to have something on one's mind / to be curious about / I'm wondering about", tier:1,
+    kb:[{k:"気",r:"き",m:"spirit/feeling/energy",rad:["气","米"],rm:["air","rice"],mn:"Rice steam rising — vital energy, feeling, spirit"}],
+    ex:[{j:"あの人のこと気になる。",r:"あのひとのこときになる。",e:"I find myself thinking about that person."},{j:"結果がどうしても気になる。",r:"けっかがどうしてもきになる。",e:"I just can't stop wondering about the result."},{j:"それ気になってた。",r:"それきになってた。",e:"I've been curious about that."}],
+    wm:"気になる = spirit/feeling becomes something = something takes up your mental energy. Has two meanings: (1) I'm curious/interested in ~, (2) something is bothering/concerning me. Both are very common. 気になる人 = someone you're interested in romantically." },
+
+// 111 Feeling perplexed
+  { id:"s01_64", cat:1, sub:111, word:"は？", reading:"は？", meaning:"huh? / what? / excuse me? (with confusion or mild offense)", tier:3,
+    kb:[],
+    ex:[{j:"は？何それ。",r:"は？なにそれ。",e:"Huh? What is that?"},{j:"は？聞こえなかった。",r:"は？きこえなかった。",e:"What? I didn't hear that."},{j:"は？なんでそうなるの。",r:"は？なんでそうなるの。",e:"Huh? How did we get to that?"}],
+    wm:"は？ = a very blunt 'huh/what'. Can be pure confusion, disbelief, or mild offense depending on tone. The question mark is essential — は。(with period) would be completely different. Very common in texts and casual speech." },
+
+  { id:"s01_65", cat:1, sub:111, word:"意味わかんないんだけど", reading:"いみわかんないんだけど", meaning:"I don't understand / this makes no sense / what does that even mean", tier:3,
+    kb:[{k:"意",r:"い",m:"meaning/intention/thought",rad:["音","心"],rm:["sound","heart"],mn:"Sound from the heart — meaning, intention, thought"},{k:"味",r:"み",m:"taste/flavour/meaning",rad:["口","未"],rm:["mouth","not yet"],mn:"A mouth that hasn't yet settled — taste, flavour, meaning"}],
+    ex:[{j:"意味わかんないんだけど、それ。",r:"いみわかんないんだけど、それ。",e:"That makes no sense to me."},{j:"意味わかんないことばっか言う。",r:"いみわかんないことばっかいう。",e:"He just says things that don't make sense."},{j:"意味わかんなすぎて笑える。",r:"いみわかんなすぎてわらえる。",e:"It's so incomprehensible it's funny."}],
+    wm:"意味 (meaning) + わかんない (don't understand, casual) + んだけど (soft complaint) = I genuinely don't get what this means. んだけど adds a trailing, slightly frustrated or confused nuance." },
+
+  { id:"s01_66", cat:1, sub:111, word:"どうしよう", reading:"どうしよう", meaning:"what should I do? / I don't know what to do / oh no", tier:1,
+    kb:[],
+    ex:[{j:"どうしよう、忘れた。",r:"どうしよう、わすれた。",e:"Oh no, I forgot. What do I do?"},{j:"どうしようどうしよう。",r:"どうしようどうしよう。",e:"What do I do, what do I do? (panicking)"},{j:"どうしたらいいかわからない。",r:"どうしたらいいかわからない。",e:"I don't know what I should do."}],
+    wm:"どうしよう = what should I do? A very natural panic expression — repeated どうしようどうしよう captures someone spiraling in anxiety. Often said to yourself rather than asking someone else." },
+
+  { id:"s01_67", cat:1, sub:111, word:"わけわからん", reading:"わけわからん", meaning:"I have no idea / this is incomprehensible / what on earth", tier:3,
+    kb:[{k:"訳",r:"わけ",m:"reason/meaning/translation",rad:["言","尺"],rm:["words","measure"],mn:"Words that measure out — reason, meaning, translation"}],
+    ex:[{j:"わけわからんことが起きた。",r:"わけわからんことがおきた。",e:"Something incomprehensible happened."},{j:"あいつのこと全然わけわからん。",r:"あいつのことぜんぜんわけわからん。",e:"I have absolutely no idea what that guy is thinking."},{j:"わけわからんくらい難しい。",r:"わけわからんくらいむずかしい。",e:"It's so difficult it makes no sense."}],
+    wm:"わけ (reason/meaning) + わからん (don't understand, rough) = I understand no reason/meaning = completely incomprehensible. わからん is the rougher, more emphatic version of わからない." },
+
+  { id:"s01_68", cat:1, sub:111, word:"困るよ", reading:"こまるよ", meaning:"I'm in trouble / this is a problem for me / you're putting me in a difficult position", tier:1,
+    kb:[{k:"困",r:"こま(る)",m:"be in trouble/be troubled",rad:["囗","木"],rm:["enclosure","tree"],mn:"A tree enclosed — something trapped and unable to move = in trouble"}],
+    ex:[{j:"それ言われると困るよ。",r:"それいわれるとこまるよ。",e:"If you say that, it puts me in a difficult position."},{j:"困ってる、助けて。",r:"こまってる、たすけて。",e:"I'm in trouble, help me."},{j:"そんなこと言われても困るんだけど。",r:"そんなこといわれてもこまるんだけど。",e:"Even if you say that, I'm at a loss."}],
+    wm:"困る = to be troubled/stuck (like a tree trapped in a box). 困るよ = this troubles me, this is a problem. Often used to signal that someone's request or action is causing difficulty — a polite pushback." },
+
+  { id:"s01_69", cat:1, sub:111, word:"不思議", reading:"ふしぎ", meaning:"it's a mystery / strange / curious / I wonder why", tier:1,
+    kb:[{k:"不",r:"ふ",m:"not/un-",rad:["不"],rm:["bird won't land"],mn:"A bird that won't land — not, un-"},{k:"思",r:"し",m:"think/feel",rad:["田","心"],rm:["field","heart"],mn:"A heart thinking over a field — to think, feel"},{k:"議",r:"ぎ",m:"deliberate/discuss",rad:["言","義"],rm:["words","righteousness"],mn:"Words of righteousness — to discuss, deliberate"}],
+    ex:[{j:"不思議だな、なんで？",r:"ふしぎだな、なんで？",e:"That's mysterious — why?"},{j:"不思議なくらい上手くいった。",r:"ふしぎなくらいうまくいった。",e:"It went well to a mysterious degree."},{j:"不思議な縁ですね。",r:"ふしぎなえんですね。",e:"What a mysterious connection we have."}],
+    wm:"不 (not) + 思議 (what can be discussed/understood) = beyond what can be discussed = mysterious, curious. Used for genuine puzzlement, coincidences, and things that don't quite make sense in a soft way." },
+
+// 112 Showing laziness
+  { id:"s01_70", cat:1, sub:112, word:"めんどくさい", reading:"めんどくさい", meaning:"it's a pain in the ass / too much effort / such a hassle", tier:1,
+    kb:[{k:"面倒",r:"めんどう",m:"trouble/bother/hassle",rad:[""],rm:[""],mn:"Looking after a face — troublesome, bothersome, effort"}],
+    ex:[{j:"めんどくさいからやりたくない。",r:"めんどくさいからやりたくない。",e:"It's a hassle so I don't want to do it."},{j:"考えるのもめんどくさい。",r:"かんがえるのもめんどくさい。",e:"Even thinking about it is too much effort."},{j:"めんどくさいな〜。",r:"めんどくさいな〜。",e:"Ughhh what a pain~"}],
+    wm:"面倒 (trouble/bother) + くさい (smelling of) = reeking of hassle = total pain in the ass. One of the most useful everyday words. めんどくさい can describe tasks, people, situations, or relationships." },
+
+  { id:"s01_71", cat:1, sub:112, word:"なにもしたくない", reading:"なにもしたくない", meaning:"I don't want to do anything / I just want to do nothing", tier:1,
+    kb:[],
+    ex:[{j:"今日なにもしたくない。",r:"きょうなにもしたくない。",e:"I don't want to do anything today."},{j:"疲れてなにもしたくない状態。",r:"つかれてなにもしたくないじょうたい。",e:"I'm tired and in a state of wanting to do nothing."},{j:"なにもしたくない日がある。",r:"なにもしたくないひがある。",e:"There are days when I don't want to do anything."}],
+    wm:"なにも (nothing/anything) + したくない (don't want to do) = I don't want to do anything. A very natural expression of the zero-motivation state everyone experiences. Often said with a long exhale." },
+
+  { id:"s01_72", cat:1, sub:112, word:"たいくつ", reading:"たいくつ", meaning:"I'm bored / it's boring / tedious", tier:1,
+    kb:[{k:"退",r:"たい",m:"retreat/withdraw/decline",rad:["⻌","艮"],rm:["movement","stubborn/stop"],mn:"Moving back to a stop — to retreat, withdraw, decline"},{k:"屈",r:"くつ",m:"bend/yield/stuffy",rad:["尸","出"],rm:["body","come out"],mn:"A body bending to come out — to bend, yield, stuffy/cramped"}],
+    ex:[{j:"暇でたいくつ。",r:"ひまでたいくつ。",e:"I'm free and bored."},{j:"授業がたいくつすぎる。",r:"じゅぎょうがたいくつすぎる。",e:"Class is way too boring."},{j:"たいくつだから何かしよう。",r:"たいくつだからなにかしよう。",e:"I'm bored so let's do something."}],
+    wm:"退屈 = retreating/bending with nothing to engage — boredom, tedium. Also written in hiragana たいくつ. 退屈な人 = a boring person. 退屈しのぎ = something to kill the boredom." },
+
+  { id:"s01_73", cat:1, sub:112, word:"なまけもの", reading:"なまけもの", meaning:"a lazy person / a slacker / a sloth", tier:3,
+    kb:[{k:"怠",r:"なま(け)",m:"lazy/neglect",rad:["台","心"],rm:["platform/base","heart"],mn:"A heart resting on a platform — lazy, neglecting"},{k:"者",r:"もの",m:"person",rad:["耂","日"],rm:["old","sun"],mn:"An old person under the sun — a person"}],
+    ex:[{j:"私なまけものだから。",r:"わたしなまけものだから。",e:"I'm such a lazy person."},{j:"なまけものめ！",r:"なまけものめ！",e:"You slacker!"},{j:"なまけものでも成功できる？",r:"なまけものでもせいこうできる？",e:"Can even a lazy person succeed?"}],
+    wm:"怠け者 = lazy-person. A self-deprecating label often used humorously. Also the word for 'sloth' (the animal) in Japanese — 怠け者 as a person, ナマケモノ as the animal." },
+
+  { id:"s01_74", cat:1, sub:112, word:"やる気がでない", reading:"やるきがでない", meaning:"I can't be bothered / I have no motivation", tier:1,
+    kb:[{k:"気",r:"き",m:"spirit/energy",rad:["气","米"],rm:["air","rice"],mn:"Rice steam — energy, spirit"}],
+    ex:[{j:"今日やる気がでない。",r:"きょうやるきがでない。",e:"I have no motivation today."},{j:"やる気がでないときどうしてる？",r:"やるきがでないときどうしてる？",e:"What do you do when you can't find motivation?"},{j:"やる気がでないから後回し。",r:"やるきがでないからあとまわし。",e:"No motivation, so I'm putting it off."}],
+    wm:"やる気 (motivation/willingness to do) + がでない (doesn't come out) = motivation doesn't emerge = can't be bothered. やる気がでない is a very natural complaint. Opposite: やる気がでてきた (motivation started coming out)." },
+
+  { id:"s01_75", cat:1, sub:112, word:"だらける", reading:"だらける", meaning:"to slack off / to be lax / to laze around", tier:3,
+    kb:[],
+    ex:[{j:"休日だからだらけてしまう。",r:"きゅうじつだからだらけてしまう。",e:"Because it's a day off I end up slacking."},{j:"だらけすぎた、何もできなかった。",r:"だらけすぎた、なにもできなかった。",e:"I slacked off too much and got nothing done."},{j:"少しくらいだらけてもいいじゃん。",r:"すこしくらいだらけてもいいじゃん。",e:"It's fine to laze around a little, isn't it?"}],
+    wm:"だらける = to hang loose, to slacken. Describes the state of letting everything go and doing nothing productive. Not entirely negative — だらける days are necessary recovery. Related to だらだら (flowing loosely/sloppily)." },
+
+  { id:"s01_76", cat:1, sub:112, word:"手を抜く", reading:"てをぬく", meaning:"to cut corners / to do a half-hearted job", tier:2,
+    kb:[{k:"手",r:"て",m:"hand",rad:["手"],rm:["hand"],mn:"A hand"},{k:"抜く",r:"ぬく",m:"pull out/extract/omit",rad:["扌","友"],rm:["hand","friend/pull"],mn:"A hand pulling out — to extract, omit, skip"}],
+    ex:[{j:"手を抜いてはいけない。",r:"てをぬいてはいけない。",e:"You mustn't cut corners."},{j:"少し手を抜いた。",r:"すこしてをぬいた。",e:"I cut a few corners."},{j:"手を抜かずに頑張った。",r:"てをぬかずにがんばった。",e:"I worked hard without cutting corners."}],
+    wm:"手を抜く = to pull out one's hands = to withdraw effort = to cut corners. The image is of literally removing your hands from the work. Negative connotation — implies doing less than you should." },
+
+// 113 Feeling motivated
+  { id:"s01_77", cat:1, sub:113, word:"よーし", reading:"よーし", meaning:"alright! / right then! / let's go! (getting pumped)", tier:1,
+    kb:[],
+    ex:[{j:"よーし、やるぞ！",r:"よーし、やるぞ！",e:"Alright, let's do this!"},{j:"よーし、今日こそ頑張る。",r:"よーし、きょうこそがんばる。",e:"Right then, I'm going to work hard today for sure."},{j:"よーし、準備できた。",r:"よーし、じゅんびできた。",e:"Alright, I'm ready!"}],
+    wm:"よーし = a rallying sound, like 'right!/alright!/okay!' when psyching yourself up. The elongated ー signals you're drawing in energy. Often said to yourself as you start a task or push through a difficulty." },
+
+  { id:"s01_78", cat:1, sub:113, word:"やるぞ", reading:"やるぞ", meaning:"I'm going to do it / I'm doing this (strong self-declaration)", tier:1,
+    kb:[],
+    ex:[{j:"よし、やるぞ！",r:"よし、やるぞ！",e:"Right, I'm doing this!"},{j:"絶対やるぞって思ってた。",r:"ぜったいやるぞっておもってた。",e:"I was thinking to myself I'm absolutely going to do it."},{j:"もうやるぞって決めた。",r:"もうやるぞってきめた。",e:"I've decided — I'm going to do it."}],
+    wm:"やる (to do) + ぞ (strong assertive masculine sentence-ender) = I am definitely doing this. ぞ is a declaration to oneself, stronger than よ. The rallying cry before beginning a difficult task." },
+
+  { id:"s01_79", cat:1, sub:113, word:"モチベが上がる", reading:"モチベがあがる", meaning:"I'm getting motivated / my motivation is rising", tier:1,
+    kb:[],
+    ex:[{j:"この曲聞くとモチベが上がる。",r:"このきょくきくとモチベがあがる。",e:"Listening to this song raises my motivation."},{j:"モチベが上がらない。",r:"モチベがあがらない。",e:"My motivation won't rise."},{j:"モチベ上がってきた！",r:"モチベあがってきた！",e:"My motivation is coming up!"}],
+    wm:"モチベ = shortening of モチベーション (motivation). 上がる = to rise. Very natural youth slang. モチベが上がる/下がる = motivation goes up/down. Often shortened further to モチベ上がる with が dropped." },
+
+  { id:"s01_80", cat:1, sub:113, word:"やる気が出てきた", reading:"やるきがでてきた", meaning:"I'm getting motivated / motivation is starting to come", tier:1,
+    kb:[],
+    ex:[{j:"ちょっとやる気が出てきた。",r:"ちょっとやるきがでてきた。",e:"I'm starting to feel a bit motivated."},{j:"音楽聞いたらやる気が出てきた。",r:"おんがくきいたらやるきがでてきた。",e:"After listening to music my motivation came."},{j:"やる気が出てきたからやろう。",r:"やるきがでてきたからやろう。",e:"Motivation has come so let's do it."}],
+    wm:"やる気 (motivation) + が出てきた (has started to emerge) = motivation is coming out. でてきた (come out + き = toward present moment) captures the feeling of motivation gradually arriving. More natural than 'I feel motivated'." },
+
+  { id:"s01_81", cat:1, sub:113, word:"できる気がする", reading:"できるきがする", meaning:"I have a feeling I can do it / I feel like I can", tier:1,
+    kb:[],
+    ex:[{j:"なんかできる気がする！",r:"なんかできるきがする！",e:"Somehow I have a feeling I can do it!"},{j:"今日はできる気がする。",r:"きょうはできるきがする。",e:"Today I feel like I can do it."},{j:"練習したからできる気がする。",r:"れんしゅうしたからできるきがする。",e:"Because I practiced, I feel like I can do it."}],
+    wm:"できる (can do) + 気がする (has a feeling) = I feel like I can do it. 気がする = to have a feeling/sense. This exact phrase captures the motivating feeling of confidence before attempting something." },
+
+  { id:"s01_82", cat:1, sub:113, word:"気合いを入れる", reading:"きあいをいれる", meaning:"to get fired up / to pump oneself up / to put in the effort", tier:1,
+    kb:[{k:"気",r:"き",m:"spirit/energy",rad:["气","米"],rm:["air","rice"],mn:"Rice steam — energy, spirit"},{k:"合",r:"あい",m:"fit/unite/join",rad:["亼","口"],rm:["gather","mouth"],mn:"Mouths gathering together — to fit, unite"},{k:"入れる",r:"いれる",m:"put in/insert",rad:["入"],rm:["enter"],mn:"To put something in — to insert, put in"}],
+    ex:[{j:"気合いを入れてやろう。",r:"きあいをいれてやろう。",e:"Let's fire ourselves up and do it."},{j:"気合い入れろよ。",r:"きあいいれろよ。",e:"Get fired up!"},{j:"気合い入れて挑む。",r:"きあいいれてのぞむ。",e:"I'll take this on with full spirit."}],
+    wm:"気合い = concentrated fighting spirit/energy. いれる = to put in. 気合いを入れる = to pour fighting spirit in = to psych yourself up. Often said before something challenging. 気合い入ってる = full of energy/spirit." },
+
+  { id:"s01_83", cat:1, sub:113, word:"一生懸命頑張ります", reading:"いっしょうけんめいがんばります", meaning:"I will do my absolute best / I'll work my hardest", tier:1,
+    kb:[{k:"一",r:"いっ",m:"one",rad:["一"],rm:["one"],mn:"One horizontal line"},{k:"生",r:"しょう",m:"life",rad:["土","𠂉"],rm:["earth","sprout"],mn:"A sprout from earth — life"},{k:"懸",r:"けん",m:"stake/hang",rad:["縣","心"],rm:["hang","heart"],mn:"A heart hanging in the balance — to stake"},{k:"命",r:"めい",m:"life/fate",rad:["亼","叩"],rm:["gather","kneel"],mn:"Fate gathered while kneeling — life, fate"}],
+    ex:[{j:"一生懸命頑張ります！",r:"いっしょうけんめいがんばります！",e:"I will do my absolute best!"},{j:"一生懸命やった。",r:"いっしょうけんめいやった。",e:"I gave it everything I had."},{j:"一生懸命な姿が好き。",r:"いっしょうけんめいなすがたがすき。",e:"I like seeing someone giving their all."}],
+    wm:"一生 (one life) + 懸命 (staking fate) = staking one's entire life = giving everything. 一生懸命 is deeply ingrained in Japanese culture — the total commitment to effort. Often used in job interviews and formal promises." },
+
+// 114 Feeling impressed
+  { id:"s01_84", cat:1, sub:114, word:"感動した", reading:"かんどうした", meaning:"I'm moved / I was deeply impressed / it touched me", tier:1,
+    kb:[{k:"感",r:"かん",m:"feel/sense/emotion",rad:["咸","心"],rm:["all/sense","heart"],mn:"A heart that senses all — to feel, sense, emotion"},{k:"動",r:"どう",m:"move/motion",rad:["重","力"],rm:["heavy","strength"],mn:"Strength moving something heavy — motion, movement"}],
+    ex:[{j:"その映画に感動した。",r:"そのえいがにかんどうした。",e:"I was deeply moved by that movie."},{j:"感動して泣いた。",r:"かんどうしてないた。",e:"I was so moved I cried."},{j:"感動したって言葉しか出ない。",r:"かんどうしたってことばしかでない。",e:"The only word that comes out is 'I'm moved'."}],
+    wm:"感動 = feelings moved = being deeply touched or moved by something. One of the highest emotional compliments in Japanese. 感動した is what you say after a beautiful performance, movie, or kind act." },
+
+  { id:"s01_85", cat:1, sub:114, word:"感激", reading:"かんげき", meaning:"I'm blown away / deeply moved / overwhelmed with gratitude", tier:1,
+    kb:[{k:"感",r:"かん",m:"feel/sense",rad:["咸","心"],rm:["all/sense","heart"],mn:"A heart that senses all"},{k:"激",r:"げき",m:"intense/violent/fierce",rad:["氵","敫"],rm:["water","strike/violent"],mn:"Violently striking water — intense, fierce, extreme"}],
+    ex:[{j:"感激しました、本当にありがとう。",r:"かんげきしました、ほんとうにありがとう。",e:"I'm overwhelmed, truly thank you."},{j:"感激で言葉にならない。",r:"かんげきでことばにならない。",e:"I'm so blown away I can't put it into words."},{j:"感激のあまり泣いてしまった。",r:"かんげきのあまりないてしまった。",e:"I cried from being so overwhelmed."}],
+    wm:"感激 = intense feeling = stronger than 感動. While 感動 = moved, 感激 = overwhelmed/blown away. Often used when receiving unexpected kindness or witnessing something extraordinary. More intense emotional response." },
+
+  { id:"s01_86", cat:1, sub:114, word:"胸がいっぱい", reading:"むねがいっぱい", meaning:"I'm overwhelmed with emotion / my heart is full", tier:1,
+    kb:[{k:"胸",r:"むね",m:"chest/heart/feelings",rad:["月","匈"],rm:["body","chest"],mn:"The flesh of the chest — chest, breast, the seat of feelings"},{k:"いっぱい",r:"いっぱい",m:"full/lots",rad:[""],rm:[""],mn:"A full cup — full, filled up, lots"}],
+    ex:[{j:"胸がいっぱいで何も言えない。",r:"むねがいっぱいでなにもいえない。",e:"My heart is so full I can't say anything."},{j:"プロポーズされて胸がいっぱいになった。",r:"プロポーズされてむねがいっぱいになった。",e:"When he proposed my heart was overwhelmed."},{j:"ありがとうで胸がいっぱいです。",r:"ありがとうでむねがいっぱいです。",e:"My heart is full of gratitude."}],
+    wm:"胸 (chest/heart) + いっぱい (full) = chest/heart is full = overwhelmed with emotion. The physical fullness in the chest captures how strong emotion literally feels bodily. Used in moments of great joy, gratitude, or love." },
+
+  { id:"s01_87", cat:1, sub:114, word:"ジーンとした", reading:"ジーンとした", meaning:"I'm touched / it gave me a warm feeling deep inside", tier:1,
+    kb:[],
+    ex:[{j:"その話ジーンとした。",r:"そのはなしジーンとした。",e:"That story touched me deeply."},{j:"ジーンとしてちょっと泣きそう。",r:"ジーンとしてちょっとなきそう。",e:"I'm touched and almost about to cry."},{j:"プレゼントもらってジーンとした。",r:"プレゼントもらってジーンとした。",e:"Getting the gift moved me deeply."}],
+    wm:"ジーン = onomatopoeia for the warm, spreading feeling deep in the chest when something touches you emotionally. Like warmth slowly spreading inside. Gentler than 感動 — the quiet kind of being moved." },
+
+  { id:"s01_88", cat:1, sub:114, word:"シミるわ", reading:"シミるわ", meaning:"it warms my heart / hits deep / that really gets to me", tier:3,
+    kb:[],
+    ex:[{j:"その言葉シミるわ。",r:"そのことばシミるわ。",e:"Those words really get to me."},{j:"シミるな〜、いい話だ。",r:"シミるな〜、いいはなしだ。",e:"That hits deep — what a good story."},{j:"なんかシミるんだけど、それ。",r:"なんかシミるんだけど、それ。",e:"Somehow that really resonates with me."}],
+    wm:"シミる = to seep in/soak in (from 染みる = to permeate). Something that seeps into your heart and stays there. わ is a soft sentence-ender. Very casual expression for something emotionally resonant. Youth slang." },
+
+  { id:"s01_89", cat:1, sub:114, word:"グッとくる", reading:"グッとくる", meaning:"this is an emotional moment / it hits you / it gets to you", tier:1,
+    kb:[],
+    ex:[{j:"このシーングッとくる。",r:"このシーングッとくる。",e:"This scene really gets to you."},{j:"グッときて泣きそうになった。",r:"グッときてなきそうになった。",e:"It hit me and I almost cried."},{j:"グッとくるメッセージだった。",r:"グッとくるメッセージだった。",e:"It was a message that really got to me."}],
+    wm:"グッ = onomatopoeia for something that clutches or grips you. グッとくる = something comes and grips your heart = emotionally hits you. Similar to ジーン but slightly more sudden/gripping. Used for powerful moments." },
+
+  { id:"s01_90", cat:1, sub:114, word:"泣ける", reading:"なける", meaning:"I'm tearing up / it makes me want to cry", tier:1,
+    kb:[{k:"泣",r:"な(ける)",m:"cry/weep",rad:["氵","立"],rm:["water","stand"],mn:"Water standing up — tears, to cry"}],
+    ex:[{j:"この映画泣ける。",r:"このえいがなける。",e:"This movie makes me cry."},{j:"泣けるな〜。",r:"なけるな〜。",e:"This is making me tear up~"},{j:"泣けすぎて止まらない。",r:"なけすぎてとまらない。",e:"I can't stop crying."}],
+    wm:"泣ける = can cry / it makes one cry (potential form used as expression). Very common reaction to movies, songs, stories. Note: 泣けてくる = tears start coming involuntarily; 泣ける = it's the kind of thing that makes you cry." },
+
+// 115 Sense of shame
+  { id:"s01_91", cat:1, sub:115, word:"恥ずかしい", reading:"はずかしい", meaning:"I'm embarrassed / shy / ashamed", tier:1,
+    kb:[{k:"恥",r:"は(ずかしい)",m:"shame/embarrassment",rad:["耳","心"],rm:["ear","heart"],mn:"An ear that hears with the heart — shame, hearing what others say about you"}],
+    ex:[{j:"恥ずかしくて顔が赤くなった。",r:"はずかしくてかおがあかくなった。",e:"I was so embarrassed my face went red."},{j:"恥ずかしいこと言わないで。",r:"はずかしいこといわないで。",e:"Don't say embarrassing things."},{j:"恥ずかしがり屋なんです。",r:"はずかしがりやなんです。",e:"I'm a shy person."}],
+    wm:"恥ずかしい covers embarrassment, shyness, and a sense of shame. 耳 (ear) + 心 (heart) = shame you feel in your heart when others' words reach your ears. 恥ずかしがり屋 = shy person. One of the most important emotional adjectives." },
+];
+
+
 const TIER_LABELS = {1:"CORE",2:"SITUATIONAL",3:"SLANG/IDIOM"};
 const TIER_COLORS = {1:"#e8412a",2:"#e8a22a",3:"#7c4de8"};
 const STORAGE_KEY = "bebop_srs_v2";
@@ -1557,6 +2140,10 @@ export default function App() {
   const [saveMsg,setSaveMsg]=useState("");
   const [expandedKanji,setExpandedKanji]=useState(null);
   const [filterTier,setFilterTier]=useState(0);
+  const [deck,setDeck]=useState("bebop"); // "bebop" | "srj"
+  const [srjExpanded,setSrjExpanded]=useState({}); // {catId: bool}
+  const [srjRandChaps,setSrjRandChaps]=useState({}); // {catId: bool} for randomiser
+  const [srjMode,setSrjMode]=useState("browse"); // "browse" | "randomiser"
   // Fill-in state
   const [fillInput,setFillInput]=useState("");
   const [fillChecked,setFillChecked]=useState(false); // true after user submits answer
@@ -1593,11 +2180,50 @@ export default function App() {
     setMode("study");
   };
 
+  // SRJ: start study for a subcategory, a whole chapter, or randomised selection
+  const startSRJStudy = (subId, chapId, randomChapIds) => {
+    let vocab;
+    if(randomChapIds){
+      vocab = SRJ_VOCAB.filter(v=>randomChapIds.includes(v.cat));
+    } else if(subId){
+      vocab = SRJ_VOCAB.filter(v=>v.sub===subId);
+    } else if(chapId){
+      vocab = SRJ_VOCAB.filter(v=>v.cat===chapId);
+    } else {
+      vocab = SRJ_VOCAB;
+    }
+    const q = buildQueue(vocab, progress);
+    setQueue(q);
+    setQIdx(0);
+    setFlipped(false); setExpandedKanji(null);
+    setFillInput(""); setFillChecked(false); setFillCorrect(false);
+    setSession({reviewed:0,correct:0});
+    let key;
+    if(randomChapIds) key = "srj_rand_"+randomChapIds.join(",");
+    else if(subId) key = "srj_sub"+subId;
+    else if(chapId) key = "srj_"+chapId;
+    else key = "srj_all";
+    setStudyEp(key);
+    setMode("study");
+  };
+
   const advanceQueue = (np) => {
     setFlipped(false); setExpandedKanji(null);
     setFillInput(""); setFillChecked(false); setFillCorrect(false);
-    // Rebuild queue from current position: keep remaining items, re-add failed ones at end
-    const vocab = getStudyVocab(studyEp, filterTier||null);
+    // Rebuild queue — handle both Bebop and SRJ
+    let vocab;
+    if(typeof studyEp === "string" && studyEp.startsWith("srj_")) {
+      const key = studyEp.replace("srj_","");
+      if(key==="all") vocab = SRJ_VOCAB;
+      else if(key.startsWith("sub")) vocab = SRJ_VOCAB.filter(v=>v.sub===parseInt(key.replace("sub","")));
+      else if(key.startsWith("rand_")) {
+        const ids = key.replace("rand_","").split(",").map(Number);
+        vocab = SRJ_VOCAB.filter(v=>ids.includes(v.cat));
+      }
+      else vocab = SRJ_VOCAB.filter(v=>v.cat===parseInt(key));
+    } else {
+      vocab = getStudyVocab(studyEp, filterTier||null);
+    }
     const newQ = buildQueue(vocab, np);
     setQueue(newQ);
     setQIdx(0);
@@ -1795,6 +2421,20 @@ export default function App() {
               ))}
             </div>
 
+            {/* ── DECK TABS ── */}
+            <div style={{display:"flex",gap:0,marginBottom:20,border:"1px solid #141414",width:"fit-content"}}>
+              {[["bebop","COWBOY BEBOP"],["srj","SUPER REAL JP"]].map(([d,l])=>(
+                <button key={d} onClick={()=>setDeck(d)} style={{
+                  background:deck===d?"#e8412a":"transparent",
+                  border:"none",color:deck===d?"#fff":"#333",
+                  padding:"8px 14px",fontSize:9,fontFamily:"monospace",letterSpacing:2,cursor:"pointer",
+                }}>
+                  {l}
+                </button>
+              ))}
+            </div>
+
+            {deck==="bebop"&&(
             <div style={{display:"flex",gap:6,marginBottom:16,flexWrap:"wrap",alignItems:"center"}}>
               <span style={{color:"#333",fontSize:9,letterSpacing:2,fontFamily:"monospace"}}>FILTER:</span>
               {[[0,"ALL"],[1,"CORE"],[2,"SITUATIONAL"],[3,"SLANG"]].map(([t,l])=>(
@@ -1845,6 +2485,114 @@ export default function App() {
                 );
               })}
             </div>
+            )} {/* end deck==="bebop" */}
+
+            {/* ── SRJ HOME ── */}
+            {deck==="srj"&&(
+              <div>
+                {/* SRJ mode toggle */}
+                <div style={{display:"flex",gap:4,marginBottom:16}}>
+                  {[["browse","BROWSE"],["randomiser","🎲 RANDOMISE"]].map(([m,l])=>(
+                    <button key={m} onClick={()=>setSrjMode(m)} style={{
+                      background:srjMode===m?"#e8a22a":"transparent",
+                      border:`1px solid ${srjMode===m?"#e8a22a":"#1e1e1e"}`,
+                      color:srjMode===m?"#080808":"#444",
+                      padding:"8px 12px",fontSize:9,fontFamily:"monospace",letterSpacing:2,cursor:"pointer",
+                    }}>{l}</button>
+                  ))}
+                </div>
+
+                {srjMode==="browse"&&(
+                  <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                    {SRJ_CHAPTERS.map(ch=>{
+                      const chVocab = SRJ_VOCAB.filter(v=>v.cat===ch.id);
+                      const chDue = getFlipDue(chVocab,progress).length + getFillDue(chVocab,progress).length;
+                      const chStudied = chVocab.filter(v=>progress[v.id]).length;
+                      const isOpen = srjExpanded[ch.id];
+                      const chSubs = SRJ_SUBS.filter(s=>s.cat===ch.id);
+                      return(
+                        <div key={ch.id} style={{border:"1px solid #141414",background:"#0a0a0a"}}>
+                          {/* Chapter header */}
+                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",cursor:"pointer"}}
+                            onClick={()=>setSrjExpanded(e=>({...e,[ch.id]:!e[ch.id]}))}>
+                            <div>
+                              <div style={{color:"#e8a22a",fontSize:11,fontFamily:"monospace",letterSpacing:1}}>{ch.title}</div>
+                              <div style={{color:"#333",fontSize:9,marginTop:2}}>{ch.titleJa} · {chVocab.length} words · {chStudied} studied</div>
+                            </div>
+                            <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                              {chDue>0&&<span style={{color:"#e8412a",fontSize:9,fontFamily:"monospace"}}>{chDue} due</span>}
+                              <button onClick={e=>{e.stopPropagation();startSRJStudy(null,ch.id,null);}}
+                                style={{background:"#e8a22a",border:"none",color:"#080808",padding:"4px 8px",fontSize:8,fontFamily:"monospace",cursor:"pointer",letterSpacing:1}}>
+                                STUDY ALL
+                              </button>
+                              <span style={{color:"#333",fontSize:12}}>{isOpen?"▲":"▼"}</span>
+                            </div>
+                          </div>
+                          {/* Subcategories */}
+                          {isOpen&&(
+                            <div style={{borderTop:"1px solid #111",padding:"6px 8px",display:"flex",flexDirection:"column",gap:4}}>
+                              {chSubs.map(sub=>{
+                                const subVocab = SRJ_VOCAB.filter(v=>v.sub===sub.id);
+                                const subDue = getFlipDue(subVocab,progress).length + getFillDue(subVocab,progress).length;
+                                const subStudied = subVocab.filter(v=>progress[v.id]).length;
+                                const subReady = subVocab.filter(v=>progress[v.id]?.interval>=1&&progress[v.id+"_fill"]?.interval>=1).length;
+                                const pct = subVocab.length>0?Math.round((subReady/subVocab.length)*100):0;
+                                return(
+                                  <div key={sub.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 8px",background:"#080808",cursor:"pointer"}}
+                                    onClick={()=>startSRJStudy(sub.id,null,null)}>
+                                    <div>
+                                      <div style={{color:"#888",fontSize:11}}>{sub.title}</div>
+                                      <div style={{color:"#222",fontSize:8,fontFamily:"monospace"}}>{sub.titleJa} · {subVocab.length} words</div>
+                                      <div style={{height:1,background:"#111",marginTop:4,width:80}}>
+                                        <div style={{height:1,background:pct>=70?"#4de89a":pct>=40?"#e8a22a":"#e8412a",width:`${pct}%`}}/>
+                                      </div>
+                                    </div>
+                                    <div style={{textAlign:"right"}}>
+                                      {subDue>0&&<div style={{color:"#e8412a",fontSize:8,fontFamily:"monospace"}}>{subDue} due</div>}
+                                      {subDue===0&&subStudied>0&&<div style={{color:"#4de89a",fontSize:8,fontFamily:"monospace"}}>✓</div>}
+                                      <div style={{color:"#222",fontSize:8,fontFamily:"monospace"}}>{pct}%</div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {srjMode==="randomiser"&&(
+                  <div>
+                    <div style={{color:"#555",fontSize:9,fontFamily:"monospace",marginBottom:12,letterSpacing:1}}>SELECT CHAPTERS TO INCLUDE:</div>
+                    <div style={{display:"flex",flexDirection:"column",gap:6,marginBottom:16}}>
+                      {SRJ_CHAPTERS.map(ch=>{
+                        const selected = srjRandChaps[ch.id]!==false; // default all selected
+                        return(
+                          <div key={ch.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",border:`1px solid ${selected?"#e8a22a":"#141414"}`,cursor:"pointer",background:selected?"#0d0d08":"#0a0a0a"}}
+                            onClick={()=>setSrjRandChaps(r=>({...r,[ch.id]:!selected}))}>
+                            <div>
+                              <div style={{color:selected?"#e8a22a":"#444",fontSize:11}}>{ch.title}</div>
+                              <div style={{color:"#333",fontSize:8,fontFamily:"monospace"}}>{SRJ_VOCAB.filter(v=>v.cat===ch.id).length} words</div>
+                            </div>
+                            <span style={{fontSize:16,color:selected?"#e8a22a":"#222"}}>{selected?"☑":"☐"}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <button
+                      onClick={()=>{
+                        const selectedIds = SRJ_CHAPTERS.map(c=>c.id).filter(id=>srjRandChaps[id]!==false);
+                        if(selectedIds.length>0) startSRJStudy(null,null,selectedIds);
+                      }}
+                      style={{...S.bigBtn,background:"#e8a22a",color:"#080808"}}>
+                      🎲 START RANDOM SESSION
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </>
         )}
 
