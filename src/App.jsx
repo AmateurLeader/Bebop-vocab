@@ -2437,7 +2437,7 @@ export default function App() {
               ))}
             </div>
 
-            {deck==="bebop"&&(
+            {deck==="bebop"&&(<>
             <div style={{display:"flex",gap:6,marginBottom:16,flexWrap:"wrap",alignItems:"center"}}>
               <span style={{color:"#333",fontSize:9,letterSpacing:2,fontFamily:"monospace"}}>FILTER:</span>
               {[[0,"ALL"],[1,"CORE"],[2,"SITUATIONAL"],[3,"SLANG"]].map(([t,l])=>(
@@ -2488,7 +2488,7 @@ export default function App() {
                 );
               })}
             </div>
-            )} {/* end deck==="bebop" */}
+            </> )} {/* end deck==="bebop" */}
 
             {/* ── SRJ HOME ── */}
             {deck==="srj"&&(
