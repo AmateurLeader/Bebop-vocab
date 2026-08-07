@@ -2144,6 +2144,7 @@ export default function App() {
   const [srjExpanded,setSrjExpanded]=useState({}); // {catId: bool}
   const [srjRandChaps,setSrjRandChaps]=useState({}); // {catId: bool} for randomiser
   const [srjMode,setSrjMode]=useState("browse"); // "browse" | "randomiser"
+  const [srjSeenFilter,setSrjSeenFilter]=useState("all"); // "all" | "seen" | "unseen"
   // Fill-in state
   const [fillInput,setFillInput]=useState("");
   const [fillChecked,setFillChecked]=useState(false); // true after user submits answer
@@ -2181,7 +2182,7 @@ export default function App() {
   };
 
   // SRJ: start study for a subcategory, a whole chapter, or randomised selection
-  const startSRJStudy = (subId, chapId, randomChapIds) => {
+  const startSRJStudy = (subId, chapId, randomChapIds, seenFilter) => {
     let vocab;
     if(randomChapIds){
       vocab = SRJ_VOCAB.filter(v=>randomChapIds.includes(v.cat));
@@ -2192,6 +2193,10 @@ export default function App() {
     } else {
       vocab = SRJ_VOCAB;
     }
+    // Apply seen/unseen filter
+    const filter = seenFilter || srjSeenFilter;
+    if(filter==="seen") vocab = vocab.filter(v=>progress[v.id]);
+    if(filter==="unseen") vocab = vocab.filter(v=>!progress[v.id]);
     const q = buildQueue(vocab, progress);
     setQueue(q);
     setQIdx(0);
@@ -2505,6 +2510,19 @@ export default function App() {
                   ))}
                 </div>
 
+                {/* Seen/Unseen filter */}
+                <div style={{display:"flex",gap:4,marginBottom:16,alignItems:"center"}}>
+                  <span style={{color:"#333",fontSize:9,fontFamily:"monospace",letterSpacing:2}}>SHOW:</span>
+                  {[["all","ALL"],["unseen","UNSEEN"],["seen","SEEN"]].map(([f,l])=>(
+                    <button key={f} onClick={()=>setSrjSeenFilter(f)} style={{
+                      background:srjSeenFilter===f?"#e8a22a":"transparent",
+                      border:`1px solid ${srjSeenFilter===f?"#e8a22a":"#1e1e1e"}`,
+                      color:srjSeenFilter===f?"#080808":"#444",
+                      padding:"6px 10px",fontSize:9,fontFamily:"monospace",letterSpacing:1,cursor:"pointer",
+                    }}>{l}</button>
+                  ))}
+                </div>
+
                 {srjMode==="browse"&&(
                   <div style={{display:"flex",flexDirection:"column",gap:8}}>
                     {SRJ_CHAPTERS.map(ch=>{
@@ -2524,7 +2542,7 @@ export default function App() {
                             </div>
                             <div style={{display:"flex",gap:8,alignItems:"center"}}>
                               {chDue>0&&<span style={{color:"#e8412a",fontSize:9,fontFamily:"monospace"}}>{chDue} due</span>}
-                              <button onClick={e=>{e.stopPropagation();startSRJStudy(null,ch.id,null);}}
+                              <button onClick={e=>{e.stopPropagation();startSRJStudy(null,ch.id,null,srjSeenFilter);}}
                                 style={{background:"#e8a22a",border:"none",color:"#080808",padding:"4px 8px",fontSize:8,fontFamily:"monospace",cursor:"pointer",letterSpacing:1}}>
                                 STUDY ALL
                               </button>
@@ -2536,16 +2554,21 @@ export default function App() {
                             <div style={{borderTop:"1px solid #111",padding:"6px 8px",display:"flex",flexDirection:"column",gap:4}}>
                               {chSubs.map(sub=>{
                                 const subVocab = SRJ_VOCAB.filter(v=>v.sub===sub.id);
+                                const subFiltered = srjSeenFilter==="seen"?subVocab.filter(v=>progress[v.id]):
+                                                   srjSeenFilter==="unseen"?subVocab.filter(v=>!progress[v.id]):subVocab;
                                 const subDue = getFlipDue(subVocab,progress).length + getFillDue(subVocab,progress).length;
                                 const subStudied = subVocab.filter(v=>progress[v.id]).length;
                                 const subReady = subVocab.filter(v=>progress[v.id]?.interval>=1&&progress[v.id+"_fill"]?.interval>=1).length;
                                 const pct = subVocab.length>0?Math.round((subReady/subVocab.length)*100):0;
                                 return(
                                   <div key={sub.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 8px",background:"#080808",cursor:"pointer"}}
-                                    onClick={()=>startSRJStudy(sub.id,null,null)}>
+                                    onClick={()=>startSRJStudy(sub.id,null,null,srjSeenFilter)}>
                                     <div>
                                       <div style={{color:"#888",fontSize:11}}>{sub.title}</div>
-                                      <div style={{color:"#222",fontSize:8,fontFamily:"monospace"}}>{sub.titleJa} · {subVocab.length} words</div>
+                                      <div style={{color:"#222",fontSize:8,fontFamily:"monospace"}}>
+                                        {sub.titleJa} · {srjSeenFilter==="all"?subVocab.length:subFiltered.length}/{subVocab.length} words
+                                        {srjSeenFilter!=="all"&&<span style={{color:srjSeenFilter==="unseen"?"#e8412a":"#4de89a",marginLeft:4}}>({srjSeenFilter})</span>}
+                                      </div>
                                       <div style={{height:1,background:"#111",marginTop:4,width:80}}>
                                         <div style={{height:1,background:pct>=70?"#4de89a":pct>=40?"#e8a22a":"#e8412a",width:`${pct}%`}}/>
                                       </div>
@@ -2587,7 +2610,7 @@ export default function App() {
                     <button
                       onClick={()=>{
                         const selectedIds = SRJ_CHAPTERS.map(c=>c.id).filter(id=>srjRandChaps[id]!==false);
-                        if(selectedIds.length>0) startSRJStudy(null,null,selectedIds);
+                        if(selectedIds.length>0) startSRJStudy(null,null,selectedIds,srjSeenFilter);
                       }}
                       style={{...S.bigBtn,background:"#e8a22a",color:"#080808"}}>
                       🎲 START RANDOM SESSION
